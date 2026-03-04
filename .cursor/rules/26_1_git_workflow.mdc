@@ -1,0 +1,22 @@
+# 26_1 브랜치 · 커밋 워크플로우
+
+**적용 범위:** 이 규칙은 26_1 레포 전체에 적용된다.
+
+## 과목–브랜치 매핑 (SSOT)
+- **강의명(과목) SSOT:** 원격 레포(origin)의 **브랜치 목록**이 기준이다.
+- 현재 매핑:
+  - `origin/26_1` — 메인
+  - `origin/A_artAndLanguage` — `artAndLanguage/`
+  - `origin/DS_statistics`, `origin/DS_-statistics` — `statistics/`
+  - `origin/DS_dataScience` — `dataScience/`
+  - `origin/DS_decisionMaking` — `decisionMaking/`
+  - `origin/DS_ML` — `ML/`
+  - `origin/DS_designAndDatabase` — `designAndDatabase/`
+- AI는 필요 시 `git branch -a` 결과를 참고해, 브랜치에 맞는 폴더가 있는지 확인하고, 없으면 해당 과목 폴더 생성·네이밍을 제안한다. 이미 있는 폴더·파일은 이 SSOT에 맞게 **네이밍을 바꾸는 것**을 제안한다.
+
+## 작업 전 체크
+- 과목별 편집·커밋 전: **해당 과목 브랜치로 체크아웃**한 상태에서 진행한다.
+- 하루치 강의 파일은 `YYYYMMDD.md` 컨벤션을 따르며, 사용자가 다른 파일명을 지시하면 그에 따른다.
+
+## 커밋 단위
+- AI가 제안하는 변경은 가능한 한 **하루치 강의 하나 / 개념 블록 하나** 단위로 커밋 메시지를 남기고, 커밋 메시지는 `[statistics] 20260304 하루치 강의: 확률분포 기본` 같은 형식으로 제안한다.
