@@ -12,6 +12,7 @@
   - `origin/DS_decisionMaking` — `decisionMaking/`
   - `origin/DS_ML` — `ML/`
   - `origin/DS_designAndDatabase` — `designAndDatabase/`
+  - `origin/mathematics` — `mathematics/`
 - AI는 필요 시 `git branch -a` 결과를 참고해, 브랜치에 맞는 폴더가 있는지 확인하고, 없으면 해당 과목 폴더 생성·네이밍을 제안한다. 이미 있는 폴더·파일은 이 SSOT에 맞게 **네이밍을 바꾸는 것**을 제안한다.
 
 ## 작업 전 체크
