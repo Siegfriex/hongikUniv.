@@ -24,8 +24,9 @@ alwaysApply: true
 - **3강(20250319)**: **파이썬 라이브러리** 개괄(모듈·패키지·라이브러리) · **NumPy**(정의·동질성·타 라이브러리 비교) · **배열** ndarray·shape·ndim·axis · 생성·인덱싱·리덕션·reshape·랜덤 등(상세는 `20250319.md`).
 
 ## 4강 본문 요지(`20250326.md`)
-- **Pandas**: 표(tabular) 데이터 · **Series / DataFrame** · CSV(`read_csv`, `index_col`) · 결측(`isna`, 삭제·`fillna`) · 시계열(`describe`, `mean`/`std`, 한글 인코딩) · **DatetimeIndex** · **groupby·필터** · **pivot** · **concat**(outer·inner) · **plot**.
-- 3강 **NumPy**와 연결: 실무는 표(Pandas) → 수치 배열/모델(sklearn 등)로 이어지는 경우가 많음.
-- (예전 3강 말미 브리핑) 나이브 베이즈 우도·손계산 등은 **별 강/보강**에서 이어질 수 있음.
+- **Pandas**: 표(tabular) 데이터 · **Series / DataFrame** · CSV(`read_csv`, `index_col`) · 결측(`isna`/`isnull`, 삭제·`fillna`) · 시계열(`describe`, `mean`/`std`, 한글 인코딩) · **DatetimeIndex** · **groupby·필터** · **pivot** · **concat**(outer·inner) · **plot**.
+- **EDA(탐색적 데이터 분석)**: 목적·변수·전체 점검·개별 속성·관계(상관·시각화) · **Seaborn `titanic`** · `head`/`info`/`describe` · **datadict** · `countplot`/`histplot`/`heatmap` 등.
+- 3강 **NumPy**와 연결: 표(Pandas) → 수치·상관 → 모델(sklearn 등).
+- 나이브 베이즈·손계산 등은 **별 강/보강**에서 이어질 수 있음.
 
 4강 노트 작성·정리 요청 시 위 맥락과 `ML/README.md`·기존 `YYYYMMDD.md` 스타일(H1·목차·표·LaTeX)을 따른다.
