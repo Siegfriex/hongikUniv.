@@ -1,0 +1,6 @@
+# ML 노트북 공통 — c293085_RYUJIHWAN_data_preprocessing_quiz.ipynb 등
+# 코드 의존성: numpy 전용
+numpy>=1.24
+
+# VS Code / Cursor에서 .ipynb 셀 실행 시 커널
+ipykernel>=6.29
