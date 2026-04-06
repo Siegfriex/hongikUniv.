@@ -1,0 +1,13 @@
+# ML course local venv (do not commit)
+ML/.venv_ml/
+
+# Windows NTFS alternate stream files (often appear in WSL paths)
+**/*:Zone.Identifier
+
+# Local tooling (may contain machine-specific paths)
+.claude/settings.local.json
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
