@@ -24,3 +24,9 @@
 
 ## 브랜치
 - `DS_decisionMaking`
+
+## 강별 디벨롭 노트 (예)
+- `0413_6강.md` — 6강 본(4.5 타블로 보완 슬라이드)
+- `0420_7강.md` — 7강(쌍대·민감도 본편, CH.4 후반)
+
+통합 강의록·전체 포인터는 `INTELLIGENCE_BRIEFING_AND_COURSE_STATUS.md` 를 본다.
