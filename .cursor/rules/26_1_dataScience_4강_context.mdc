@@ -1,7 +1,7 @@
 ---
 description: 데이터사이언스 4강 진행 — 브랜치·폴더·강의 순서 인지
 globs: dataScience/**/*
-alwaysApply: true
+alwaysApply: false
 ---
 
 # 데이터사이언스 4강 컨텍스트
