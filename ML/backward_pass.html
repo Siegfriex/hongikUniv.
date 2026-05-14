@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backward Pass 인터랙티브 — 2-2-1 MLP</title>
+
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });"></script>
+
+<style>
+  :root {
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #8a8a8a;
+    --border: #e3e1da;
+    --border-strong: #c8c5bc;
+    --accent: #b85c38;          /* terracotta — same as forward */
+    --accent-soft: #fbeee5;
+    --accent-blue: #2d5a7a;     /* deep slate blue for "backward" identity */
+    --accent-blue-soft: #e4ecf3;
+    --hilite-bg: #fef3c7;
+    --code-bg: #f4f2eb;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 40px 20px 80px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', 'Georgia', serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; }
+
+  /* Header */
+  header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--ink);
+  }
+  header .eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  header .subtitle {
+    color: var(--ink-muted);
+    font-style: italic;
+    font-size: 15px;
+  }
+
+  /* Forward summary (compact, at top) */
+  .fwd-strip {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 32px;
+    align-items: center;
+  }
+  .fwd-strip .fwd-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .fwd-strip .fwd-item {
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  .fwd-strip .fwd-item .val {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    color: var(--ink);
+    font-weight: 600;
+    margin-left: 4px;
+  }
+
+  /* Controls (same as forward) */
+  .controls {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .controls h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  .control-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px 28px;
+  }
+  .control-row { display: flex; flex-direction: column; gap: 6px; }
+  .control-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+  }
+  .control-label .name { color: var(--ink); font-weight: 500; }
+  .control-label .value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px;
+    background: var(--border); border-radius: 2px; outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent-blue); cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    transition: transform 0.1s;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--accent-blue); cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .reset-row {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  button.reset {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  button.reset:hover { background: var(--ink); color: white; border-color: var(--ink); }
+
+  /* Part headers */
+  .part-header {
+    margin: 36px 0 18px;
+    padding: 14px 20px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 4px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .part-header .part-tag {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #d4b896;
+    font-weight: 700;
+  }
+  .part-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--bg);
+  }
+  .part-header .difficulty {
+    margin-left: auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #d4b896;
+    font-style: italic;
+  }
+
+  /* Step blocks */
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+  }
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent-blue);
+    font-weight: 700;
+  }
+  .step-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+  .step-note {
+    margin-left: auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  .step-body { color: var(--ink-muted); font-size: 15.5px; }
+  .step-body p { margin: 0 0 12px; }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  /* Math flash */
+  .math-block {
+    padding: 4px 8px;
+    margin: 8px -8px;
+    border-radius: 4px;
+    transition: background-color 0.6s ease-out;
+  }
+  .math-block.flash { background-color: var(--hilite-bg); }
+
+  /* Formula reminder box (for σ'(z)) */
+  .formula-box {
+    background: var(--accent-blue-soft);
+    border-left: 3px solid var(--accent-blue);
+    padding: 14px 18px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 14.5px;
+  }
+  .formula-box .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  /* Final summary */
+  .summary {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a28 100%);
+    color: #fafaf7;
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-top: 32px;
+  }
+  .summary h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #d4b896;
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  .summary table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .summary td {
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    vertical-align: top;
+  }
+  .summary td:first-child {
+    width: 40px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    color: #d4b896;
+    letter-spacing: 0.1em;
+  }
+  .summary td:last-child {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fef3c7;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .summary tr:last-child td { border-bottom: none; }
+
+  /* Verification badge */
+  .verify-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.05);
+    border-left: 2px solid #d4b896;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: #d4b896;
+    font-style: italic;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  .katex-display { margin: 0.6em 0 !important; }
+  .katex { font-size: 1.02em; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="eyebrow">Week 11 · Backpropagation</div>
+  <h1>Backward Pass — 2-2-1 MLP</h1>
+  <div class="subtitle">9개 편미분을 매트릭스 형태로 유도합니다. 슬라이더로 값을 바꾸면 forward부터 backward까지 모두 갱신됩니다.</div>
+</header>
+
+<!-- Forward summary strip -->
+<div class="fwd-strip">
+  <span class="fwd-label">Forward 결과 (이미 계산됨)</span>
+  <span class="fwd-item">$\mathbf{a}^{(1)} =$ <span class="val" id="f-a1">[0.5744, 0.6682]ᵀ</span></span>
+  <span class="fwd-item">$a^{(2)} =$ <span class="val" id="f-a2">0.6881</span></span>
+  <span class="fwd-item">$L =$ <span class="val" id="f-loss">0.2368</span></span>
+</div>
+
+<!-- CONTROL PANEL -->
+<div class="controls">
+  <h2>입력 & 파라미터</h2>
+  <div class="control-grid">
+    <div class="control-row">
+      <div class="control-label"><span class="name">$x_0$ (입력 0)</span><span class="value" id="v-x0">1.00</span></div>
+      <input type="range" id="x0" min="-2" max="2" step="0.1" value="1">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$x_1$ (입력 1)</span><span class="value" id="v-x1">1.00</span></div>
+      <input type="range" id="x1" min="-2" max="2" step="0.1" value="1">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$y$ (타겟)</span><span class="value" id="v-y">0.00</span></div>
+      <input type="range" id="y" min="-1" max="1" step="0.1" value="0">
+    </div>
+
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{00}$</span><span class="value" id="v-w100">0.10</span></div>
+      <input type="range" id="w100" min="-1" max="1" step="0.05" value="0.1">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{01}$</span><span class="value" id="v-w101">0.20</span></div>
+      <input type="range" id="w101" min="-1" max="1" step="0.05" value="0.2">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{10}$</span><span class="value" id="v-w110">0.30</span></div>
+      <input type="range" id="w110" min="-1" max="1" step="0.05" value="0.3">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{11}$</span><span class="value" id="v-w111">0.40</span></div>
+      <input type="range" id="w111" min="-1" max="1" step="0.05" value="0.4">
+    </div>
+
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(2)}_{0}$</span><span class="value" id="v-w20">0.50</span></div>
+      <input type="range" id="w20" min="-1" max="1" step="0.05" value="0.5">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(2)}_{1}$</span><span class="value" id="v-w21">0.60</span></div>
+      <input type="range" id="w21" min="-1" max="1" step="0.05" value="0.6">
+    </div>
+  </div>
+
+  <div class="reset-row">
+    <span>강의 슬라이드 예제: $\mathbf{x}=[1,1]$, $y=0$, 기본 가중치</span>
+    <button class="reset" onclick="resetAll()">기본값 복원</button>
+  </div>
+</div>
+
+<!-- ============ PART A: OUTPUT LAYER ============ -->
+<div class="part-header">
+  <span class="part-tag">PART A</span>
+  <h2>출력층 편미분 (3개)</h2>
+  <span class="difficulty">chain rule 1~2단계 · 쉬움</span>
+</div>
+
+<!-- STEP 1 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 1</span>
+    <h3 class="step-title">출발점 — 출력 오차</h3>
+    <span class="step-note">에러 신호 $\delta^{(2)}$</span>
+  </div>
+  <div class="step-body">
+    <p>손실 $L = \tfrac{1}{2}(y - a^{(2)})^2$ 을 $a^{(2)}$ 로 미분합니다.</p>
+    <p>$\dfrac{\partial L}{\partial a^{(2)}} = -(y - a^{(2)}) = a^{(2)} - y$ &nbsp; — 즉 <em>예측 — 정답</em>, 오차 그 자체.</p>
+    <div class="math-block" id="m-step1"></div>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 2</span>
+    <h3 class="step-title">출력층 가중치 편미분</h3>
+    <span class="step-note">패턴: (오차) × (입력 측 값)</span>
+  </div>
+  <div class="step-body">
+    <p>$a^{(2)} = z^{(2)}$ 이고 $z^{(2)} = \sum_i W^{(2)}_i a^{(1)}_i + b^{(2)}$ 이므로 $\dfrac{\partial z^{(2)}}{\partial W^{(2)}_i} = a^{(1)}_i$.</p>
+    <p>매트릭스로 한 번에 쓰면 $\dfrac{\partial L}{\partial \mathbf{W}^{(2)}} = \delta^{(2)} \cdot (\mathbf{a}^{(1)})^\top$</p>
+    <div class="math-block" id="m-step2"></div>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 3</span>
+    <h3 class="step-title">출력층 바이어스 편미분</h3>
+    <span class="step-note">$b$ 옆의 계수는 1</span>
+  </div>
+  <div class="step-body">
+    <p>$\dfrac{\partial z^{(2)}}{\partial b^{(2)}} = 1$ 이므로 그대로 에러 신호와 같습니다.</p>
+    <div class="math-block" id="m-step3"></div>
+  </div>
+</div>
+
+<!-- ============ PART B: HIDDEN LAYER ============ -->
+<div class="part-header">
+  <span class="part-tag">PART B</span>
+  <h2>은닉층 편미분 (6개)</h2>
+  <span class="difficulty">chain rule 5단계 · 어려움</span>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 4</span>
+    <h3 class="step-title">에러를 은닉층으로 역전파</h3>
+    <span class="step-note">$\mathbf{W}^{(2)}$ 의 전치로 전파</span>
+  </div>
+  <div class="step-body">
+    <p>$a^{(1)}_i$ 가 $L$ 에 미치는 경로: $a^{(1)}_i \to z^{(2)} \to a^{(2)} \to L$.</p>
+    <p>$z^{(2)} = W^{(2)}_0 a^{(1)}_0 + W^{(2)}_1 a^{(1)}_1 + b^{(2)}$ 이므로 $\dfrac{\partial z^{(2)}}{\partial a^{(1)}_i} = W^{(2)}_i$.</p>
+    <p>매트릭스로: $\dfrac{\partial L}{\partial \mathbf{a}^{(1)}} = (\mathbf{W}^{(2)})^\top \cdot \delta^{(2)}$</p>
+    <div class="math-block" id="m-step4"></div>
+  </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 5</span>
+    <h3 class="step-title">시그모이드 미분 통과 — $\boldsymbol{\delta}^{(1)}$</h3>
+    <span class="step-note">은닉층 에러 신호</span>
+  </div>
+  <div class="step-body">
+    <p>$\mathbf{a}^{(1)} = \sigma(\mathbf{z}^{(1)})$ 에서 시그모이드 미분을 통과합니다.</p>
+
+    <div class="formula-box">
+      <div class="label">시그모이드 미분 공식 (10주차에서 유도)</div>
+      $$\sigma'(z) = \sigma(z)(1 - \sigma(z)) = a(1 - a)$$
+      <div style="font-size:13px;color:var(--ink-muted);margin-top:6px;">
+        forward에서 구한 $\mathbf{a}^{(1)}$ 만 있으면 미분을 계산할 수 있어, 별도의 $z$ 값 재계산이 필요 없습니다.
+      </div>
+    </div>
+
+    <p>은닉층 에러 신호 정의 (원소별 곱 $\odot$ 사용):</p>
+    <p>$\boldsymbol{\delta}^{(1)} = \dfrac{\partial L}{\partial \mathbf{a}^{(1)}} \odot \mathbf{a}^{(1)} \odot (1 - \mathbf{a}^{(1)})$</p>
+    <div class="math-block" id="m-step5"></div>
+  </div>
+</div>
+
+<!-- STEP 6 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 6</span>
+    <h3 class="step-title">은닉층 가중치 편미분</h3>
+    <span class="step-note">외적 (outer product)</span>
+  </div>
+  <div class="step-body">
+    <p>$z^{(1)}_i = W^{(1)}_{i0} x_0 + W^{(1)}_{i1} x_1 + b^{(1)}_i$ 이므로 $\dfrac{\partial z^{(1)}_i}{\partial W^{(1)}_{ij}} = x_j$.</p>
+    <p>매트릭스로 한 번에 (외적): $\dfrac{\partial L}{\partial \mathbf{W}^{(1)}} = \boldsymbol{\delta}^{(1)} \cdot \mathbf{x}^\top$</p>
+    <div class="math-block" id="m-step6"></div>
+  </div>
+</div>
+
+<!-- STEP 7 -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 7</span>
+    <h3 class="step-title">은닉층 바이어스 편미분</h3>
+    <span class="step-note">$\boldsymbol{\delta}^{(1)}$ 그대로</span>
+  </div>
+  <div class="step-body">
+    <p>$b^{(1)}_i$ 옆 계수가 1이므로 에러 신호가 곧 편미분입니다.</p>
+    <div class="math-block" id="m-step7"></div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <h2>9개 편미분 한 페이지 요약</h2>
+  <table>
+    <tr><td>1</td><td>$\delta^{(2)} = a^{(2)} - y$</td><td id="s-d2">—</td></tr>
+    <tr><td>2</td><td>$\partial L / \partial \mathbf{W}^{(2)} = \delta^{(2)} \cdot (\mathbf{a}^{(1)})^\top$</td><td id="s-dW2">—</td></tr>
+    <tr><td>3</td><td>$\partial L / \partial b^{(2)} = \delta^{(2)}$</td><td id="s-db2">—</td></tr>
+    <tr><td>4</td><td>$\partial L / \partial \mathbf{a}^{(1)} = (\mathbf{W}^{(2)})^\top \cdot \delta^{(2)}$</td><td id="s-dA1">—</td></tr>
+    <tr><td>5</td><td>$\boldsymbol{\delta}^{(1)} = \partial L / \partial \mathbf{a}^{(1)} \odot \mathbf{a}^{(1)} \odot (1 - \mathbf{a}^{(1)})$</td><td id="s-d1">—</td></tr>
+    <tr><td>6</td><td>$\partial L / \partial \mathbf{W}^{(1)} = \boldsymbol{\delta}^{(1)} \cdot \mathbf{x}^\top$</td><td id="s-dW1">—</td></tr>
+    <tr><td>7</td><td>$\partial L / \partial \mathbf{b}^{(1)} = \boldsymbol{\delta}^{(1)}$</td><td id="s-db1">—</td></tr>
+  </table>
+  <div class="verify-note" id="verify-note">
+    기본값에서 ∂L/∂W²₀ ≈ 0.3953, ∂L/∂W²₁ ≈ 0.4598, ∂L/∂W¹₀₀ ≈ 0.0841, ∂L/∂W¹₁₀ ≈ 0.0915 — 강의 슬라이드 26의 코드 출력과 일치.
+  </div>
+</div>
+
+<footer>
+  Week 11 · Machine Learning · Backpropagation 강의 보조 자료
+</footer>
+
+</div>
+
+<script>
+// ============================================================
+// State
+// ============================================================
+const defaults = {
+  x0: 1.0, x1: 1.0, y: 0.0,
+  w100: 0.1, w101: 0.2, w110: 0.3, w111: 0.4,
+  w20: 0.5, w21: 0.6
+};
+const state = { ...defaults };
+
+// Sigmoid table (matches forward page)
+const SIGMOID_TABLE = [-1.0, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.0];
+
+function sigmoid(z) { return 1 / (1 + Math.exp(-z)); }
+
+function nearestTableZ(z) {
+  let nearest = SIGMOID_TABLE[0];
+  let minDiff = Math.abs(z - nearest);
+  for (const v of SIGMOID_TABLE) {
+    const d = Math.abs(z - v);
+    if (d < minDiff) { minDiff = d; nearest = v; }
+  }
+  return nearest;
+}
+
+function f(n, p = 4) {
+  if (Math.abs(n) < 1e-10) return (0).toFixed(p);
+  return n.toFixed(p);
+}
+function f2(n) { return n.toFixed(2); }
+
+// ============================================================
+// Main render
+// ============================================================
+function renderAll() {
+  const { x0, x1, y, w100, w101, w110, w111, w20, w21 } = state;
+
+  // ===== Forward (snap z to sigmoid table for consistency with forward page) =====
+  const z10_raw = w100 * x0 + w101 * x1;
+  const z11_raw = w110 * x0 + w111 * x1;
+  const z10_snap = nearestTableZ(z10_raw);
+  const z11_snap = nearestTableZ(z11_raw);
+  const a10 = sigmoid(z10_snap);
+  const a11 = sigmoid(z11_snap);
+  const z2 = w20 * a10 + w21 * a11;
+  const a2 = z2;
+  const loss = 0.5 * (y - a2) ** 2;
+
+  // Update forward strip
+  document.getElementById('f-a1').textContent = `[${f(a10, 4)}, ${f(a11, 4)}]ᵀ`;
+  document.getElementById('f-a2').textContent = f(a2, 4);
+  document.getElementById('f-loss').textContent = f(loss, 4);
+
+  // ===== Backward =====
+  // Step 1: delta_2
+  const delta2 = a2 - y;
+
+  // Step 2: dW2
+  const dW2_0 = delta2 * a10;
+  const dW2_1 = delta2 * a11;
+
+  // Step 3: db2 = delta2
+
+  // Step 4: dL/da1 = W2^T * delta2
+  const dLda1_0 = w20 * delta2;
+  const dLda1_1 = w21 * delta2;
+
+  // Step 5: delta_1 = dLda1 ⊙ a1 ⊙ (1 - a1)
+  const sigprime_0 = a10 * (1 - a10);
+  const sigprime_1 = a11 * (1 - a11);
+  const delta1_0 = dLda1_0 * sigprime_0;
+  const delta1_1 = dLda1_1 * sigprime_1;
+
+  // Step 6: dW1 = delta1 * x^T (outer product)
+  const dW1_00 = delta1_0 * x0;
+  const dW1_01 = delta1_0 * x1;
+  const dW1_10 = delta1_1 * x0;
+  const dW1_11 = delta1_1 * x1;
+
+  // Step 7: db1 = delta1
+
+  // =============================================================
+  // Render each step (matrix → expanded → result)
+  // =============================================================
+
+  // STEP 1
+  setMath('m-step1', `
+    $$\\delta^{(2)} = \\frac{\\partial L}{\\partial a^{(2)}} = a^{(2)} - y$$
+    $$= ${f(a2, 4)} - ${f2(y)} = \\mathbf{${f(delta2, 4)}}$$
+  `);
+
+  // STEP 2
+  setMath('m-step2', `
+    $$\\frac{\\partial L}{\\partial \\mathbf{W}^{(2)}} = \\delta^{(2)} \\cdot (\\mathbf{a}^{(1)})^\\top
+    = ${f(delta2, 4)} \\cdot \\begin{bmatrix} ${f(a10, 4)} & ${f(a11, 4)} \\end{bmatrix}$$
+    $$= \\begin{bmatrix} ${f(delta2, 4)} \\cdot ${f(a10, 4)} & ${f(delta2, 4)} \\cdot ${f(a11, 4)} \\end{bmatrix}
+    = \\begin{bmatrix} \\mathbf{${f(dW2_0, 4)}} & \\mathbf{${f(dW2_1, 4)}} \\end{bmatrix}$$
+    <div style="font-size:13px;color:var(--ink-faint);text-align:center;margin-top:6px;font-style:italic;">
+      성분별: $\\partial L/\\partial W^{(2)}_0 = ${f(dW2_0, 4)}$, &nbsp; $\\partial L/\\partial W^{(2)}_1 = ${f(dW2_1, 4)}$
+    </div>
+  `);
+
+  // STEP 3
+  setMath('m-step3', `
+    $$\\frac{\\partial L}{\\partial b^{(2)}} = \\delta^{(2)} = \\mathbf{${f(delta2, 4)}}$$
+  `);
+
+  // STEP 4
+  setMath('m-step4', `
+    $$\\frac{\\partial L}{\\partial \\mathbf{a}^{(1)}}
+    = (\\mathbf{W}^{(2)})^\\top \\cdot \\delta^{(2)}
+    = \\begin{bmatrix} ${f2(w20)} \\\\ ${f2(w21)} \\end{bmatrix} \\cdot ${f(delta2, 4)}$$
+    $$= \\begin{bmatrix} ${f2(w20)} \\cdot ${f(delta2, 4)} \\\\ ${f2(w21)} \\cdot ${f(delta2, 4)} \\end{bmatrix}
+    = \\begin{bmatrix} \\mathbf{${f(dLda1_0, 4)}} \\\\ \\mathbf{${f(dLda1_1, 4)}} \\end{bmatrix}$$
+  `);
+
+  // STEP 5
+  setMath('m-step5', `
+    $$\\boldsymbol{\\delta}^{(1)}
+    = \\begin{bmatrix} ${f(dLda1_0, 4)} \\\\ ${f(dLda1_1, 4)} \\end{bmatrix}
+    \\odot \\begin{bmatrix} ${f(a10, 4)} \\\\ ${f(a11, 4)} \\end{bmatrix}
+    \\odot \\begin{bmatrix} ${f(1 - a10, 4)} \\\\ ${f(1 - a11, 4)} \\end{bmatrix}$$
+    $$= \\begin{bmatrix} ${f(dLda1_0, 4)} \\cdot ${f(a10, 4)} \\cdot ${f(1 - a10, 4)} \\\\ ${f(dLda1_1, 4)} \\cdot ${f(a11, 4)} \\cdot ${f(1 - a11, 4)} \\end{bmatrix}
+    = \\begin{bmatrix} \\mathbf{${f(delta1_0, 4)}} \\\\ \\mathbf{${f(delta1_1, 4)}} \\end{bmatrix}$$
+    <div style="font-size:13px;color:var(--ink-faint);text-align:center;margin-top:6px;font-style:italic;">
+      $\\sigma'(z^{(1)}_0) = a^{(1)}_0(1-a^{(1)}_0) \\approx ${f(sigprime_0, 4)}$, &nbsp;
+      $\\sigma'(z^{(1)}_1) \\approx ${f(sigprime_1, 4)}$
+    </div>
+  `);
+
+  // STEP 6
+  setMath('m-step6', `
+    $$\\frac{\\partial L}{\\partial \\mathbf{W}^{(1)}}
+    = \\boldsymbol{\\delta}^{(1)} \\cdot \\mathbf{x}^\\top
+    = \\begin{bmatrix} ${f(delta1_0, 4)} \\\\ ${f(delta1_1, 4)} \\end{bmatrix}
+    \\begin{bmatrix} ${f2(x0)} & ${f2(x1)} \\end{bmatrix}$$
+    $$= \\begin{bmatrix} ${f(delta1_0, 4)} \\cdot ${f2(x0)} & ${f(delta1_0, 4)} \\cdot ${f2(x1)} \\\\
+    ${f(delta1_1, 4)} \\cdot ${f2(x0)} & ${f(delta1_1, 4)} \\cdot ${f2(x1)} \\end{bmatrix}
+    = \\begin{bmatrix} \\mathbf{${f(dW1_00, 4)}} & \\mathbf{${f(dW1_01, 4)}} \\\\ \\mathbf{${f(dW1_10, 4)}} & \\mathbf{${f(dW1_11, 4)}} \\end{bmatrix}$$
+  `);
+
+  // STEP 7
+  setMath('m-step7', `
+    $$\\frac{\\partial L}{\\partial \\mathbf{b}^{(1)}} = \\boldsymbol{\\delta}^{(1)}
+    = \\begin{bmatrix} \\mathbf{${f(delta1_0, 4)}} \\\\ \\mathbf{${f(delta1_1, 4)}} \\end{bmatrix}$$
+  `);
+
+  // ===== Summary =====
+  document.getElementById('s-d2').textContent = f(delta2, 4);
+  document.getElementById('s-dW2').textContent = `[${f(dW2_0, 4)}, ${f(dW2_1, 4)}]`;
+  document.getElementById('s-db2').textContent = f(delta2, 4);
+  document.getElementById('s-dA1').textContent = `[${f(dLda1_0, 4)}, ${f(dLda1_1, 4)}]ᵀ`;
+  document.getElementById('s-d1').textContent = `[${f(delta1_0, 4)}, ${f(delta1_1, 4)}]ᵀ`;
+  document.getElementById('s-dW1').textContent = `[[${f(dW1_00, 4)}, ${f(dW1_01, 4)}], [${f(dW1_10, 4)}, ${f(dW1_11, 4)}]]`;
+  document.getElementById('s-db1').textContent = `[${f(delta1_0, 4)}, ${f(delta1_1, 4)}]ᵀ`;
+
+  // Re-render KaTeX
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    });
+  }
+
+  flashMathBlocks();
+}
+
+function setMath(id, content) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = content;
+}
+
+let flashTimer;
+function flashMathBlocks() {
+  clearTimeout(flashTimer);
+  document.querySelectorAll('.math-block').forEach(el => el.classList.remove('flash'));
+  void document.body.offsetWidth;
+  document.querySelectorAll('.math-block').forEach(el => el.classList.add('flash'));
+  flashTimer = setTimeout(() => {
+    document.querySelectorAll('.math-block').forEach(el => el.classList.remove('flash'));
+  }, 700);
+}
+
+function updateLabels() {
+  document.getElementById('v-x0').textContent = f2(state.x0);
+  document.getElementById('v-x1').textContent = f2(state.x1);
+  document.getElementById('v-y').textContent = f2(state.y);
+  document.getElementById('v-w100').textContent = f2(state.w100);
+  document.getElementById('v-w101').textContent = f2(state.w101);
+  document.getElementById('v-w110').textContent = f2(state.w110);
+  document.getElementById('v-w111').textContent = f2(state.w111);
+  document.getElementById('v-w20').textContent = f2(state.w20);
+  document.getElementById('v-w21').textContent = f2(state.w21);
+}
+
+['x0', 'x1', 'y', 'w100', 'w101', 'w110', 'w111', 'w20', 'w21'].forEach(id => {
+  document.getElementById(id).addEventListener('input', e => {
+    state[id] = parseFloat(e.target.value);
+    updateLabels();
+    renderAll();
+  });
+});
+
+function resetAll() {
+  Object.assign(state, defaults);
+  ['x0', 'x1', 'y', 'w100', 'w101', 'w110', 'w111', 'w20', 'w21'].forEach(id => {
+    document.getElementById(id).value = defaults[id];
+  });
+  updateLabels();
+  renderAll();
+}
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    updateLabels();
+    renderAll();
+  }, 200);
+});
+</script>
+
+</body>
+</html>

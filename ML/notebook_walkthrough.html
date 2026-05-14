@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notebook Walkthrough — Week 11 Backpropagation</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });"></script>
+
+<style>
+  :root {
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #8a8a8a;
+    --border: #e3e1da;
+    --border-strong: #c8c5bc;
+    --accent: #b85c38;
+    --accent-soft: #fbeee5;
+    --accent-blue: #2d5a7a;
+    --accent-blue-soft: #e4ecf3;
+    --accent-green: #4a6b3a;
+    --accent-green-soft: #ecf2e5;
+    --code-bg: #f4f2eb;
+    --code-ink: #2c2c28;
+    --code-comment: #999488;
+    --code-keyword: #b85c38;
+    --code-string: #4a6b3a;
+    --code-number: #2d5a7a;
+    --highlight: #fef3c7;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 20px 80px;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', 'Georgia', serif;
+    line-height: 1.6; font-size: 16px;
+  }
+  .container { max-width: 920px; margin: 0 auto; }
+
+  header {
+    margin-bottom: 32px; padding-bottom: 20px;
+    border-bottom: 2px solid var(--ink);
+  }
+  header .eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    font-weight: 600; margin-bottom: 8px;
+  }
+  header h1 { margin: 0 0 6px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em; }
+  header .subtitle { color: var(--ink-muted); font-style: italic; font-size: 15px; }
+
+  /* TOC */
+  .toc {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 20px 24px; margin-bottom: 32px;
+    box-shadow: var(--shadow);
+  }
+  .toc h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin: 0 0 12px; font-weight: 600;
+  }
+  .toc ol {
+    margin: 0; padding-left: 20px;
+    font-size: 14.5px; color: var(--ink-muted);
+  }
+  .toc li { margin: 6px 0; }
+  .toc a {
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px dotted var(--border-strong);
+  }
+  .toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .toc .meta {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px; color: var(--ink-faint);
+    margin-left: 6px;
+  }
+
+  /* Example section (big block) */
+  .example-section {
+    margin-bottom: 50px;
+    scroll-margin-top: 20px;
+  }
+  .example-header {
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 6px 6px 0 0;
+    padding: 18px 24px;
+    display: flex; align-items: baseline; gap: 14px;
+    flex-wrap: wrap;
+  }
+  .example-header .ex-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.2em;
+    color: #d4b896; font-weight: 700;
+  }
+  .example-header h2 {
+    margin: 0; font-size: 20px; font-weight: 500;
+    color: var(--bg);
+  }
+  .example-header .slide-ref {
+    margin-left: auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px; color: #d4b896;
+    font-style: italic;
+  }
+
+  .example-body {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Cell location badge */
+  .cell-badge {
+    display: inline-block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-blue);
+    background: var(--accent-blue-soft);
+    padding: 3px 10px; border-radius: 3px;
+    font-weight: 700;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* Sub-block within an example */
+  .block {
+    margin-bottom: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .block-title {
+    display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 12px;
+  }
+  .block-title h3 {
+    margin: 0;
+    font-size: 17px; font-weight: 600; color: var(--ink);
+    display: inline;
+  }
+  .block-purpose {
+    color: var(--ink-muted);
+    font-size: 14.5px;
+    margin: 0 0 12px;
+    font-style: italic;
+  }
+
+  /* Code */
+  pre.code {
+    background: var(--code-bg); border: 1px solid var(--border);
+    border-radius: 4px; padding: 14px 18px; margin: 10px 0;
+    font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 13.5px; line-height: 1.7;
+    color: var(--code-ink); overflow-x: auto;
+  }
+  pre.code .c { color: var(--code-comment); font-style: italic; }
+  pre.code .k { color: var(--code-keyword); font-weight: 600; }
+  pre.code .s { color: var(--code-string); }
+  pre.code .n { color: var(--code-number); }
+  pre.code .hl { background: var(--highlight); padding: 0 3px; border-radius: 2px; }
+
+  /* Math-code mapping table */
+  table.mapping {
+    width: 100%; border-collapse: collapse;
+    margin: 12px 0; font-size: 14px;
+  }
+  table.mapping th, table.mapping td {
+    padding: 9px 14px; text-align: left;
+    border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  table.mapping th {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-muted);
+    font-weight: 600; background: var(--code-bg);
+    border-bottom: 1.5px solid var(--border-strong);
+  }
+  table.mapping td.code-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px; color: var(--code-keyword); font-weight: 600;
+  }
+
+  /* NEW: first-appearance NumPy explainer */
+  .new-symbol {
+    background: var(--accent-blue-soft);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .new-symbol .ns-header {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .new-symbol .ns-tag {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-blue);
+    font-weight: 700;
+    background: white; padding: 2px 8px; border-radius: 3px;
+  }
+  .new-symbol .ns-symbol {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px; font-weight: 700;
+    color: var(--accent-blue);
+  }
+  .new-symbol .ns-name {
+    font-size: 14px; color: var(--ink-muted);
+    font-style: italic;
+  }
+  .new-symbol .ns-body {
+    font-size: 14px; color: var(--ink);
+  }
+  .new-symbol .ns-body p { margin: 0 0 6px; }
+  .new-symbol .ns-body p:last-child { margin: 0; }
+  .new-symbol code {
+    font-family: 'JetBrains Mono', monospace;
+    background: white; padding: 1px 5px;
+    border-radius: 2px; font-size: 13px;
+    color: var(--accent);
+  }
+
+  /* Expected output box */
+  .expected {
+    background: var(--accent-green-soft);
+    border-left: 3px solid var(--accent-green);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 18px;
+    margin: 12px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .expected .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-green);
+    font-weight: 700; display: block; margin-bottom: 6px;
+  }
+
+  /* Tip box */
+  .tip {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #5a4a20;
+  }
+  .tip .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    font-weight: 700; margin-right: 8px;
+  }
+
+  /* Math display inline */
+  .math-inline {
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  /* Inline code in prose */
+  p code, li code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg); padding: 1px 6px;
+    border-radius: 3px; font-size: 13.5px;
+    color: var(--code-keyword);
+  }
+
+  /* Block prose */
+  .block p {
+    margin: 0 0 10px;
+    color: var(--ink-muted);
+    font-size: 15px;
+  }
+  .block p:last-child { margin-bottom: 0; }
+  .block p strong { color: var(--ink); font-weight: 600; }
+
+  footer {
+    margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px; color: var(--ink-faint); text-align: center;
+  }
+
+  .katex { font-size: 1.0em; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="eyebrow">Week 11 · Backpropagation · 노트북 동행 자료</div>
+  <h1>Notebook Walkthrough</h1>
+  <div class="subtitle"><code>week11_examples.ipynb</code>를 의미 단위로 풀어, 셀이 무엇을 하는지·예상 출력은 무엇인지 함께 보여줍니다.</div>
+</header>
+
+<!-- TOC -->
+<div class="toc">
+  <h2>차례</h2>
+  <ol>
+    <li><a href="#ex1">Forward Pass 숫자 검증</a><span class="meta">— 셀 3</span></li>
+    <li><a href="#ex2">출력층 편미분 3개 단계별 검증</a><span class="meta">— 셀 5</span></li>
+    <li><a href="#ex3">은닉층 편미분 6개 (chain rule 5단계)</a><span class="meta">— 셀 8</span></li>
+    <li><a href="#ex4">MLP.backward()로 한 번에 계산</a><span class="meta">— 셀 10</span></li>
+    <li><a href="#ex5">Gradient Check (수치 미분 vs 분석 미분)</a><span class="meta">— 셀 12</span></li>
+    <li><a href="#ex6">수치 미분 상세 비교</a><span class="meta">— 셀 14</span></li>
+    <li><a href="#ex7">XOR 자동 학습</a><span class="meta">— 셀 17~18</span></li>
+  </ol>
+</div>
+
+
+<!-- ============ EXAMPLE 1 ============ -->
+<div class="example-section" id="ex1">
+  <div class="example-header">
+    <span class="ex-num">예제 1</span>
+    <h2>Forward Pass 숫자 검증</h2>
+    <span class="slide-ref">대응 슬라이드 5~8</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 1</span>
+        <h3>준비: import</h3>
+      </div>
+      <p class="block-purpose">필요한 라이브러리와 우리가 만든 MLP 클래스를 불러옵니다.</p>
+      <pre class="code"><span class="k">import</span> numpy <span class="k">as</span> np
+<span class="k">import</span> matplotlib.pyplot <span class="k">as</span> plt
+<span class="k">from</span> mlp_scratch <span class="k">import</span> MLP, sigmoid, gradient_check</pre>
+      <p><code>from mlp_scratch import ...</code>는 같은 폴더의 <code>mlp_scratch.py</code> 파일에서 MLP 클래스 등을 가져온다는 뜻입니다.</p>
+    </div>
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 3</span>
+        <h3>네트워크 만들고 가중치를 강의 슬라이드와 동일하게 설정</h3>
+      </div>
+      <p class="block-purpose">학생들이 손계산한 결과와 비교 가능하도록, 슬라이드와 같은 가중치로 고정합니다.</p>
+
+      <pre class="code"><span class="c"># 슬라이드와 동일한 설정</span>
+mlp = MLP(n_input=<span class="n">2</span>, n_hidden=<span class="n">2</span>, n_output=<span class="n">1</span>)
+mlp.W1 = np.array([[<span class="n">0.1</span>, <span class="n">0.2</span>], [<span class="n">0.3</span>, <span class="n">0.4</span>]])
+mlp.b1 = np.array([<span class="n">0.0</span>, <span class="n">0.0</span>])
+mlp.W2 = np.array([[<span class="n">0.5</span>, <span class="n">0.6</span>]])
+mlp.b2 = np.array([<span class="n">0.0</span>])
+
+x = np.array([<span class="n">1.0</span>, <span class="n">1.0</span>])
+y = np.array([<span class="n">0.0</span>])
+
+cache = mlp.forward_with_cache(x)
+<span class="k">print</span>(<span class="s">"Forward pass 결과:"</span>)
+<span class="k">print</span>(<span class="s">f"  z⁽¹⁾ = {cache['z1']}"</span>)
+<span class="k">print</span>(<span class="s">f"  a⁽¹⁾ = {cache['a1']}"</span>)
+<span class="k">print</span>(<span class="s">f"  z⁽²⁾ = {cache['z2']}"</span>)
+<span class="k">print</span>(<span class="s">f"  a⁽²⁾ = {cache['a2']}"</span>)
+
+L = <span class="n">0.5</span> * (y - cache[<span class="s">'a2'</span>])**<span class="n">2</span>
+<span class="k">print</span>(<span class="s">f"\nLoss L = {L[0]:.4f}"</span>)</pre>
+
+      <!-- NEW SYMBOLS — first appearance -->
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">np.array</span>
+          <span class="ns-name">행렬·벡터 만들기</span>
+        </div>
+        <div class="ns-body">
+          <p>수학의 행렬·벡터를 그대로 코드로 옮긴 것. 대괄호로 행을 감쌉니다.</p>
+          <p><code>np.array([0.1, 0.2])</code> = 원소 2개짜리 벡터.<br>
+          <code>np.array([[0.1, 0.2], [0.3, 0.4]])</code> = 2행 2열 행렬.</p>
+        </div>
+      </div>
+
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">cache['a1']</span>
+          <span class="ns-name">dict에서 값 꺼내기</span>
+        </div>
+        <div class="ns-body">
+          <p>cache는 "이름표 붙은 사물함"입니다. <code>cache['a1']</code>은 "a1 칸에 든 값 꺼내기"라는 뜻.</p>
+          <p>forward_with_cache가 z1, a1, z2, a2 등을 한 dict로 묶어 돌려주기 때문에, 필요한 값을 이름으로 꺼냅니다.</p>
+        </div>
+      </div>
+
+      <p><strong>이 셀이 하는 일</strong>:</p>
+      <table class="mapping">
+        <thead><tr><th>코드 줄</th><th>의미</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="code-cell">mlp = MLP(...)</td>
+            <td>2-2-1 신경망 한 개를 만든다 (랜덤 가중치로 초기화됨).</td>
+          </tr>
+          <tr>
+            <td class="code-cell">mlp.W1 = np.array(...)</td>
+            <td>방금 만든 랜덤 가중치를 슬라이드 값으로 덮어쓴다.</td>
+          </tr>
+          <tr>
+            <td class="code-cell">cache = mlp.forward_with_cache(x)</td>
+            <td>입력 x를 넣어 예측하고, 중간값을 cache에 받는다.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="expected">
+<span class="label">예상 출력 (학생 손계산과 비교)</span>
+Forward pass 결과:
+  z⁽¹⁾ = [0.3 0.7]
+  a⁽¹⁾ = [0.5744 0.6682]
+  z⁽²⁾ = [0.6881]
+  a⁽²⁾ = [0.6881]
+
+Loss L = 0.2368</div>
+
+      <div class="tip">
+        <span class="label">검증 포인트</span>
+        a²와 L이 슬라이드 5의 손계산 결과(0.6881, 0.2368)와 정확히 일치해야 합니다. 일치하지 않으면 mlp.W1 설정이 잘못된 것.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ EXAMPLE 2 ============ -->
+<div class="example-section" id="ex2">
+  <div class="example-header">
+    <span class="ex-num">예제 2</span>
+    <h2>출력층 편미분 3개 단계별 검증</h2>
+    <span class="slide-ref">대응 슬라이드 7~9</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 5</span>
+        <h3>출력층 backward를 손으로 한 줄씩 따라가기</h3>
+      </div>
+      <p class="block-purpose">backward() 메서드 한 번에 호출하지 않고, 슬라이드 흐름대로 한 줄씩 풀어쓰며 검증합니다.</p>
+
+      <pre class="code"><span class="c"># Step 1: ∂L/∂a⁽²⁾ (출발점)</span>
+dL_da2 = cache[<span class="s">'a2'</span>] - y
+<span class="k">print</span>(<span class="s">f"∂L/∂a⁽²⁾ = a⁽²⁾ - y = {dL_da2[0]:.4f}"</span>)
+
+<span class="c"># Step 2: 출력층 3개 편미분</span>
+a1 = cache[<span class="s">'a1'</span>]
+dW2 = np.outer(dL_da2, a1)
+db2 = dL_da2
+
+<span class="k">print</span>(<span class="s">f"  ∂L/∂W⁽²⁾₀ = {dW2[0, 0]:.4f}"</span>)
+<span class="k">print</span>(<span class="s">f"  ∂L/∂W⁽²⁾₁ = {dW2[0, 1]:.4f}"</span>)
+<span class="k">print</span>(<span class="s">f"  ∂L/∂b⁽²⁾  = {db2[0]:.4f}"</span>)</pre>
+
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">np.outer(a, b)</span>
+          <span class="ns-name">외적 (outer product)</span>
+        </div>
+        <div class="ns-body">
+          <p>두 벡터로 행렬을 만드는 연산. 모든 곱셈 조합을 표로 만든다고 생각하면 됩니다.</p>
+          <p>이 셀의 예: <code>np.outer([0.6881], [0.5744, 0.6682])</code><br>
+            = <code>[[0.6881·0.5744, 0.6881·0.6682]]</code> = <code>[[0.3953, 0.4598]]</code></p>
+          <p>수식으로 $\delta^{(2)} \cdot (\mathbf{a}^{(1)})^\top$ 이 정확히 외적입니다.</p>
+        </div>
+      </div>
+
+      <p><strong>수식 ↔ 코드 매핑</strong>:</p>
+      <table class="mapping">
+        <thead><tr><th>수식</th><th>코드</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>$\delta^{(2)} = a^{(2)} - y$</td>
+            <td class="code-cell">dL_da2 = cache['a2'] - y</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{W}^{(2)} = \delta^{(2)} \cdot (\mathbf{a}^{(1)})^\top$</td>
+            <td class="code-cell">dW2 = np.outer(dL_da2, a1)</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial b^{(2)} = \delta^{(2)}$</td>
+            <td class="code-cell">db2 = dL_da2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="expected">
+<span class="label">예상 출력</span>
+∂L/∂a⁽²⁾ = a⁽²⁾ - y = 0.6881
+
+  ∂L/∂W⁽²⁾₀ = 0.3953
+  ∂L/∂W⁽²⁾₁ = 0.4598
+  ∂L/∂b⁽²⁾  = 0.6881</div>
+
+      <div class="tip">
+        <span class="label">검증 포인트</span>
+        세 값이 강의 슬라이드 9의 손계산(0.3953, 0.4598, 0.6881)과 일치하면 출력층 backward를 완벽히 이해한 것입니다.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ EXAMPLE 3 ============ -->
+<div class="example-section" id="ex3">
+  <div class="example-header">
+    <span class="ex-num">예제 3</span>
+    <h2>은닉층 편미분 6개 (chain rule 5단계)</h2>
+    <span class="slide-ref">대응 슬라이드 10~15</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 8</span>
+        <h3>에러를 은닉층으로 역전파하고, δ⁽¹⁾까지 계산</h3>
+      </div>
+      <p class="block-purpose">5단계 chain rule을 단계별로 코드로 풀어 보여줍니다.</p>
+
+      <pre class="code"><span class="c"># Step 3: 에러를 은닉층으로 역전파</span>
+<span class="c"># ∂L/∂a⁽¹⁾ = W⁽²⁾ᵀ · ∂L/∂a⁽²⁾</span>
+dL_da1 = mlp.W2.T @ dL_da2
+
+<span class="c"># Step 4: 시그모이드 미분 통과해서 δ⁽¹⁾ 얻기</span>
+<span class="c"># δ⁽¹⁾ᵢ = ∂L/∂a⁽¹⁾ᵢ · a⁽¹⁾ᵢ · (1 - a⁽¹⁾ᵢ)</span>
+delta1 = dL_da1 * a1 * (<span class="n">1.0</span> - a1)
+<span class="k">print</span>(<span class="s">f"δ⁽¹⁾₀ = {delta1[0]:.4f}"</span>)
+<span class="k">print</span>(<span class="s">f"δ⁽¹⁾₁ = {delta1[1]:.4f}"</span>)
+
+<span class="c"># Step 5: 은닉층 가중치와 바이어스 편미분</span>
+dW1 = np.outer(delta1, cache[<span class="s">'x'</span>])
+db1 = delta1
+<span class="k">print</span>(<span class="s">f"dW1 =\n{dW1}"</span>)
+<span class="k">print</span>(<span class="s">f"db1 = {db1}"</span>)</pre>
+
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">.T</span>
+          <span class="ns-name">전치 (transpose)</span>
+        </div>
+        <div class="ns-body">
+          <p>변수 뒤에 <code>.T</code>를 붙이면 행과 열이 뒤바뀝니다.</p>
+          <p>이 셀에서 <code>mlp.W2</code>는 (1×2) 행렬 <code>[[0.5, 0.6]]</code>. <code>.T</code>를 붙이면 (2×1) 행렬 <code>[[0.5], [0.6]]</code>이 됩니다.</p>
+          <p><code>W2.T @ dL_da2</code>는 "출력층 가중치 행렬을 뒤집어서 에러를 거꾸로 전파"하는 의미. 이게 backpropagation의 어원입니다.</p>
+        </div>
+      </div>
+
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">*</span>
+          <span class="ns-name">원소별 곱 (Hadamard product, ⊙)</span>
+        </div>
+        <div class="ns-body">
+          <p>같은 위치끼리만 곱하는 연산. 두 벡터의 모양이 같아야 하고, 결과도 같은 모양.</p>
+          <p>이 셀의 예: <code>dL_da1 * a1 * (1 - a1)</code>은 세 벡터를 같은 위치끼리 곱합니다.</p>
+          <p><code>[0.3441, 0.4129] * [0.5744, 0.6682] * [0.4256, 0.3318]</code><br>
+          = <code>[0.3441·0.5744·0.4256, 0.4129·0.6682·0.3318]</code> = <code>[0.0841, 0.0915]</code></p>
+          <p><strong>주의</strong>: <code>@</code>(행렬곱)과 <code>*</code>(원소별 곱)을 절대 헷갈리지 마세요. 결과 모양이 완전히 다릅니다.</p>
+        </div>
+      </div>
+
+      <p><strong>수식 ↔ 코드 매핑</strong>:</p>
+      <table class="mapping">
+        <thead><tr><th>수식</th><th>코드</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>$\partial L / \partial \mathbf{a}^{(1)} = (\mathbf{W}^{(2)})^\top \cdot \delta^{(2)}$</td>
+            <td class="code-cell">dL_da1 = mlp.W2.T @ dL_da2</td>
+          </tr>
+          <tr>
+            <td>$\boldsymbol{\delta}^{(1)} = \partial L / \partial \mathbf{a}^{(1)} \odot \mathbf{a}^{(1)} \odot (1 - \mathbf{a}^{(1)})$</td>
+            <td class="code-cell">delta1 = dL_da1 * a1 * (1.0 - a1)</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{W}^{(1)} = \boldsymbol{\delta}^{(1)} \cdot \mathbf{x}^\top$</td>
+            <td class="code-cell">dW1 = np.outer(delta1, cache['x'])</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{b}^{(1)} = \boldsymbol{\delta}^{(1)}$</td>
+            <td class="code-cell">db1 = delta1</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="expected">
+<span class="label">예상 출력</span>
+δ⁽¹⁾₀ = 0.0841
+δ⁽¹⁾₁ = 0.0915
+
+dW1 =
+[[0.0841 0.0841]
+ [0.0915 0.0915]]
+db1 = [0.0841 0.0915]</div>
+
+      <div class="tip">
+        <span class="label">검증 포인트</span>
+        δ⁽¹⁾ 값(0.0841, 0.0915)이 슬라이드 15의 손계산과 일치합니다. 학생들이 두 번 헷갈릴 수 있는 지점: ① W2.T를 쓰는 이유, ② <code>*</code> 와 <code>@</code> 의 차이.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ EXAMPLE 4 ============ -->
+<div class="example-section" id="ex4">
+  <div class="example-header">
+    <span class="ex-num">예제 4</span>
+    <h2>MLP.backward()로 한 번에 계산</h2>
+    <span class="slide-ref">대응 슬라이드 22~23</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 10</span>
+        <h3>예제 2~3에서 단계별로 한 것을 한 함수 호출로</h3>
+      </div>
+      <p class="block-purpose">단계별 계산이 backward() 안에 그대로 들어 있음을 확인합니다.</p>
+
+      <pre class="code">grads = mlp.backward(cache, y)
+
+<span class="k">print</span>(<span class="s">"mlp.backward() 한 번 호출로 9개 편미분 모두 계산:"</span>)
+<span class="k">print</span>(<span class="s">f"  dW2 = {grads['dW2']}"</span>)
+<span class="k">print</span>(<span class="s">f"  db2 = {grads['db2']}"</span>)
+<span class="k">print</span>(<span class="s">f"  dW1 = \n{grads['dW1']}"</span>)
+<span class="k">print</span>(<span class="s">f"  db1 = {grads['db1']}"</span>)
+
+<span class="c"># 위에서 단계별로 계산한 것과 일치 확인</span>
+<span class="k">assert</span> np.allclose(grads[<span class="s">'dW2'</span>], dW2), <span class="s">"dW2 불일치"</span>
+<span class="k">assert</span> np.allclose(grads[<span class="s">'dW1'</span>], dW1), <span class="s">"dW1 불일치"</span>
+<span class="k">print</span>(<span class="s">"\n✓ 단계별 계산과 backward() 결과가 완벽 일치"</span>)</pre>
+
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">np.allclose(a, b)</span>
+          <span class="ns-name">두 배열이 거의 같은가 확인</span>
+        </div>
+        <div class="ns-body">
+          <p>부동소수점 오차를 고려해 "두 배열이 사실상 같다"고 판단하면 True를 돌려줍니다. 정확히 같지는 않아도 차이가 매우 작으면 OK.</p>
+          <p><code>assert</code> 뒤에 쓰이면 "이 조건이 거짓이면 에러 내고 멈추기"라는 뜻. 즉, 두 배열이 다르면 코드가 빨간 에러로 멈춥니다.</p>
+        </div>
+      </div>
+
+      <p><strong>이 셀이 하는 일</strong>: 예제 2~3에서 학생이 직접 한 줄씩 계산한 결과와, <code>backward()</code> 메서드가 한 번에 계산한 결과가 같은지 확인합니다. 같으면 <code>backward()</code>가 강의에서 배운 수식 그대로 구현되어 있다는 증명.</p>
+
+      <div class="expected">
+<span class="label">예상 출력</span>
+mlp.backward() 한 번 호출로 9개 편미분 모두 계산:
+  dW2 = [[0.3953 0.4598]]
+  db2 = [0.6881]
+  dW1 = 
+[[0.0841 0.0841]
+ [0.0915 0.0915]]
+  db1 = [0.0841 0.0915]
+
+✓ 단계별 계산과 backward() 결과가 완벽 일치</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ EXAMPLE 5 ============ -->
+<div class="example-section" id="ex5">
+  <div class="example-header">
+    <span class="ex-num">예제 5</span>
+    <h2>Gradient Check — 수치 미분 vs 분석 미분</h2>
+    <span class="slide-ref">대응 슬라이드 25</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 12</span>
+        <h3>우리 backward 구현이 정말 수학적으로 정확한지 검증</h3>
+      </div>
+      <p class="block-purpose">독립적인 방법(수치 미분)으로 backward 결과가 맞는지 비교합니다. 두 방법이 일치하면 우리 구현이 수식적으로 정확하다는 증명.</p>
+
+      <pre class="code"><span class="c"># gradient_check는 각 파라미터마다:</span>
+<span class="c">#   1. 분석 미분 (우리의 backward로 계산)</span>
+<span class="c">#   2. 수치 미분 ((L(W+ε) - L(W-ε)) / 2ε)</span>
+<span class="c"># 를 비교해서 최대 상대 오차를 반환</span>
+
+max_rel_err = gradient_check(mlp, x, y)
+
+<span class="k">print</span>(<span class="s">f"최대 상대 오차: {max_rel_err:.2e}"</span>)
+
+<span class="k">if</span> max_rel_err &lt; <span class="n">1e-7</span>:
+    <span class="k">print</span>(<span class="s">"✓ 완벽! backward 구현이 정확합니다."</span>)
+<span class="k">elif</span> max_rel_err &lt; <span class="n">1e-5</span>:
+    <span class="k">print</span>(<span class="s">"△ 작은 오차. 대체로 맞음 (수치 오차 범위)."</span>)
+<span class="k">else</span>:
+    <span class="k">print</span>(<span class="s">"✗ 구현에 오류가 있습니다!"</span>)</pre>
+
+      <p><strong>두 방법이 어떻게 다른가?</strong></p>
+      <table class="mapping">
+        <thead><tr><th>방법</th><th>설명</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>분석 미분</td>
+            <td>강의에서 배운 chain rule로 직접 유도한 수식 — 즉 우리의 <code>backward()</code>가 계산하는 값.</td>
+          </tr>
+          <tr>
+            <td>수치 미분</td>
+            <td>미분의 정의 그대로: <code>(L(W+ε) - L(W-ε)) / 2ε</code>. 즉 W를 살짝 흔들어 손실 변화량으로 미분을 추정.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>이 둘은 서로 완전히 다른 방식인데, 결과가 거의 같다면 → 우리 구현이 옳다는 강력한 증거입니다.</p>
+
+      <div class="expected">
+<span class="label">예상 출력</span>
+최대 상대 오차: 6.2e-14
+
+✓ 완벽! backward 구현이 정확합니다.</div>
+
+      <div class="tip">
+        <span class="label">왜 이게 중요한가</span>
+        실제 연구에서 새로운 layer나 loss function을 구현했을 때, 가장 먼저 하는 일이 gradient check입니다. 1e-7 이하면 OK, 그 이상이면 어딘가 수식 실수가 있다는 신호.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ EXAMPLE 6 ============ -->
+<div class="example-section" id="ex6">
+  <div class="example-header">
+    <span class="ex-num">예제 6</span>
+    <h2>수치 미분 상세 비교</h2>
+    <span class="slide-ref">대응 슬라이드 26</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 14</span>
+        <h3>각 파라미터별로 분석/수치 미분을 표로 비교</h3>
+      </div>
+      <p class="block-purpose">예제 5는 "최대 오차 한 개"만 보여줬다면, 여기서는 9개 파라미터 각각의 값을 나란히 비교합니다.</p>
+
+      <pre class="code"><span class="k">def</span> numerical_partial(mlp, param_name, index, x, y, eps=<span class="n">1e-5</span>):
+    <span class="s">"""주어진 파라미터의 (index)번째 원소에 대해 수치 미분 계산."""</span>
+    param = getattr(mlp, param_name)
+    original = param[index]
+    
+    param[index] = original + eps
+    cache_plus = mlp.forward_with_cache(x)
+    L_plus = <span class="n">0.5</span> * <span class="k">float</span>((y - cache_plus[<span class="s">'a2'</span>])**<span class="n">2</span>)
+    
+    param[index] = original - eps
+    cache_minus = mlp.forward_with_cache(x)
+    L_minus = <span class="n">0.5</span> * <span class="k">float</span>((y - cache_minus[<span class="s">'a2'</span>])**<span class="n">2</span>)
+    
+    param[index] = original  <span class="c"># 복원</span>
+    
+    <span class="k">return</span> (L_plus - L_minus) / (<span class="n">2</span> * eps)
+
+<span class="c"># 각 파라미터에 대해 수치 미분과 분석 미분을 나란히 출력</span>
+<span class="c"># (생략 — 실제 셀에서는 모든 파라미터를 표로 출력)</span></pre>
+
+      <p><strong>수치 미분의 핵심 아이디어</strong>: W를 ε만큼 키워서 L 측정, ε만큼 줄여서 L 측정, 두 차이를 2ε로 나누면 그게 W에 대한 미분의 근사값. <strong>강의에서 배운 chain rule 없이도</strong> 미분을 구할 수 있는 방법.</p>
+
+      <div class="expected">
+<span class="label">예상 출력 (요약 표 — 슬라이드 26 일치)</span>
+파라미터       분석 미분         수치 미분          차이
+W²₀          0.39529338      0.39529338      &lt; 1e-9
+W²₁          0.45980267      0.45980267      &lt; 1e-9
+b²           0.68813392      0.68813392      &lt; 1e-9
+W¹₀₀         0.08411003      0.08411003      &lt; 1e-9
+W¹₁₀         0.09154089      0.09154089      &lt; 1e-9</div>
+
+      <div class="tip">
+        <span class="label">핵심</span>
+        모든 차이가 1e-9 이하 → 우리 backward 구현이 <strong>수식적으로 정확</strong>하다는 증명. 학생들이 손계산한 값(0.3953, 0.4598 등)과도 일치.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============ EXAMPLE 7 ============ -->
+<div class="example-section" id="ex7">
+  <div class="example-header">
+    <span class="ex-num">예제 7</span>
+    <h2>XOR 자동 학습</h2>
+    <span class="slide-ref">대응 슬라이드 27</span>
+  </div>
+  <div class="example-body">
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 17</span>
+        <h3>backprop으로 XOR를 자동 학습</h3>
+      </div>
+      <p class="block-purpose">9주차에서는 XOR 가중치를 손으로 설계했지만, 이제 backpropagation이 자동으로 학습합니다.</p>
+
+      <pre class="code"><span class="c"># XOR 데이터</span>
+X_xor = np.array([[<span class="n">0</span>, <span class="n">0</span>], [<span class="n">0</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">0</span>], [<span class="n">1</span>, <span class="n">1</span>]])
+Y_xor = np.array([[<span class="n">0</span>], [<span class="n">1</span>], [<span class="n">1</span>], [<span class="n">0</span>]])
+
+<span class="c"># 새 MLP 만들고 XOR 학습</span>
+np.random.seed(<span class="n">42</span>)
+mlp_xor = MLP(n_input=<span class="n">2</span>, n_hidden=<span class="n">2</span>, n_output=<span class="n">1</span>)
+
+history = mlp_xor.train(X_xor, Y_xor, epochs=<span class="n">10000</span>, lr=<span class="n">0.5</span>, verbose=<span class="k">True</span>)
+
+<span class="c"># 학습 후 예측</span>
+<span class="k">for</span> x_test, y_true <span class="k">in</span> <span class="k">zip</span>(X_xor, Y_xor):
+    cache = mlp_xor.forward_with_cache(x_test)
+    pred = cache[<span class="s">'a2'</span>][<span class="n">0</span>]
+    <span class="k">print</span>(<span class="s">f"{x_test} → 예측 {pred:.4f} (정답 {y_true[0]})"</span>)</pre>
+
+      <div class="new-symbol">
+        <div class="ns-header">
+          <span class="ns-tag">처음 등장</span>
+          <span class="ns-symbol">np.random.seed(42)</span>
+          <span class="ns-name">재현성 고정</span>
+        </div>
+        <div class="ns-body">
+          <p>난수 생성기의 시작점을 고정합니다. 같은 seed를 쓰면 매번 똑같은 랜덤 가중치가 생성되어, 강의 결과가 학생 컴퓨터에서도 동일하게 재현됩니다.</p>
+          <p>42는 관례적으로 자주 쓰이는 숫자(특별한 의미는 없음).</p>
+        </div>
+      </div>
+
+      <p><strong>이 셀이 하는 일</strong>:</p>
+      <table class="mapping">
+        <thead><tr><th>코드 줄</th><th>의미</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="code-cell">X_xor, Y_xor = ...</td>
+            <td>XOR 진리표 4개 샘플을 행렬로.</td>
+          </tr>
+          <tr>
+            <td class="code-cell">mlp_xor = MLP(...)</td>
+            <td>새 신경망 한 개 생성 (랜덤 가중치).</td>
+          </tr>
+          <tr>
+            <td class="code-cell">mlp_xor.train(...)</td>
+            <td>forward → backward → 가중치 업데이트를 10,000번 반복.</td>
+          </tr>
+          <tr>
+            <td class="code-cell">cache = mlp_xor.forward_with_cache(x_test)</td>
+            <td>학습 끝난 신경망에 입력을 넣어 예측.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="expected">
+<span class="label">예상 출력</span>
+Epoch     0: loss = 0.31...
+Epoch  2000: loss = 0.05...
+Epoch  4000: loss = 0.02...
+...
+Epoch  8000: loss = 0.005...
+
+[0 0] → 예측 0.04  (정답 0)
+[0 1] → 예측 0.93  (정답 1)
+[1 0] → 예측 0.93  (정답 1)
+[1 1] → 예측 0.06  (정답 0)</div>
+
+      <p>예측이 정답(0과 1)에 매우 가까움 → <strong>backprop이 XOR를 풀 가중치를 자동으로 찾아냈다</strong>는 증거.</p>
+    </div>
+
+    <div class="block">
+      <div class="block-title">
+        <span class="cell-badge">셀 18</span>
+        <h3>Loss curve와 decision boundary 시각화</h3>
+      </div>
+      <p class="block-purpose">학습이 어떻게 진행됐는지(loss 감소)와 무엇을 학습했는지(decision boundary)를 그림으로 봅니다.</p>
+
+      <pre class="code"><span class="k">import</span> matplotlib.pyplot <span class="k">as</span> plt
+
+fig, axes = plt.subplots(<span class="n">1</span>, <span class="n">2</span>, figsize=(<span class="n">13</span>, <span class="n">5</span>))
+
+<span class="c"># 왼쪽: Loss curve</span>
+axes[<span class="n">0</span>].plot(history)
+axes[<span class="n">0</span>].set_yscale(<span class="s">'log'</span>)
+axes[<span class="n">0</span>].set_title(<span class="s">"XOR 학습 Loss"</span>)
+
+<span class="c"># 오른쪽: Decision boundary</span>
+<span class="c"># (격자 위에서 예측을 수행해 등고선으로 표시)</span>
+xs = np.linspace(-<span class="n">0.2</span>, <span class="n">1.2</span>, <span class="n">100</span>)
+<span class="c"># ... (격자 생성 및 예측)</span>
+
+plt.show()</pre>
+
+      <p><strong>두 그림이 보여주는 것</strong>:</p>
+      <table class="mapping">
+        <tbody>
+          <tr>
+            <td>왼쪽 그림 (Loss curve)</td>
+            <td>학습 횟수가 늘수록 loss가 지수적으로 감소 → 학습이 잘 진행됨.</td>
+          </tr>
+          <tr>
+            <td>오른쪽 그림 (Decision boundary)</td>
+            <td>2D 입력 공간에 그어진 분류 경계. XOR는 직선 하나로는 못 푸는 문제인데, 신경망이 휘어진 경계를 학습해서 푼다는 것을 시각적으로 확인.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip">
+        <span class="label">이 강의의 결말</span>
+        Week 9에서 손으로 설계한 XOR가, 이제는 backpropagation이 자동으로 학습합니다. 다음 주(Week 12)에서는 2-2-1 구조를 임의 깊이로 일반화합니다.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer>
+  Week 11 · Machine Learning · <code>week11_examples.ipynb</code> 동행 자료
+</footer>
+
+</div>
+
+</body>
+</html>
