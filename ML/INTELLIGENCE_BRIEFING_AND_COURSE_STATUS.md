@@ -6,6 +6,9 @@
 - **2강** `20250313.md` — 퀴즈 일정(3/19·3/26) · 비지도학습 개요 · 분류(정의·쉽게 보면·로지스틱 회귀) · **나이브 베이즈**(식·조건부 독립·분모·용어집·Play 문제 적용) · 다변수 선형회귀 · 정규화·교차검증 소개 · 복습·다음 강의 플랜
 - **3강** `20250319.md` — **NumPy** · 라이브러리 개괄 · 배열·축·생성·조작·인덱싱·리덕션 등
 - **4강** `20250326.md` — **Pandas**(Series·DataFrame) · 시계열·결측·그룹·pivot·concat · **EDA** · 타이타닉 · 상관행렬 등
+- **10강** `20260507.md` — Backpropagation을 위한 수학 도구 · 미분·편미분·그래디언트·Chain Rule·Sigmoid 미분·Gradient Descent
+- **11강** `20260514.md` — 2-2-1 MLP Backprop · δ(error local gradient) · shape · `mlp_scratch.py` · gradient check · XOR 자동 학습
+- **12강** `20260521.md` — Layer abstraction · vectorized backprop · deeper network로 확장하는 세션 시작
 
 상세 내용·수식·용어집·예제는 각 **`YYYYMMDD.md`** 에서 확인하세요.
 
