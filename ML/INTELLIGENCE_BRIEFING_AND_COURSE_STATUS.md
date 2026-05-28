@@ -9,6 +9,7 @@
 - **10강** `20260507.md` — Backpropagation을 위한 수학 도구 · 미분·편미분·그래디언트·Chain Rule·Sigmoid 미분·Gradient Descent
 - **11강** `20260514.md` — 2-2-1 MLP Backprop · δ(error local gradient) · shape · `mlp_scratch.py` · gradient check · XOR 자동 학습
 - **12강** `20260521.md` — Layer abstraction · vectorized backprop · deeper network로 확장하는 세션 시작
+- **13강** `20260528.md` — Keras DNN 회귀·분류 · Boston Housing · MNIST · MSE/MAE · Softmax/Cross Entropy · Optimizer(SGD/Momentum/RMSProp/Adam)
 
 상세 내용·수식·용어집·예제는 각 **`YYYYMMDD.md`** 에서 확인하세요.
 

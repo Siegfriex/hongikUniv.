@@ -1,16 +1,17 @@
 ---
-description: 머신러닝 12강 진행 — 브랜치·폴더·강의 순서 인지
+description: 머신러닝 13강 진행 — 브랜치·폴더·강의 순서 인지
 globs: ML/**/*
 alwaysApply: true
 ---
 
-# 머신러닝(ML) 12강 컨텍스트
+# 머신러닝(ML) 13강 컨텍스트
 
 ## 현재 진행
-- **오늘(5/21): 머신러닝 12강** 진행 중임을 인지한다.
-- ML 관련 작업·노트 정리·복습 요청 시 **12강** 기준으로 이어지는 맥락으로 응답한다.
-- 오늘 강의 노트 파일: **`ML/20260521.md`**
-- 오늘 raw 파일: **`ML/20260521_raw.md`**
+- **오늘(5/28): 머신러닝 13강** 진행 중임을 인지한다.
+- ML 관련 작업·노트 정리·복습 요청 시 **13강** 기준으로 이어지는 맥락으로 응답한다.
+- 오늘 강의 노트 파일: **`ML/20260528.md`**
+- 오늘 raw 파일: **`ML/20260528_raw.md`**
+- 오늘 PDF 원본: **`ML/week13.pdf`**
 
 ## 브랜치·폴더
 - ML 과목 작업은 **브랜치 `DS_ML`** 에서 진행한다.
@@ -31,6 +32,13 @@ alwaysApply: true
 | 10강 | 2026-05-07 | `20260507.md` | Backpropagation을 위한 수학 도구(미분·편미분·그래디언트·Chain Rule·Sigmoid 미분·GD) |
 | **11강** | **2026-05-14** | **`20260514.md`** | **Backprop·노트북·`mlp_scratch`·`forward_pass`/`backward_pass`/`mlp_reference`/`notebook_walkthrough` HTML(§15)** |
 | **12강** | **2026-05-21** | **`20260521.md`** | **Layer abstraction·vectorized backprop·deeper network** |
+| **13강** | **2026-05-28** | **`20260528.md`** | **Keras DNN 회귀·분류, Boston Housing, MNIST, MSE/MAE, Softmax/Cross Entropy, Optimizer(SGD/Momentum/RMSProp/Adam)** |
+
+## 12강 핵심 요지 (직전 강의, `20260521.md`)
+- **Layer abstraction**: `Layer` 계약을 두고 `Dense`, `ReLU`, `Sigmoid`, `Softmax` 등이 `forward`, `backward`, `update`를 오버라이드했다.
+- **Vectorized backprop**: batch dimension을 포함한 matrix shape로 `dW`, `db`, `dX`를 계산했다.
+- **Network 조립**: `Network.add()`로 층을 순서대로 쌓고, forward는 순방향, backward는 역방향으로 반복했다.
+- **13강 연결**: 직접 만든 `Network`/`Layer` 사고를 Keras의 `Sequential`, `Dense`, `compile`, `fit`, `evaluate`로 옮긴다.
 
 ## 11강 핵심 요지 (직전 강의, `20260514.md`)
 - **Backprop = chain rule의 역방향 구현**: 2-2-1 MLP에서 출력층 짧은 체인과 은닉층 긴 체인을 \(\delta\) 패턴으로 통일했다.
@@ -46,7 +54,7 @@ alwaysApply: true
 - 8강에서 제시한 Forward → Loss → Backward → Update 루프의 **수학 층**을 10강에서 정리했다.
 
 ## 노트 작성 원칙
-- 사용자가 슬라이드 PDF 텍스트·메모·코드를 제시하면 raw는 **`ML/20260521_raw.md`** 에 누적하고, 정리본은 **`ML/20260521.md`** 에 반영한다.
+- 사용자가 슬라이드 PDF 텍스트·메모·코드를 제시하면 raw는 **`ML/20260528_raw.md`** 에 누적하고, 정리본은 **`ML/20260528.md`** 에 반영한다.
 - 기존 스타일 준수: **H1 제목 → 심층 브리핑 → 강의 현황 포인터 → 목차 → 본문(표·LaTeX·코드)**
 - 수식은 인라인 `\( \)` / 블록 `\[ \]` LaTeX 사용.
-- 선행 강의(8강 MLP·학습 루프, 10강 미분·Chain Rule·GD, **11강 2-2-1 Backprop**)와 개념 연결 고리를 명시한다.
+- 선행 강의(8강 MLP·학습 루프, 10강 미분·Chain Rule·GD, 11강 2-2-1 Backprop, **12강 Layer abstraction**)와 개념 연결 고리를 명시한다.
