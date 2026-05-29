@@ -1,17 +1,17 @@
 ---
-description: 머신러닝 13강 진행 — 브랜치·폴더·강의 순서 인지
+description: 머신러닝 14강 진행 — 브랜치·폴더·강의 순서 인지
 globs: ML/**/*
 alwaysApply: true
 ---
 
-# 머신러닝(ML) 13강 컨텍스트
+# 머신러닝(ML) 14강 컨텍스트
 
 ## 현재 진행
-- **오늘(5/28): 머신러닝 13강** 진행 중임을 인지한다.
-- ML 관련 작업·노트 정리·복습 요청 시 **13강** 기준으로 이어지는 맥락으로 응답한다.
-- 오늘 강의 노트 파일: **`ML/20260528.md`**
-- 오늘 raw 파일: **`ML/20260528_raw.md`**
-- 오늘 PDF 원본: **`ML/week13.pdf`**
+- **오늘(5/29): 머신러닝 14강** 진행 중임을 인지한다.
+- ML 관련 작업·노트 정리·복습 요청 시 **14강** 기준으로 이어지는 맥락으로 응답한다.
+- 오늘 강의 노트 파일: **`ML/20260529.md`**
+- 오늘 raw 파일: **`ML/20260529_raw.md`**
+- 오늘 원자료: **`ML/week13.pdf` 전체 36페이지**
 
 ## 브랜치·폴더
 - ML 과목 작업은 **브랜치 `DS_ML`** 에서 진행한다.
@@ -33,6 +33,14 @@ alwaysApply: true
 | **11강** | **2026-05-14** | **`20260514.md`** | **Backprop·노트북·`mlp_scratch`·`forward_pass`/`backward_pass`/`mlp_reference`/`notebook_walkthrough` HTML(§15)** |
 | **12강** | **2026-05-21** | **`20260521.md`** | **Layer abstraction·vectorized backprop·deeper network** |
 | **13강** | **2026-05-28** | **`20260528.md`** | **Keras DNN 회귀·분류, Boston Housing, MNIST, MSE/MAE, Softmax/Cross Entropy, Optimizer(SGD/Momentum/RMSProp/Adam)** |
+| **14강** | **2026-05-29** | **`20260529.md`** | **`week13.pdf` 전체 기반 DNN 회귀 데이터 프로세싱·모델링·검증 강의, Boston Housing, DataFrame/EDA, CHAS 제거, train/test split, MinMax scaling, Sequential/Dense, compile/fit/history, inverse transform, MAE/scatter, MNIST 비교** |
+
+## 13강 핵심 요지 (직전 강의, `20260528.md`)
+- **Keras DNN 모델링 절차**: import → data preparing → EDA → preprocessing → modeling/training → validation 흐름을 정리했다.
+- **회귀 설계**: Boston Housing 기반 DNN 회귀에서 activation 없는 `Dense(1)`, MSE loss, MAE metric, Adam optimizer를 연결했다.
+- **분류 설계**: MNIST 다중분류에서 `Flatten`, `Dense(..., relu)`, `Dense(10, softmax)`, sparse categorical cross entropy, accuracy를 연결했다.
+- **Optimizer 비교**: SGD, Momentum, RMSProp, Adam을 gradient 기반 update 전략의 차이로 정리했다.
+- **14강 연결**: 같은 PDF 전체를 로데이터로 삼되, 오늘은 DNN 회귀의 Data preparing → EDA → Data preprocessing → Modeling(training) → Validation(test)를 하나의 강의 흐름으로 재구성한다.
 
 ## 12강 핵심 요지 (직전 강의, `20260521.md`)
 - **Layer abstraction**: `Layer` 계약을 두고 `Dense`, `ReLU`, `Sigmoid`, `Softmax` 등이 `forward`, `backward`, `update`를 오버라이드했다.
@@ -54,7 +62,7 @@ alwaysApply: true
 - 8강에서 제시한 Forward → Loss → Backward → Update 루프의 **수학 층**을 10강에서 정리했다.
 
 ## 노트 작성 원칙
-- 사용자가 슬라이드 PDF 텍스트·메모·코드를 제시하면 raw는 **`ML/20260528_raw.md`** 에 누적하고, 정리본은 **`ML/20260528.md`** 에 반영한다.
+- 사용자가 슬라이드 PDF 텍스트·메모·코드를 제시하면 raw는 **`ML/20260529_raw.md`** 에 누적하고, 정리본은 **`ML/20260529.md`** 에 반영한다.
 - 기존 스타일 준수: **H1 제목 → 심층 브리핑 → 강의 현황 포인터 → 목차 → 본문(표·LaTeX·코드)**
 - 수식은 인라인 `\( \)` / 블록 `\[ \]` LaTeX 사용.
-- 선행 강의(8강 MLP·학습 루프, 10강 미분·Chain Rule·GD, 11강 2-2-1 Backprop, **12강 Layer abstraction**)와 개념 연결 고리를 명시한다.
+- 선행 강의(8강 MLP·학습 루프, 10강 미분·Chain Rule·GD, 11강 2-2-1 Backprop, 12강 Layer abstraction, **13강 Keras DNN·optimizer**)와 개념 연결 고리를 명시한다.
