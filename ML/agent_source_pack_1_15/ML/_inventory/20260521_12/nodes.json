@@ -1,0 +1,191 @@
+{
+  "lecture_id": "20260521_12",
+  "notes": "Nodes generated from numbered main headings; cross-lecture edges deferred to avoid ghost IDs.",
+  "nodes": [
+    {
+      "node_id": "n_ML12.backprop",
+      "canonical_label": "직전 복습: 2-2-1 Backprop의 일반 패턴",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.6"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Backprop"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.layer_abstraction_activation",
+      "canonical_label": "Layer Abstraction: `Layer`·`Dense`·activation",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.7"
+      ],
+      "segment_ids": [
+        "ML12.A.7.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Layer",
+        "Abstraction",
+        "Layer",
+        "Dense",
+        "activation"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.vectorized_backprop_batch_dimension_matrix",
+      "canonical_label": "Vectorized Backprop: batch dimension과 matrix shape",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.13"
+      ],
+      "segment_ids": [
+        "ML12.A.13.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Vectorized",
+        "Backprop",
+        "batch",
+        "dimension",
+        "matrix",
+        "shape"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.network_mini_batch",
+      "canonical_label": "Network 조립과 mini-batch 학습",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.14"
+      ],
+      "segment_ids": [
+        "ML12.A.14.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Network",
+        "mini-batch"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.xor_vanishing_gradient_iris_mnist",
+      "canonical_label": "실험 흐름: XOR·Vanishing Gradient·Iris·MNIST",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.18"
+      ],
+      "segment_ids": [
+        "ML12.A.18.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "XOR",
+        "Vanishing",
+        "Gradient",
+        "Iris",
+        "MNIST"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.gradient",
+      "canonical_label": "분류와 회귀: 출력층·손실·gradient 선택",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.22"
+      ],
+      "segment_ids": [
+        "ML12.A.22.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "gradient"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.keras",
+      "canonical_label": "Keras와의 일대일 대응",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.27"
+      ],
+      "segment_ids": [
+        "ML12.A.27.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Keras"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.layer",
+      "canonical_label": "구현 포인터: 기존 `mlp_scratch.py`에서 일반 Layer로",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.28"
+      ],
+      "segment_ids": [
+        "ML12.A.28.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "mlp_scratch",
+        "py",
+        "Layer"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.section_09",
+      "canonical_label": "오늘의 핵심·헷갈림·다음 연결",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.29"
+      ],
+      "segment_ids": [
+        "ML12.A.29.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.section_10",
+      "canonical_label": "노트북 인텔리전스 브리핑",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.33"
+      ],
+      "segment_ids": [
+        "ML12.A.33.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML12.section_11",
+      "canonical_label": "노트북 전체 인용 워크스루",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML12.A.34"
+      ],
+      "segment_ids": [
+        "ML12.A.34.local_001",
+        "ML12.A.34.local_002"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    }
+  ]
+}

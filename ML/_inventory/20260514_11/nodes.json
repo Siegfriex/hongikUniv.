@@ -1,0 +1,266 @@
+{
+  "lecture_id": "20260514_11",
+  "notes": "Nodes generated from numbered main headings; cross-lecture edges deferred to avoid ghost IDs.",
+  "nodes": [
+    {
+      "node_id": "n_ML11.section_01",
+      "canonical_label": "주차 맥락과 코스 연결",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.6"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_02",
+      "canonical_label": "2-2-1 네트워크 구조와 표기",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.7"
+      ],
+      "segment_ids": [
+        "ML11.A.7.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.forward_pass",
+      "canonical_label": "Forward pass",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.8"
+      ],
+      "segment_ids": [
+        "ML11.A.8.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Forward",
+        "pass"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_04",
+      "canonical_label": "공통 숫자·출력 오차·δ의 자리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.9"
+      ],
+      "segment_ids": [
+        "ML11.A.9.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_05",
+      "canonical_label": "출력층: 짧은 체인",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.12"
+      ],
+      "segment_ids": [
+        "ML11.A.12.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_06",
+      "canonical_label": "은닉층: 긴 체인과 δ⁽¹⁾",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.14"
+      ],
+      "segment_ids": [
+        "ML11.A.14.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_07",
+      "canonical_label": "은닉층 6개 편미분 표",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.18"
+      ],
+      "segment_ids": [
+        "ML11.A.18.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.forward_vs_backward",
+      "canonical_label": "Forward vs Backward·9개 총정리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.19"
+      ],
+      "segment_ids": [
+        "ML11.A.19.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Forward",
+        "vs",
+        "Backward"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.week",
+      "canonical_label": "일반 패턴과 Week 12로의 다리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.20"
+      ],
+      "segment_ids": [
+        "ML11.A.20.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Week"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_10",
+      "canonical_label": "`mlp_scratch.py` 구현 해설",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.21"
+      ],
+      "segment_ids": [
+        "ML11.A.21.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "mlp_scratch",
+        "py"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.gradient_check",
+      "canonical_label": "`train`·gradient check",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.26"
+      ],
+      "segment_ids": [
+        "ML11.A.26.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "train",
+        "gradient",
+        "check"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.xor",
+      "canonical_label": "XOR 자동 학습",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.28"
+      ],
+      "segment_ids": [
+        "ML11.A.28.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "XOR"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_13",
+      "canonical_label": "강의 실행: `week11_examples.ipynb`",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.29"
+      ],
+      "segment_ids": [
+        "ML11.A.29.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "week11_examples",
+        "ipynb"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_14",
+      "canonical_label": "부록: 스니펫·손계산 표",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.30"
+      ],
+      "segment_ids": [
+        "ML11.A.30.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.html",
+      "canonical_label": "인터랙티브 HTML 보조 자료",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.31"
+      ],
+      "segment_ids": [
+        "ML11.A.31.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "HTML"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_16",
+      "canonical_label": "오늘의 핵심·헷갈림·다음 강의",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.32"
+      ],
+      "segment_ids": [
+        "ML11.A.32.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML11.section_17",
+      "canonical_label": "편집 변경 요약",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML11.A.36"
+      ],
+      "segment_ids": [
+        "ML11.A.36.local_001",
+        "ML11.A.36.local_002"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    }
+  ]
+}

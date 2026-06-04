@@ -1,0 +1,685 @@
+{
+  "lecture_id": "20260529_14",
+  "structure_ssot_source": "ML/20260529_14강.md",
+  "anchors": [
+    {
+      "anchor_id": "ML14.A.1",
+      "list_index": 1,
+      "source_line": 1,
+      "heading_level": 1,
+      "anchor_label_raw": "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+      "anchor_label_canonical": "ml_dnn",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.2",
+      "list_index": 2,
+      "source_line": 9,
+      "heading_level": 2,
+      "anchor_label_raw": "오늘 강의 운영안",
+      "anchor_label_canonical": "anchor_2",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "오늘 강의 운영안"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.3",
+      "list_index": 3,
+      "source_line": 34,
+      "heading_level": 2,
+      "anchor_label_raw": "개념 그래프 브리핑",
+      "anchor_label_canonical": "anchor_3",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "개념 그래프 브리핑"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.4",
+      "list_index": 4,
+      "source_line": 69,
+      "heading_level": 2,
+      "anchor_label_raw": "목차",
+      "anchor_label_canonical": "anchor_4",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "목차"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.5",
+      "list_index": 5,
+      "source_line": 90,
+      "heading_level": 2,
+      "anchor_label_raw": "1. 왜 데이터 프로세싱을 먼저 보는가",
+      "anchor_label_canonical": "anchor_5",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "1. 왜 데이터 프로세싱을 먼저 보는가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.6",
+      "list_index": 6,
+      "source_line": 122,
+      "heading_level": 2,
+      "anchor_label_raw": "2. Boston Housing 문제 정의",
+      "anchor_label_canonical": "boston_housing",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "2. Boston Housing 문제 정의"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.7",
+      "list_index": 7,
+      "source_line": 168,
+      "heading_level": 2,
+      "anchor_label_raw": "3. `load_boston()` 객체 해부",
+      "anchor_label_canonical": "anchor_7",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "3. `load_boston()` 객체 해부"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.8",
+      "list_index": 8,
+      "source_line": 196,
+      "heading_level": 2,
+      "anchor_label_raw": "4. DataFrame으로 바꾸는 이유",
+      "anchor_label_canonical": "dataframe",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "4. DataFrame으로 바꾸는 이유"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.9",
+      "list_index": 9,
+      "source_line": 225,
+      "heading_level": 2,
+      "anchor_label_raw": "5. `info()`와 EDA에서 확인할 것",
+      "anchor_label_canonical": "eda",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "5. `info()`와 EDA에서 확인할 것"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.10",
+      "list_index": 10,
+      "source_line": 243,
+      "heading_level": 3,
+      "anchor_label_raw": "5.1 target 분포 확인",
+      "anchor_label_canonical": "target",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "5. `info()`와 EDA에서 확인할 것",
+        "5.1 target 분포 확인"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.11",
+      "list_index": 11,
+      "source_line": 265,
+      "heading_level": 2,
+      "anchor_label_raw": "6. `CHAS` 제거와 입력 차원 12",
+      "anchor_label_canonical": "anchor_11",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "6. `CHAS` 제거와 입력 차원 12"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.12",
+      "list_index": 12,
+      "source_line": 293,
+      "heading_level": 2,
+      "anchor_label_raw": "7. train/test split의 의미",
+      "anchor_label_canonical": "train_test_split",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "7. train/test split의 의미"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.13",
+      "list_index": 13,
+      "source_line": 326,
+      "heading_level": 2,
+      "anchor_label_raw": "8. MinMax scaling: X와 y를 따로 정규화",
+      "anchor_label_canonical": "minmax_scaling",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "8. MinMax scaling: X와 y를 따로 정규화"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.14",
+      "list_index": 14,
+      "source_line": 328,
+      "heading_level": 3,
+      "anchor_label_raw": "8.1 X scaling",
+      "anchor_label_canonical": "scaling",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "8. MinMax scaling: X와 y를 따로 정규화",
+        "8.1 X scaling"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.15",
+      "list_index": 15,
+      "source_line": 372,
+      "heading_level": 3,
+      "anchor_label_raw": "8.2 y scaling",
+      "anchor_label_canonical": "scaling",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "8. MinMax scaling: X와 y를 따로 정규화",
+        "8.2 y scaling"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.16",
+      "list_index": 16,
+      "source_line": 403,
+      "heading_level": 3,
+      "anchor_label_raw": "8.3 왜 scaler를 X와 y에 따로 두는가",
+      "anchor_label_canonical": "scaler",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "8. MinMax scaling: X와 y를 따로 정규화",
+        "8.3 왜 scaler를 X와 y에 따로 두는가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.17",
+      "list_index": 17,
+      "source_line": 423,
+      "heading_level": 2,
+      "anchor_label_raw": "9. shape 체크: 모델에 들어가는 네 개의 배열",
+      "anchor_label_canonical": "shape",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "9. shape 체크: 모델에 들어가는 네 개의 배열"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.18",
+      "list_index": 18,
+      "source_line": 469,
+      "heading_level": 2,
+      "anchor_label_raw": "10. Modeling(training): 함수 구조를 정한다",
+      "anchor_label_canonical": "modeling_training",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.19",
+      "list_index": 19,
+      "source_line": 493,
+      "heading_level": 3,
+      "anchor_label_raw": "10.1 전체 모델링 흐름",
+      "anchor_label_canonical": "anchor_19",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.1 전체 모델링 흐름"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.20",
+      "list_index": 20,
+      "source_line": 518,
+      "heading_level": 3,
+      "anchor_label_raw": "10.2 `Sequential()` — 순차 모델",
+      "anchor_label_canonical": "anchor_20",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.2 `Sequential()` — 순차 모델"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.21",
+      "list_index": 21,
+      "source_line": 541,
+      "heading_level": 3,
+      "anchor_label_raw": "10.3 첫 번째 Dense layer",
+      "anchor_label_canonical": "dense_layer",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.3 첫 번째 Dense layer"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.22",
+      "list_index": 22,
+      "source_line": 580,
+      "heading_level": 3,
+      "anchor_label_raw": "10.4 ReLU는 왜 들어가는가",
+      "anchor_label_canonical": "relu",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.4 ReLU는 왜 들어가는가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.23",
+      "list_index": 23,
+      "source_line": 600,
+      "heading_level": 3,
+      "anchor_label_raw": "10.5 두 번째, 세 번째 hidden layer",
+      "anchor_label_canonical": "hidden_layer",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.5 두 번째, 세 번째 hidden layer"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.24",
+      "list_index": 24,
+      "source_line": 629,
+      "heading_level": 3,
+      "anchor_label_raw": "10.6 마지막 출력층 `Dense(1)`",
+      "anchor_label_canonical": "anchor_24",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.6 마지막 출력층 `Dense(1)`"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.25",
+      "list_index": 25,
+      "source_line": 656,
+      "heading_level": 3,
+      "anchor_label_raw": "10.7 전체 구조를 shape로 추적하기",
+      "anchor_label_canonical": "shape",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.7 전체 구조를 shape로 추적하기"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.26",
+      "list_index": 26,
+      "source_line": 676,
+      "heading_level": 3,
+      "anchor_label_raw": "10.8 `model.summary()`의 parameter 수 계산",
+      "anchor_label_canonical": "parameter",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "10. Modeling(training): 함수 구조를 정한다",
+        "10.8 `model.summary()`의 parameter 수 계산"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.27",
+      "list_index": 27,
+      "source_line": 694,
+      "heading_level": 2,
+      "anchor_label_raw": "11. `compile`과 `fit`: 학습 기준과 반복 실행",
+      "anchor_label_canonical": "anchor_27",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "11. `compile`과 `fit`: 학습 기준과 반복 실행"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.28",
+      "list_index": 28,
+      "source_line": 696,
+      "heading_level": 3,
+      "anchor_label_raw": "11.1 `compile()` — 학습 규칙을 붙이는 단계",
+      "anchor_label_canonical": "anchor_28",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "11. `compile`과 `fit`: 학습 기준과 반복 실행",
+        "11.1 `compile()` — 학습 규칙을 붙이는 단계"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.29",
+      "list_index": 29,
+      "source_line": 728,
+      "heading_level": 3,
+      "anchor_label_raw": "11.2 `fit()` — 실제 학습",
+      "anchor_label_canonical": "anchor_29",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "11. `compile`과 `fit`: 학습 기준과 반복 실행",
+        "11.2 `fit()` — 실제 학습"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.30",
+      "list_index": 30,
+      "source_line": 751,
+      "heading_level": 3,
+      "anchor_label_raw": "11.3 `results`는 무엇인가",
+      "anchor_label_canonical": "anchor_30",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "11. `compile`과 `fit`: 학습 기준과 반복 실행",
+        "11.3 `results`는 무엇인가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.31",
+      "list_index": 31,
+      "source_line": 766,
+      "heading_level": 2,
+      "anchor_label_raw": "12. 학습 곡선 해석",
+      "anchor_label_canonical": "anchor_31",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "12. 학습 곡선 해석"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.32",
+      "list_index": 32,
+      "source_line": 768,
+      "heading_level": 3,
+      "anchor_label_raw": "12.1 loss curve",
+      "anchor_label_canonical": "loss_curve",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "12. 학습 곡선 해석",
+        "12.1 loss curve"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.33",
+      "list_index": 33,
+      "source_line": 792,
+      "heading_level": 3,
+      "anchor_label_raw": "12.2 MAE curve",
+      "anchor_label_canonical": "mae_curve",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "12. 학습 곡선 해석",
+        "12.2 MAE curve"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.34",
+      "list_index": 34,
+      "source_line": 808,
+      "heading_level": 3,
+      "anchor_label_raw": "12.3 `test`라는 표현의 주의점",
+      "anchor_label_canonical": "anchor_34",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "12. 학습 곡선 해석",
+        "12.3 `test`라는 표현의 주의점"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.35",
+      "list_index": 35,
+      "source_line": 822,
+      "heading_level": 3,
+      "anchor_label_raw": "12.4 이 모델이 실제로 학습하는 것",
+      "anchor_label_canonical": "anchor_35",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "12. 학습 곡선 해석",
+        "12.4 이 모델이 실제로 학습하는 것"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.36",
+      "list_index": 36,
+      "source_line": 846,
+      "heading_level": 2,
+      "anchor_label_raw": "13. Validation(test): 처음 보는 데이터에서 확인한다",
+      "anchor_label_canonical": "validation_test",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "13. Validation(test): 처음 보는 데이터에서 확인한다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.37",
+      "list_index": 37,
+      "source_line": 857,
+      "heading_level": 3,
+      "anchor_label_raw": "13.1 test data에 대한 예측",
+      "anchor_label_canonical": "test_data",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "13. Validation(test): 처음 보는 데이터에서 확인한다",
+        "13.1 test data에 대한 예측"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.38",
+      "list_index": 38,
+      "source_line": 872,
+      "heading_level": 3,
+      "anchor_label_raw": "13.2 `y_pred`는 원래 집값이 아니다",
+      "anchor_label_canonical": "anchor_38",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "13. Validation(test): 처음 보는 데이터에서 확인한다",
+        "13.2 `y_pred`는 원래 집값이 아니다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.39",
+      "list_index": 39,
+      "source_line": 878,
+      "heading_level": 3,
+      "anchor_label_raw": "13.3 `inverse_transform()` — 원래 단위로 복원",
+      "anchor_label_canonical": "anchor_39",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "13. Validation(test): 처음 보는 데이터에서 확인한다",
+        "13.3 `inverse_transform()` — 원래 단위로 복원"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.40",
+      "list_index": 40,
+      "source_line": 905,
+      "heading_level": 2,
+      "anchor_label_raw": "14. 원래 단위 MAE와 예측 산점도",
+      "anchor_label_canonical": "mae",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "14. 원래 단위 MAE와 예측 산점도"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.41",
+      "list_index": 41,
+      "source_line": 907,
+      "heading_level": 3,
+      "anchor_label_raw": "14.1 원래 단위 MAE 계산",
+      "anchor_label_canonical": "mae",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "14. 원래 단위 MAE와 예측 산점도",
+        "14.1 원래 단위 MAE 계산"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.42",
+      "list_index": 42,
+      "source_line": 930,
+      "heading_level": 3,
+      "anchor_label_raw": "14.2 실제값 대비 예측값 산점도",
+      "anchor_label_canonical": "anchor_42",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "14. 원래 단위 MAE와 예측 산점도",
+        "14.2 실제값 대비 예측값 산점도"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.43",
+      "list_index": 43,
+      "source_line": 963,
+      "heading_level": 3,
+      "anchor_label_raw": "14.3 validation 노드의 개념 그래프",
+      "anchor_label_canonical": "validation",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "14. 원래 단위 MAE와 예측 산점도",
+        "14.3 validation 노드의 개념 그래프"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.44",
+      "list_index": 44,
+      "source_line": 987,
+      "heading_level": 2,
+      "anchor_label_raw": "15. MNIST 분류와의 검증 비교",
+      "anchor_label_canonical": "mnist",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "15. MNIST 분류와의 검증 비교"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.45",
+      "list_index": 45,
+      "source_line": 1029,
+      "heading_level": 2,
+      "anchor_label_raw": "16. 오늘의 핵심 정리",
+      "anchor_label_canonical": "anchor_45",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "16. 오늘의 핵심 정리"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.46",
+      "list_index": 46,
+      "source_line": 1031,
+      "heading_level": 3,
+      "anchor_label_raw": "16.1 데이터 프로세싱 핵심 5개",
+      "anchor_label_canonical": "anchor_46",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "16. 오늘의 핵심 정리",
+        "16.1 데이터 프로세싱 핵심 5개"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.47",
+      "list_index": 47,
+      "source_line": 1048,
+      "heading_level": 3,
+      "anchor_label_raw": "16.2 Modeling(training) 핵심 5개",
+      "anchor_label_canonical": "modeling_training",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "16. 오늘의 핵심 정리",
+        "16.2 Modeling(training) 핵심 5개"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.48",
+      "list_index": 48,
+      "source_line": 1056,
+      "heading_level": 3,
+      "anchor_label_raw": "16.3 Validation(test) 핵심 5개",
+      "anchor_label_canonical": "validation_test",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "16. 오늘의 핵심 정리",
+        "16.3 Validation(test) 핵심 5개"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.49",
+      "list_index": 49,
+      "source_line": 1064,
+      "heading_level": 3,
+      "anchor_label_raw": "16.4 오늘 학생들이 말할 수 있어야 하는 문장",
+      "anchor_label_canonical": "anchor_49",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "16. 오늘의 핵심 정리",
+        "16.4 오늘 학생들이 말할 수 있어야 하는 문장"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML14.A.50",
+      "list_index": 50,
+      "source_line": 1072,
+      "heading_level": 3,
+      "anchor_label_raw": "16.5 확인 질문",
+      "anchor_label_canonical": "anchor_50",
+      "anchor_path": [
+        "2026-05-29 ML 14강: DNN 회귀를 위한 데이터 프로세싱",
+        "16. 오늘의 핵심 정리",
+        "16.5 확인 질문"
+      ],
+      "blocks": []
+    }
+  ]
+}

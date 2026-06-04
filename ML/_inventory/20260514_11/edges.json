@@ -1,0 +1,133 @@
+{
+  "lecture_id": "20260514_11",
+  "edges": [
+    {
+      "edge_id": "e_ML11_section_01_to_section_02",
+      "type": "leads_to",
+      "from": "n_ML11.section_01",
+      "to": "n_ML11.section_02",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_02_to_forward_pass",
+      "type": "leads_to",
+      "from": "n_ML11.section_02",
+      "to": "n_ML11.forward_pass",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_forward_pass_to_section_04",
+      "type": "leads_to",
+      "from": "n_ML11.forward_pass",
+      "to": "n_ML11.section_04",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_04_to_section_05",
+      "type": "leads_to",
+      "from": "n_ML11.section_04",
+      "to": "n_ML11.section_05",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_05_to_section_06",
+      "type": "leads_to",
+      "from": "n_ML11.section_05",
+      "to": "n_ML11.section_06",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_06_to_section_07",
+      "type": "leads_to",
+      "from": "n_ML11.section_06",
+      "to": "n_ML11.section_07",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_07_to_forward_vs_backward",
+      "type": "leads_to",
+      "from": "n_ML11.section_07",
+      "to": "n_ML11.forward_vs_backward",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_forward_vs_backward_to_week",
+      "type": "leads_to",
+      "from": "n_ML11.forward_vs_backward",
+      "to": "n_ML11.week",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_week_to_section_10",
+      "type": "leads_to",
+      "from": "n_ML11.week",
+      "to": "n_ML11.section_10",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_10_to_gradient_check",
+      "type": "leads_to",
+      "from": "n_ML11.section_10",
+      "to": "n_ML11.gradient_check",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_gradient_check_to_xor",
+      "type": "leads_to",
+      "from": "n_ML11.gradient_check",
+      "to": "n_ML11.xor",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_xor_to_section_13",
+      "type": "leads_to",
+      "from": "n_ML11.xor",
+      "to": "n_ML11.section_13",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_13_to_section_14",
+      "type": "leads_to",
+      "from": "n_ML11.section_13",
+      "to": "n_ML11.section_14",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_14_to_html",
+      "type": "leads_to",
+      "from": "n_ML11.section_14",
+      "to": "n_ML11.html",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_html_to_section_16",
+      "type": "leads_to",
+      "from": "n_ML11.html",
+      "to": "n_ML11.section_16",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML11_section_16_to_section_17",
+      "type": "leads_to",
+      "from": "n_ML11.section_16",
+      "to": "n_ML11.section_17",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    }
+  ]
+}

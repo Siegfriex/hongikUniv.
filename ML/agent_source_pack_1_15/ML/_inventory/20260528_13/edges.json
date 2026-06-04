@@ -1,0 +1,85 @@
+{
+  "lecture_id": "20260528_13",
+  "edges": [
+    {
+      "edge_id": "e_ML13_deep_neural_network_to_section_02",
+      "type": "leads_to",
+      "from": "n_ML13.deep_neural_network",
+      "to": "n_ML13.section_02",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_section_02_to_optimizer",
+      "type": "leads_to",
+      "from": "n_ML13.section_02",
+      "to": "n_ML13.optimizer",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_optimizer_to_sgd_momentum_rmsprop_adam",
+      "type": "leads_to",
+      "from": "n_ML13.optimizer",
+      "to": "n_ML13.sgd_momentum_rmsprop_adam",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_sgd_momentum_rmsprop_adam_to_keras",
+      "type": "leads_to",
+      "from": "n_ML13.sgd_momentum_rmsprop_adam",
+      "to": "n_ML13.keras",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_keras_to_dnn",
+      "type": "leads_to",
+      "from": "n_ML13.keras",
+      "to": "n_ML13.dnn",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_dnn_to_section_07",
+      "type": "leads_to",
+      "from": "n_ML13.dnn",
+      "to": "n_ML13.section_07",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_section_07_to_dnn_a022",
+      "type": "leads_to",
+      "from": "n_ML13.section_07",
+      "to": "n_ML13.dnn_a022",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_dnn_a022_to_softmax_cross_entropy",
+      "type": "leads_to",
+      "from": "n_ML13.dnn_a022",
+      "to": "n_ML13.softmax_cross_entropy",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_softmax_cross_entropy_to_section_10",
+      "type": "leads_to",
+      "from": "n_ML13.softmax_cross_entropy",
+      "to": "n_ML13.section_10",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML13_section_10_to_section_11",
+      "type": "leads_to",
+      "from": "n_ML13.section_10",
+      "to": "n_ML13.section_11",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    }
+  ]
+}

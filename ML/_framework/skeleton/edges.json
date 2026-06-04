@@ -1,0 +1,14 @@
+{
+  "_skeleton_note": "복사 후 _skeleton_note 키 삭제. edges.type 권장 어휘는 _framework/CONVENTIONS.md §6 참조. cross-lecture 엣지는 from/to 강의 nodes.json 실재 확인 필수.",
+  "lecture_id": "<YYYYMMDD>_<N>",
+  "edges": [
+    {
+      "edge_id": "e_<COURSE><N>_<from_short>_to_<to_short>",
+      "type": "leads_to",
+      "from": "n_<COURSE><N>.<a>",
+      "to": "n_<COURSE><N>.<b>",
+      "status": "supported",
+      "notes": "<한 줄 사유>"
+    }
+  ]
+}

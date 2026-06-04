@@ -1,0 +1,64 @@
+{
+  "lecture_id": "20260528_13",
+  "policy_note": "Bootstrap copied from ML/final_brief/20260528.md and ML/final_record/0528ml.txt. Framework path is ML/_framework. 0522 orphan transcript skipped because no brief exists.",
+  "sources": [
+    {
+      "id": "transcript_ssot",
+      "path": "ML/20260528_13강_강의록.txt",
+      "role": [
+        "content_ssot"
+      ],
+      "immutable": true,
+      "raw_mirror": "ML/_inventory/20260528_13/raw/20260528_13강_강의록.txt",
+      "notes": "Copied from ML/final_record/0528ml.txt"
+    },
+    {
+      "id": "lecture_md_anchor",
+      "path": "ML/20260528_13강.md",
+      "role": [
+        "structure_ssot",
+        "anchor",
+        "canonical_view"
+      ],
+      "immutable": true,
+      "raw_mirror": "ML/_inventory/20260528_13/raw/20260528_13강.md",
+      "notes": "Copied from ML/final_brief/20260528.md"
+    },
+    {
+      "id": "annotated_transcript",
+      "path": "ML/_inventory/20260528_13/20260528_13강_annotated_transcript.txt",
+      "role": [
+        "annotated_copy",
+        "markers_v2"
+      ],
+      "immutable": false,
+      "notes": "Original transcript copy with inserted marker lines only."
+    }
+  ],
+  "inventory_quality_min_bar": {
+    "rule_a": {
+      "F_seg_count": 12,
+      "allowed_range_inclusive": [
+        8,
+        32
+      ],
+      "pass": true
+    },
+    "rule_b_prime_prelecture": {
+      "requires_segment_types": [
+        "admin",
+        "admin_or_other_lecture"
+      ],
+      "segment_ids": [
+        "ML13.A.1.local_001",
+        "ML13.A.1.local_002",
+        "ML13.A.1.local_003"
+      ],
+      "pass": true
+    },
+    "rule_d_evidence": {
+      "description": "Every node has lecture_md_anchor evidence; transcript evidence is added where aligned to transcript chunks.",
+      "pass": true
+    }
+  }
+}

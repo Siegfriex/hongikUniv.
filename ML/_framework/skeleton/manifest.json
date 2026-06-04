@@ -1,0 +1,33 @@
+{
+  "_skeleton_note": "이 파일은 _framework/skeleton/ 의 빈 템플릿이다. <course>/_inventory/<lecture_id>/ 로 복사해 lecture_id·sources 경로를 채운 뒤 본 _skeleton_note 키는 삭제할 것.",
+  "lecture_id": "<YYYYMMDD>_<N>",
+  "policy_note": "선택 — 파일명 변형(P6 이중 확장자, P2 단일 전사 다회 강 등) 메모",
+  "sources": [
+    {
+      "id": "transcript_ssot",
+      "path": "<course>/<YYYYMMDD>_<N>강_강의록.txt",
+      "role": ["content_ssot"],
+      "immutable": true,
+      "raw_mirror": "<course>/_inventory/<YYYYMMDD>_<N>/raw/<YYYYMMDD>_<N>강_강의록.txt"
+    },
+    {
+      "id": "lecture_md_anchor",
+      "path": "<course>/<YYYYMMDD>_<N>강.md",
+      "role": ["structure_ssot", "anchor", "canonical_view"],
+      "immutable": true,
+      "raw_mirror": "<course>/_inventory/<YYYYMMDD>_<N>/raw/<YYYYMMDD>_<N>강.md"
+    },
+    {
+      "id": "annotated_transcript",
+      "path": "<course>/_inventory/<YYYYMMDD>_<N>/<YYYYMMDD>_<N>강_annotated_transcript.txt",
+      "role": ["annotated_copy", "markers_v2"],
+      "immutable": false,
+      "notes": "원본 전사 복사본 + §8.1 마커. _inventory/<id>/ 안에서만 둠."
+    }
+  ],
+  "inventory_quality_min_bar": {
+    "rule_a": {"F_seg_count": null, "allowed_range_inclusive": [null, null], "pass": null},
+    "rule_b_prime_prelecture": {"requires_segment_types": ["admin", "admin_or_other_lecture"], "segment_ids": [], "pass": null},
+    "rule_d_evidence": {"description": "md-primary 노드 목록·앵커 절", "pass": null}
+  }
+}

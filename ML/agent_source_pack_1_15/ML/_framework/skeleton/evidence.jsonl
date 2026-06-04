@@ -1,0 +1,2 @@
+{"_skeleton_note":"evidence_id = ev_{LECTURE_ID}_{seq:03d}. source_kind ∈ transcript|lecture_md_anchor|lecture_docx_anchor|web_grounding. 한 evidence는 단일 소스(합성 금지)."}
+{"evidence_id":"ev_<YYYYMMDD>_<N>_001","node_id":"n_<COURSE><N>.<snake_label>","source_kind":"transcript","ref":{"file":"<YYYYMMDD>_<N>강_강의록.txt","lines":[1,1],"segment_id":"<COURSE><N>.A.1.local_001"},"quote":"<원문 그대로 짧게>","confidence":"high"}

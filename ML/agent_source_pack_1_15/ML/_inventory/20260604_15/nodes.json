@@ -1,0 +1,362 @@
+{
+  "lecture_id": "20260604_15",
+  "notes": "Nodes generated from numbered main headings; cross-lecture edges deferred to avoid ghost IDs.",
+  "nodes": [
+    {
+      "node_id": "n_ML15.section_01",
+      "canonical_label": "직전 강의에서 오늘 강의로 넘어가는 이유",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.5"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.leakage",
+      "canonical_label": "전처리 표준 1: 결측치 처리와 leakage",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.6"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "leakage"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.section_03",
+      "canonical_label": "전처리 표준 2: 수치형 정규화",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.7"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.section_04",
+      "canonical_label": "전처리 표준 3: 범주형 인코딩",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.8"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.section_05",
+      "canonical_label": "전처리 표준 4: 시간 변수 처리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.11"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.train_validation_test",
+      "canonical_label": "Train / Validation / Test 3분할",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.12"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Train",
+        "Validation",
+        "Test"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.section_07",
+      "canonical_label": "과적합, 과소적합, 좋은 적합",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.13"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.loss_curve",
+      "canonical_label": "Loss curve로 진단하기",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.14"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Loss",
+        "curve"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.section_09",
+      "canonical_label": "일부러 과적합을 만들어보는 실험 습관",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.15"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.dropout",
+      "canonical_label": "정규화 도구 1: Dropout",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.16"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Dropout"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.l2_regularization",
+      "canonical_label": "정규화 도구 2: L2 Regularization",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.17"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "L2",
+        "Regularization"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.early_stopping",
+      "canonical_label": "정규화 도구 3: Early Stopping",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.18"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Early",
+        "Stopping"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.batch_normalization",
+      "canonical_label": "정규화 도구 4: Batch Normalization",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.19"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Batch",
+        "Normalization"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.baseline_vs_regularized",
+      "canonical_label": "종합 실습: baseline vs regularized",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.20"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "baseline",
+        "vs",
+        "regularized"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.cnn",
+      "canonical_label": "왜 이미지에는 CNN이 필요한가",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.26"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "CNN"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.receptive_field_filter",
+      "canonical_label": "Receptive field와 filter",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.27"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Receptive",
+        "field",
+        "filter"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.convolution_layer",
+      "canonical_label": "Convolution layer의 구성 요소",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.28"
+      ],
+      "segment_ids": [
+        "ML15.A.28.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Convolution",
+        "layer"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.channel_kernel",
+      "canonical_label": "다중 channel과 다중 kernel",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.29"
+      ],
+      "segment_ids": [
+        "ML15.A.29.local_001",
+        "ML15.A.29.local_002"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "channel",
+        "kernel"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.padding_stride_pooling",
+      "canonical_label": "Padding, stride, pooling",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.30"
+      ],
+      "segment_ids": [
+        "ML15.A.30.local_001",
+        "ML15.A.30.local_002",
+        "ML15.A.30.local_003",
+        "ML15.A.30.local_004"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Padding",
+        "stride",
+        "pooling"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.cnn_classifier_conv_pool_flatten",
+      "canonical_label": "CNN에서 classifier까지: Conv -> Pool -> Flatten -> Dense",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.34"
+      ],
+      "segment_ids": [
+        "ML15.A.34.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "CNN",
+        "classifier",
+        "Conv",
+        "Pool",
+        "Flatten",
+        "Dense"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.fashion_mnist_dense_baseline_vs",
+      "canonical_label": "Fashion-MNIST 보충 실습: Dense baseline vs CNN",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.35"
+      ],
+      "segment_ids": [
+        "ML15.A.35.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Fashion-MNIST",
+        "Dense",
+        "baseline",
+        "vs",
+        "CNN"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.imagenet_cnn",
+      "canonical_label": "ImageNet과 CNN 모델 계보",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.41"
+      ],
+      "segment_ids": [
+        "ML15.A.41.local_001",
+        "ML15.A.41.local_002",
+        "ML15.A.41.local_003",
+        "ML15.A.41.local_004"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "ImageNet",
+        "CNN"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML15.section_23",
+      "canonical_label": "오늘의 핵심 정리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML15.A.42"
+      ],
+      "segment_ids": [
+        "ML15.A.42.local_001",
+        "ML15.A.42.local_002",
+        "ML15.A.42.local_003",
+        "ML15.A.42.local_005"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "lecture_id": "20260604_15",
+  "edges": [
+    {
+      "edge_id": "e_ML15_section_01_to_leakage",
+      "type": "leads_to",
+      "from": "n_ML15.section_01",
+      "to": "n_ML15.leakage",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_leakage_to_section_03",
+      "type": "leads_to",
+      "from": "n_ML15.leakage",
+      "to": "n_ML15.section_03",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_section_03_to_section_04",
+      "type": "leads_to",
+      "from": "n_ML15.section_03",
+      "to": "n_ML15.section_04",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_section_04_to_section_05",
+      "type": "leads_to",
+      "from": "n_ML15.section_04",
+      "to": "n_ML15.section_05",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_section_05_to_train_validation_test",
+      "type": "leads_to",
+      "from": "n_ML15.section_05",
+      "to": "n_ML15.train_validation_test",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_train_validation_test_to_section_07",
+      "type": "leads_to",
+      "from": "n_ML15.train_validation_test",
+      "to": "n_ML15.section_07",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_section_07_to_loss_curve",
+      "type": "leads_to",
+      "from": "n_ML15.section_07",
+      "to": "n_ML15.loss_curve",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_loss_curve_to_section_09",
+      "type": "leads_to",
+      "from": "n_ML15.loss_curve",
+      "to": "n_ML15.section_09",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_section_09_to_dropout",
+      "type": "leads_to",
+      "from": "n_ML15.section_09",
+      "to": "n_ML15.dropout",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_dropout_to_l2_regularization",
+      "type": "leads_to",
+      "from": "n_ML15.dropout",
+      "to": "n_ML15.l2_regularization",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_l2_regularization_to_early_stopping",
+      "type": "leads_to",
+      "from": "n_ML15.l2_regularization",
+      "to": "n_ML15.early_stopping",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_early_stopping_to_batch_normalization",
+      "type": "leads_to",
+      "from": "n_ML15.early_stopping",
+      "to": "n_ML15.batch_normalization",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_batch_normalization_to_baseline_vs_regularized",
+      "type": "leads_to",
+      "from": "n_ML15.batch_normalization",
+      "to": "n_ML15.baseline_vs_regularized",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_baseline_vs_regularized_to_cnn",
+      "type": "leads_to",
+      "from": "n_ML15.baseline_vs_regularized",
+      "to": "n_ML15.cnn",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_cnn_to_receptive_field_filter",
+      "type": "leads_to",
+      "from": "n_ML15.cnn",
+      "to": "n_ML15.receptive_field_filter",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_receptive_field_filter_to_convolution_layer",
+      "type": "leads_to",
+      "from": "n_ML15.receptive_field_filter",
+      "to": "n_ML15.convolution_layer",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_convolution_layer_to_channel_kernel",
+      "type": "leads_to",
+      "from": "n_ML15.convolution_layer",
+      "to": "n_ML15.channel_kernel",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_channel_kernel_to_padding_stride_pooling",
+      "type": "leads_to",
+      "from": "n_ML15.channel_kernel",
+      "to": "n_ML15.padding_stride_pooling",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_padding_stride_pooling_to_cnn_classifier_conv_pool_flatten",
+      "type": "leads_to",
+      "from": "n_ML15.padding_stride_pooling",
+      "to": "n_ML15.cnn_classifier_conv_pool_flatten",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_cnn_classifier_conv_pool_flatten_to_fashion_mnist_dense_baseline_vs",
+      "type": "leads_to",
+      "from": "n_ML15.cnn_classifier_conv_pool_flatten",
+      "to": "n_ML15.fashion_mnist_dense_baseline_vs",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_fashion_mnist_dense_baseline_vs_to_imagenet_cnn",
+      "type": "leads_to",
+      "from": "n_ML15.fashion_mnist_dense_baseline_vs",
+      "to": "n_ML15.imagenet_cnn",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML15_imagenet_cnn_to_section_23",
+      "type": "leads_to",
+      "from": "n_ML15.imagenet_cnn",
+      "to": "n_ML15.section_23",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    }
+  ]
+}

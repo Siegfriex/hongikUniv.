@@ -1,0 +1,61 @@
+{
+  "lecture_id": "20260507_10",
+  "edges": [
+    {
+      "edge_id": "e_ML10_section_01_to_section_02",
+      "type": "leads_to",
+      "from": "n_ML10.section_01",
+      "to": "n_ML10.section_02",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML10_section_02_to_section_03",
+      "type": "leads_to",
+      "from": "n_ML10.section_02",
+      "to": "n_ML10.section_03",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML10_section_03_to_chain_rule",
+      "type": "leads_to",
+      "from": "n_ML10.section_03",
+      "to": "n_ML10.chain_rule",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML10_chain_rule_to_sigmoid",
+      "type": "leads_to",
+      "from": "n_ML10.chain_rule",
+      "to": "n_ML10.sigmoid",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML10_sigmoid_to_gradient_descent",
+      "type": "leads_to",
+      "from": "n_ML10.sigmoid",
+      "to": "n_ML10.gradient_descent",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML10_gradient_descent_to_backprop",
+      "type": "leads_to",
+      "from": "n_ML10.gradient_descent",
+      "to": "n_ML10.backprop",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML10_backprop_to_section_08",
+      "type": "leads_to",
+      "from": "n_ML10.backprop",
+      "to": "n_ML10.section_08",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "lecture_id": "20260528_13",
+  "notes": "Nodes generated from numbered main headings; cross-lecture edges deferred to avoid ghost IDs.",
+  "nodes": [
+    {
+      "node_id": "n_ML13.deep_neural_network",
+      "canonical_label": "Deep Neural Network의 의미",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.10"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Deep",
+        "Neural",
+        "Network"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.section_02",
+      "canonical_label": "12강 코드에서 13강 코드로: 책임 분리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.11"
+      ],
+      "segment_ids": [
+        "ML13.A.11.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.optimizer",
+      "canonical_label": "Optimizer가 필요한 이유",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.12"
+      ],
+      "segment_ids": [
+        "ML13.A.12.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Optimizer"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.sgd_momentum_rmsprop_adam",
+      "canonical_label": "SGD, Momentum, RMSProp, Adam",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.13"
+      ],
+      "segment_ids": [
+        "ML13.A.13.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "SGD",
+        "Momentum",
+        "RMSProp",
+        "Adam"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.keras",
+      "canonical_label": "Keras 모델링의 공통 절차",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.19"
+      ],
+      "segment_ids": [
+        "ML13.A.19.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Keras"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.dnn",
+      "canonical_label": "DNN 회귀: 주택 가격 예측",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.20"
+      ],
+      "segment_ids": [
+        "ML13.A.20.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "DNN"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.section_07",
+      "canonical_label": "회귀 모델 구조와 손실 함수",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.21"
+      ],
+      "segment_ids": [
+        "ML13.A.21.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.dnn_a022",
+      "canonical_label": "DNN 분류: 손글씨 숫자 인식",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.22"
+      ],
+      "segment_ids": [
+        "ML13.A.22.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "DNN"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.softmax_cross_entropy",
+      "canonical_label": "Softmax와 Cross Entropy",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.23"
+      ],
+      "segment_ids": [
+        "ML13.A.23.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Softmax",
+        "Cross",
+        "Entropy"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.section_10",
+      "canonical_label": "학습 곡선, 검증, 과적합",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.24"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML13.section_11",
+      "canonical_label": "오늘의 핵심 정리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML13.A.25"
+      ],
+      "segment_ids": [
+        "ML13.A.25.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    }
+  ]
+}

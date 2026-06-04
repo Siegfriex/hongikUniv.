@@ -1,0 +1,85 @@
+{
+  "lecture_id": "20260521_12",
+  "edges": [
+    {
+      "edge_id": "e_ML12_backprop_to_layer_abstraction_activation",
+      "type": "leads_to",
+      "from": "n_ML12.backprop",
+      "to": "n_ML12.layer_abstraction_activation",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_layer_abstraction_activation_to_vectorized_backprop_batch_dimension_matrix",
+      "type": "leads_to",
+      "from": "n_ML12.layer_abstraction_activation",
+      "to": "n_ML12.vectorized_backprop_batch_dimension_matrix",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_vectorized_backprop_batch_dimension_matrix_to_network_mini_batch",
+      "type": "leads_to",
+      "from": "n_ML12.vectorized_backprop_batch_dimension_matrix",
+      "to": "n_ML12.network_mini_batch",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_network_mini_batch_to_xor_vanishing_gradient_iris_mnist",
+      "type": "leads_to",
+      "from": "n_ML12.network_mini_batch",
+      "to": "n_ML12.xor_vanishing_gradient_iris_mnist",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_xor_vanishing_gradient_iris_mnist_to_gradient",
+      "type": "leads_to",
+      "from": "n_ML12.xor_vanishing_gradient_iris_mnist",
+      "to": "n_ML12.gradient",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_gradient_to_keras",
+      "type": "leads_to",
+      "from": "n_ML12.gradient",
+      "to": "n_ML12.keras",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_keras_to_layer",
+      "type": "leads_to",
+      "from": "n_ML12.keras",
+      "to": "n_ML12.layer",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_layer_to_section_09",
+      "type": "leads_to",
+      "from": "n_ML12.layer",
+      "to": "n_ML12.section_09",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_section_09_to_section_10",
+      "type": "leads_to",
+      "from": "n_ML12.section_09",
+      "to": "n_ML12.section_10",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML12_section_10_to_section_11",
+      "type": "leads_to",
+      "from": "n_ML12.section_10",
+      "to": "n_ML12.section_11",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "lecture_id": "20260528_13",
+  "structure_ssot_source": "ML/20260528_13강.md",
+  "anchors": [
+    {
+      "anchor_id": "ML13.A.1",
+      "list_index": 1,
+      "source_line": 1,
+      "heading_level": 1,
+      "anchor_label_raw": "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+      "anchor_label_canonical": "ml_deep_neural_networks_keras",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.2",
+      "list_index": 2,
+      "source_line": 8,
+      "heading_level": 2,
+      "anchor_label_raw": "개념 그래프 브리핑",
+      "anchor_label_canonical": "anchor_2",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "개념 그래프 브리핑"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.3",
+      "list_index": 3,
+      "source_line": 33,
+      "heading_level": 2,
+      "anchor_label_raw": "강의 현황",
+      "anchor_label_canonical": "anchor_3",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "강의 현황"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.4",
+      "list_index": 4,
+      "source_line": 44,
+      "heading_level": 2,
+      "anchor_label_raw": "이전 강의와 본 강의의 연결",
+      "anchor_label_canonical": "anchor_4",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "이전 강의와 본 강의의 연결"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.5",
+      "list_index": 5,
+      "source_line": 46,
+      "heading_level": 3,
+      "anchor_label_raw": "연결 1: 11강의 backprop은 12강에서 layer가 되었고, 13강에서 framework가 된다",
+      "anchor_label_canonical": "backprop_layer_framework",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "이전 강의와 본 강의의 연결",
+        "연결 1: 11강의 backprop은 12강에서 layer가 되었고, 13강에서 framework가 된다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.6",
+      "list_index": 6,
+      "source_line": 66,
+      "heading_level": 3,
+      "anchor_label_raw": "연결 2: 12강의 `update(lr)`는 13강의 optimizer로 분리된다",
+      "anchor_label_canonical": "optimizer",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "이전 강의와 본 강의의 연결",
+        "연결 2: 12강의 `update(lr)`는 13강의 optimizer로 분리된다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.7",
+      "list_index": 7,
+      "source_line": 87,
+      "heading_level": 3,
+      "anchor_label_raw": "연결 3: 12강의 MNIST 직접 구현은 13강의 Keras MNIST로 이어진다",
+      "anchor_label_canonical": "mnist_keras_mnist",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "이전 강의와 본 강의의 연결",
+        "연결 3: 12강의 MNIST 직접 구현은 13강의 Keras MNIST로 이어진다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.8",
+      "list_index": 8,
+      "source_line": 104,
+      "heading_level": 3,
+      "anchor_label_raw": "연결 4: 회귀와 분류는 같은 DNN이지만 마지막 설계가 다르다",
+      "anchor_label_canonical": "dnn",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "이전 강의와 본 강의의 연결",
+        "연결 4: 회귀와 분류는 같은 DNN이지만 마지막 설계가 다르다"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.9",
+      "list_index": 9,
+      "source_line": 117,
+      "heading_level": 2,
+      "anchor_label_raw": "목차",
+      "anchor_label_canonical": "anchor_9",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "목차"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.10",
+      "list_index": 10,
+      "source_line": 133,
+      "heading_level": 2,
+      "anchor_label_raw": "1. Deep Neural Network의 의미",
+      "anchor_label_canonical": "deep_neural_network",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "1. Deep Neural Network의 의미"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.11",
+      "list_index": 11,
+      "source_line": 148,
+      "heading_level": 2,
+      "anchor_label_raw": "2. 12강 코드에서 13강 코드로: 책임 분리",
+      "anchor_label_canonical": "anchor_11",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "2. 12강 코드에서 13강 코드로: 책임 분리"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.12",
+      "list_index": 12,
+      "source_line": 235,
+      "heading_level": 2,
+      "anchor_label_raw": "3. Optimizer가 필요한 이유",
+      "anchor_label_canonical": "optimizer",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "3. Optimizer가 필요한 이유"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.13",
+      "list_index": 13,
+      "source_line": 254,
+      "heading_level": 2,
+      "anchor_label_raw": "4. SGD, Momentum, RMSProp, Adam",
+      "anchor_label_canonical": "sgd_momentum_rmsprop_adam",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "4. SGD, Momentum, RMSProp, Adam"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.14",
+      "list_index": 14,
+      "source_line": 256,
+      "heading_level": 3,
+      "anchor_label_raw": "4.1 SGD",
+      "anchor_label_canonical": "sgd",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "4. SGD, Momentum, RMSProp, Adam",
+        "4.1 SGD"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.15",
+      "list_index": 15,
+      "source_line": 270,
+      "heading_level": 3,
+      "anchor_label_raw": "4.2 Momentum",
+      "anchor_label_canonical": "momentum",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "4. SGD, Momentum, RMSProp, Adam",
+        "4.2 Momentum"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.16",
+      "list_index": 16,
+      "source_line": 289,
+      "heading_level": 3,
+      "anchor_label_raw": "4.3 RMSProp",
+      "anchor_label_canonical": "rmsprop",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "4. SGD, Momentum, RMSProp, Adam",
+        "4.3 RMSProp"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.17",
+      "list_index": 17,
+      "source_line": 308,
+      "heading_level": 3,
+      "anchor_label_raw": "4.4 Adam",
+      "anchor_label_canonical": "adam",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "4. SGD, Momentum, RMSProp, Adam",
+        "4.4 Adam"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.18",
+      "list_index": 18,
+      "source_line": 330,
+      "heading_level": 3,
+      "anchor_label_raw": "4.5 Optimizer 비교 요약",
+      "anchor_label_canonical": "optimizer",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "4. SGD, Momentum, RMSProp, Adam",
+        "4.5 Optimizer 비교 요약"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.19",
+      "list_index": 19,
+      "source_line": 341,
+      "heading_level": 2,
+      "anchor_label_raw": "5. Keras 모델링의 공통 절차",
+      "anchor_label_canonical": "keras",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "5. Keras 모델링의 공통 절차"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.20",
+      "list_index": 20,
+      "source_line": 373,
+      "heading_level": 2,
+      "anchor_label_raw": "6. DNN 회귀: 주택 가격 예측",
+      "anchor_label_canonical": "dnn",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "6. DNN 회귀: 주택 가격 예측"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.21",
+      "list_index": 21,
+      "source_line": 393,
+      "heading_level": 2,
+      "anchor_label_raw": "7. 회귀 모델 구조와 손실 함수",
+      "anchor_label_canonical": "anchor_21",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "7. 회귀 모델 구조와 손실 함수"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.22",
+      "list_index": 22,
+      "source_line": 452,
+      "heading_level": 2,
+      "anchor_label_raw": "8. DNN 분류: 손글씨 숫자 인식",
+      "anchor_label_canonical": "dnn",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "8. DNN 분류: 손글씨 숫자 인식"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.23",
+      "list_index": 23,
+      "source_line": 496,
+      "heading_level": 2,
+      "anchor_label_raw": "9. Softmax와 Cross Entropy",
+      "anchor_label_canonical": "softmax_cross_entropy",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "9. Softmax와 Cross Entropy"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.24",
+      "list_index": 24,
+      "source_line": 537,
+      "heading_level": 2,
+      "anchor_label_raw": "10. 학습 곡선, 검증, 과적합",
+      "anchor_label_canonical": "anchor_24",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "10. 학습 곡선, 검증, 과적합"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.25",
+      "list_index": 25,
+      "source_line": 562,
+      "heading_level": 2,
+      "anchor_label_raw": "11. 오늘의 핵심 정리",
+      "anchor_label_canonical": "anchor_25",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "11. 오늘의 핵심 정리"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.26",
+      "list_index": 26,
+      "source_line": 564,
+      "heading_level": 3,
+      "anchor_label_raw": "11.1 직접 구현에서 프레임워크로",
+      "anchor_label_canonical": "anchor_26",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "11. 오늘의 핵심 정리",
+        "11.1 직접 구현에서 프레임워크로"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.27",
+      "list_index": 27,
+      "source_line": 575,
+      "heading_level": 3,
+      "anchor_label_raw": "11.2 회귀와 분류의 설계 차이",
+      "anchor_label_canonical": "anchor_27",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "11. 오늘의 핵심 정리",
+        "11.2 회귀와 분류의 설계 차이"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.28",
+      "list_index": 28,
+      "source_line": 585,
+      "heading_level": 3,
+      "anchor_label_raw": "11.3 Optimizer의 의미",
+      "anchor_label_canonical": "optimizer",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "11. 오늘의 핵심 정리",
+        "11.3 Optimizer의 의미"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML13.A.29",
+      "list_index": 29,
+      "source_line": 600,
+      "heading_level": 3,
+      "anchor_label_raw": "11.4 다음 강의로 넘어가는 질문",
+      "anchor_label_canonical": "anchor_29",
+      "anchor_path": [
+        "2026-05-28 ML 13강: Deep Neural Networks, Keras, and Optimizers",
+        "11. 오늘의 핵심 정리",
+        "11.4 다음 강의로 넘어가는 질문"
+      ],
+      "blocks": []
+    }
+  ]
+}

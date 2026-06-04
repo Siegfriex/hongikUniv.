@@ -1,0 +1,17 @@
+{
+  "_skeleton_note": "복사 후 _skeleton_note 키 삭제. node_id 패턴 = n_{COURSE}{N}.{snake_label}. status ∈ supported|supported_md_primary|supported_cross_lecture|uncertain.",
+  "lecture_id": "<YYYYMMDD>_<N>",
+  "notes": "선택 — 폐기·흡수된 노드 메모",
+  "nodes": [
+    {
+      "node_id": "n_<COURSE><N>.<snake_label>",
+      "canonical_label": "<한국어 자연어 한 줄>",
+      "status": "supported",
+      "anchor_ids": ["<COURSE><N>.A.1"],
+      "segment_ids": ["<COURSE><N>.A.1.local_001"],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "<선택>"
+    }
+  ]
+}

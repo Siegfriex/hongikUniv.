@@ -1,0 +1,377 @@
+{
+  "lecture_id": "20260430_8",
+  "notes": "Nodes generated from numbered main headings; cross-lecture edges deferred to avoid ghost IDs.",
+  "nodes": [
+    {
+      "node_id": "n_ML8.section_01",
+      "canonical_label": "전체 개념 그래프",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.5"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.feature_engineering",
+      "canonical_label": "지금까지 모델의 공통 한계: feature engineering",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.9"
+      ],
+      "segment_ids": [
+        "ML8.A.9.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "feature",
+        "engineering"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_03",
+      "canonical_label": "생물 뉴런에서 인공 뉴런으로",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.13"
+      ],
+      "segment_ids": [
+        "ML8.A.13.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.perceptron",
+      "canonical_label": "Perceptron: 인공 뉴런 1개",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.17"
+      ],
+      "segment_ids": [
+        "ML8.A.17.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Perceptron"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.deep_neural_network",
+      "canonical_label": "Deep Neural Network: 층을 깊게 쌓는 이유",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.21"
+      ],
+      "segment_ids": [
+        "ML8.A.21.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Deep",
+        "Neural",
+        "Network"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.neural_network",
+      "canonical_label": "Neural Network가 바꾼 분야",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.26"
+      ],
+      "segment_ids": [
+        "ML8.A.26.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Neural",
+        "Network"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.neural_network_a029",
+      "canonical_label": "Neural Network의 핵심 3요소",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.29"
+      ],
+      "segment_ids": [
+        "ML8.A.29.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Neural",
+        "Network"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.forward_loss_backward_update",
+      "canonical_label": "학습 루프: Forward, Loss, Backward, Update",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.34"
+      ],
+      "segment_ids": [
+        "ML8.A.34.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Forward",
+        "Loss",
+        "Backward",
+        "Update"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.perceptron_a038",
+      "canonical_label": "Perceptron은 선형 분류기다",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.38"
+      ],
+      "segment_ids": [
+        "ML8.A.38.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Perceptron"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.and_or_nand_xor",
+      "canonical_label": "AND, OR, NAND, XOR와 선형 분리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.42"
+      ],
+      "segment_ids": [
+        "ML8.A.42.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "AND",
+        "OR",
+        "NAND",
+        "XOR"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.perceptron_a047",
+      "canonical_label": "Perceptron 학습 규칙",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.47"
+      ],
+      "segment_ids": [
+        "ML8.A.47.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Perceptron"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.xor",
+      "canonical_label": "XOR의 한계와 모순 증명",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.51"
+      ],
+      "segment_ids": [
+        "ML8.A.51.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "XOR"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.mlp_xor",
+      "canonical_label": "MLP: 뉴런 조합으로 XOR 해결",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.56"
+      ],
+      "segment_ids": [
+        "ML8.A.56.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "MLP",
+        "XOR"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.notation",
+      "canonical_label": "Notation: 앞으로 사용할 표기법",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.62"
+      ],
+      "segment_ids": [
+        "ML8.A.62.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Notation"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_15",
+      "canonical_label": "왜 비선형 활성화가 필요한가",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.67"
+      ],
+      "segment_ids": [
+        "ML8.A.67.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_16",
+      "canonical_label": "수업 체크포인트",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.71"
+      ],
+      "segment_ids": [
+        "ML8.A.71.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.perceptron_a075",
+      "canonical_label": "심화 브리지: 선형회귀에서 Perceptron으로",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.75"
+      ],
+      "segment_ids": [
+        "ML8.A.75.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Perceptron"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.hidden_layer",
+      "canonical_label": "Hidden layer는 무엇을 대신하는가",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.79"
+      ],
+      "segment_ids": [
+        "ML8.A.79.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Hidden",
+        "layer"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_19",
+      "canonical_label": "순전파, 역전파, 체인룰",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.84"
+      ],
+      "segment_ids": [
+        "ML8.A.84.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_20",
+      "canonical_label": "순전파 기반 탐색과 역전파는 어떻게 다른가",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.89"
+      ],
+      "segment_ids": [
+        "ML8.A.89.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_21",
+      "canonical_label": "역전파와 탐색은 보완 가능한가",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.94"
+      ],
+      "segment_ids": [
+        "ML8.A.94.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_22",
+      "canonical_label": "이미지 전문가 라벨 예시: 왜 신경망을 쓰는가",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.98"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_23",
+      "canonical_label": "최종 개념 지도",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.105"
+      ],
+      "segment_ids": [
+        "ML8.A.105.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML8.section_24",
+      "canonical_label": "최종 보강: 오늘 헷갈린 지점 총정리",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML8.A.109"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    }
+  ]
+}

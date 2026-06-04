@@ -1,17 +1,17 @@
 ---
-description: 머신러닝 14강 진행 — 브랜치·폴더·강의 순서 인지
+description: 머신러닝 15강 진행 — 브랜치·폴더·강의 순서 인지
 globs: ML/**/*
 alwaysApply: true
 ---
 
-# 머신러닝(ML) 14강 컨텍스트
+# 머신러닝(ML) 15강 컨텍스트
 
 ## 현재 진행
-- **오늘(5/29): 머신러닝 14강** 진행 중임을 인지한다.
-- ML 관련 작업·노트 정리·복습 요청 시 **14강** 기준으로 이어지는 맥락으로 응답한다.
-- 오늘 강의 노트 파일: **`ML/20260529.md`**
-- 오늘 raw 파일: **`ML/20260529_raw.md`**
-- 오늘 원자료: **`ML/week13.pdf` 전체 36페이지**
+- **오늘(6/4): 머신러닝 15강** 진행 중임을 인지한다.
+- ML 관련 작업·노트 정리·복습 요청 시 **15강** 기준으로 이어지는 맥락으로 응답한다.
+- 오늘 강의 노트 파일: **`ML/20260604.md`**
+- 오늘 raw 파일: **`ML/20260604_raw.md`**
+- 오늘 원자료: **`ML/week14_NN실험Tips.pdf` 22페이지**, **`ML/wk_14_cnn (1).pdf` 35페이지**, **`ML/week14_lecture_keras_torch_results.ipynb`**, **`ML/cnn_fMNIST.ipynb`**
 
 ## 브랜치·폴더
 - ML 과목 작업은 **브랜치 `DS_ML`** 에서 진행한다.
@@ -34,8 +34,21 @@ alwaysApply: true
 | **12강** | **2026-05-21** | **`20260521.md`** | **Layer abstraction·vectorized backprop·deeper network** |
 | **13강** | **2026-05-28** | **`20260528.md`** | **Keras DNN 회귀·분류, Boston Housing, MNIST, MSE/MAE, Softmax/Cross Entropy, Optimizer(SGD/Momentum/RMSProp/Adam)** |
 | **14강** | **2026-05-29** | **`20260529.md`** | **`week13.pdf` 전체 기반 DNN 회귀 데이터 프로세싱·모델링·검증 강의, Boston Housing, DataFrame/EDA, CHAS 제거, train/test split, MinMax scaling, Sequential/Dense, compile/fit/history, inverse transform, MAE/scatter, MNIST 비교** |
+| **15강** | **2026-06-04** | **`20260604.md`** | **Week 14 PDF 2종 및 보충 노트북 2종 기반 실험 설계·과적합 대응·CNN 입문, 결측치/정규화/범주형/시간 변수, train/validation/test 3분할, data leakage, loss curve, Dropout/L2/EarlyStopping/BatchNorm, Energy 실습 baseline vs regularized 결과, receptive field, convolution, pooling, Fashion-MNIST Dense baseline vs CNN, ImageNet 모델 계보** |
 
-## 13강 핵심 요지 (직전 강의, `20260528.md`)
+## 15강 핵심 요지 (오늘 강의, `20260604.md`)
+- **실험 설계 표준화**: 결측치 처리, 수치형 scaling, 범주형 encoding, 시간 변수 feature engineering, train/validation/test 3분할을 하나의 실험 규칙으로 정리하고 `week14_lecture_keras_torch_results.ipynb` 실행 결과를 통합한다.
+- **과적합 진단과 처방**: train loss와 validation loss curve를 비교해 underfit/good fit/overfit을 판정하고, EarlyStopping, Dropout, L2, BatchNorm을 적용한다. 단, Energy 실습에서는 regularized model이 baseline보다 낮은 test 성능을 보여 과정규화 가능성까지 함께 다룬다.
+- **CNN 입문**: Dense MNIST의 한계를 receptive field와 공간 구조 손실로 설명하고, filter/kernel, convolution, feature map, padding, stride, pooling, flatten, Dense classifier 흐름으로 확장한다. `cnn_fMNIST.ipynb` 기준 Dense baseline test accuracy 0.8866, CNN test accuracy 0.9040을 비교한다.
+- **모델 계보**: ImageNet, AlexNet, VGG, ResNet 등을 통해 CNN 구조 발전의 이유를 짚는다.
+
+## 14강 핵심 요지 (직전 강의, `20260529.md`)
+- **DNN 회귀 데이터 프로세싱**: Boston Housing dataset object에서 `data`, `target`, `feature_names`를 분리하고 DataFrame/EDA를 거쳐 모델 입력을 구성했다.
+- **전처리와 모델 연결**: `CHAS` 제거, train/test split, MinMax scaling, `input_shape=(12,)`, `Dense(1)`, MSE/MAE, Adam을 연결했다.
+- **Validation(test)**: `history`, inverse transform, MAE, 예측 산점도로 처음 보는 데이터에서 모델을 확인했다.
+- **15강 연결**: 14강의 2분할/전처리 흐름을 train/validation/test 3분할, data leakage 방지, 과적합 진단, regularization toolkit으로 확장한다.
+
+## 13강 핵심 요지 (`20260528.md`)
 - **Keras DNN 모델링 절차**: import → data preparing → EDA → preprocessing → modeling/training → validation 흐름을 정리했다.
 - **회귀 설계**: Boston Housing 기반 DNN 회귀에서 activation 없는 `Dense(1)`, MSE loss, MAE metric, Adam optimizer를 연결했다.
 - **분류 설계**: MNIST 다중분류에서 `Flatten`, `Dense(..., relu)`, `Dense(10, softmax)`, sparse categorical cross entropy, accuracy를 연결했다.
@@ -62,7 +75,7 @@ alwaysApply: true
 - 8강에서 제시한 Forward → Loss → Backward → Update 루프의 **수학 층**을 10강에서 정리했다.
 
 ## 노트 작성 원칙
-- 사용자가 슬라이드 PDF 텍스트·메모·코드를 제시하면 raw는 **`ML/20260529_raw.md`** 에 누적하고, 정리본은 **`ML/20260529.md`** 에 반영한다.
+- 사용자가 슬라이드 PDF 텍스트·메모·코드를 제시하면 raw는 **`ML/20260604_raw.md`** 에 누적하고, 정리본은 **`ML/20260604.md`** 에 반영한다.
 - 기존 스타일 준수: **H1 제목 → 심층 브리핑 → 강의 현황 포인터 → 목차 → 본문(표·LaTeX·코드)**
 - 수식은 인라인 `\( \)` / 블록 `\[ \]` LaTeX 사용.
-- 선행 강의(8강 MLP·학습 루프, 10강 미분·Chain Rule·GD, 11강 2-2-1 Backprop, 12강 Layer abstraction, **13강 Keras DNN·optimizer**)와 개념 연결 고리를 명시한다.
+- 선행 강의(8강 MLP·학습 루프, 10강 미분·Chain Rule·GD, 11강 2-2-1 Backprop, 12강 Layer abstraction, 13강 Keras DNN·optimizer, 14강 DNN 회귀 데이터 프로세싱)와 개념 연결 고리를 명시한다.

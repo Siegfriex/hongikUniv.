@@ -1,0 +1,2 @@
+{"_skeleton_note":"이 행은 템플릿 안내. 실제 사용 시 삭제. segment_id 패턴 = {section_id}.local_{seq:03d}, segment_type ∈ admin|smalltalk|lecture_core|admin_or_other_lecture|case_story|example_only"}
+{"segment_id":"<COURSE><N>.A.1.local_001","section_id":"<COURSE><N>.A.1","local_seq":1,"time_start":"00:00","time_end":"00:00","timecode_raw":"00:00","speaker":"참석자 1","segment_type":"admin","source_line_start":1,"source_line_end":1,"text_raw":"<원문 그대로>","normalized_candidate":null,"transcript_file":"<YYYYMMDD>_<N>강_강의록.txt","summary":"<한 줄>","topics":["<topic1>","<topic2>"]}

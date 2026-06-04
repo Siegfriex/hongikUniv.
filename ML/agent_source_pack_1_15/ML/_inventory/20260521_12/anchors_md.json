@@ -1,0 +1,829 @@
+{
+  "lecture_id": "20260521_12",
+  "structure_ssot_source": "ML/20260521_12강.md",
+  "anchors": [
+    {
+      "anchor_id": "ML12.A.1",
+      "list_index": 1,
+      "source_line": 1,
+      "heading_level": 1,
+      "anchor_label_raw": "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+      "anchor_label_canonical": "ml_layer_abstraction_vectorized_backprop",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.2",
+      "list_index": 2,
+      "source_line": 9,
+      "heading_level": 2,
+      "anchor_label_raw": "심층 브리핑",
+      "anchor_label_canonical": "anchor_2",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "심층 브리핑"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.3",
+      "list_index": 3,
+      "source_line": 25,
+      "heading_level": 2,
+      "anchor_label_raw": "강의 현황",
+      "anchor_label_canonical": "anchor_3",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "강의 현황"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.4",
+      "list_index": 4,
+      "source_line": 36,
+      "heading_level": 2,
+      "anchor_label_raw": "보조자료 맵",
+      "anchor_label_canonical": "anchor_4",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "보조자료 맵"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.5",
+      "list_index": 5,
+      "source_line": 45,
+      "heading_level": 2,
+      "anchor_label_raw": "목차",
+      "anchor_label_canonical": "anchor_5",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "목차"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.6",
+      "list_index": 6,
+      "source_line": 61,
+      "heading_level": 2,
+      "anchor_label_raw": "1. 직전 복습: 2-2-1 Backprop의 일반 패턴",
+      "anchor_label_canonical": "backprop",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "1. 직전 복습: 2-2-1 Backprop의 일반 패턴"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.7",
+      "list_index": 7,
+      "source_line": 78,
+      "heading_level": 2,
+      "anchor_label_raw": "2. Layer Abstraction: `Layer`·`Dense`·activation",
+      "anchor_label_canonical": "layer_abstraction_activation",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "2. Layer Abstraction: `Layer`·`Dense`·activation"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.8",
+      "list_index": 8,
+      "source_line": 80,
+      "heading_level": 3,
+      "anchor_label_raw": "2.1 공통 인터페이스",
+      "anchor_label_canonical": "anchor_8",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "2. Layer Abstraction: `Layer`·`Dense`·activation",
+        "2.1 공통 인터페이스"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.9",
+      "list_index": 9,
+      "source_line": 133,
+      "heading_level": 3,
+      "anchor_label_raw": "2.2 Local Gradient 사고법",
+      "anchor_label_canonical": "local_gradient",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "2. Layer Abstraction: `Layer`·`Dense`·activation",
+        "2.2 Local Gradient 사고법"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.10",
+      "list_index": 10,
+      "source_line": 169,
+      "heading_level": 3,
+      "anchor_label_raw": "2.3 Dense Layer",
+      "anchor_label_canonical": "dense_layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "2. Layer Abstraction: `Layer`·`Dense`·activation",
+        "2.3 Dense Layer"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.11",
+      "list_index": 11,
+      "source_line": 223,
+      "heading_level": 3,
+      "anchor_label_raw": "2.4 Activation Layer",
+      "anchor_label_canonical": "activation_layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "2. Layer Abstraction: `Layer`·`Dense`·activation",
+        "2.4 Activation Layer"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.12",
+      "list_index": 12,
+      "source_line": 277,
+      "heading_level": 3,
+      "anchor_label_raw": "2.5 클래스별 메서드 입출력 정리",
+      "anchor_label_canonical": "anchor_12",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "2. Layer Abstraction: `Layer`·`Dense`·activation",
+        "2.5 클래스별 메서드 입출력 정리"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.13",
+      "list_index": 13,
+      "source_line": 299,
+      "heading_level": 2,
+      "anchor_label_raw": "3. Vectorized Backprop: batch dimension과 matrix shape",
+      "anchor_label_canonical": "vectorized_backprop_batch_dimension_matrix",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "3. Vectorized Backprop: batch dimension과 matrix shape"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.14",
+      "list_index": 14,
+      "source_line": 321,
+      "heading_level": 2,
+      "anchor_label_raw": "4. Network 조립과 mini-batch 학습",
+      "anchor_label_canonical": "network_mini_batch",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "4. Network 조립과 mini-batch 학습"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.15",
+      "list_index": 15,
+      "source_line": 358,
+      "heading_level": 3,
+      "anchor_label_raw": "4.1 왜 `add` 메서드를 쓰는가",
+      "anchor_label_canonical": "anchor_15",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "4. Network 조립과 mini-batch 학습",
+        "4.1 왜 `add` 메서드를 쓰는가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.16",
+      "list_index": 16,
+      "source_line": 399,
+      "heading_level": 3,
+      "anchor_label_raw": "4.2 왜 `for`문을 사용하는가",
+      "anchor_label_canonical": "anchor_16",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "4. Network 조립과 mini-batch 학습",
+        "4.2 왜 `for`문을 사용하는가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.17",
+      "list_index": 17,
+      "source_line": 433,
+      "heading_level": 3,
+      "anchor_label_raw": "4.3 왜 backward는 `reversed()`인가",
+      "anchor_label_canonical": "backward",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "4. Network 조립과 mini-batch 학습",
+        "4.3 왜 backward는 `reversed()`인가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.18",
+      "list_index": 18,
+      "source_line": 467,
+      "heading_level": 2,
+      "anchor_label_raw": "5. 실험 흐름: XOR·Vanishing Gradient·Iris·MNIST",
+      "anchor_label_canonical": "xor_vanishing_gradient_iris_mnist",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "5. 실험 흐름: XOR·Vanishing Gradient·Iris·MNIST"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.19",
+      "list_index": 19,
+      "source_line": 480,
+      "heading_level": 3,
+      "anchor_label_raw": "5.1 Vanishing Gradient 실험",
+      "anchor_label_canonical": "vanishing_gradient",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "5. 실험 흐름: XOR·Vanishing Gradient·Iris·MNIST",
+        "5.1 Vanishing Gradient 실험"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.20",
+      "list_index": 20,
+      "source_line": 497,
+      "heading_level": 3,
+      "anchor_label_raw": "5.2 Iris 분류",
+      "anchor_label_canonical": "iris",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "5. 실험 흐름: XOR·Vanishing Gradient·Iris·MNIST",
+        "5.2 Iris 분류"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.21",
+      "list_index": 21,
+      "source_line": 512,
+      "heading_level": 3,
+      "anchor_label_raw": "5.3 MNIST 손글씨 인식",
+      "anchor_label_canonical": "mnist",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "5. 실험 흐름: XOR·Vanishing Gradient·Iris·MNIST",
+        "5.3 MNIST 손글씨 인식"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.22",
+      "list_index": 22,
+      "source_line": 531,
+      "heading_level": 2,
+      "anchor_label_raw": "6. 분류와 회귀: 출력층·손실·gradient 선택",
+      "anchor_label_canonical": "gradient",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "6. 분류와 회귀: 출력층·손실·gradient 선택"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.23",
+      "list_index": 23,
+      "source_line": 557,
+      "heading_level": 3,
+      "anchor_label_raw": "6.1 Loss 함수가 하는 일",
+      "anchor_label_canonical": "loss",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "6. 분류와 회귀: 출력층·손실·gradient 선택",
+        "6.1 Loss 함수가 하는 일"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.24",
+      "list_index": 24,
+      "source_line": 586,
+      "heading_level": 3,
+      "anchor_label_raw": "6.2 Softmax는 activation인가, loss인가",
+      "anchor_label_canonical": "softmax_activation_loss",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "6. 분류와 회귀: 출력층·손실·gradient 선택",
+        "6.2 Softmax는 activation인가, loss인가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.25",
+      "list_index": 25,
+      "source_line": 614,
+      "heading_level": 3,
+      "anchor_label_raw": "6.3 왜 Softmax와 Cross Entropy를 같이 묶는가",
+      "anchor_label_canonical": "softmax_cross_entropy",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "6. 분류와 회귀: 출력층·손실·gradient 선택",
+        "6.3 왜 Softmax와 Cross Entropy를 같이 묶는가"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.26",
+      "list_index": 26,
+      "source_line": 648,
+      "heading_level": 3,
+      "anchor_label_raw": "6.4 마지막 Dense 뒤에 Softmax layer를 붙이지 않는 이유",
+      "anchor_label_canonical": "dense_softmax_layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "6. 분류와 회귀: 출력층·손실·gradient 선택",
+        "6.4 마지막 Dense 뒤에 Softmax layer를 붙이지 않는 이유"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.27",
+      "list_index": 27,
+      "source_line": 669,
+      "heading_level": 2,
+      "anchor_label_raw": "7. Keras와의 일대일 대응",
+      "anchor_label_canonical": "keras",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "7. Keras와의 일대일 대응"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.28",
+      "list_index": 28,
+      "source_line": 694,
+      "heading_level": 2,
+      "anchor_label_raw": "8. 구현 포인터: 기존 `mlp_scratch.py`에서 일반 Layer로",
+      "anchor_label_canonical": "layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "8. 구현 포인터: 기존 `mlp_scratch.py`에서 일반 Layer로"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.29",
+      "list_index": 29,
+      "source_line": 705,
+      "heading_level": 2,
+      "anchor_label_raw": "9. 오늘의 핵심·헷갈림·다음 연결",
+      "anchor_label_canonical": "anchor_29",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "9. 오늘의 핵심·헷갈림·다음 연결"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.30",
+      "list_index": 30,
+      "source_line": 707,
+      "heading_level": 3,
+      "anchor_label_raw": "핵심 3개",
+      "anchor_label_canonical": "anchor_30",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "9. 오늘의 핵심·헷갈림·다음 연결",
+        "핵심 3개"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.31",
+      "list_index": 31,
+      "source_line": 713,
+      "heading_level": 3,
+      "anchor_label_raw": "헷갈리기 쉬운 포인트",
+      "anchor_label_canonical": "anchor_31",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "9. 오늘의 핵심·헷갈림·다음 연결",
+        "헷갈리기 쉬운 포인트"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.32",
+      "list_index": 32,
+      "source_line": 720,
+      "heading_level": 3,
+      "anchor_label_raw": "다음 연결",
+      "anchor_label_canonical": "anchor_32",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "9. 오늘의 핵심·헷갈림·다음 연결",
+        "다음 연결"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.33",
+      "list_index": 33,
+      "source_line": 727,
+      "heading_level": 2,
+      "anchor_label_raw": "10. 노트북 인텔리전스 브리핑",
+      "anchor_label_canonical": "anchor_33",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "10. 노트북 인텔리전스 브리핑"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.34",
+      "list_index": 34,
+      "source_line": 748,
+      "heading_level": 2,
+      "anchor_label_raw": "11. 노트북 전체 인용 워크스루",
+      "anchor_label_canonical": "anchor_34",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.35",
+      "list_index": 35,
+      "source_line": 752,
+      "heading_level": 3,
+      "anchor_label_raw": "11.1 Cell 1 — 강의 실습 전체 목차",
+      "anchor_label_canonical": "cell",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.1 Cell 1 — 강의 실습 전체 목차"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.36",
+      "list_index": 36,
+      "source_line": 773,
+      "heading_level": 3,
+      "anchor_label_raw": "11.2 Cell 2 — 라이브러리 import와 오늘 사용할 객체",
+      "anchor_label_canonical": "cell_import",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.2 Cell 2 — 라이브러리 import와 오늘 사용할 객체"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.37",
+      "list_index": 37,
+      "source_line": 790,
+      "heading_level": 3,
+      "anchor_label_raw": "11.3 Cell 3 — 예제 1 도입: Dense 하나로 Layer 패턴 보기",
+      "anchor_label_canonical": "cell_dense_layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.3 Cell 3 — 예제 1 도입: Dense 하나로 Layer 패턴 보기"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.38",
+      "list_index": 38,
+      "source_line": 804,
+      "heading_level": 3,
+      "anchor_label_raw": "11.4 Cell 4 — Dense forward 직접 실행",
+      "anchor_label_canonical": "cell_dense_forward",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.4 Cell 4 — Dense forward 직접 실행"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.39",
+      "list_index": 39,
+      "source_line": 831,
+      "heading_level": 3,
+      "anchor_label_raw": "11.5 Cell 5 — Dense backward 직접 실행",
+      "anchor_label_canonical": "cell_dense_backward",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.5 Cell 5 — Dense backward 직접 실행"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.40",
+      "list_index": 40,
+      "source_line": 854,
+      "heading_level": 3,
+      "anchor_label_raw": "11.6 Cell 6 — Dense 관찰 요약",
+      "anchor_label_canonical": "cell_dense",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.6 Cell 6 — Dense 관찰 요약"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.41",
+      "list_index": 41,
+      "source_line": 869,
+      "heading_level": 3,
+      "anchor_label_raw": "11.7 Cell 7 — 예제 2 도입: Activation Layer",
+      "anchor_label_canonical": "cell_activation_layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.7 Cell 7 — 예제 2 도입: Activation Layer"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.42",
+      "list_index": 42,
+      "source_line": 880,
+      "heading_level": 3,
+      "anchor_label_raw": "11.8 Cell 8 — ReLU와 Sigmoid forward/backward 비교",
+      "anchor_label_canonical": "cell_relu_sigmoid_forward_backward",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.8 Cell 8 — ReLU와 Sigmoid forward/backward 비교"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.43",
+      "list_index": 43,
+      "source_line": 919,
+      "heading_level": 3,
+      "anchor_label_raw": "11.9 Cell 9 — 예제 3 도입: XOR을 Layer 시스템으로 재현",
+      "anchor_label_canonical": "cell_xor_layer",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.9 Cell 9 — 예제 3 도입: XOR을 Layer 시스템으로 재현"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.44",
+      "list_index": 44,
+      "source_line": 932,
+      "heading_level": 3,
+      "anchor_label_raw": "11.10 Cell 10 — XOR 네트워크 조립과 직접 학습 루프",
+      "anchor_label_canonical": "cell_xor",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.10 Cell 10 — XOR 네트워크 조립과 직접 학습 루프"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.45",
+      "list_index": 45,
+      "source_line": 990,
+      "heading_level": 3,
+      "anchor_label_raw": "11.11 Cell 11 — XOR 구조 변경의 의미",
+      "anchor_label_canonical": "cell_xor",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.11 Cell 11 — XOR 구조 변경의 의미"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.46",
+      "list_index": 46,
+      "source_line": 1002,
+      "heading_level": 3,
+      "anchor_label_raw": "11.12 Cell 12 — 예제 4 도입: Vanishing Gradient",
+      "anchor_label_canonical": "cell_vanishing_gradient",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.12 Cell 12 — 예제 4 도입: Vanishing Gradient"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.47",
+      "list_index": 47,
+      "source_line": 1015,
+      "heading_level": 3,
+      "anchor_label_raw": "11.13 Cell 13 — 동일 깊이 네트워크에서 첫 층 gradient 비교",
+      "anchor_label_canonical": "cell_gradient",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.13 Cell 13 — 동일 깊이 네트워크에서 첫 층 gradient 비교"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.48",
+      "list_index": 48,
+      "source_line": 1062,
+      "heading_level": 3,
+      "anchor_label_raw": "11.14 Cell 14 — 층별 gradient 시각화",
+      "anchor_label_canonical": "cell_gradient",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.14 Cell 14 — 층별 gradient 시각화"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.49",
+      "list_index": 49,
+      "source_line": 1093,
+      "heading_level": 3,
+      "anchor_label_raw": "11.15 Cell 15 — Vanishing 실험 결론",
+      "anchor_label_canonical": "cell_vanishing",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.15 Cell 15 — Vanishing 실험 결론"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.50",
+      "list_index": 50,
+      "source_line": 1107,
+      "heading_level": 3,
+      "anchor_label_raw": "11.16 Cell 16 — 예제 5 도입: Iris",
+      "anchor_label_canonical": "cell_iris",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.16 Cell 16 — 예제 5 도입: Iris"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.51",
+      "list_index": 51,
+      "source_line": 1118,
+      "heading_level": 3,
+      "anchor_label_raw": "11.17 Cell 17 — Iris 데이터 준비",
+      "anchor_label_canonical": "cell_iris",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.17 Cell 17 — Iris 데이터 준비"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.52",
+      "list_index": 52,
+      "source_line": 1146,
+      "heading_level": 3,
+      "anchor_label_raw": "11.18 Cell 18 — Iris 네트워크와 SoftmaxCE 학습",
+      "anchor_label_canonical": "cell_iris_softmaxce",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.18 Cell 18 — Iris 네트워크와 SoftmaxCE 학습"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.53",
+      "list_index": 53,
+      "source_line": 1183,
+      "heading_level": 3,
+      "anchor_label_raw": "11.19 Cell 19 — Iris loss curve",
+      "anchor_label_canonical": "cell_iris_loss_curve",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.19 Cell 19 — Iris loss curve"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.54",
+      "list_index": 54,
+      "source_line": 1198,
+      "heading_level": 3,
+      "anchor_label_raw": "11.20 Cell 20 — 예제 6 도입: MNIST",
+      "anchor_label_canonical": "cell_mnist",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.20 Cell 20 — 예제 6 도입: MNIST"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.55",
+      "list_index": 55,
+      "source_line": 1215,
+      "heading_level": 3,
+      "anchor_label_raw": "11.21 Cell 21 — MNIST 로드, 정규화, one-hot, 부분 샘플링",
+      "anchor_label_canonical": "cell_mnist_one_hot",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.21 Cell 21 — MNIST 로드, 정규화, one-hot, 부분 샘플링"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.56",
+      "list_index": 56,
+      "source_line": 1286,
+      "heading_level": 3,
+      "anchor_label_raw": "11.22 Cell 22 — MNIST 샘플 확인",
+      "anchor_label_canonical": "cell_mnist",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.22 Cell 22 — MNIST 샘플 확인"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.57",
+      "list_index": 57,
+      "source_line": 1302,
+      "heading_level": 3,
+      "anchor_label_raw": "11.23 Cell 23 — MNIST 네트워크와 파라미터 수",
+      "anchor_label_canonical": "cell_mnist",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.23 Cell 23 — MNIST 네트워크와 파라미터 수"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.58",
+      "list_index": 58,
+      "source_line": 1343,
+      "heading_level": 3,
+      "anchor_label_raw": "11.24 Cell 24 — MNIST mini-batch 학습과 test accuracy 기록",
+      "anchor_label_canonical": "cell_mnist_mini_batch_test",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.24 Cell 24 — MNIST mini-batch 학습과 test accuracy 기록"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.59",
+      "list_index": 59,
+      "source_line": 1399,
+      "heading_level": 3,
+      "anchor_label_raw": "11.25 Cell 25 — MNIST 학습 곡선과 오분류 확인",
+      "anchor_label_canonical": "cell_mnist",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.25 Cell 25 — MNIST 학습 곡선과 오분류 확인"
+      ],
+      "blocks": []
+    },
+    {
+      "anchor_id": "ML12.A.60",
+      "list_index": 60,
+      "source_line": 1437,
+      "heading_level": 3,
+      "anchor_label_raw": "11.26 노트북 전체 흐름의 최종 연결",
+      "anchor_label_canonical": "anchor_60",
+      "anchor_path": [
+        "2026-05-21 ML 12강: Layer Abstraction · Vectorized Backprop · Deep Network",
+        "11. 노트북 전체 인용 워크스루",
+        "11.26 노트북 전체 흐름의 최종 연결"
+      ],
+      "blocks": []
+    }
+  ]
+}

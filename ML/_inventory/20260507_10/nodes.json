@@ -1,0 +1,127 @@
+{
+  "lecture_id": "20260507_10",
+  "notes": "Nodes generated from numbered main headings; cross-lecture edges deferred to avoid ghost IDs.",
+  "nodes": [
+    {
+      "node_id": "n_ML10.section_01",
+      "canonical_label": "강의 개요",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.4"
+      ],
+      "segment_ids": [],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.section_02",
+      "canonical_label": "미분 복습",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.12"
+      ],
+      "segment_ids": [
+        "ML10.A.12.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.section_03",
+      "canonical_label": "편미분과 그래디언트",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.28"
+      ],
+      "segment_ids": [
+        "ML10.A.28.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.chain_rule",
+      "canonical_label": "Chain Rule",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.52"
+      ],
+      "segment_ids": [
+        "ML10.A.52.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Chain",
+        "Rule"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.sigmoid",
+      "canonical_label": "Sigmoid 미분",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.66"
+      ],
+      "segment_ids": [
+        "ML10.A.66.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Sigmoid"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.gradient_descent",
+      "canonical_label": "Gradient Descent",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.76"
+      ],
+      "segment_ids": [
+        "ML10.A.76.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Gradient",
+        "Descent"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.backprop",
+      "canonical_label": "신경망/Backprop과의 연결",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.87"
+      ],
+      "segment_ids": [
+        "ML10.A.87.local_001"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [
+        "Backprop"
+      ],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    },
+    {
+      "node_id": "n_ML10.section_08",
+      "canonical_label": "정리 및 연습 아이디어",
+      "status": "supported_md_primary",
+      "anchor_ids": [
+        "ML10.A.98"
+      ],
+      "segment_ids": [
+        "ML10.A.98.local_001",
+        "ML10.A.98.local_002"
+      ],
+      "cross_lecture_frame": false,
+      "aliases": [],
+      "notes": "Generated from numbered main heading and aligned transcript segment."
+    }
+  ]
+}

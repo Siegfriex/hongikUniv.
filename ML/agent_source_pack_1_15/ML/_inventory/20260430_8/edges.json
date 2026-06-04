@@ -1,0 +1,189 @@
+{
+  "lecture_id": "20260430_8",
+  "edges": [
+    {
+      "edge_id": "e_ML8_section_01_to_feature_engineering",
+      "type": "leads_to",
+      "from": "n_ML8.section_01",
+      "to": "n_ML8.feature_engineering",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_feature_engineering_to_section_03",
+      "type": "leads_to",
+      "from": "n_ML8.feature_engineering",
+      "to": "n_ML8.section_03",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_03_to_perceptron",
+      "type": "leads_to",
+      "from": "n_ML8.section_03",
+      "to": "n_ML8.perceptron",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_perceptron_to_deep_neural_network",
+      "type": "leads_to",
+      "from": "n_ML8.perceptron",
+      "to": "n_ML8.deep_neural_network",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_deep_neural_network_to_neural_network",
+      "type": "leads_to",
+      "from": "n_ML8.deep_neural_network",
+      "to": "n_ML8.neural_network",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_neural_network_to_neural_network_a029",
+      "type": "leads_to",
+      "from": "n_ML8.neural_network",
+      "to": "n_ML8.neural_network_a029",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_neural_network_a029_to_forward_loss_backward_update",
+      "type": "leads_to",
+      "from": "n_ML8.neural_network_a029",
+      "to": "n_ML8.forward_loss_backward_update",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_forward_loss_backward_update_to_perceptron_a038",
+      "type": "leads_to",
+      "from": "n_ML8.forward_loss_backward_update",
+      "to": "n_ML8.perceptron_a038",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_perceptron_a038_to_and_or_nand_xor",
+      "type": "leads_to",
+      "from": "n_ML8.perceptron_a038",
+      "to": "n_ML8.and_or_nand_xor",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_and_or_nand_xor_to_perceptron_a047",
+      "type": "leads_to",
+      "from": "n_ML8.and_or_nand_xor",
+      "to": "n_ML8.perceptron_a047",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_perceptron_a047_to_xor",
+      "type": "leads_to",
+      "from": "n_ML8.perceptron_a047",
+      "to": "n_ML8.xor",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_xor_to_mlp_xor",
+      "type": "leads_to",
+      "from": "n_ML8.xor",
+      "to": "n_ML8.mlp_xor",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_mlp_xor_to_notation",
+      "type": "leads_to",
+      "from": "n_ML8.mlp_xor",
+      "to": "n_ML8.notation",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_notation_to_section_15",
+      "type": "leads_to",
+      "from": "n_ML8.notation",
+      "to": "n_ML8.section_15",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_15_to_section_16",
+      "type": "leads_to",
+      "from": "n_ML8.section_15",
+      "to": "n_ML8.section_16",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_16_to_perceptron_a075",
+      "type": "leads_to",
+      "from": "n_ML8.section_16",
+      "to": "n_ML8.perceptron_a075",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_perceptron_a075_to_hidden_layer",
+      "type": "leads_to",
+      "from": "n_ML8.perceptron_a075",
+      "to": "n_ML8.hidden_layer",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_hidden_layer_to_section_19",
+      "type": "leads_to",
+      "from": "n_ML8.hidden_layer",
+      "to": "n_ML8.section_19",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_19_to_section_20",
+      "type": "leads_to",
+      "from": "n_ML8.section_19",
+      "to": "n_ML8.section_20",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_20_to_section_21",
+      "type": "leads_to",
+      "from": "n_ML8.section_20",
+      "to": "n_ML8.section_21",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_21_to_section_22",
+      "type": "leads_to",
+      "from": "n_ML8.section_21",
+      "to": "n_ML8.section_22",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_22_to_section_23",
+      "type": "leads_to",
+      "from": "n_ML8.section_22",
+      "to": "n_ML8.section_23",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    },
+    {
+      "edge_id": "e_ML8_section_23_to_section_24",
+      "type": "leads_to",
+      "from": "n_ML8.section_23",
+      "to": "n_ML8.section_24",
+      "status": "supported",
+      "notes": "Numbered lecture section order."
+    }
+  ]
+}
