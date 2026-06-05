@@ -1,0 +1,4 @@
+interface:
+  display_name: "IPYNB Mistake Tutor"
+  short_description: "Grade solved notebooks and update answer files."
+  default_prompt: "Grade the solved notebook using the provided rubric and update the matching answer notebook in Korean."

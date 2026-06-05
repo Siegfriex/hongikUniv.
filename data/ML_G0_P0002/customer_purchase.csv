@@ -1,0 +1,9 @@
+customer_id,age,income,city,device_type,visit_count,cart_amount,purchased
+101,23,3500,Seoul,mobile,5,120.5,1
+102,41,5200,Busan,desktop,2,0.0,0
+103,35,4300,Seoul,mobile,8,230.0,1
+104,29,3900,Daegu,tablet,1,0.0,0
+105,52,6100,Seoul,desktop,3,80.0,1
+106,31,4100,Gwangju,mobile,4,40.0,0
+107,27,3700,Busan,mobile,6,150.0,1
+108,45,5800,Daegu,desktop,2,0.0,0

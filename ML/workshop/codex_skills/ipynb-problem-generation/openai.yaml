@@ -1,0 +1,4 @@
+interface:
+  display_name: "IPYNB Problem Generation"
+  short_description: "Create Korean problem and answer notebooks for a learning phase."
+  default_prompt: "Create a Korean IPYNB problem notebook and matching answer notebook for the requested Gate and Phase."
