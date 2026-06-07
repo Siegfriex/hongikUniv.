@@ -1,0 +1,4153 @@
+{
+  "inventory_meta": {
+    "created_at": "2026-06-07T23:10:25.548608+09:00",
+    "workspace": "/home/sieg/projects-wsl/hongikUniv.-26_1",
+    "scan_root": "ML/code_split",
+    "purpose": "ML_W13_PREP_VISUAL_LECTURE 설계에 이식 가능한 실제/내장/외부 데이터셋 후보 식별",
+    "policy": "원본 파일은 수정하지 않고 새 JSON 인벤토리만 생성. 대형 이미지 데이터는 head/tail sample metadata만 저장.",
+    "output_file": "ML/code_split/dataset_inventory_for_ML_W13_PREP.json"
+  },
+  "file_scan_summary": {
+    "total_files": 32,
+    "files": [
+      {
+        "path": "ML/code_split/0317_ml_numpy (1).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 559461
+      },
+      {
+        "path": "ML/code_split/0324_.txt",
+        "suffix": ".txt",
+        "size_bytes": 1009
+      },
+      {
+        "path": "ML/code_split/0324_ml_eda (3).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 172178
+      },
+      {
+        "path": "ML/code_split/0331_knn-lecture.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 32459
+      },
+      {
+        "path": "ML/code_split/0331_svm-lecture.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 161760
+      },
+      {
+        "path": "ML/code_split/0331_svm_rbf_summary_v2.html",
+        "suffix": ".html",
+        "size_bytes": 15180
+      },
+      {
+        "path": "ML/code_split/0414_dt-lecture (2).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 269850
+      },
+      {
+        "path": "ML/code_split/0428_neural_network_v2.py",
+        "suffix": ".py",
+        "size_bytes": 11016
+      },
+      {
+        "path": "ML/code_split/0428_perceptron.py",
+        "suffix": ".py",
+        "size_bytes": 7714
+      },
+      {
+        "path": "ML/code_split/0428_week09_examples.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 174030
+      },
+      {
+        "path": "ML/code_split/0505_gradient_descent.py",
+        "suffix": ".py",
+        "size_bytes": 3624
+      },
+      {
+        "path": "ML/code_split/0505_week10_examples.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 1029849
+      },
+      {
+        "path": "ML/code_split/0512_backward_pass.html",
+        "suffix": ".html",
+        "size_bytes": 27264
+      },
+      {
+        "path": "ML/code_split/0512_forward_pass.html",
+        "suffix": ".html",
+        "size_bytes": 23307
+      },
+      {
+        "path": "ML/code_split/0512_mlp_reference.html",
+        "suffix": ".html",
+        "size_bytes": 32076
+      },
+      {
+        "path": "ML/code_split/0512_mlp_scratch.py",
+        "suffix": ".py",
+        "size_bytes": 11065
+      },
+      {
+        "path": "ML/code_split/0512_notebook_walkthrough.html",
+        "suffix": ".html",
+        "size_bytes": 38221
+      },
+      {
+        "path": "ML/code_split/0512_week11_examples.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 107608
+      },
+      {
+        "path": "ML/code_split/0519_neural_network.py",
+        "suffix": ".py",
+        "size_bytes": 8760
+      },
+      {
+        "path": "ML/code_split/0519_week12_examples.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 239098
+      },
+      {
+        "path": "ML/code_split/0526_neural_network_v2.py",
+        "suffix": ".py",
+        "size_bytes": 11016
+      },
+      {
+        "path": "ML/code_split/0526_week13_examples.ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 1076254
+      },
+      {
+        "path": "ML/code_split/0526_week13_optimizer.pptx",
+        "suffix": ".pptx",
+        "size_bytes": 1235357
+      },
+      {
+        "path": "ML/code_split/0602_cnn_fMNIST (1).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 77377
+      },
+      {
+        "path": "ML/code_split/0602_mnist_nn (1).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 81884
+      },
+      {
+        "path": "ML/code_split/0602_regression_boston (1).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 311416
+      },
+      {
+        "path": "ML/code_split/0602_week14_lecture_keras_torch_results (1).ipynb",
+        "suffix": ".ipynb",
+        "size_bytes": 251085
+      },
+      {
+        "path": "ML/code_split/cnn_fMNIST (1).ipynb:Zone.Identifier",
+        "suffix": ".Identifier",
+        "size_bytes": 25
+      },
+      {
+        "path": "ML/code_split/mnist_nn (1).ipynb:Zone.Identifier",
+        "suffix": ".Identifier",
+        "size_bytes": 25
+      },
+      {
+        "path": "ML/code_split/neural_network_v2.py:Zone.Identifier",
+        "suffix": ".Identifier",
+        "size_bytes": 88
+      },
+      {
+        "path": "ML/code_split/regression_boston (1).ipynb:Zone.Identifier",
+        "suffix": ".Identifier",
+        "size_bytes": 25
+      },
+      {
+        "path": "ML/code_split/week14_lecture_keras_torch_results (1).ipynb:Zone.Identifier",
+        "suffix": ".Identifier",
+        "size_bytes": 25
+      }
+    ]
+  },
+  "lecture_date_band_map": [
+    {
+      "date_band": "03/17",
+      "theme": "NumPy basics, image array, Titanic missing values",
+      "candidate_dataset_ids": [
+        "seaborn_titanic",
+        "daisy_image_missing_local_file"
+      ]
+    },
+    {
+      "date_band": "03/24",
+      "theme": "Pandas/EDA",
+      "candidate_dataset_ids": [
+        "seaborn_titanic"
+      ]
+    },
+    {
+      "date_band": "03/31",
+      "theme": "KNN/SVM, geometric classification",
+      "candidate_dataset_ids": [
+        "toy_dog_size_knn_svm",
+        "sklearn_iris"
+      ]
+    },
+    {
+      "date_band": "04/14",
+      "theme": "Decision Tree/RandomForest/AdaBoost on Iris",
+      "candidate_dataset_ids": [
+        "sklearn_iris"
+      ]
+    },
+    {
+      "date_band": "04/28",
+      "theme": "Perceptron and hard-coded MLP",
+      "candidate_dataset_ids": [
+        "toy_logic_gates_xor"
+      ]
+    },
+    {
+      "date_band": "05/05",
+      "theme": "Gradient descent and chain rule synthetic surfaces",
+      "candidate_dataset_ids": [
+        "synthetic_loss_surface_not_listed_as_dataset"
+      ]
+    },
+    {
+      "date_band": "05/12",
+      "theme": "Backpropagation and XOR MLP",
+      "candidate_dataset_ids": [
+        "toy_logic_gates_xor"
+      ]
+    },
+    {
+      "date_band": "05/19",
+      "theme": "Layer abstraction, Iris SoftmaxCE, MNIST mini-batch",
+      "candidate_dataset_ids": [
+        "sklearn_iris",
+        "keras_mnist_or_openml_mnist",
+        "toy_logic_gates_xor"
+      ]
+    },
+    {
+      "date_band": "05/26",
+      "theme": "Optimizer comparison",
+      "candidate_dataset_ids": [
+        "sklearn_iris"
+      ]
+    },
+    {
+      "date_band": "06/02",
+      "theme": "Keras/Torch preprocessing, MNIST/Fashion-MNIST/Boston/Energy",
+      "candidate_dataset_ids": [
+        "keras_fashion_mnist",
+        "keras_mnist_or_openml_mnist",
+        "boston_housing_cmu_legacy",
+        "uci_appliances_energy_prediction",
+        "toy_missing_values_week14",
+        "toy_categorical_encoding_week14",
+        "toy_datetime_features_week14",
+        "toy_scaling_week14"
+      ]
+    }
+  ],
+  "recommended_for_ML_W13_PREP_VISUAL_LECTURE": {
+    "primary": [
+      {
+        "dataset_id": "sklearn_iris",
+        "why": "Week13 optimizer notebook already uses Iris; small, local, fast, SoftmaxCE/Dense(3)/optimizer loss curve에 적합"
+      },
+      {
+        "dataset_id": "toy_logic_gates_xor",
+        "why": "Gate1/Gate2 chain rule/backprop 직관에 가장 작고 명확함"
+      },
+      {
+        "dataset_id": "keras_fashion_mnist",
+        "why": "이미지 tensor/Flatten/CNN 대비와 Week13 후속 과제 브리지에 적합하고 현재 Keras cache 존재"
+      }
+    ],
+    "secondary": [
+      {
+        "dataset_id": "seaborn_titanic",
+        "why": "G0-B preprocessing/leakage/categorical/missing value 시각화에 적합"
+      },
+      {
+        "dataset_id": "toy_missing_values_week14",
+        "why": "결측치와 train-only imputation 설명에 즉시 사용 가능"
+      },
+      {
+        "dataset_id": "toy_scaling_week14",
+        "why": "StandardScaler/MinMaxScaler 차이 시각화에 즉시 사용 가능"
+      }
+    ],
+    "avoid_or_defer": [
+      {
+        "dataset_id": "boston_housing_cmu_legacy",
+        "why": "윤리 경고 필요 및 외부 URL 의존. 회귀 inverse_transform 교육에는 가능하나 Week13 prep 주 데이터로는 비권장"
+      },
+      {
+        "dataset_id": "uci_appliances_energy_prediction",
+        "why": "실전성은 좋지만 외부 다운로드와 큰 규모 때문에 prep 노트북에는 subset/cache화 필요"
+      },
+      {
+        "dataset_id": "keras_mnist_or_openml_mnist",
+        "why": "개념상 적합하지만 현재 로컬 캐시 없음. Fashion-MNIST가 현재 대체 가능"
+      }
+    ]
+  },
+  "datasets": [
+    {
+      "dataset_id": "seaborn_titanic",
+      "dataset_name": "Titanic passenger survival dataset",
+      "availability": "local_cache_available",
+      "source_files": [
+        "ML/code_split/0317_ml_numpy (1).ipynb",
+        "ML/code_split/0324_ml_eda (3).ipynb"
+      ],
+      "lecture_date_band": "03/17-03/24",
+      "week_mapping": "Week 2-3: NumPy/Pandas/EDA, missing values, dtype, describe/info, categorical summary",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 split/scaling/leakage의 DataFrame EDA 전 단계",
+        "결측치 처리와 leakage 설명",
+        "categorical/object dtype 처리 예시"
+      ],
+      "applicability": "high_for_preprocessing_visualization_not_optimizer_core",
+      "task_type": "binary classification target candidate: survived",
+      "target_candidates": [
+        "survived"
+      ],
+      "feature_candidates": [
+        "pclass",
+        "sex",
+        "age",
+        "sibsp",
+        "parch",
+        "fare",
+        "embarked",
+        "class",
+        "who",
+        "adult_male",
+        "deck",
+        "embark_town",
+        "alone"
+      ],
+      "risk_notes": [
+        "age/deck/embarked/embark_town 결측치 존재",
+        "sex/class/deck 등 categorical 처리 필요",
+        "survived는 0/1 class label"
+      ],
+      "dataset_profile": {
+        "shape": [
+          891,
+          15
+        ],
+        "schema": [
+          {
+            "name": "survived",
+            "dtype": "int64",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "pclass",
+            "dtype": "int64",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 3
+          },
+          {
+            "name": "sex",
+            "dtype": "str",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "age",
+            "dtype": "float64",
+            "non_null": 714,
+            "missing": 177,
+            "nunique": 88
+          },
+          {
+            "name": "sibsp",
+            "dtype": "int64",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 7
+          },
+          {
+            "name": "parch",
+            "dtype": "int64",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 7
+          },
+          {
+            "name": "fare",
+            "dtype": "float64",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 248
+          },
+          {
+            "name": "embarked",
+            "dtype": "str",
+            "non_null": 889,
+            "missing": 2,
+            "nunique": 3
+          },
+          {
+            "name": "class",
+            "dtype": "category",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 3
+          },
+          {
+            "name": "who",
+            "dtype": "str",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 3
+          },
+          {
+            "name": "adult_male",
+            "dtype": "bool",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "deck",
+            "dtype": "category",
+            "non_null": 203,
+            "missing": 688,
+            "nunique": 7
+          },
+          {
+            "name": "embark_town",
+            "dtype": "str",
+            "non_null": 889,
+            "missing": 2,
+            "nunique": 3
+          },
+          {
+            "name": "alive",
+            "dtype": "str",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "alone",
+            "dtype": "bool",
+            "non_null": 891,
+            "missing": 0,
+            "nunique": 2
+          }
+        ],
+        "numeric_summary": {
+          "survived": {
+            "count": 891.0,
+            "mean": 0.3838383838383838,
+            "std": 0.4865924542648575,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "pclass": {
+            "count": 891.0,
+            "mean": 2.308641975308642,
+            "std": 0.836071240977049,
+            "min": 1.0,
+            "25%": 2.0,
+            "50%": 3.0,
+            "75%": 3.0,
+            "max": 3.0
+          },
+          "age": {
+            "count": 714.0,
+            "mean": 29.69911764705882,
+            "std": 14.526497332334042,
+            "min": 0.42,
+            "25%": 20.125,
+            "50%": 28.0,
+            "75%": 38.0,
+            "max": 80.0
+          },
+          "sibsp": {
+            "count": 891.0,
+            "mean": 0.5230078563411896,
+            "std": 1.1027434322934317,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 1.0,
+            "max": 8.0
+          },
+          "parch": {
+            "count": 891.0,
+            "mean": 0.38159371492704824,
+            "std": 0.8060572211299483,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 0.0,
+            "max": 6.0
+          },
+          "fare": {
+            "count": 891.0,
+            "mean": 32.204207968574636,
+            "std": 49.6934285971809,
+            "min": 0.0,
+            "25%": 7.9104,
+            "50%": 14.4542,
+            "75%": 31.0,
+            "max": 512.3292
+          }
+        },
+        "categorical_summary": {
+          "survived": {
+            "0": 549,
+            "1": 342
+          },
+          "pclass": {
+            "3": 491,
+            "1": 216,
+            "2": 184
+          },
+          "sex": {
+            "male": 577,
+            "female": 314
+          },
+          "sibsp": {
+            "0": 608,
+            "1": 209,
+            "2": 28,
+            "4": 18,
+            "3": 16,
+            "8": 7,
+            "5": 5
+          },
+          "parch": {
+            "0": 678,
+            "1": 118,
+            "2": 80,
+            "5": 5,
+            "3": 5,
+            "4": 4,
+            "6": 1
+          },
+          "embarked": {
+            "S": 644,
+            "C": 168,
+            "Q": 77,
+            "None": 2
+          },
+          "class": {
+            "Third": 491,
+            "First": 216,
+            "Second": 184
+          },
+          "who": {
+            "man": 537,
+            "woman": 271,
+            "child": 83
+          }
+        },
+        "head_10": [
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": 22.0,
+            "sibsp": 1,
+            "parch": 0,
+            "fare": 7.25,
+            "embarked": "S",
+            "class": "Third",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": false
+          },
+          {
+            "survived": 1,
+            "pclass": 1,
+            "sex": "female",
+            "age": 38.0,
+            "sibsp": 1,
+            "parch": 0,
+            "fare": 71.2833,
+            "embarked": "C",
+            "class": "First",
+            "who": "woman",
+            "adult_male": false,
+            "deck": "C",
+            "embark_town": "Cherbourg",
+            "alive": "yes",
+            "alone": false
+          },
+          {
+            "survived": 1,
+            "pclass": 3,
+            "sex": "female",
+            "age": 26.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 7.925,
+            "embarked": "S",
+            "class": "Third",
+            "who": "woman",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "yes",
+            "alone": true
+          },
+          {
+            "survived": 1,
+            "pclass": 1,
+            "sex": "female",
+            "age": 35.0,
+            "sibsp": 1,
+            "parch": 0,
+            "fare": 53.1,
+            "embarked": "S",
+            "class": "First",
+            "who": "woman",
+            "adult_male": false,
+            "deck": "C",
+            "embark_town": "Southampton",
+            "alive": "yes",
+            "alone": false
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": 35.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 8.05,
+            "embarked": "S",
+            "class": "Third",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": null,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 8.4583,
+            "embarked": "Q",
+            "class": "Third",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Queenstown",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 1,
+            "sex": "male",
+            "age": 54.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 51.8625,
+            "embarked": "S",
+            "class": "First",
+            "who": "man",
+            "adult_male": true,
+            "deck": "E",
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": 2.0,
+            "sibsp": 3,
+            "parch": 1,
+            "fare": 21.075,
+            "embarked": "S",
+            "class": "Third",
+            "who": "child",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": false
+          },
+          {
+            "survived": 1,
+            "pclass": 3,
+            "sex": "female",
+            "age": 27.0,
+            "sibsp": 0,
+            "parch": 2,
+            "fare": 11.1333,
+            "embarked": "S",
+            "class": "Third",
+            "who": "woman",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "yes",
+            "alone": false
+          },
+          {
+            "survived": 1,
+            "pclass": 2,
+            "sex": "female",
+            "age": 14.0,
+            "sibsp": 1,
+            "parch": 0,
+            "fare": 30.0708,
+            "embarked": "C",
+            "class": "Second",
+            "who": "child",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Cherbourg",
+            "alive": "yes",
+            "alone": false
+          }
+        ],
+        "tail_10": [
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": 33.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 7.8958,
+            "embarked": "S",
+            "class": "Third",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "female",
+            "age": 22.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 10.5167,
+            "embarked": "S",
+            "class": "Third",
+            "who": "woman",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 2,
+            "sex": "male",
+            "age": 28.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 10.5,
+            "embarked": "S",
+            "class": "Second",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": 25.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 7.05,
+            "embarked": "S",
+            "class": "Third",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "female",
+            "age": 39.0,
+            "sibsp": 0,
+            "parch": 5,
+            "fare": 29.125,
+            "embarked": "Q",
+            "class": "Third",
+            "who": "woman",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Queenstown",
+            "alive": "no",
+            "alone": false
+          },
+          {
+            "survived": 0,
+            "pclass": 2,
+            "sex": "male",
+            "age": 27.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 13.0,
+            "embarked": "S",
+            "class": "Second",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": true
+          },
+          {
+            "survived": 1,
+            "pclass": 1,
+            "sex": "female",
+            "age": 19.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 30.0,
+            "embarked": "S",
+            "class": "First",
+            "who": "woman",
+            "adult_male": false,
+            "deck": "B",
+            "embark_town": "Southampton",
+            "alive": "yes",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "female",
+            "age": null,
+            "sibsp": 1,
+            "parch": 2,
+            "fare": 23.45,
+            "embarked": "S",
+            "class": "Third",
+            "who": "woman",
+            "adult_male": false,
+            "deck": null,
+            "embark_town": "Southampton",
+            "alive": "no",
+            "alone": false
+          },
+          {
+            "survived": 1,
+            "pclass": 1,
+            "sex": "male",
+            "age": 26.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 30.0,
+            "embarked": "C",
+            "class": "First",
+            "who": "man",
+            "adult_male": true,
+            "deck": "C",
+            "embark_town": "Cherbourg",
+            "alive": "yes",
+            "alone": true
+          },
+          {
+            "survived": 0,
+            "pclass": 3,
+            "sex": "male",
+            "age": 32.0,
+            "sibsp": 0,
+            "parch": 0,
+            "fare": 7.75,
+            "embarked": "Q",
+            "class": "Third",
+            "who": "man",
+            "adult_male": true,
+            "deck": null,
+            "embark_town": "Queenstown",
+            "alive": "no",
+            "alone": true
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "sklearn_iris",
+      "dataset_name": "Iris flower classification dataset",
+      "availability": "sklearn_builtin_available",
+      "source_files": [
+        "ML/code_split/0331_knn-lecture.ipynb",
+        "ML/code_split/0331_svm-lecture.ipynb",
+        "ML/code_split/0414_dt-lecture (2).ipynb",
+        "ML/code_split/0519_week12_examples.ipynb",
+        "ML/code_split/0526_week13_examples.ipynb"
+      ],
+      "lecture_date_band": "03/31-04/14, 05/19-05/26",
+      "week_mapping": "Week 4-6 traditional ML plus Week12/13 neural network optimizer comparison",
+      "best_fit_for_ML_W13_PREP": [
+        "V05 optimizer 비교의 실제 small classification data",
+        "SoftmaxCE / Dense(3) / macro-F1 / confusion matrix",
+        "같은 초기화와 optimizer별 loss curve 비교"
+      ],
+      "applicability": "very_high_for_week13_optimizer_bridge",
+      "task_type": "single-label multiclass classification",
+      "target_candidates": [
+        "target",
+        "target_name"
+      ],
+      "feature_candidates": [
+        "sepal length (cm)",
+        "sepal width (cm)",
+        "petal length (cm)",
+        "petal width (cm)"
+      ],
+      "class_mapping": {
+        "0": "setosa",
+        "1": "versicolor",
+        "2": "virginica"
+      },
+      "risk_notes": [
+        "쉬운 데이터라 optimizer 최종 정확도 차이는 작고 수렴 속도 비교에 적합",
+        "StandardScaler fit을 split 전에 하면 preprocessing leakage 예시가 됨"
+      ],
+      "dataset_profile": {
+        "shape": [
+          150,
+          6
+        ],
+        "schema": [
+          {
+            "name": "sepal length (cm)",
+            "dtype": "float64",
+            "non_null": 150,
+            "missing": 0,
+            "nunique": 35
+          },
+          {
+            "name": "sepal width (cm)",
+            "dtype": "float64",
+            "non_null": 150,
+            "missing": 0,
+            "nunique": 23
+          },
+          {
+            "name": "petal length (cm)",
+            "dtype": "float64",
+            "non_null": 150,
+            "missing": 0,
+            "nunique": 43
+          },
+          {
+            "name": "petal width (cm)",
+            "dtype": "float64",
+            "non_null": 150,
+            "missing": 0,
+            "nunique": 22
+          },
+          {
+            "name": "target",
+            "dtype": "int64",
+            "non_null": 150,
+            "missing": 0,
+            "nunique": 3
+          },
+          {
+            "name": "target_name",
+            "dtype": "str",
+            "non_null": 150,
+            "missing": 0,
+            "nunique": 3
+          }
+        ],
+        "numeric_summary": {
+          "sepal length (cm)": {
+            "count": 150.0,
+            "mean": 5.843333333333334,
+            "std": 0.828066127977863,
+            "min": 4.3,
+            "25%": 5.1,
+            "50%": 5.8,
+            "75%": 6.4,
+            "max": 7.9
+          },
+          "sepal width (cm)": {
+            "count": 150.0,
+            "mean": 3.0573333333333337,
+            "std": 0.4358662849366982,
+            "min": 2.0,
+            "25%": 2.8,
+            "50%": 3.0,
+            "75%": 3.3,
+            "max": 4.4
+          },
+          "petal length (cm)": {
+            "count": 150.0,
+            "mean": 3.7580000000000005,
+            "std": 1.7652982332594662,
+            "min": 1.0,
+            "25%": 1.6,
+            "50%": 4.35,
+            "75%": 5.1,
+            "max": 6.9
+          },
+          "petal width (cm)": {
+            "count": 150.0,
+            "mean": 1.1993333333333336,
+            "std": 0.7622376689603465,
+            "min": 0.1,
+            "25%": 0.3,
+            "50%": 1.3,
+            "75%": 1.8,
+            "max": 2.5
+          },
+          "target": {
+            "count": 150.0,
+            "mean": 1.0,
+            "std": 0.8192319205190405,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 1.0,
+            "75%": 2.0,
+            "max": 2.0
+          }
+        },
+        "categorical_summary": {
+          "target": {
+            "0": 50,
+            "1": 50,
+            "2": 50
+          },
+          "target_name": {
+            "setosa": 50,
+            "versicolor": 50,
+            "virginica": 50
+          }
+        },
+        "head_10": [
+          {
+            "sepal length (cm)": 5.1,
+            "sepal width (cm)": 3.5,
+            "petal length (cm)": 1.4,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 4.9,
+            "sepal width (cm)": 3.0,
+            "petal length (cm)": 1.4,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 4.7,
+            "sepal width (cm)": 3.2,
+            "petal length (cm)": 1.3,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 4.6,
+            "sepal width (cm)": 3.1,
+            "petal length (cm)": 1.5,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 5.0,
+            "sepal width (cm)": 3.6,
+            "petal length (cm)": 1.4,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 5.4,
+            "sepal width (cm)": 3.9,
+            "petal length (cm)": 1.7,
+            "petal width (cm)": 0.4,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 4.6,
+            "sepal width (cm)": 3.4,
+            "petal length (cm)": 1.4,
+            "petal width (cm)": 0.3,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 5.0,
+            "sepal width (cm)": 3.4,
+            "petal length (cm)": 1.5,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 4.4,
+            "sepal width (cm)": 2.9,
+            "petal length (cm)": 1.4,
+            "petal width (cm)": 0.2,
+            "target": 0,
+            "target_name": "setosa"
+          },
+          {
+            "sepal length (cm)": 4.9,
+            "sepal width (cm)": 3.1,
+            "petal length (cm)": 1.5,
+            "petal width (cm)": 0.1,
+            "target": 0,
+            "target_name": "setosa"
+          }
+        ],
+        "tail_10": [
+          {
+            "sepal length (cm)": 6.7,
+            "sepal width (cm)": 3.1,
+            "petal length (cm)": 5.6,
+            "petal width (cm)": 2.4,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.9,
+            "sepal width (cm)": 3.1,
+            "petal length (cm)": 5.1,
+            "petal width (cm)": 2.3,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 5.8,
+            "sepal width (cm)": 2.7,
+            "petal length (cm)": 5.1,
+            "petal width (cm)": 1.9,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.8,
+            "sepal width (cm)": 3.2,
+            "petal length (cm)": 5.9,
+            "petal width (cm)": 2.3,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.7,
+            "sepal width (cm)": 3.3,
+            "petal length (cm)": 5.7,
+            "petal width (cm)": 2.5,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.7,
+            "sepal width (cm)": 3.0,
+            "petal length (cm)": 5.2,
+            "petal width (cm)": 2.3,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.3,
+            "sepal width (cm)": 2.5,
+            "petal length (cm)": 5.0,
+            "petal width (cm)": 1.9,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.5,
+            "sepal width (cm)": 3.0,
+            "petal length (cm)": 5.2,
+            "petal width (cm)": 2.0,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 6.2,
+            "sepal width (cm)": 3.4,
+            "petal length (cm)": 5.4,
+            "petal width (cm)": 2.3,
+            "target": 2,
+            "target_name": "virginica"
+          },
+          {
+            "sepal length (cm)": 5.9,
+            "sepal width (cm)": 3.0,
+            "petal length (cm)": 5.1,
+            "petal width (cm)": 1.8,
+            "target": 2,
+            "target_name": "virginica"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "toy_dog_size_knn_svm",
+      "dataset_name": "Toy dog length-height binary classification",
+      "availability": "embedded_in_notebook_code",
+      "source_files": [
+        "ML/code_split/0331_knn-lecture.ipynb",
+        "ML/code_split/0331_svm-lecture.ipynb"
+      ],
+      "lecture_date_band": "03/31",
+      "week_mapping": "Week 4: KNN/SVM first geometric intuition",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 classification metric toy",
+        "V02 gradient 이전 decision boundary 직관",
+        "small scatterplot demo"
+      ],
+      "applicability": "medium_for_visual_intro_only",
+      "task_type": "binary classification toy",
+      "target_candidates": [
+        "label_code",
+        "label_name"
+      ],
+      "feature_candidates": [
+        "length",
+        "height"
+      ],
+      "extra_prediction_points": [
+        {
+          "length": 59,
+          "height": 35,
+          "label_code": null,
+          "label_name": "Unknown",
+          "source_group": "unknown_prediction_point"
+        }
+      ],
+      "risk_notes": [
+        "샘플 16개라 학습/검증 일반화 설명에는 부적합",
+        "시각화/거리 기반 KNN 직관에는 적합"
+      ],
+      "dataset_profile": {
+        "shape": [
+          16,
+          5
+        ],
+        "schema": [
+          {
+            "name": "length",
+            "dtype": "int64",
+            "non_null": 16,
+            "missing": 0,
+            "nunique": 14
+          },
+          {
+            "name": "height",
+            "dtype": "int64",
+            "non_null": 16,
+            "missing": 0,
+            "nunique": 12
+          },
+          {
+            "name": "label_code",
+            "dtype": "int64",
+            "non_null": 16,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "label_name",
+            "dtype": "str",
+            "non_null": 16,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "source_group",
+            "dtype": "str",
+            "non_null": 16,
+            "missing": 0,
+            "nunique": 2
+          }
+        ],
+        "numeric_summary": {
+          "length": {
+            "count": 16.0,
+            "mean": 54.25,
+            "std": 5.579725202313581,
+            "min": 46.0,
+            "25%": 49.0,
+            "50%": 54.5,
+            "75%": 57.25,
+            "max": 64.0
+          },
+          "height": {
+            "count": 16.0,
+            "mean": 41.8125,
+            "std": 10.540200820351258,
+            "min": 25.0,
+            "25%": 32.5,
+            "50%": 43.0,
+            "75%": 52.0,
+            "max": 54.0
+          },
+          "label_code": {
+            "count": 16.0,
+            "mean": 0.5,
+            "std": 0.5163977794943222,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.5,
+            "75%": 1.0,
+            "max": 1.0
+          }
+        },
+        "categorical_summary": {
+          "height": {
+            "30": 2,
+            "52": 2,
+            "50": 2,
+            "53": 2,
+            "31": 1,
+            "36": 1,
+            "33": 1,
+            "25": 1,
+            "37": 1,
+            "34": 1,
+            "49": 1,
+            "54": 1
+          },
+          "label_code": {
+            "0": 8,
+            "1": 8
+          },
+          "label_name": {
+            "Dachshund": 8,
+            "Jindo": 8
+          },
+          "source_group": {
+            "dach": 8,
+            "jin": 8
+          }
+        },
+        "head_10": [
+          {
+            "length": 55,
+            "height": 30,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 57,
+            "height": 31,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 64,
+            "height": 36,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 63,
+            "height": 30,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 58,
+            "height": 33,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 49,
+            "height": 25,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 54,
+            "height": 37,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 61,
+            "height": 34,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 56,
+            "height": 52,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 47,
+            "height": 52,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          }
+        ],
+        "tail_10": [
+          {
+            "length": 54,
+            "height": 37,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 61,
+            "height": 34,
+            "label_code": 0,
+            "label_name": "Dachshund",
+            "source_group": "dach"
+          },
+          {
+            "length": 56,
+            "height": 52,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 47,
+            "height": 52,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 56,
+            "height": 50,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 46,
+            "height": 53,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 49,
+            "height": 50,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 53,
+            "height": 53,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 52,
+            "height": 49,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          },
+          {
+            "length": 48,
+            "height": 54,
+            "label_code": 1,
+            "label_name": "Jindo",
+            "source_group": "jin"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "toy_logic_gates_xor",
+      "dataset_name": "AND/OR/XOR toy truth-table datasets",
+      "availability": "embedded_in_python_and_notebooks",
+      "source_files": [
+        "ML/code_split/0428_perceptron.py",
+        "ML/code_split/0428_week09_examples.ipynb",
+        "ML/code_split/0512_mlp_scratch.py",
+        "ML/code_split/0512_week11_examples.ipynb",
+        "ML/code_split/0519_week12_examples.ipynb"
+      ],
+      "lecture_date_band": "04/28-05/19",
+      "week_mapping": "Week9 Perceptron -> Week11 Backprop -> Week12 Layer abstraction",
+      "best_fit_for_ML_W13_PREP": [
+        "V02 gradient descent/chain rule intro",
+        "V03 Dense.backward shape demo",
+        "XOR loss curve and decision boundary visual"
+      ],
+      "applicability": "very_high_for_gate1_gate2_bridge_but_not_real_dataset",
+      "task_type": "binary classification toy / non-linear separability",
+      "target_candidates": [
+        "AND_pm1",
+        "OR_pm1",
+        "XOR_pm1",
+        "XOR_01"
+      ],
+      "feature_candidates": [
+        "x0_pm1",
+        "x1_pm1",
+        "x0_01",
+        "x1_01"
+      ],
+      "risk_notes": [
+        "샘플 4개이므로 optimizer generalization 비교에는 부적합",
+        "perceptron 한계와 MLP/backprop 직관에는 매우 적합"
+      ],
+      "dataset_profile": {
+        "shape": [
+          4,
+          8
+        ],
+        "schema": [
+          {
+            "name": "x0_pm1",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "x1_pm1",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "AND_pm1",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "OR_pm1",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "XOR_pm1",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "x0_01",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "x1_01",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "XOR_01",
+            "dtype": "int64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 2
+          }
+        ],
+        "numeric_summary": {
+          "x0_pm1": {
+            "count": 4.0,
+            "mean": 0.0,
+            "std": 1.1547005383792515,
+            "min": -1.0,
+            "25%": -1.0,
+            "50%": 0.0,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "x1_pm1": {
+            "count": 4.0,
+            "mean": 0.0,
+            "std": 1.1547005383792515,
+            "min": -1.0,
+            "25%": -1.0,
+            "50%": 0.0,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "AND_pm1": {
+            "count": 4.0,
+            "mean": -0.5,
+            "std": 1.0,
+            "min": -1.0,
+            "25%": -1.0,
+            "50%": -1.0,
+            "75%": -0.5,
+            "max": 1.0
+          },
+          "OR_pm1": {
+            "count": 4.0,
+            "mean": 0.5,
+            "std": 1.0,
+            "min": -1.0,
+            "25%": 0.5,
+            "50%": 1.0,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "XOR_pm1": {
+            "count": 4.0,
+            "mean": 0.0,
+            "std": 1.1547005383792515,
+            "min": -1.0,
+            "25%": -1.0,
+            "50%": 0.0,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "x0_01": {
+            "count": 4.0,
+            "mean": 0.5,
+            "std": 0.5773502691896257,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.5,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "x1_01": {
+            "count": 4.0,
+            "mean": 0.5,
+            "std": 0.5773502691896257,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.5,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "XOR_01": {
+            "count": 4.0,
+            "mean": 0.5,
+            "std": 0.5773502691896257,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.5,
+            "75%": 1.0,
+            "max": 1.0
+          }
+        },
+        "categorical_summary": {
+          "x0_pm1": {
+            "-1": 2,
+            "1": 2
+          },
+          "x1_pm1": {
+            "-1": 2,
+            "1": 2
+          },
+          "AND_pm1": {
+            "-1": 3,
+            "1": 1
+          },
+          "OR_pm1": {
+            "1": 3,
+            "-1": 1
+          },
+          "XOR_pm1": {
+            "-1": 2,
+            "1": 2
+          },
+          "x0_01": {
+            "0": 2,
+            "1": 2
+          },
+          "x1_01": {
+            "0": 2,
+            "1": 2
+          },
+          "XOR_01": {
+            "0": 2,
+            "1": 2
+          }
+        },
+        "head_10": [
+          {
+            "x0_pm1": -1,
+            "x1_pm1": -1,
+            "AND_pm1": -1,
+            "OR_pm1": -1,
+            "XOR_pm1": -1,
+            "x0_01": 0,
+            "x1_01": 0,
+            "XOR_01": 0
+          },
+          {
+            "x0_pm1": -1,
+            "x1_pm1": 1,
+            "AND_pm1": -1,
+            "OR_pm1": 1,
+            "XOR_pm1": 1,
+            "x0_01": 0,
+            "x1_01": 1,
+            "XOR_01": 1
+          },
+          {
+            "x0_pm1": 1,
+            "x1_pm1": -1,
+            "AND_pm1": -1,
+            "OR_pm1": 1,
+            "XOR_pm1": 1,
+            "x0_01": 1,
+            "x1_01": 0,
+            "XOR_01": 1
+          },
+          {
+            "x0_pm1": 1,
+            "x1_pm1": 1,
+            "AND_pm1": 1,
+            "OR_pm1": 1,
+            "XOR_pm1": -1,
+            "x0_01": 1,
+            "x1_01": 1,
+            "XOR_01": 0
+          }
+        ],
+        "tail_10": [
+          {
+            "x0_pm1": -1,
+            "x1_pm1": -1,
+            "AND_pm1": -1,
+            "OR_pm1": -1,
+            "XOR_pm1": -1,
+            "x0_01": 0,
+            "x1_01": 0,
+            "XOR_01": 0
+          },
+          {
+            "x0_pm1": -1,
+            "x1_pm1": 1,
+            "AND_pm1": -1,
+            "OR_pm1": 1,
+            "XOR_pm1": 1,
+            "x0_01": 0,
+            "x1_01": 1,
+            "XOR_01": 1
+          },
+          {
+            "x0_pm1": 1,
+            "x1_pm1": -1,
+            "AND_pm1": -1,
+            "OR_pm1": 1,
+            "XOR_pm1": 1,
+            "x0_01": 1,
+            "x1_01": 0,
+            "XOR_01": 1
+          },
+          {
+            "x0_pm1": 1,
+            "x1_pm1": 1,
+            "AND_pm1": 1,
+            "OR_pm1": 1,
+            "XOR_pm1": -1,
+            "x0_01": 1,
+            "x1_01": 1,
+            "XOR_01": 0
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "toy_missing_values_week14",
+      "dataset_name": "Toy missing-value DataFrame",
+      "availability": "embedded_in_notebook_code",
+      "source_files": [
+        "ML/code_split/0602_week14_lecture_keras_torch_results (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 preprocessing/regularization lecture",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 split/scaling/leakage preprocessing mini-demo"
+      ],
+      "applicability": "high_as_small_visual_demo",
+      "task_type": "결측치 탐지/삭제/대체와 train-only imputation leakage 설명",
+      "target_candidates": [],
+      "feature_candidates": [
+        "age",
+        "salary",
+        "city"
+      ],
+      "risk_notes": [
+        "교육용 toy data로 일반화 평가에는 사용하지 않음"
+      ],
+      "dataset_profile": {
+        "shape": [
+          5,
+          3
+        ],
+        "schema": [
+          {
+            "name": "age",
+            "dtype": "float64",
+            "non_null": 4,
+            "missing": 1,
+            "nunique": 4
+          },
+          {
+            "name": "salary",
+            "dtype": "float64",
+            "non_null": 4,
+            "missing": 1,
+            "nunique": 4
+          },
+          {
+            "name": "city",
+            "dtype": "str",
+            "non_null": 4,
+            "missing": 1,
+            "nunique": 3
+          }
+        ],
+        "numeric_summary": {
+          "age": {
+            "count": 4.0,
+            "mean": 32.0,
+            "std": 8.906926143924924,
+            "min": 25.0,
+            "25%": 27.25,
+            "50%": 29.0,
+            "75%": 33.75,
+            "max": 45.0
+          },
+          "salary": {
+            "count": 4.0,
+            "mean": 63.75,
+            "std": 13.768926368215256,
+            "min": 50.0,
+            "25%": 53.75,
+            "50%": 62.5,
+            "75%": 72.5,
+            "max": 80.0
+          }
+        },
+        "categorical_summary": {
+          "age": {
+            "25.0": 1,
+            "30.0": 1,
+            "None": 1,
+            "45.0": 1,
+            "28.0": 1
+          },
+          "salary": {
+            "50.0": 1,
+            "None": 1,
+            "70.0": 1,
+            "80.0": 1,
+            "55.0": 1
+          },
+          "city": {
+            "Seoul": 2,
+            "Busan": 1,
+            "None": 1,
+            "Incheon": 1
+          }
+        },
+        "head_10": [
+          {
+            "age": 25.0,
+            "salary": 50.0,
+            "city": "Seoul"
+          },
+          {
+            "age": 30.0,
+            "salary": null,
+            "city": "Busan"
+          },
+          {
+            "age": null,
+            "salary": 70.0,
+            "city": "Seoul"
+          },
+          {
+            "age": 45.0,
+            "salary": 80.0,
+            "city": null
+          },
+          {
+            "age": 28.0,
+            "salary": 55.0,
+            "city": "Incheon"
+          }
+        ],
+        "tail_10": [
+          {
+            "age": 25.0,
+            "salary": 50.0,
+            "city": "Seoul"
+          },
+          {
+            "age": 30.0,
+            "salary": null,
+            "city": "Busan"
+          },
+          {
+            "age": null,
+            "salary": 70.0,
+            "city": "Seoul"
+          },
+          {
+            "age": 45.0,
+            "salary": 80.0,
+            "city": null
+          },
+          {
+            "age": 28.0,
+            "salary": 55.0,
+            "city": "Incheon"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "toy_categorical_encoding_week14",
+      "dataset_name": "Toy categorical encoding DataFrame",
+      "availability": "embedded_in_notebook_code",
+      "source_files": [
+        "ML/code_split/0602_week14_lecture_keras_torch_results (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 preprocessing/regularization lecture",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 split/scaling/leakage preprocessing mini-demo"
+      ],
+      "applicability": "high_as_small_visual_demo",
+      "task_type": "OneHotEncoding vs ordinal encoding 설명",
+      "target_candidates": [],
+      "feature_candidates": [
+        "color",
+        "size"
+      ],
+      "risk_notes": [
+        "교육용 toy data로 일반화 평가에는 사용하지 않음"
+      ],
+      "dataset_profile": {
+        "shape": [
+          4,
+          2
+        ],
+        "schema": [
+          {
+            "name": "color",
+            "dtype": "str",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 3
+          },
+          {
+            "name": "size",
+            "dtype": "str",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 4
+          }
+        ],
+        "numeric_summary": {},
+        "categorical_summary": {
+          "color": {
+            "red": 2,
+            "blue": 1,
+            "green": 1
+          },
+          "size": {
+            "S": 1,
+            "M": 1,
+            "L": 1,
+            "XL": 1
+          }
+        },
+        "head_10": [
+          {
+            "color": "red",
+            "size": "S"
+          },
+          {
+            "color": "blue",
+            "size": "M"
+          },
+          {
+            "color": "green",
+            "size": "L"
+          },
+          {
+            "color": "red",
+            "size": "XL"
+          }
+        ],
+        "tail_10": [
+          {
+            "color": "red",
+            "size": "S"
+          },
+          {
+            "color": "blue",
+            "size": "M"
+          },
+          {
+            "color": "green",
+            "size": "L"
+          },
+          {
+            "color": "red",
+            "size": "XL"
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "toy_datetime_features_week14",
+      "dataset_name": "Toy datetime feature extraction DataFrame",
+      "availability": "embedded_in_notebook_code",
+      "source_files": [
+        "ML/code_split/0602_week14_lecture_keras_torch_results (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 preprocessing/regularization lecture",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 split/scaling/leakage preprocessing mini-demo"
+      ],
+      "applicability": "high_as_small_visual_demo",
+      "task_type": "datetime -> year/month/hour/dayofweek/is_weekend 분해",
+      "target_candidates": [],
+      "feature_candidates": [
+        "date",
+        "year",
+        "month",
+        "day",
+        "hour",
+        "dayofweek",
+        "is_weekend"
+      ],
+      "risk_notes": [
+        "교육용 toy data로 일반화 평가에는 사용하지 않음"
+      ],
+      "dataset_profile": {
+        "shape": [
+          5,
+          7
+        ],
+        "schema": [
+          {
+            "name": "date",
+            "dtype": "datetime64[us]",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 5
+          },
+          {
+            "name": "year",
+            "dtype": "int32",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 1
+          },
+          {
+            "name": "month",
+            "dtype": "int32",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 1
+          },
+          {
+            "name": "day",
+            "dtype": "int32",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "hour",
+            "dtype": "int32",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 4
+          },
+          {
+            "name": "dayofweek",
+            "dtype": "int32",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 2
+          },
+          {
+            "name": "is_weekend",
+            "dtype": "int64",
+            "non_null": 5,
+            "missing": 0,
+            "nunique": 1
+          }
+        ],
+        "numeric_summary": {
+          "year": {
+            "count": 5.0,
+            "mean": 2024.0,
+            "std": 0.0,
+            "min": 2024.0,
+            "25%": 2024.0,
+            "50%": 2024.0,
+            "75%": 2024.0,
+            "max": 2024.0
+          },
+          "month": {
+            "count": 5.0,
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "25%": 1.0,
+            "50%": 1.0,
+            "75%": 1.0,
+            "max": 1.0
+          },
+          "day": {
+            "count": 5.0,
+            "mean": 1.2,
+            "std": 0.4472135954999579,
+            "min": 1.0,
+            "25%": 1.0,
+            "50%": 1.0,
+            "75%": 1.0,
+            "max": 2.0
+          },
+          "hour": {
+            "count": 5.0,
+            "mean": 7.2,
+            "std": 7.8230428862431785,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 6.0,
+            "75%": 12.0,
+            "max": 18.0
+          },
+          "dayofweek": {
+            "count": 5.0,
+            "mean": 0.2,
+            "std": 0.447213595499958,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 0.0,
+            "max": 1.0
+          },
+          "is_weekend": {
+            "count": 5.0,
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "25%": 0.0,
+            "50%": 0.0,
+            "75%": 0.0,
+            "max": 0.0
+          }
+        },
+        "categorical_summary": {
+          "date": {
+            "2024-01-01 00:00:00": 1,
+            "2024-01-01 06:00:00": 1,
+            "2024-01-01 12:00:00": 1,
+            "2024-01-01 18:00:00": 1,
+            "2024-01-02 00:00:00": 1
+          },
+          "year": {
+            "2024": 5
+          },
+          "month": {
+            "1": 5
+          },
+          "day": {
+            "1": 4,
+            "2": 1
+          },
+          "hour": {
+            "0": 2,
+            "6": 1,
+            "12": 1,
+            "18": 1
+          },
+          "dayofweek": {
+            "0": 4,
+            "1": 1
+          },
+          "is_weekend": {
+            "0": 5
+          }
+        },
+        "head_10": [
+          {
+            "date": "2024-01-01T00:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 0,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-01T06:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 6,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-01T12:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 12,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-01T18:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 18,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-02T00:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 2,
+            "hour": 0,
+            "dayofweek": 1,
+            "is_weekend": 0
+          }
+        ],
+        "tail_10": [
+          {
+            "date": "2024-01-01T00:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 0,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-01T06:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 6,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-01T12:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 12,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-01T18:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 1,
+            "hour": 18,
+            "dayofweek": 0,
+            "is_weekend": 0
+          },
+          {
+            "date": "2024-01-02T00:00:00",
+            "year": 2024,
+            "month": 1,
+            "day": 2,
+            "hour": 0,
+            "dayofweek": 1,
+            "is_weekend": 0
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "toy_scaling_week14",
+      "dataset_name": "Toy scaling two-feature array",
+      "availability": "embedded_in_notebook_code",
+      "source_files": [
+        "ML/code_split/0602_week14_lecture_keras_torch_results (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 preprocessing/regularization lecture",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 split/scaling/leakage preprocessing mini-demo"
+      ],
+      "applicability": "high_as_small_visual_demo",
+      "task_type": "StandardScaler/MinMaxScaler scale 차이 시각화",
+      "target_candidates": [],
+      "feature_candidates": [
+        "feature_A",
+        "feature_B"
+      ],
+      "risk_notes": [
+        "교육용 toy data로 일반화 평가에는 사용하지 않음"
+      ],
+      "dataset_profile": {
+        "shape": [
+          4,
+          2
+        ],
+        "schema": [
+          {
+            "name": "feature_A",
+            "dtype": "float64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 4
+          },
+          {
+            "name": "feature_B",
+            "dtype": "float64",
+            "non_null": 4,
+            "missing": 0,
+            "nunique": 4
+          }
+        ],
+        "numeric_summary": {
+          "feature_A": {
+            "count": 4.0,
+            "mean": 2.5,
+            "std": 1.2909944487358056,
+            "min": 1.0,
+            "25%": 1.75,
+            "50%": 2.5,
+            "75%": 3.25,
+            "max": 4.0
+          },
+          "feature_B": {
+            "count": 4.0,
+            "mean": 250.0,
+            "std": 129.09944487358058,
+            "min": 100.0,
+            "25%": 175.0,
+            "50%": 250.0,
+            "75%": 325.0,
+            "max": 400.0
+          }
+        },
+        "categorical_summary": {
+          "feature_A": {
+            "1.0": 1,
+            "2.0": 1,
+            "3.0": 1,
+            "4.0": 1
+          },
+          "feature_B": {
+            "100.0": 1,
+            "200.0": 1,
+            "300.0": 1,
+            "400.0": 1
+          }
+        },
+        "head_10": [
+          {
+            "feature_A": 1.0,
+            "feature_B": 100.0
+          },
+          {
+            "feature_A": 2.0,
+            "feature_B": 200.0
+          },
+          {
+            "feature_A": 3.0,
+            "feature_B": 300.0
+          },
+          {
+            "feature_A": 4.0,
+            "feature_B": 400.0
+          }
+        ],
+        "tail_10": [
+          {
+            "feature_A": 1.0,
+            "feature_B": 100.0
+          },
+          {
+            "feature_A": 2.0,
+            "feature_B": 200.0
+          },
+          {
+            "feature_A": 3.0,
+            "feature_B": 300.0
+          },
+          {
+            "feature_A": 4.0,
+            "feature_B": 400.0
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "keras_fashion_mnist",
+      "dataset_name": "Fashion-MNIST grayscale image classification dataset",
+      "availability": "local_idx_gzip_cache_available_direct_read",
+      "source_files": [
+        "ML/code_split/0602_cnn_fMNIST (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 CNN / Keras image classification",
+      "best_fit_for_ML_W13_PREP": [
+        "V05 Week13 bridge harder optimizer comparison candidate",
+        "V03 tensor/flatten/CNN contrast",
+        "loss curve/accuracy barplot"
+      ],
+      "applicability": "high_for_image_tensor_visualization_medium_for_week13_if_runtime_limited",
+      "task_type": "single-label multiclass image classification",
+      "target_candidates": [
+        "train_labels",
+        "test_labels"
+      ],
+      "feature_candidates": [
+        "28x28 grayscale pixel tensor",
+        "flattened 784-vector for MLP"
+      ],
+      "class_mapping": {
+        "0": "T-shirt/top",
+        "1": "Trouser",
+        "2": "Pullover",
+        "3": "Dress",
+        "4": "Coat",
+        "5": "Sandal",
+        "6": "Shirt",
+        "7": "Sneaker",
+        "8": "Bag",
+        "9": "Ankle boot"
+      },
+      "risk_notes": [
+        "Keras loader may try network, but local IDX gzip cache exists and can be read directly",
+        "전체 70k 이미지는 JSON에 넣지 않고 head/tail sample metadata만 기록",
+        "optimizer 비교에는 subset 사용 권장"
+      ],
+      "dataset_profile": {
+        "shape": {
+          "train_images": [
+            60000,
+            28,
+            28
+          ],
+          "train_labels": [
+            60000
+          ],
+          "test_images": [
+            10000,
+            28,
+            28
+          ],
+          "test_labels": [
+            10000
+          ]
+        },
+        "summary_table": {
+          "shape": [
+            2,
+            7
+          ],
+          "schema": [
+            {
+              "name": "split",
+              "dtype": "str",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 2
+            },
+            {
+              "name": "samples",
+              "dtype": "int64",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 2
+            },
+            {
+              "name": "height",
+              "dtype": "int64",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 1
+            },
+            {
+              "name": "width",
+              "dtype": "int64",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 1
+            },
+            {
+              "name": "classes",
+              "dtype": "int64",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 1
+            },
+            {
+              "name": "pixel_min",
+              "dtype": "int64",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 1
+            },
+            {
+              "name": "pixel_max",
+              "dtype": "int64",
+              "non_null": 2,
+              "missing": 0,
+              "nunique": 1
+            }
+          ],
+          "head_10": [
+            {
+              "split": "train",
+              "samples": 60000,
+              "height": 28,
+              "width": 28,
+              "classes": 10,
+              "pixel_min": 0,
+              "pixel_max": 255
+            },
+            {
+              "split": "test",
+              "samples": 10000,
+              "height": 28,
+              "width": 28,
+              "classes": 10,
+              "pixel_min": 0,
+              "pixel_max": 255
+            }
+          ],
+          "tail_10": [
+            {
+              "split": "train",
+              "samples": 60000,
+              "height": 28,
+              "width": 28,
+              "classes": 10,
+              "pixel_min": 0,
+              "pixel_max": 255
+            },
+            {
+              "split": "test",
+              "samples": 10000,
+              "height": 28,
+              "width": 28,
+              "classes": 10,
+              "pixel_min": 0,
+              "pixel_max": 255
+            }
+          ]
+        },
+        "head_10": [
+          {
+            "split": "train",
+            "index": 0,
+            "label": 9,
+            "label_name": "Ankle boot",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 97.2538,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 1,
+            "label": 0,
+            "label_name": "T-shirt/top",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 107.9056,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              41,
+              188,
+              103,
+              54,
+              48,
+              43,
+              87,
+              168,
+              133,
+              16
+            ]
+          },
+          {
+            "split": "train",
+            "index": 2,
+            "label": 0,
+            "label_name": "T-shirt/top",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 36.5587,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              22,
+              118,
+              24,
+              0,
+              0,
+              0,
+              0,
+              0,
+              48,
+              88,
+              5
+            ]
+          },
+          {
+            "split": "train",
+            "index": 3,
+            "label": 3,
+            "label_name": "Dress",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 59.5013,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              33,
+              96,
+              175,
+              156,
+              64,
+              14,
+              54,
+              137,
+              204,
+              194,
+              102,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 4,
+            "label": 0,
+            "label_name": "T-shirt/top",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 78.0446,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              26,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 5,
+            "label": 2,
+            "label_name": "Pullover",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 107.3533,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              22,
+              88,
+              188,
+              172,
+              132,
+              125,
+              141,
+              199,
+              143,
+              9,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 6,
+            "label": 7,
+            "label_name": "Sneaker",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 41.4872,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 7,
+            "label": 2,
+            "label_name": "Pullover",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 146.9158,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              63,
+              28,
+              0,
+              0,
+              0,
+              33,
+              85,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 8,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 25.3724,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 9,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 51.9082,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "tail_10": [
+          {
+            "split": "train",
+            "index": 59990,
+            "label": 4,
+            "label_name": "Coat",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 71.8444,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              127,
+              138,
+              102,
+              109,
+              134,
+              126,
+              92,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59991,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 48.1952,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              153,
+              156,
+              146,
+              170,
+              167,
+              155,
+              164,
+              184,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59992,
+            "label": 7,
+            "label_name": "Sneaker",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 39.477,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59993,
+            "label": 2,
+            "label_name": "Pullover",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 67.2449,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              13,
+              11,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59994,
+            "label": 8,
+            "label_name": "Bag",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 127.8469,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59995,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 26.7385,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59996,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 54.5421,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              15,
+              131,
+              87,
+              95,
+              97,
+              106,
+              95,
+              115,
+              109,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59997,
+            "label": 3,
+            "label_name": "Dress",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 79.7781,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              5,
+              15,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              39,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59998,
+            "label": 0,
+            "label_name": "T-shirt/top",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 42.7423,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              17,
+              191,
+              159,
+              79,
+              85,
+              158,
+              191,
+              23,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "train",
+            "index": 59999,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 21.2806,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "test_head_10": [
+          {
+            "split": "test",
+            "index": 0,
+            "label": 9,
+            "label_name": "Ankle boot",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 42.6735,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 1,
+            "label": 2,
+            "label_name": "Pullover",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 128.8189,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              13,
+              67,
+              0,
+              0,
+              0,
+              0,
+              50,
+              38,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 2,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 65.7143,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              67,
+              177,
+              129,
+              153,
+              117,
+              129,
+              146,
+              141,
+              175,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 3,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 45.1237,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              21,
+              123,
+              108,
+              99,
+              99,
+              84,
+              83,
+              86,
+              92,
+              70,
+              6
+            ]
+          },
+          {
+            "split": "test",
+            "index": 4,
+            "label": 6,
+            "label_name": "Shirt",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 254,
+            "pixel_mean": 79.9171,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              2,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              57,
+              67,
+              73,
+              76,
+              76,
+              83,
+              62,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 5,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 64.1059,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              192,
+              188,
+              181,
+              189,
+              157,
+              165,
+              188,
+              176,
+              179,
+              181
+            ]
+          },
+          {
+            "split": "test",
+            "index": 6,
+            "label": 4,
+            "label_name": "Coat",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 35.8559,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              17,
+              0,
+              35,
+              55,
+              52,
+              45,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 7,
+            "label": 6,
+            "label_name": "Shirt",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 60.926,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              3,
+              0,
+              0,
+              94,
+              151,
+              155,
+              138,
+              98,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "split": "test",
+            "index": 8,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 254,
+            "pixel_mean": 13.0689,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9,
+            "label": 7,
+            "label_name": "Sneaker",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 32.5153,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "test_tail_10": [
+          {
+            "split": "test",
+            "index": 9990,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 61.7985,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9991,
+            "label": 6,
+            "label_name": "Shirt",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 76.5408,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              29,
+              59,
+              157,
+              18,
+              0,
+              0,
+              0,
+              0,
+              53,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9992,
+            "label": 8,
+            "label_name": "Bag",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 75.9668,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              97,
+              112,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9993,
+            "label": 9,
+            "label_name": "Ankle boot",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 75.2908,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9994,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 52.5548,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              29,
+              161,
+              121,
+              123,
+              126,
+              122,
+              109,
+              117,
+              84,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9995,
+            "label": 9,
+            "label_name": "Ankle boot",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 254,
+            "pixel_mean": 76.0918,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9996,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 30.6173,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              31,
+              52,
+              98,
+              94,
+              86,
+              94,
+              84,
+              53,
+              89,
+              38,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9997,
+            "label": 8,
+            "label_name": "Bag",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 45.3112,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              30,
+              69,
+              37,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9998,
+            "label": 1,
+            "label_name": "Trouser",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 255,
+            "pixel_mean": 49.9707,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              164,
+              137,
+              130,
+              93,
+              136,
+              138,
+              159,
+              0,
+              0
+            ]
+          },
+          {
+            "split": "test",
+            "index": 9999,
+            "label": 5,
+            "label_name": "Sandal",
+            "shape": [
+              28,
+              28
+            ],
+            "pixel_min": 0,
+            "pixel_max": 254,
+            "pixel_mean": 31.1097,
+            "first_20_pixels_flat": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "dataset_id": "keras_mnist_or_openml_mnist",
+      "dataset_name": "MNIST handwritten digit image dataset",
+      "availability": "referenced_but_not_cached_locally_or_requires_download",
+      "source_files": [
+        "ML/code_split/0519_week12_examples.ipynb",
+        "ML/code_split/0602_mnist_nn (1).ipynb"
+      ],
+      "lecture_date_band": "05/19, 06/02",
+      "week_mapping": "Week12 mini-batch deep network, Week14 Keras MLP image classification",
+      "best_fit_for_ML_W13_PREP": [
+        "V05 optimizer comparison harder target than Iris",
+        "loss curve / accuracy comparison",
+        "flatten vs tensor visualization"
+      ],
+      "applicability": "high_conceptually_but_requires_cache_or_download",
+      "task_type": "single-label multiclass image classification",
+      "expected_schema": {
+        "images": "(70000, 28, 28) or flattened (70000, 784)",
+        "labels": "digits 0-9"
+      },
+      "head_tail_status": "not_extracted_no_local_cache_detected",
+      "risk_notes": [
+        "노트북은 torchvision, keras, OpenML 순서로 로드 시도",
+        "현재 ~/.keras/datasets에는 Fashion-MNIST만 확인됨",
+        "외부 다운로드 의존을 줄이려면 Fashion-MNIST 또는 Iris로 대체 가능"
+      ]
+    },
+    {
+      "dataset_id": "boston_housing_cmu_legacy",
+      "dataset_name": "Boston Housing legacy regression dataset",
+      "availability": "referenced_by_url_not_local_file",
+      "source_files": [
+        "ML/code_split/0602_regression_boston (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 DNN regression preprocessing/scaling/inverse_transform",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 MSE/MAE/RMSE/inverse_transform",
+        "regression output Dense(1) visual",
+        "ethical dataset caution example"
+      ],
+      "applicability": "medium_with_ethics_warning_and_external_fetch",
+      "task_type": "tabular regression",
+      "expected_schema": {
+        "features": [
+          "CRIM",
+          "ZN",
+          "INDUS",
+          "CHAS",
+          "NOX",
+          "RM",
+          "AGE",
+          "DIS",
+          "RAD",
+          "TAX",
+          "PTRATIO",
+          "B",
+          "LSTAT"
+        ],
+        "target": "MEDV"
+      },
+      "head_tail_status": "not_extracted_external_url_required",
+      "risk_notes": [
+        "scikit-learn에서 제거된 legacy dataset",
+        "B 변수의 윤리적 문제를 노트북이 직접 경고",
+        "실습용 이외의 실제 의사결정 사용 금지"
+      ]
+    },
+    {
+      "dataset_id": "uci_appliances_energy_prediction",
+      "dataset_name": "UCI Appliances Energy Prediction",
+      "availability": "referenced_by_url_not_local_file",
+      "source_files": [
+        "ML/code_split/0602_week14_lecture_keras_torch_results (1).ipynb"
+      ],
+      "lecture_date_band": "06/02",
+      "week_mapping": "Week14 preprocessing/overfitting/regularization comprehensive regression",
+      "best_fit_for_ML_W13_PREP": [
+        "V01 split/scaling/leakage real regression extension",
+        "train/val/test and overfitting loss curves",
+        "regularization bridge after optimizer"
+      ],
+      "applicability": "high_for_week14_extension_but_heavy_for_week13_prep",
+      "task_type": "time-aware tabular regression",
+      "expected_schema": {
+        "samples": "19735 in lecture note",
+        "target": "Appliances, log1p transformed in notebook",
+        "feature_cols": [
+          "T1",
+          "RH_1",
+          "T2",
+          "RH_2",
+          "T_out",
+          "RH_out",
+          "Windspeed",
+          "Visibility",
+          "hour",
+          "dayofweek",
+          "month"
+        ]
+      },
+      "head_tail_status": "not_extracted_external_url_required",
+      "risk_notes": [
+        "GitHub raw CSV 다운로드 필요",
+        "Week13 prep 노트북에는 너무 크므로 subset/cache 생성 권장",
+        "시간 변수 처리와 leakage 설명에는 좋음"
+      ]
+    },
+    {
+      "dataset_id": "daisy_image_missing_local_file",
+      "dataset_name": "daisy.jpg image array referenced in NumPy lecture",
+      "availability": "referenced_but_source_image_missing_in_code_split",
+      "source_files": [
+        "ML/code_split/0317_ml_numpy (1).ipynb"
+      ],
+      "lecture_date_band": "03/17",
+      "week_mapping": "Week2 NumPy slicing/image array basics",
+      "best_fit_for_ML_W13_PREP": [
+        "not recommended unless image file is restored"
+      ],
+      "applicability": "low_currently_missing_file",
+      "task_type": "image array manipulation",
+      "expected_schema": {
+        "image": "H x W x C pixel array"
+      },
+      "head_tail_status": "not_extracted_daisy_jpg_missing",
+      "risk_notes": [
+        "ML/code_split/daisy.jpg not found",
+        "Fashion-MNIST can replace image tensor demonstration"
+      ]
+    }
+  ]
+}
