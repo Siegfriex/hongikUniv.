@@ -1,0 +1,13 @@
+road_id,hour,weekday,weather,vehicle_count,avg_speed,accident,congestion_level
+1,7,Mon,clear,120,58.0,0,0
+2,8,Mon,rain,420,22.5,1,3
+3,9,Tue,clear,310,35.0,0,2
+4,14,Wed,cloudy,180,48.0,0,1
+5,18,Fri,rain,390,25.0,0,3
+6,21,Sat,clear,160,52.0,0,1
+7,17,Thu,cloudy,330,31.0,1,2
+8,6,Sun,clear,90,65.0,0,0
+9,12,Thu,clear,210,45.0,0,1
+10,19,Fri,rain,450,18.0,1,3
+11,10,Wed,cloudy,280,36.0,0,2
+12,5,Sun,clear,70,68.0,0,0

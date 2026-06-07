@@ -1,0 +1,13 @@
+customer_id,age,income,city,device_type,visit_count,cart_amount,days_since_last_visit,purchased
+101,23,3500,Seoul,mobile,5,120.5,2,1
+102,41,5200,Busan,desktop,2,0.0,18,0
+103,35,4300,Seoul,mobile,8,230.0,1,1
+104,29,3900,Daegu,tablet,1,0.0,25,0
+105,52,6100,Seoul,desktop,3,80.0,8,0
+106,31,4100,Gwangju,mobile,4,40.0,12,0
+107,27,3700,Busan,mobile,6,150.0,3,1
+108,45,5800,Daegu,desktop,2,0.0,20,0
+109,38,4700,Seoul,mobile,7,190.0,2,1
+110,56,6400,Busan,desktop,1,0.0,30,0
+111,33,4200,Gwangju,tablet,2,20.0,17,0
+112,26,3600,Seoul,mobile,5,95.0,4,0
