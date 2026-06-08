@@ -1,6 +1,6 @@
 evidence area,summary,interpretation
-official Iris,MySGD,best official test_acc in Part 2
-official MNIST,MyRMSProp,best official test_acc in Part 3
+official Iris,"test accuracy tie at 0.978: MySGD, MyMomentum, MyRMSProp, MyAdam; lowest loss=MyAdam","accuracy is saturated, so do not call the first sorted row the real best"
+official MNIST,test accuracy best=MyRMSProp; lowest final loss=MyAdam,RMSProp and Adam are close; report both accuracy and loss
 LR sensitivity,MyAdam,smaller range means less sensitive in this grid
 split-before-fit,train-only fit for research,official Part 2 kept all-fit scaler because homework specified it
 V01.2 preprocessing audit,quality/correlation/Cramer/PCA + validation-test protocol,extension-only evidence that fit scope changes coordinates and model-selection ethics

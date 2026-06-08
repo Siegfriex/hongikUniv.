@@ -46,7 +46,7 @@ cell_index,cell_type,ssot_original,inserted_extension,original_index,inserted_af
 44,markdown,False,True,,26,LR sensitivity table,## [INSERTED] LR sensitivity table and interpretation board 원본 Part 4 plot에 쓰인 `,e9a52e7b333cebbcbf9aca6dd0da2fcecde145e454ed677fdb5e3914115545ec
 45,code,False,True,,26,LR sensitivity table code,# [INSERTED] LR sensitivity table and interpretation board # [주석 보강 | inserted-c,ac9a945ebfb77b9a77c999bc06a3b7dc1881de8e968fa9d1a3a02164f5d95c60
 46,markdown,False,True,,26,V04 optimizer dynamics extension markdown,## [INSERTED] V04-style optimizer trajectory and state dashboard 이 확장 cell은 PREP,9ae5b4ed528c77696a2c4e12d5b09e072244f452c04522e9a6c32754a82c759e
-47,code,False,True,,26,V04 optimizer dynamics extension code,# [INSERTED] V04-style optimizer trajectory and state dashboard # [주석 보강 | inser,f5f842f98eeb354a40808a985d30d1a9890377b1977496a1c59cc7b15e8258cd
+47,code,False,True,,26,V04 optimizer dynamics extension code,# [INSERTED] V04-style optimizer trajectory and state dashboard # [주석 보강 | inser,f8af834383040744e62df678f1bdf75e8ec99467da85d5cad58ff71f1589f864
 48,markdown,False,True,,26,numeric interpretation notes for V04 multi-view,## [INSERTED] V04 numerical interpretation notes 현재 보는 노드: `V04-style optimizer ,a7c9486591ff1050ab4e43d4da2108d1702dfa8a010f5360ee2e28b127fed0ea
 49,markdown,False,True,,26,V05 gradient flow extension markdown,## [INSERTED] V05-style validation gradient-flow audit 이 확장 cell은 PREP notebook의,559791b91736ec02ca4a1b95c7bc92ad3fee42a3dc4696f3f7e023adce181ec5
 50,code,False,True,,26,V05 gradient flow extension code,# [INSERTED] V05-style validation gradient-flow audit # [주석 보강 | inserted-code b,adf1956506291b1688d6fc6d99e038f78ebde88a50b54548c2060981f9bfda25
@@ -56,6 +56,6 @@ cell_index,cell_type,ssot_original,inserted_extension,original_index,inserted_af
 54,code,False,True,,26,scoped box/barplot visualization code,# [INSERTED] Optimizer scoped box/barplot board # [주석 보강 | inserted-code boundar,18504778e723409a7bc60ca3e19e13de133773099e427031b17318c642e55544
 55,markdown,False,True,,26,Evidence board before Part 5,## [INSERTED] Evidence board for analysis questions Part 5 질문 문구는 그대로 유지한다. 이 ce,712e91515b1c206287ce36c77b59d4612c1495e9a226d5baeab6cb4fc43d87f3
 56,code,False,True,,26,Evidence board code updated with scoped visuals,# [INSERTED] Evidence board for analysis questions # [주석 보강 | inserted-code boun,b7f0d493c69437316c3de1c2d4fc87d3b6ccb0f4ccda1c3d6ab1df6f9dc97444
-57,markdown,True,False,27,,,"--- ## Part 5: 분석 (간단 서술, 각 5 점 — 총 20 점) 위 실험 결과를 보고 다음 4 개 질문에 본인 의견을 작성하세요. 정",6fe6905688b5af85c427146d16999686e542d5e6d10488520ea3f4f4d3497285
+57,markdown,True,False,27,,,"--- ## Part 5: 분석 (간단 서술, 각 5 점 — 총 20 점) 위 실험 결과를 보고 다음 4 개 질문에 본인 의견을 작성하세요. 정",5253a032ae57e632b9fe76025794c874255c8623c65de39e5c7757ddb9fba6a4
 58,markdown,False,True,,27,Final research conclusion,## [INSERTED] Final research conclusion board 이 마지막 확장 cell은 원본 공식 결과와 보조 진단을 한 ,bccb676d76c0705705c6bc9e070c70693268459e9095bd0f50d201c7c6feaf1f
-59,code,False,True,,27,Final research conclusion code updated with scoped visuals,# [INSERTED] Final research conclusion board # [주석 보강 | inserted-code boundary] ,b9535f3dc4c6aebe8d9bfb05eb1b5ef59c7be6c9bd2660872b7fdb75071061f4
+59,code,False,True,,27,Final research conclusion code updated with scoped visuals,# [INSERTED] Final research conclusion board # [주석 보강 | inserted-code boundary] ,c9a33c2be4b8a95151c90e912596455a7b9861ffd77431d30cf96eabc2bf4906

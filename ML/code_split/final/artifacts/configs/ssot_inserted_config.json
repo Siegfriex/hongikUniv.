@@ -4,5 +4,10 @@
   "official_parts_preserved": true,
   "inserted_cells_are_extension_only": true,
   "mnist_subset_train": 8000,
-  "mnist_subset_test": 2000
+  "mnist_subset_test": 2000,
+  "submission_ready_notebook": "ML_W13_HOMEWORK_SUBMISSION_READY.ipynb",
+  "submission_ready_policy": "Original 28 homework cells first; inserted extensions moved to Appendix.",
+  "part5_answers_finalized": true,
+  "v04_final_update_norm_nan_fixed": true,
+  "official_iris_tie_handled": true
 }

@@ -1,0 +1,62 @@
+cell_index,cell_type,ssot_original,inserted_extension,original_index,inserted_after_original_index,purpose,first_80,source_hash_sha256
+0,markdown,True,False,0,,,# Week 13 숙제: Optimizer 비교 실험 ## 학습 목표 - SGD / Momentum / RMSProp / Adam 의 **수식을,5ccdaf32aabc5538f880de3f2adbc6a98d6504d0c2d74639e47ab52f7265d8c1
+1,code,True,False,1,,,import numpy as np import matplotlib.pyplot as plt from neural_network_v2 import,df0f89688982a7f106354b62de22995b7c2595bd1d57074005ec4163ee3d1006
+2,markdown,True,False,2,,,--- ## Part 1: Optimizer 4 종 직접 구현 (20 점) `neural_network_v2.py` 의 `Optimizer` b,2827f53e18bcb9497ab7b8da6aa2cd171bff414f36c580f89b96b057cafc1e92
+3,markdown,True,False,3,,,### 1.1 MySGD (5 점) $$\theta \leftarrow \theta - \eta \cdot \nabla L$$,41dab8414d19c6cc58514fb7d123dc5806e4e960d3467616c95cfe704652beb2
+4,code,True,False,4,,,"class MySGD(Optimizer): def __init__(self, lr=0.01): self.lr = lr def _update(se",62b04daaca5864c1426b5699780a5d9ea8906d94be243541030befc181cb162d
+5,markdown,True,False,5,,,### 1.2 MyMomentum (5 점) $$v \leftarrow \mu \cdot v - \eta \cdot \nabla L$$ $$\t,7f28b789cc1e0307850dddefa19c0b481005c4c723b7cea8650a2f62b1000b48
+6,code,True,False,6,,,"class MyMomentum(Optimizer): def __init__(self, lr=0.01, mu=0.9): self.lr = lr s",e210931ddd7b8e795a19ef4bafe06be13b9835b6b152a9bd241299551f920035
+7,markdown,True,False,7,,,### 1.3 MyRMSProp (5 점) $$s \leftarrow \rho \cdot s + (1-\rho) \cdot g^2$$ $$\th,33695e4258ac325ea7563538cbc47d29d01d132609e560a77c62a4d1f0d20711
+8,code,True,False,8,,,"class MyRMSProp(Optimizer): def __init__(self, lr=0.001, rho=0.9, eps=1e-8): sel",b43537561a54a801eba374a514917874b3bed9d5953f3ea083d9bf2ec7122d4d
+9,markdown,True,False,9,,,### 1.4 MyAdam (5 점) $$m \leftarrow \beta_1 \cdot m + (1-\beta_1) \cdot g$$ $$v ,d84f6b5883f7f4c6341ad0aa5e24c1170334f3f04bfda424384777cbf590e826
+10,code,True,False,10,,,"class MyAdam(Optimizer): def __init__(self, lr=0.001, beta1=0.9, beta2=0.999, ep",239cdd602e57c5d6fba510bfc8309ee03b80ea4365cf6c72f3329fbc5a31f63b
+11,markdown,True,False,11,,,### 1.5 동작 확인 (검증용) XOR 에서 4개 모두 학습되는지 확인. 1000 epoch 안에 loss < 0.05 가 나와야 정상.,f0a123c21f53998a3bd19e8be70c34d42e2b922a75f89bfd7ece46dd99b9349f
+12,code,True,False,12,,,"def test_xor(OptCls, name, lr, **kw): np.random.seed(0) X = np.array([[0,0],[0,1",4983615560144eaa1776ccf3efa5912d2a381cb3b7d4f28fca376ef1661057b6
+13,markdown,True,False,13,,,"--- ## Part 2: IRIS optimizer 비교 (25 점) 같은 네트워크 (4→16→3), 같은 데이터, 같은 epoch 수에서 4",715e99bfcf48550376e7cd03c5daa365c401aa0f6de7f59cce7f93f2db641188
+14,code,True,False,14,,,from sklearn.datasets import load_iris from sklearn.model_selection import train,418a30002a07293d60747dd1a2a8cdd2bb32262f28214feb006297e425d27740
+15,markdown,True,False,15,,,### 2.1 4 종 비교 실험 (15 점) 각 optimizer 의 학습률은 아래 표를 사용 (수업 슬라이드 권장값): | Optimizer ,d732800fb12f1e84f9b644679dbda3eb4e39a1e3b50dbf9ba0b03bbf08bd683e
+16,code,True,False,16,,,"def train_iris(OptCls, **kw): # TODO: 다음 순서로 구현 # 1) np.random.seed(0) ← 가중치 초기화",8322a89e810a8e8a5dbab43ff84d6e9826f8f8fa17b112e431bcf7c4ce9bf1a5
+17,markdown,True,False,17,,,### 2.2 학습 곡선 시각화 (10 점) 4 개 optimizer 의 loss curve 를 한 그림에 그린다. y 축은 log scale.,9a268a01bbe23cf7b9209642b0b9fc50c6fe17223cd8c24c36686c9958c18b2e
+18,code,True,False,18,,,"#아래 코드를 이용하거나 별도의 코드를 작성 fig, ax = plt.subplots(figsize=(10, 5)) colors = {'MySG",9ab37e5c246a370632a1f8803fbb7ed145ef3de84c88ed548accd6029a89f25d
+19,markdown,True,False,19,,,--- ## Part 3: MNIST optimizer 비교 (25 점) 더 어려운 문제에서 차이가 더 뚜렷해진다. Iris 와 같은 4 종 o,9d2dbbaea813a838a5b4d35fb88ea8e802a411b43b994522d397de3c02636bcc
+20,code,True,False,20,,,import os X = y = None if X is None: try: from tensorflow.keras.datasets import ,3d55af6dcfd313b03793146e03e3b19e7ff20e46ab780f1c4d2c06e7e914a604
+21,markdown,True,False,21,,,### 3.2 4 종 비교 학습 (15 점) 네트워크: 784 → 64 → 32 → 10 (작게 잡아 학습 시간 단축). 각 optimizer ,7168afb3febe3144f594e910a68bb7fa82fd37d685c29280fc0b225a99513439
+22,code,True,False,22,,,"def train_mnist(OptCls, **kw): # TODO: 다음 구조의 네트워크로 MNIST 학습 # Dense(784, 64) → ",cd91ae29d0b28f6ecbefdc306a2389a2162eb677060b047351991d5772e0197c
+23,markdown,True,False,23,,,### 3.3 결과 시각화 (10 점),a659e97e3ea5e7032cd32413a7e1c94a7de6eba6b29fdc8da8b4bc4fd3a4b5e4
+24,code,True,False,24,,,"#아래 코드를 이용하거나 별도의 코드를 작성 fig, axes = plt.subplots(1, 2, figsize=(13, 4.5)) color",2f6f08cb115397a8abcc146fb59b5a6f20b83f19e1dfed723ae3ecc4e6a0b7b2
+25,markdown,True,False,25,,,--- ## Part 4: 학습률 민감도 (10 점) 같은 optimizer 라도 학습률에 따라 결과가 크게 달라진다. **Adam** vs *,4f10313cd4416e0eef16ba6525d0ee76e468319b1a27e503d064dd0dcbc38f96
+26,code,True,False,26,,,"lrs = [1e-4, 1e-3, 1e-2, 1e-1] # TODO: 각 lr 에 대해 MySGD 와 MyAdam 학습 후 test_acc 수집",337177e2f9108b80732c529c74b33470a64a1b170390dc9c079100ff3361f481
+27,markdown,True,False,27,,,"--- ## Part 5: 분석 (간단 서술, 각 5 점 — 총 20 점) 위 실험 결과를 보고 다음 4 개 질문에 본인 의견을 작성하세요. 정",5253a032ae57e632b9fe76025794c874255c8623c65de39e5c7757ddb9fba6a4
+28,markdown,False,True,,,Submission-ready appendix boundary,--- ## [INSERTED] Appendix: research diagnostics and evidence boards 위 28개 cell은,a78aa4f8b8900a9b6b7b6b51caca755cc79c4fa2a840a4d293abedd3593cc471
+29,markdown,False,True,,0,SSOT preservation contract,## [INSERTED] SSOT and no-rewrite contract - `week13_homework (1).ipynb`를 SSOT로 ,9081dd010f642117c2289fc8a7ad232238712e8468b95906be760d7e89a6102c
+30,markdown,False,True,,12,optimizer responsibility audit,## [INSERTED] Optimizer responsibility audit 이 확장 cell은 Part 1 구현이 `Optimizer.st,384eaafe768ddb9952fdee99a52f5fd2bd6be3bf8e837a4f5add784768414896
+31,code,False,True,,12,optimizer responsibility audit code,# [INSERTED] Optimizer responsibility audit # [주석 보강 | inserted-code boundary] #,991b985439d0827fb953678e40a1d0ce6711ea5f2b334f6684a52d9ceebe428d
+32,markdown,False,True,,12,optimizer visualization candidate map markdown,## [INSERTED] Optimizer visualization candidate map 이 보드는 optimizer가 등장하는 모든 파트에,3cd164bd385a18b8c981ffb2537361b77f82979476ef20578484f01fab62ffdf
+33,code,False,True,,12,optimizer visualization candidate map code,# [INSERTED] Optimizer visualization candidate map # [주석 보강 | inserted-code boun,6a154dd75f61380a72ab2206c87fc6a06b22ccd6eba5ba4206216c4f7aec1d75
+34,markdown,False,True,,12,Virtual 3D optimizer contour analysis,## [INSERTED] Virtual 3D optimizer contour analysis 이 확장 cell은 Part 1 직후에 optimi,b7b256b65ce80e512c5511d4a9a0417557fc6a7c7956c69337be2d7e330f1c5c
+35,code,False,True,,12,Virtual 3D optimizer contour analysis code,# [INSERTED] Virtual 3D optimizer contour analysis # [주석 보강 | inserted-code boun,6c3164e5b9e184295eb55dabf68812b9e0694f0b614e1a0033ead8ba22e0c6af
+36,markdown,False,True,,14,Iris DatasetCard and EDA,## [INSERTED] Iris DatasetCard and EDA 이 확장 cell은 Part 2의 official Iris 실험을 바꾸지 ,31f43cf23058da3e9c2409bda6589ad922ab2fbeb15c1435b51145247e00999e
+37,code,False,True,,14,Iris DatasetCard and EDA code,# [INSERTED] Iris DatasetCard and EDA # [주석 보강 | inserted-code boundary] # 이 cod,72b0b3f2daa6ed580e0c1ade434865148f758b7e7a4a62823bd5bfff463ddbba
+38,markdown,False,True,,18,Iris residual diagnostics,## [INSERTED] Iris residual-style classification diagnostics 원본 `train_iris()`는 ,fd2f3e94e533fd6e45548a912dd3256d5cf2ed6662dded3c49cac1dd2dc435aa
+39,code,False,True,,18,Iris residual diagnostics code,# [INSERTED] Iris residual-style classification diagnostics # [주석 보강 | inserted-,2f0d65ac8846ae94feb0a2296994e39848feb5a8c2bfdbad56034ff273330de0
+40,markdown,False,True,,18,split-before-fit diagnostic,## [INSERTED] Split-before-fit diagnostic 원본 Part 2의 `X = StandardScaler().fit_t,c0d4f34df90d796595623591271a58f0a0dbbe8098422e11fe410bd37eb999a0
+41,code,False,True,,18,split-before-fit diagnostic code,# [INSERTED] Split-before-fit diagnostic # [주석 보강 | inserted-code boundary] # 이 ,2c487216c0b33180f14bd7d632d58c25992f111cbb643303315afd5cf18dfff3
+42,markdown,False,True,,18,Iris preprocessing data-quality association PCA validation audit,"## [INSERTED] Iris preprocessing, data-quality, association, PCA validation audi",42ed8700dcffb7341ae904dac1a792875eebcbc2bbcb0c4d8cff2e14ae07364b
+43,code,False,True,,18,Iris preprocessing data-quality association PCA validation audit code,"# [INSERTED] Iris preprocessing, data-quality, association, PCA validation audit",de07244826b61c8a1ad9a58e8315e36ea6833088791c78b0c248d8fc9b9fc625
+44,markdown,False,True,,24,MNIST/Digits error diagnostics,## [INSERTED] MNIST/Digits error diagnostics 원본 Part 3 MNIST 결과는 건드리지 않는다. 확장 진단,8fb0e3093178767b423d60cfc64a4009001c160ade78a3974f04f89bb61f65fa
+45,code,False,True,,24,MNIST/Digits error diagnostics code,# [INSERTED] MNIST/Digits error diagnostics # [주석 보강 | inserted-code boundary] #,6baf13e30b8407489b4df816fe0b4be9b8cea15353a25c108c0488755dd78d86
+46,markdown,False,True,,26,LR sensitivity table,## [INSERTED] LR sensitivity table and interpretation board 원본 Part 4 plot에 쓰인 `,e9a52e7b333cebbcbf9aca6dd0da2fcecde145e454ed677fdb5e3914115545ec
+47,code,False,True,,26,LR sensitivity table code,# [INSERTED] LR sensitivity table and interpretation board # [주석 보강 | inserted-c,ac9a945ebfb77b9a77c999bc06a3b7dc1881de8e968fa9d1a3a02164f5d95c60
+48,markdown,False,True,,26,V04 optimizer dynamics extension markdown,## [INSERTED] V04-style optimizer trajectory and state dashboard 이 확장 cell은 PREP,9ae5b4ed528c77696a2c4e12d5b09e072244f452c04522e9a6c32754a82c759e
+49,code,False,True,,26,V04 optimizer dynamics extension code,# [INSERTED] V04-style optimizer trajectory and state dashboard # [주석 보강 | inser,f8af834383040744e62df678f1bdf75e8ec99467da85d5cad58ff71f1589f864
+50,markdown,False,True,,26,numeric interpretation notes for V04 multi-view,## [INSERTED] V04 numerical interpretation notes 현재 보는 노드: `V04-style optimizer ,a7c9486591ff1050ab4e43d4da2108d1702dfa8a010f5360ee2e28b127fed0ea
+51,markdown,False,True,,26,V05 gradient flow extension markdown,## [INSERTED] V05-style validation gradient-flow audit 이 확장 cell은 PREP notebook의,559791b91736ec02ca4a1b95c7bc92ad3fee42a3dc4696f3f7e023adce181ec5
+52,code,False,True,,26,V05 gradient flow extension code,# [INSERTED] V05-style validation gradient-flow audit # [주석 보강 | inserted-code b,adf1956506291b1688d6fc6d99e038f78ebde88a50b54548c2060981f9bfda25
+53,markdown,False,True,,26,Dense2 ReLU placement ablation markdown,## [INSERTED] V05-style Dense2 output ReLU placement ablation 이 확장 cell은 PREP no,79c44a169a733e529a98a867c7be9a0de6e7a43283c205ce0904030386682bed
+54,code,False,True,,26,Dense2 ReLU placement ablation code,# [INSERTED] V05-style Dense2 output ReLU placement ablation # [주석 보강 | inserted,645d314216b2f5ea56abe7ed33b6977e73a756618180a36323ac47e71eb3bc99
+55,markdown,False,True,,26,scoped box/barplot visualization markdown,## [INSERTED] Optimizer scoped box/barplot board 막대그래프와 박스플롯은 전체 범위를 항상 `0~1`로 두,04ed14ee2e0cc9ce986422eedaee410f608aa5459fcac9bf5a5f6640da4f19ad
+56,code,False,True,,26,scoped box/barplot visualization code,# [INSERTED] Optimizer scoped box/barplot board # [주석 보강 | inserted-code boundar,18504778e723409a7bc60ca3e19e13de133773099e427031b17318c642e55544
+57,markdown,False,True,,26,Evidence board before Part 5,## [INSERTED] Evidence board for analysis questions Part 5 질문 문구는 그대로 유지한다. 이 ce,712e91515b1c206287ce36c77b59d4612c1495e9a226d5baeab6cb4fc43d87f3
+58,code,False,True,,26,Evidence board code updated with scoped visuals,# [INSERTED] Evidence board for analysis questions # [주석 보강 | inserted-code boun,b7f0d493c69437316c3de1c2d4fc87d3b6ccb0f4ccda1c3d6ab1df6f9dc97444
+59,markdown,False,True,,27,Final research conclusion,## [INSERTED] Final research conclusion board 이 마지막 확장 cell은 원본 공식 결과와 보조 진단을 한 ,bccb676d76c0705705c6bc9e070c70693268459e9095bd0f50d201c7c6feaf1f
+60,code,False,True,,27,Final research conclusion code updated with scoped visuals,# [INSERTED] Final research conclusion board # [주석 보강 | inserted-code boundary] ,c9a33c2be4b8a95151c90e912596455a7b9861ffd77431d30cf96eabc2bf4906
