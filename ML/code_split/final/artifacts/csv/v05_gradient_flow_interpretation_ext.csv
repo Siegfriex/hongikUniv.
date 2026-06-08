@@ -1,0 +1,5 @@
+step,interpretation
+관찰,"loss와 macro-F1뿐 아니라 Dense별 grad norm, update/param ratio, ReLU active/dead ratio가 epoch별로 달라진다."
+원인,"optimizer는 X/y가 아니라 backward가 만든 dW/db를 읽고, state와 lr에 따라 실제 update 크기를 조절한다."
+제한,이 진단은 validation-only 연구 확장이다. 공식 homework의 test accuracy 결과를 대체하지 않는다.
+결론,Part 5 답변에서는 'Adam이 빠르다'만 쓰지 말고 update/grad/state 관점의 근거를 같이 제시해야 한다.

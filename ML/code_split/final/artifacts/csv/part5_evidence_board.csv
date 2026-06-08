@@ -1,0 +1,9 @@
+question,required evidence,relevant plot/table,likely answer direction,caution
+Q1,Iris/MNIST loss curves + V04 trajectory,"Part 2/3 curve plots, v04_optimizer_surface_projection_pack_ext.png",Adam/RMSProp often reduce loss faster because state changes actual step size,official curves use fixed small epoch budgets
+Q1-early,virtual 3D contour/path/loss geometry,"virtual_3d_optimizer_contour_analysis_ext.png, virtual_3d_optimizer_evaluation_ext.csv",same gradient field can produce different optimizer paths before real Iris/MNIST experiments,"surrogate quadratic, not real dataset loss surface"
+Q2,lr=0.1 comparison + update norm,"Part 4 semilogx plot, optimizer_scoped_bar_box_board_ext.png","compare MySGD vs MyAdam at lr=0.1, then explain update rule/state",Iris accuracy can saturate; inspect loss/update norm too
+Q3,LR robustness + state dashboard,"lr_sensitivity_df_ext, v04_optimizer_state_dashboard_ext.png",Adam can look more robust because m/v adapt step scale,only four lr values and one split
+Q4,practical optimizer choice,official summaries + V05 gradient-flow audit + scoped bars,"start with Adam baseline, then check gradient/update ratios and validation curve","data geometry, scaling, output activation placement can change ranking"
+Q4-extra,architecture/activation caution,v05_dense2_relu_placement_summary_ext.csv,do not add output ReLU by habit in CE-from-logits classification,"extension-only validation diagnostic, not official score"
+V01.2,data quality + Pearson/Spearman/Kendall + Cramer's V + PCA + val/test protocol,"iris_preprocessing_association_pca_audit_ext.png, iris_validation_test_protocol_ext.csv","preprocessing fit scope changes coordinates; validation selects, test reports",official Part 2 all-fit scaler remains untouched for homework scoring
+All,visualization candidate map,optimizer_visualization_candidate_map_ext.csv,choose 3D only when it clarifies trajectory/surface geometry,not every diagnostic needs 3D

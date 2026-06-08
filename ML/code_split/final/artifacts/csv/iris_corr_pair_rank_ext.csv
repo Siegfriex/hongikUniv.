@@ -1,0 +1,19 @@
+method,feature_pair,corr,abs_corr
+Kendall,petal length (cm) vs petal width (cm),0.8068906859884751,0.8068906859884751
+Kendall,sepal length (cm) vs petal length (cm),0.7185159275387326,0.7185159275387326
+Kendall,sepal length (cm) vs petal width (cm),0.6553085576776535,0.6553085576776535
+Kendall,sepal width (cm) vs petal length (cm),-0.1859944227944418,0.1859944227944418
+Kendall,sepal width (cm) vs petal width (cm),-0.15712566386901783,0.15712566386901783
+Kendall,sepal length (cm) vs sepal width (cm),-0.0769967881165167,0.0769967881165167
+Pearson,petal length (cm) vs petal width (cm),0.962865431402796,0.962865431402796
+Pearson,sepal length (cm) vs petal length (cm),0.8717537758865838,0.8717537758865838
+Pearson,sepal length (cm) vs petal width (cm),0.8179411262715758,0.8179411262715758
+Pearson,sepal width (cm) vs petal length (cm),-0.42844010433053864,0.42844010433053864
+Pearson,sepal width (cm) vs petal width (cm),-0.3661259325364377,0.3661259325364377
+Pearson,sepal length (cm) vs sepal width (cm),-0.11756978413300088,0.11756978413300088
+Spearman,petal length (cm) vs petal width (cm),0.9376668235763413,0.9376668235763413
+Spearman,sepal length (cm) vs petal length (cm),0.8818981264349859,0.8818981264349859
+Spearman,sepal length (cm) vs petal width (cm),0.8342887759080051,0.8342887759080051
+Spearman,sepal width (cm) vs petal length (cm),-0.30963508601557777,0.30963508601557777
+Spearman,sepal width (cm) vs petal width (cm),-0.2890317486605842,0.2890317486605842
+Spearman,sepal length (cm) vs sepal width (cm),-0.166777658283235,0.166777658283235

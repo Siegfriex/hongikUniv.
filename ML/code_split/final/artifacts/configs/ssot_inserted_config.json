@@ -1,0 +1,8 @@
+{
+  "ssot_source": "week13_homework (1).ipynb",
+  "output_notebook": "ML_W13_HOMEWORK_SSOT_INSERTED.ipynb",
+  "official_parts_preserved": true,
+  "inserted_cells_are_extension_only": true,
+  "mnist_subset_train": 8000,
+  "mnist_subset_test": 2000
+}

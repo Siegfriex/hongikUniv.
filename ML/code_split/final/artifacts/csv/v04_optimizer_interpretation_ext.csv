@@ -1,0 +1,5 @@
+step,interpretation
+관찰,"같은 quadratic gradient를 받아도 네 optimizer의 contour path, update norm, state norm이 다르다."
+원인,"SGD는 현재 gradient만 쓰고, Momentum/RMSProp/Adam은 velocity 또는 squared-gradient accumulator를 state로 저장한다."
+제한,이 surface는 실제 Iris/MNIST loss가 아니라 update rule을 분리하기 위한 synthetic 진단이다.
+결론,Part 4의 lr sensitivity는 단순 lr 숫자 비교가 아니라 update rule과 state가 step 크기를 바꾸는 현상으로 해석해야 한다.

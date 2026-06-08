@@ -1,0 +1,5 @@
+plot type,when to scope,scope rule,caution
+barplot,0~1 전체 축에서 차이가 묻힐 때,min/max + padding,zoomed/scoped라고 제목에 명시한다
+boxplot,outlier 때문에 box 본체가 눌릴 때,2~98% 또는 2~95% quantile,outlier를 제거한 것이 아니라 zoom한 것임을 해석에 남긴다
+delta bar,두 optimizer 차이를 직접 비교할 때,difference scale centered at 0,원래 absolute metric도 함께 보존한다
+Dense2 placement,accuracy와 score clipping을 함께 볼 때,accuracy zoom + zero ratio annotation,validation-only extension이라고 명시한다

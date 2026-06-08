@@ -1,0 +1,12 @@
+evidence area,summary,interpretation
+official Iris,MySGD,best official test_acc in Part 2
+official MNIST,MyRMSProp,best official test_acc in Part 3
+LR sensitivity,MyAdam,smaller range means less sensitive in this grid
+split-before-fit,train-only fit for research,official Part 2 kept all-fit scaler because homework specified it
+V01.2 preprocessing audit,quality/correlation/Cramer/PCA + validation-test protocol,extension-only evidence that fit scope changes coordinates and model-selection ethics
+diagnostics,confusion/residual/gradient audit,"extension-only evidence, not replacement for scoring"
+V04 optimizer dynamics,trajectory/update/state dashboard,same gradient can produce different paths because optimizer state changes updates
+Early virtual 3D contour,3D parameter path + contour slices + evaluation table,front-loads optimizer geometry before Iris/MNIST official comparisons
+V05 gradient flow,validation-only dW/db and update audit,test_used=False; explains loss/metric curve causes without replacing official results
+Dense2 ReLU placement,raw logits vs output ReLU ablation,output activation can change CE score geometry even when accuracy is similar
+Scoped plot policy,zoomed bars and quantile boxplots,"differences are clearer, but titles/cautions must say scoped or zoomed"

@@ -1,0 +1,5 @@
+step,interpretation
+관찰,같은 Adam/lr에서도 Dense2 뒤 ReLU 유무에 따라 train/val loss와 score zero ratio가 달라진다.
+원인,"출력층 ReLU는 음수 logit을 0으로 잘라 class 간 signed score 차이를 제한하고, 일부 gradient 흐름도 차단할 수 있다."
+제한,Iris는 작고 쉬워 accuracy가 비슷하게 나올 수 있으므로 loss와 score distribution을 함께 봐야 한다.
+결론,multiclass CE-from-logits 구조에서는 마지막 Dense 뒤 ReLU를 기본값으로 넣기보다 ablation으로 검증해야 한다.

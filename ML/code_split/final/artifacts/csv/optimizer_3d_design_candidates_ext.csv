@@ -1,0 +1,6 @@
+3D/camera design,x axis,y axis,z or color,how to build,why/when useful
+synthetic quadratic,w0,w1,loss L(w),optimizer path를 표면 위에 얹는다,"공간감, valley, overshoot 후보"
+top contour,w0,w1,contour color,3D를 위에서 눌러 본다,zig-zag와 overshoot를 가장 선명하게 본다
+front projection,w0,loss,optimizer color,w1을 버린다,완만한 축 w0의 진척을 본다
+side projection,w1,loss,optimizer color,w0를 버린다,가파른 축 w1의 초반 감소/진동을 본다
+parameter PCA candidate,PC1(param),PC2(param),loss,고차원 parameter를 PCA로 2D 압축한다,실제 network trajectory 후보이지만 계산/저장 비용이 큼

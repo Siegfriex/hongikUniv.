@@ -1,0 +1,5 @@
+item,value,meaning,modeling implication
+X,"(150, 4)",4 numeric features,Dense input dimension = 4
+y,"(150,)",3 class labels,Dense output dimension = 3
+task,multiclass classification,setosa/versicolor/virginica,SoftmaxCE
+metric,accuracy + macro-F1 + confusion matrix,class-wise mistakes matter,Part 2/diagnostics

@@ -1,0 +1,8 @@
+check,value,why_it_matters
+n_rows,150.0,sample 수. split 후 class별 표본이 너무 적지 않은지 본다.
+n_numeric_features,4.0,Dense 입력 차원 Din=4와 직접 연결된다.
+missing_cells,0.0,"0이면 imputation은 필요 없지만, 원칙은 train-only fit이다."
+duplicate_rows,1.0,중복이 있으면 split leakage와 과대평가 가능성을 점검한다.
+class_count_min,50.0,stratified split의 최소 class 표본 수.
+class_count_max,50.0,class imbalance 확인용 최대 class 표본 수.
+class_balance_ratio,1.0,1에 가까울수록 class balance가 좋다.

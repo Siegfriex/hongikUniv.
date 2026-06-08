@@ -1,0 +1,5 @@
+view,what it reveals,answer sentence cue
+3D surface view,loss surface 전체 공간감,optimizer path가 valley를 향해 내려오는 전체 방향을 설명한다.
+top contour view,zig-zag와 overshoot,"w0/w1 평면에서 경로가 흔들리는지, 곡률 방향을 따라 안정적으로 가는지 본다."
+front w0-loss projection,완만한 축 w0의 loss 감소,w0는 gradient가 작아 천천히 줄 수 있으므로 optimizer state가 누적 방향을 어떻게 다루는지 본다.
+side w1-loss projection,가파른 축 w1의 초반 감소/진동,steep direction에서 큰 gradient가 overshoot를 만들거나 adaptive scaling으로 완화되는지 확인한다.

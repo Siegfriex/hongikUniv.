@@ -1,0 +1,5 @@
+step,note
+관찰,class count가 균형이고 petal feature가 class separation을 잘 보여준다.
+원인,Iris는 4개 numeric feature와 3개 class label을 가진 작은 multiclass 문제다.
+제한,샘플 수가 작아 split seed와 preprocessing 정책의 영향이 있을 수 있다.
+결론,"Part 2 공식 비교는 Dense(4->16->3), SoftmaxCE, accuracy를 쓰고, 확장 진단에서는 macro-F1/confusion을 함께 본다."

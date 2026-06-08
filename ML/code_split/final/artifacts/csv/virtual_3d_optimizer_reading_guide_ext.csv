@@ -1,0 +1,7 @@
+view,what_to_read,caution
+3D parameter path,"w0,w1,w2 세 축에서 optimizer가 어떤 공간 경로를 밟는지 본다.",고차원 전체 loss를 완전히 그린 것이 아니라 3D surrogate subspace다.
+w0-w1 contour,완만한 w0 축과 중간 w1 축에서 slow drift와 방향 누적을 본다.,w2를 0으로 고정한 slice라 실제 path의 loss와 완전히 같지는 않다.
+w0-w2 contour,가파른 w2 축에서 초반 overshoot와 빠른 loss 감소를 본다.,가파른 축은 update norm이 클수록 진동이 잘 보인다.
+w1-w2 contour,중간/가파른 축이 만날 때 zig-zag가 생기는지 본다.,Momentum은 velocity 때문에 loss 증가 step이 생길 수 있다.
+loss curve,공간 경로가 실제 loss 감소로 이어졌는지 확인한다.,accuracy가 없는 surrogate이므로 loss/geometry 해석 전용이다.
+update norm,optimizer state가 실제 step 크기를 어떻게 바꾸는지 본다.,"SGD는 grad_norm과 update_norm이 직접 연결되고, adaptive 계열은 다르게 움직인다."

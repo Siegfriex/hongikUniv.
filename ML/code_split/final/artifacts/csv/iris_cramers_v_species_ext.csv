@@ -1,0 +1,5 @@
+feature,binning,cramers_v_with_species,contingency_shape,interpretation
+petal width (cm),pd.qcut(q=3),0.9422422792575764,"(3, 3)",higher means binned feature is more associated with species label
+petal length (cm),pd.qcut(q=3),0.9247012835332911,"(3, 3)",higher means binned feature is more associated with species label
+sepal length (cm),pd.qcut(q=3),0.6410485343897321,"(3, 3)",higher means binned feature is more associated with species label
+sepal width (cm),pd.qcut(q=3),0.4715368070726999,"(3, 3)",higher means binned feature is more associated with species label

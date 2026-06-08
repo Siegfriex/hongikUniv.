@@ -1,0 +1,5 @@
+answer_step,sentence
+관찰,"같은 시작점과 같은 loss/gradient 함수를 써도 optimizer별 3D path, contour projection, update norm이 다르게 나타난다."
+원인,"SGD는 현재 gradient에 직접 비례하고, Momentum은 velocity, RMSProp은 squared-gradient accumulator, Adam은 first/second moment를 사용한다."
+제한,이 surface는 Iris/MNIST 실제 손실이 아니라 optimizer update rule을 분리해 보기 위한 virtual quadratic surrogate다.
+결론,"Part 2/3의 loss curve 차이는 모델이 다른 데이터를 본 차이가 아니라, 같은 param/grad를 optimizer가 다르게 해석한 결과로 읽어야 한다."
