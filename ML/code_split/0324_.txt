@@ -1,0 +1,47 @@
+# Quiz: Image Data Preprocessing (NumPy)
+
+빈칸을 채워 함수를 완성하고 실행하시오.
+- 모든 연산은 이미지 전체 픽셀 기준으로 수행합니다.
+
+import numpy as np
+
+img = np.array([
+    [  0,  50, 100, 150, 200],
+    [ 25,  75, 125, 175, 225],
+    [ 50, 100, 150, 200, 250],
+    [ 75, 125, 175, 225, 255],
+    [100, 150, 200, 250, 255]
+], dtype=float)
+
+print(img)
+
+(1) Normalize 함수 완성
+힌트: min, max 사용
+
+def normalize(x):
+    return (x - ________) / (________ - ________)
+
+norm_img = normalize(img)
+print(norm_img)
+
+(2) Standardize 함수 완성
+힌트: mean, std 사용
+def standardize(x):
+    return (x - ________) / ________
+
+std_img = standardize(img)
+print(std_img.mean())
+
+(3) ## (3) 결측값 처리
+힌트: np.nanmean, np.isnan 사용
+
+img2 = img.copy()
+img2[0,0] = np.nan
+
+def fill_missing(x):
+    mean_val = np.________(x)
+    return np.where(________, mean_val, x)
+
+filled = fill_missing(img2)
+print(filled)
+

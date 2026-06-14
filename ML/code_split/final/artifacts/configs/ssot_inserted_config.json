@@ -6,8 +6,9 @@
   "mnist_subset_train": 8000,
   "mnist_subset_test": 2000,
   "submission_ready_notebook": "ML_W13_HOMEWORK_SUBMISSION_READY.ipynb",
-  "submission_ready_policy": "Original 28 homework cells first; inserted extensions moved to Appendix.",
+  "submission_ready_policy": "Original homework flow first; inserted extensions remain in Appendix.",
   "part5_answers_finalized": true,
-  "v04_final_update_norm_nan_fixed": true,
+  "official_protocol_note_promoted": true,
+  "official_problem_design_summary_promoted": true,
   "official_iris_tie_handled": true
 }

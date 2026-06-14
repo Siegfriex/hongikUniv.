@@ -1,7 +1,7 @@
 part,optimizer-related focus,visual candidate,3D axes if applicable,question answered,status
 Part 1,optimizer responsibility,param/update norm bar + state dict table,param index or optimizer / grad-update scale / state size,optimizer가 X/y가 아니라 param/grad만 읽는가,implemented
 Part 1,one-step update geometry,single-step arrow on tiny 2D parameter plane,w0 / w1 / loss or update norm,SGD/Momentum/RMSProp/Adam이 같은 grad를 첫 step에서 어떻게 다르게 쓰는가,candidate
-Part 2,Iris optimizer comparison,loss curve + final loss delta bar + residual boxplot,epoch / optimizer / loss or residual,accuracy가 포화될 때 loss/residual로 차이를 어떻게 읽는가,implemented + scoped
+Part 2,Iris optimizer comparison,loss curve + final loss delta bar + CE boxplot,epoch / optimizer / loss or per-sample CE,accuracy가 포화될 때 loss/CE로 차이를 어떻게 읽는가,implemented + scoped
 Part 2,Iris decision-space,PCA 2D/3D decision-space with correct/wrong overlay,PC1 / PC2 / PC3,test/validation 오류가 feature geometry 어디에서 생기는가,candidate extension-only
 Part 3,MNIST optimizer comparison,loss curve + zoomed final-accuracy bar + per-class bar,epoch or class / optimizer / accuracy,짧은 epoch budget에서 optimizer별 차이가 어느 class에서 드러나는가,implemented + scoped
 Part 4,LR sensitivity,semilog curve + delta bar + 3D surface trajectory,w0 / w1 / loss,학습률 차이가 update norm과 overshoot를 어떻게 바꾸는가,implemented

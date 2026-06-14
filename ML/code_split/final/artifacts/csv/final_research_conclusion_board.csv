@@ -4,7 +4,7 @@ official MNIST,test accuracy best=MyRMSProp; lowest final loss=MyAdam,RMSProp an
 LR sensitivity,MyAdam,smaller range means less sensitive in this grid
 split-before-fit,train-only fit for research,official Part 2 kept all-fit scaler because homework specified it
 V01.2 preprocessing audit,quality/correlation/Cramer/PCA + validation-test protocol,extension-only evidence that fit scope changes coordinates and model-selection ethics
-diagnostics,confusion/residual/gradient audit,"extension-only evidence, not replacement for scoring"
+diagnostics,confusion/CE-margin/gradient audit,"extension-only evidence, not replacement for scoring"
 V04 optimizer dynamics,trajectory/update/state dashboard,same gradient can produce different paths because optimizer state changes updates
 Early virtual 3D contour,3D parameter path + contour slices + evaluation table,front-loads optimizer geometry before Iris/MNIST official comparisons
 V05 gradient flow,validation-only dW/db and update audit,test_used=False; explains loss/metric curve causes without replacing official results

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVM과 커널 트릭</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a18; line-height: 1.6; }
+  .page { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+  h1 { font-size: 28px; font-weight: 600; margin-bottom: 0.25rem; color: #1a1a18; }
+  .subtitle { font-size: 14px; color: #73726c; margin-bottom: 0.75rem; }
+  .notation-box { background: #EEEDFE; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 2.5rem; font-size: 13px; color: #3C3489; line-height: 2; }
+  .notation-box strong { font-weight: 600; }
+  .notation-row { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .notation-item { display: flex; align-items: baseline; gap: 8px; }
+  .notation-sym { font-family: 'SFMono-Regular', 'Consolas', monospace; font-size: 13px; font-weight: 600; background: #ffffff; padding: 1px 8px; border-radius: 5px; color: #3C3489; }
+  .notation-desc { font-size: 13px; color: #3C3489; }
+  h2 { font-size: 17px; font-weight: 600; color: #1a1a18; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+  h2::before { content: ''; display: inline-block; width: 4px; height: 18px; background: #534AB7; border-radius: 2px; }
+  .section { margin-bottom: 2.5rem; }
+  .card { background: #ffffff; border: 1px solid #e0dfd6; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 0.75rem; }
+  .step-header { display: flex; align-items: center; margin-bottom: 0.6rem; }
+  .step-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #EEEDFE; color: #534AB7; font-size: 12px; font-weight: 600; margin-right: 10px; flex-shrink: 0; }
+  .step-header h3 { font-size: 15px; font-weight: 600; color: #1a1a18; }
+  .step-body { font-size: 13.5px; color: #4a4a46; line-height: 1.75; padding-left: 34px; }
+  .step-body strong { color: #1a1a18; font-weight: 600; }
+  .code { font-family: 'SFMono-Regular', 'Consolas', 'Monaco', monospace; background: #f1efe8; border-radius: 8px; padding: 0.85rem 1.1rem; font-size: 12.5px; color: #2a2a28; line-height: 2; margin: 0.6rem 0 0.6rem 34px; white-space: pre; overflow-x: auto; border: 1px solid #e0dfd6; }
+  .hl { color: #534AB7; font-weight: 600; }
+  .hl-label { color: #0F6E56; font-weight: 600; }
+  .hl-new { color: #993C1D; font-weight: 600; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 99px; margin-right: 4px; }
+  .tag-blue { background: #EEEDFE; color: #534AB7; }
+  .tag-amber { background: #FAEEDA; color: #854F0B; }
+  .tag-green { background: #EAF3DE; color: #3B6D11; }
+  .formula { font-family: 'SFMono-Regular', 'Consolas', monospace; font-size: 12.5px; background: #f1efe8; border-radius: 6px; padding: 2px 8px; display: inline-block; color: #2a2a28; border: 1px solid #e0dfd6; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 560px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card { background: #ffffff; border: 1px solid #e0dfd6; border-radius: 12px; padding: 1.25rem 1.5rem; }
+  .compare-card h3 { font-size: 14px; font-weight: 600; color: #1a1a18; margin-bottom: 0.6rem; }
+  .compare-card p { font-size: 13px; color: #4a4a46; line-height: 1.7; margin-bottom: 0.5rem; }
+  .compare-card p strong { color: #1a1a18; }
+  .divider { border: none; border-top: 1px solid #e0dfd6; margin: 2rem 0; }
+  .summary-box { background: #ffffff; border-left: 4px solid #534AB7; border-radius: 0 12px 12px 0; padding: 1.25rem 1.5rem; font-size: 14px; color: #2a2a28; line-height: 1.85; border-top: 1px solid #e0dfd6; border-right: 1px solid #e0dfd6; border-bottom: 1px solid #e0dfd6; }
+  .summary-box strong { color: #1a1a18; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-weight: 600; font-size: 12px; color: #73726c; padding: 8px 10px; border-bottom: 1px solid #e0dfd6; background: #f8f7f2; }
+  td { padding: 9px 10px; color: #2a2a28; border-bottom: 1px solid #f0efe8; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .header-bar { background: #ffffff; border-bottom: 1px solid #e0dfd6; padding: 1rem 2rem; position: sticky; top: 0; z-index: 10; }
+  .header-inner { max-width: 760px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .header-title { font-size: 14px; font-weight: 600; color: #534AB7; }
+  .header-sub { font-size: 12px; color: #73726c; }
+  .callout { background: #f8f7f2; border: 1px solid #e0dfd6; border-radius: 8px; padding: 0.75rem 1rem 0.75rem 34px; font-size: 13px; color: #4a4a46; line-height: 1.7; margin: 0.5rem 0 0; }
+  .callout strong { color: #1a1a18; }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div class="header-inner">
+    <span class="header-title">SVM과 커널 트릭</span>
+    <span class="header-sub">Margin 최대화 → 내적 → 커널 트릭 → RBF</span>
+  </div>
+</div>
+
+<div class="page">
+  <h1>SVM과 커널 트릭</h1>
+  <p class="subtitle">Margin 최대화부터 RBF 커널까지 — 체계적 정리</p>
+
+  <!-- 표기 통일 안내 -->
+  <div class="notation-box">
+    <div style="font-weight:600; margin-bottom:0.6rem;">표기 통일 기준</div>
+    <div class="notation-row">
+      <div class="notation-item"><span class="notation-sym">xᵢ</span><span class="notation-desc">i번째 학습 데이터 포인트 (벡터)</span></div>
+      <div class="notation-item"><span class="notation-sym">yᵢ</span><span class="notation-desc">i번째 클래스 레이블 (+1 또는 -1) — 항상 레이블만</span></div>
+      <div class="notation-item"><span class="notation-sym">x*</span><span class="notation-desc">새로 들어온 예측 대상 데이터</span></div>
+      <div class="notation-item"><span class="notation-sym">K(xᵢ, xⱼ)</span><span class="notation-desc">두 데이터 포인트의 유사도 (커널 함수)</span></div>
+    </div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <h2>1단계 — SVM의 목표: Margin 최대화</h2>
+    <div class="card">
+      <div class="step-header"><span class="step-num">1</span><h3>결정 경계를 찾는다</h3></div>
+      <div class="step-body">두 클래스 사이의 <strong>margin을 최대화</strong>하는 평면을 찾는 것이 목표.<br>수식으로는 <span class="formula">w</span>의 크기를 줄이는 것과 수학적으로 동일.</div>
+      <div class="code">min  ½‖w‖²
+s.t. <span class="hl-label">yᵢ</span>(w·<span class="hl">xᵢ</span> + b) ≥ 1
+
+<span class="hl">xᵢ</span>  : i번째 학습 데이터 포인트
+<span class="hl-label">yᵢ</span>  : i번째 클래스 레이블 (+1 또는 -1)</div>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">2</span><h3>라그랑지안으로 변환 → αᵢ 등장</h3></div>
+      <div class="step-body">최적화 문제를 풀면 자연스럽게 <strong>αᵢ (각 데이터의 중요도)</strong>가 나옴.<br>따로 학습하는 게 아니라, margin을 최대화하다 보면 생기는 값.</div>
+      <div class="code">w = Σ αᵢ <span class="hl-label">yᵢ</span> <span class="hl">xᵢ</span>
+
+경계에 딱 걸친 점 (서포트벡터) → αᵢ > 0
+경계에서 멀리 있는 점          → αᵢ = 0  (자동으로!)</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 2 -->
+  <div class="section">
+    <h2>2단계 — 내적이 등장하는 이유</h2>
+    <div class="card">
+      <div class="step-header"><span class="step-num">3</span><h3>w를 대입하면 내적이 나온다</h3></div>
+      <div class="step-body"><span class="formula">w = Σαᵢyᵢxᵢ</span> 를 결정 경계에 대입하면:</div>
+      <div class="code">f(<span class="hl-new">x*</span>) = w·<span class="hl-new">x*</span> + b
+      = (Σ αᵢ <span class="hl-label">yᵢ</span> <span class="hl">xᵢ</span>)·<span class="hl-new">x*</span> + b
+      = Σ αᵢ <span class="hl-label">yᵢ</span> (<span class="hl">xᵢ</span>·<span class="hl-new">x*</span>) + b
+                   ↑
+          내적 등장 — 학습데이터 <span class="hl">xᵢ</span> 와 새 데이터 <span class="hl-new">x*</span> 의 방향 유사도</div>
+      <div class="step-body" style="margin-top: 0.5rem;">
+        내적 <span class="formula">xᵢ · x*</span> 의 의미: 서포트벡터 <strong>xᵢ</strong> 와 새 데이터 <strong>x*</strong> 가 얼마나 같은 방향을 가리키는가<br><br>
+        → 같은 방향 → 양수 기여 → <strong>xᵢ 의 클래스(yᵢ) 방향으로 당김</strong><br>
+        → 다른 방향 → 영향 거의 없음<br>
+        → 최종적으로 <strong>부호(+/-)로 클래스 판정</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">4</span><h3>새 데이터 예측 흐름</h3></div>
+      <div class="code">f(<span class="hl-new">x*</span>) = α₁<span class="hl-label">y₁</span>(<span class="hl">x₁</span>·<span class="hl-new">x*</span>)
+        + α₂<span class="hl-label">y₂</span>(<span class="hl">x₂</span>·<span class="hl-new">x*</span>)  + ...  + b
+
+f(<span class="hl-new">x*</span>) > 0  →  클래스 +1
+f(<span class="hl-new">x*</span>) < 0  →  클래스 -1
+
+* αᵢ = 0인 데이터(서포트벡터 아님)는 자동으로 무시됨</div>
+      <div class="callout"><strong>yᵢ 는 항상 레이블</strong> (+1/-1) 이고, 내적의 두 인자 <strong>xᵢ 와 x*</strong> 는 항상 데이터 포인트입니다. 커널 함수에서도 이 구분은 동일하게 유지됩니다.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 3 -->
+  <div class="section">
+    <h2>3단계 — 커널 트릭: 내적 자리를 교체</h2>
+    <div class="card">
+      <div class="step-header"><span class="step-num">5</span><h3>비선형 문제는 고차원 변환으로 해결</h3></div>
+      <div class="step-body">직선으로 나눌 수 없는 데이터 → 고차원으로 변환 φ(<strong>xᵢ</strong>) → 그 공간에서 선형 분리.<br>
+      그런데 SVM은 <strong>내적값만 필요</strong>하고, 변환된 벡터 자체는 필요 없다.</div>
+      <div class="code">φ(<span class="hl">xᵢ</span>)·φ(<span class="hl-new">x*</span>)  ← 이 내적값만 있으면 됨
+                벡터 자체는 필요 없음
+
+K(<span class="hl">xᵢ</span>, <span class="hl-new">x*</span>) = φ(<span class="hl">xᵢ</span>)·φ(<span class="hl-new">x*</span>)
+→ 커널 함수로 고차원 변환 없이 바로 계산</div>
+    </div>
+
+    <div class="card">
+      <div class="step-header"><span class="step-num">6</span><h3>내적 자리에 커널을 꽂는다</h3></div>
+      <div class="code">선형:        f(<span class="hl-new">x*</span>) = Σ αᵢ<span class="hl-label">yᵢ</span>  (<span class="hl">xᵢ</span>·<span class="hl-new">x*</span>)                    + b
+Polynomial:  f(<span class="hl-new">x*</span>) = Σ αᵢ<span class="hl-label">yᵢ</span>  K(<span class="hl">xᵢ</span>,<span class="hl-new">x*</span>) = (<span class="hl">xᵢ</span>·<span class="hl-new">x*</span> + c)^d    + b
+RBF:         f(<span class="hl-new">x*</span>) = Σ αᵢ<span class="hl-label">yᵢ</span>  K(<span class="hl">xᵢ</span>,<span class="hl-new">x*</span>) = exp(-γ‖<span class="hl">xᵢ</span>-<span class="hl-new">x*</span>‖²)  + b
+
+<span class="hl-label">yᵢ</span>           = 클래스 레이블 (항상)
+K(<span class="hl">xᵢ</span>, <span class="hl-new">x*</span>)  = 두 데이터 포인트의 유사도 (항상)</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 4 -->
+  <div class="section">
+    <h2>4단계 — Polynomial vs RBF 비교</h2>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h3><span class="tag tag-blue">Polynomial</span></h3>
+        <p><span class="formula">K(xᵢ, xⱼ) = (xᵢ·xⱼ + c)^d</span></p>
+        <br>
+        <p><strong>변환 방식:</strong> d차까지의 고차원 변환을 한 것과 동일. 변환 차원이 유한.</p>
+        <p><strong>파라미터:</strong> d (차수), c (저차항 반영 비율)</p>
+        <p><strong>언제 유리:</strong> 데이터가 몇 차에서 분리될지 예측 가능할 때</p>
+      </div>
+      <div class="compare-card">
+        <h3><span class="tag tag-amber">RBF</span></h3>
+        <p><span class="formula">K(xᵢ, xⱼ) = exp(-γ‖xᵢ - xⱼ‖²)</span></p>
+        <br>
+        <p><strong>변환 방식:</strong> 무한차원 변환을 한 것과 동일. Polynomial의 무한 버전.</p>
+        <p><strong>파라미터:</strong> γ (각 차수 가중치 감소 속도)</p>
+        <p><strong>언제 유리:</strong> 일반적 상황, 차수 예측이 어려울 때</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 0.75rem;">
+      <div class="step-header" style="margin-bottom: 0.75rem;"><span class="step-num" style="background:#FAEEDA;color:#854F0B;">γ</span><h3>gamma 파라미터 역할</h3></div>
+      <div class="step-body" style="margin-bottom: 0.75rem;">γ 는 <span class="formula">exp(-γ‖xᵢ - xⱼ‖²)</span> 에서 거리에 얼마나 민감하게 반응할지 결정.</div>
+      <table>
+        <thead>
+          <tr><th>gamma</th><th>영향 범위</th><th>결정 경계</th><th>위험</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-amber">큰 값</span></td>
+            <td>xᵢ 근처만</td>
+            <td>구불구불함</td>
+            <td>Overfitting</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-green">작은 값</span></td>
+            <td>xᵢ 에서 멀리까지</td>
+            <td>부드러움</td>
+            <td>Underfitting</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Final Summary -->
+  <div class="section">
+    <h2>최종 요약</h2>
+    <div class="summary-box">
+      SVM은 margin을 최대화하는 과정에서 서포트벡터와 αᵢ가 자동으로 결정되고,<br>
+      새 데이터 <strong>x*</strong> 는 서포트벡터 <strong>xᵢ</strong> 들과의 내적(유사도)의 가중합으로 클래스가 판단됩니다.<br><br>
+      이때 <strong>yᵢ 는 항상 클래스 레이블</strong>이고, 커널 함수 K(<strong>xᵢ</strong>, <strong>x*</strong>) 안의 두 인자는 항상 데이터 포인트입니다.<br><br>
+      비선형 데이터는 커널 트릭으로 해결하는데, Polynomial은 유한한 고차원 변환,
+      RBF는 무한차원 변환을 exp 함수 하나로 대체합니다.<br><br>
+      <strong>둘 다 본질은 "고차원에서의 내적을 효율적으로 계산하는 것"으로 동일합니다.</strong>
+    </div>
+  </div>
+
+  <p style="font-size: 12px; color: #aaa9a2; text-align: center; margin-top: 3rem;">SVM &amp; Kernel Trick Summary — v2</p>
+</div>
+
+</body>
+</html>

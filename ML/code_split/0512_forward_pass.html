@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forward Pass 인터랙티브 — 2-2-1 MLP</title>
+
+<!-- KaTeX for math rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });"></script>
+
+<style>
+  :root {
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #8a8a8a;
+    --border: #e3e1da;
+    --border-strong: #c8c5bc;
+    --accent: #b85c38;          /* terracotta */
+    --accent-soft: #fbeee5;
+    --hilite-bg: #fef3c7;       /* warm yellow flash */
+    --code-bg: #f4f2eb;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 40px 20px 80px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', 'Georgia', serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--ink);
+  }
+  header .eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  header .subtitle {
+    color: var(--ink-muted);
+    font-style: italic;
+    font-size: 15px;
+  }
+
+  /* Control panel */
+  .controls {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .controls h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  .control-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px 28px;
+  }
+  .control-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .control-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+  }
+  .control-label .name {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .control-label .value {
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    transition: transform 0.1s;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .reset-row {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  button.reset {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  button.reset:hover {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  /* Step blocks */
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .step-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .step-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+  .step-note {
+    margin-left: auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  .step-body {
+    color: var(--ink-muted);
+    font-size: 15.5px;
+  }
+  .step-body p {
+    margin: 0 0 12px;
+  }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  /* Math display flash on update */
+  .math-block {
+    padding: 4px 8px;
+    margin: 8px -8px;
+    border-radius: 4px;
+    transition: background-color 0.6s ease-out;
+  }
+  .math-block.flash {
+    background-color: var(--hilite-bg);
+  }
+
+  /* Sigmoid table */
+  .sigmoid-section {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 18px 22px;
+    margin: 16px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .sigmoid-section .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  table.sigmoid {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', 'Menlo', monospace;
+    font-size: 13px;
+  }
+  table.sigmoid th, table.sigmoid td {
+    padding: 6px 12px;
+    text-align: right;
+    border-bottom: 1px solid rgba(184,92,56,0.15);
+  }
+  table.sigmoid th {
+    text-align: right;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1.5px solid var(--accent);
+  }
+  table.sigmoid th:first-child, table.sigmoid td:first-child {
+    text-align: left;
+  }
+  table.sigmoid tr.active td {
+    background: rgba(184,92,56,0.12);
+    font-weight: 700;
+    color: var(--ink);
+  }
+  table.sigmoid tr.active td:first-child::before {
+    content: '▸ ';
+    color: var(--accent);
+  }
+
+  /* Final summary */
+  .summary {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a28 100%);
+    color: #fafaf7;
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-top: 32px;
+  }
+  .summary h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #d4b896;
+    margin: 0 0 18px;
+    font-weight: 600;
+  }
+  .summary table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  .summary td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .summary td:first-child {
+    width: 40px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    color: #d4b896;
+    letter-spacing: 0.1em;
+  }
+  .summary td:last-child {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fef3c7;
+    font-weight: 600;
+  }
+  .summary tr:last-child td {
+    border-bottom: none;
+    font-size: 17px;
+    padding-top: 14px;
+  }
+  .summary tr:last-child td:last-child {
+    color: #ffb88c;
+    font-size: 18px;
+  }
+
+  /* Network diagram */
+  .net-diagram {
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  /* KaTeX size adjustment */
+  .katex-display { margin: 0.6em 0 !important; }
+  .katex { font-size: 1.05em; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="eyebrow">Week 11 · Backpropagation</div>
+  <h1>Forward Pass — 2-2-1 MLP</h1>
+  <div class="subtitle">슬라이더로 입력과 가중치를 조절하면, 모든 수식과 결과가 함께 갱신됩니다.</div>
+</header>
+
+<!-- ============ CONTROL PANEL ============ -->
+<div class="controls">
+  <h2>입력 & 파라미터</h2>
+  <div class="control-grid">
+    <div class="control-row">
+      <div class="control-label"><span class="name">$x_0$ (입력 0)</span><span class="value" id="v-x0">1.00</span></div>
+      <input type="range" id="x0" min="-2" max="2" step="0.1" value="1">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$x_1$ (입력 1)</span><span class="value" id="v-x1">1.00</span></div>
+      <input type="range" id="x1" min="-2" max="2" step="0.1" value="1">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$y$ (타겟)</span><span class="value" id="v-y">0.00</span></div>
+      <input type="range" id="y" min="-1" max="1" step="0.1" value="0">
+    </div>
+
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{00}$</span><span class="value" id="v-w100">0.10</span></div>
+      <input type="range" id="w100" min="-1" max="1" step="0.05" value="0.1">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{01}$</span><span class="value" id="v-w101">0.20</span></div>
+      <input type="range" id="w101" min="-1" max="1" step="0.05" value="0.2">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{10}$</span><span class="value" id="v-w110">0.30</span></div>
+      <input type="range" id="w110" min="-1" max="1" step="0.05" value="0.3">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(1)}_{11}$</span><span class="value" id="v-w111">0.40</span></div>
+      <input type="range" id="w111" min="-1" max="1" step="0.05" value="0.4">
+    </div>
+
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(2)}_{0}$</span><span class="value" id="v-w20">0.50</span></div>
+      <input type="range" id="w20" min="-1" max="1" step="0.05" value="0.5">
+    </div>
+    <div class="control-row">
+      <div class="control-label"><span class="name">$W^{(2)}_{1}$</span><span class="value" id="v-w21">0.60</span></div>
+      <input type="range" id="w21" min="-1" max="1" step="0.05" value="0.6">
+    </div>
+  </div>
+
+  <div class="reset-row">
+    <span>강의 슬라이드 예제: $\mathbf{x}=[1,1]$, $y=0$, 위 기본값</span>
+    <button class="reset" onclick="resetAll()">기본값 복원</button>
+  </div>
+</div>
+
+<!-- ============ STEP 1: GIVEN ============ -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 0</span>
+    <h3 class="step-title">주어진 값 (매트릭스 표기)</h3>
+  </div>
+  <div class="step-body">
+    <p>은닉층 가중치 $\mathbf{W}^{(1)}$ 은 (2×2) 행렬입니다. 행 인덱스 $i$ 는 은닉 뉴런 번호, 열 인덱스 $j$ 는 입력 번호입니다. 즉 $W^{(1)}_{ij}$ 는 "$j$번째 입력 → $i$번째 은닉 뉴런"으로 가는 가중치입니다.</p>
+    <div class="math-block" id="m-given"></div>
+  </div>
+</div>
+
+<!-- ============ STEP 2: z^(1) ============ -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 1</span>
+    <h3 class="step-title">은닉층 pre-activation</h3>
+    <span class="step-note">선형 변환</span>
+  </div>
+  <div class="step-body">
+    <p>$\mathbf{z}^{(1)} = \mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}$</p>
+    <div class="math-block" id="m-z1"></div>
+  </div>
+</div>
+
+<!-- ============ STEP 3: sigmoid ============ -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 2</span>
+    <h3 class="step-title">시그모이드 통과</h3>
+    <span class="step-note">비선형 활성화</span>
+  </div>
+  <div class="step-body">
+    <p>$\mathbf{a}^{(1)} = \sigma(\mathbf{z}^{(1)})$, 단 $\sigma(z) = \dfrac{1}{1 + e^{-z}}$</p>
+    <p>시그모이드는 손계산이 어려우므로 아래 근사값 표를 참조합니다. 현재 $z^{(1)}_0$, $z^{(1)}_1$ 값에 가장 가까운 행이 강조됩니다.</p>
+
+    <div class="sigmoid-section">
+      <div class="label">시그모이드 근사값 표</div>
+      <table class="sigmoid" id="sigmoid-table">
+        <thead>
+          <tr><th>$z$</th><th>$e^{-z}$</th><th>$1+e^{-z}$</th><th>$\sigma(z)$</th></tr>
+        </thead>
+        <tbody>
+          <tr data-z="-1.0"><td>-1.0</td><td>2.7183</td><td>3.7183</td><td>0.2689</td></tr>
+          <tr data-z="-0.7"><td>-0.7</td><td>2.0138</td><td>3.0138</td><td>0.3318</td></tr>
+          <tr data-z="-0.5"><td>-0.5</td><td>1.6487</td><td>2.6487</td><td>0.3775</td></tr>
+          <tr data-z="-0.3"><td>-0.3</td><td>1.3499</td><td>2.3499</td><td>0.4256</td></tr>
+          <tr data-z="0.0"><td>0.0</td><td>1.0000</td><td>2.0000</td><td>0.5000</td></tr>
+          <tr data-z="0.3"><td>0.3</td><td>0.7408</td><td>1.7408</td><td>0.5744</td></tr>
+          <tr data-z="0.5"><td>0.5</td><td>0.6065</td><td>1.6065</td><td>0.6225</td></tr>
+          <tr data-z="0.7"><td>0.7</td><td>0.4966</td><td>1.4966</td><td>0.6682</td></tr>
+          <tr data-z="1.0"><td>1.0</td><td>0.3679</td><td>1.3679</td><td>0.7311</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="math-block" id="m-a1"></div>
+  </div>
+</div>
+
+<!-- ============ STEP 4: z^(2) ============ -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 3</span>
+    <h3 class="step-title">출력층 pre-activation</h3>
+    <span class="step-note">선형 변환</span>
+  </div>
+  <div class="step-body">
+    <p>$z^{(2)} = \mathbf{W}^{(2)}\mathbf{a}^{(1)} + b^{(2)}$</p>
+    <div class="math-block" id="m-z2"></div>
+  </div>
+</div>
+
+<!-- ============ STEP 5: a^(2) ============ -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 4</span>
+    <h3 class="step-title">출력 (활성화 없음)</h3>
+    <span class="step-note">회귀이므로 σ 생략</span>
+  </div>
+  <div class="step-body">
+    <p>$a^{(2)} = z^{(2)}$</p>
+    <div class="math-block" id="m-a2"></div>
+  </div>
+</div>
+
+<!-- ============ STEP 6: Loss ============ -->
+<div class="step">
+  <div class="step-header">
+    <span class="step-num">STEP 5</span>
+    <h3 class="step-title">손실 (MSE)</h3>
+    <span class="step-note">단일 샘플 기준</span>
+  </div>
+  <div class="step-body">
+    <p>$L = \dfrac{1}{2}(y - a^{(2)})^2$</p>
+    <div class="math-block" id="m-loss"></div>
+  </div>
+</div>
+
+<!-- ============ SUMMARY ============ -->
+<div class="summary">
+  <h2>한 페이지 요약</h2>
+  <table>
+    <tr><td>1</td><td>$\mathbf{z}^{(1)} = \mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}$</td><td id="s-z1">—</td></tr>
+    <tr><td>2</td><td>$\mathbf{a}^{(1)} = \sigma(\mathbf{z}^{(1)})$</td><td id="s-a1">—</td></tr>
+    <tr><td>3</td><td>$z^{(2)} = \mathbf{W}^{(2)}\mathbf{a}^{(1)} + b^{(2)}$</td><td id="s-z2">—</td></tr>
+    <tr><td>4</td><td>$a^{(2)} = z^{(2)}$</td><td id="s-a2">—</td></tr>
+    <tr><td>5</td><td>$L = \tfrac{1}{2}(y - a^{(2)})^2$</td><td id="s-loss">—</td></tr>
+  </table>
+</div>
+
+<footer>
+  Week 11 · Machine Learning · Backpropagation 강의 보조 자료
+</footer>
+
+</div>
+
+<script>
+// ============================================================
+// State
+// ============================================================
+const defaults = {
+  x0: 1.0, x1: 1.0, y: 0.0,
+  w100: 0.1, w101: 0.2, w110: 0.3, w111: 0.4,
+  w20: 0.5, w21: 0.6
+};
+const state = { ...defaults };
+
+// Sigmoid lookup table (must match HTML table)
+const SIGMOID_TABLE = [-1.0, -0.7, -0.5, -0.3, 0.0, 0.3, 0.5, 0.7, 1.0];
+
+function sigmoid(z) {
+  return 1 / (1 + Math.exp(-z));
+}
+
+// Snap z to nearest table value (for educational display)
+function nearestTableZ(z) {
+  let nearest = SIGMOID_TABLE[0];
+  let minDiff = Math.abs(z - nearest);
+  for (const v of SIGMOID_TABLE) {
+    const d = Math.abs(z - v);
+    if (d < minDiff) { minDiff = d; nearest = v; }
+  }
+  return nearest;
+}
+
+// Format helpers
+function f(n, p = 4) {
+  if (Math.abs(n) < 1e-10) return "0.0000".slice(0, p + 2);
+  return n.toFixed(p);
+}
+function f2(n) { return n.toFixed(2); }
+
+// ============================================================
+// Render math blocks (re-render KaTeX on each update)
+// ============================================================
+function renderAll() {
+  const { x0, x1, y, w100, w101, w110, w111, w20, w21 } = state;
+
+  // Computations
+  const z10 = w100 * x0 + w101 * x1;
+  const z11 = w110 * x0 + w111 * x1;
+
+  // For sigmoid: snap to nearest table z so students can verify with the table
+  const z10_snap = nearestTableZ(z10);
+  const z11_snap = nearestTableZ(z11);
+  const a10 = sigmoid(z10_snap);
+  const a11 = sigmoid(z11_snap);
+
+  const z2 = w20 * a10 + w21 * a11;
+  const a2 = z2;
+  const loss = 0.5 * (y - a2) ** 2;
+
+  // ===== STEP 0: Given =====
+  setMath('m-given', `
+    $$\\mathbf{W}^{(1)} = \\begin{bmatrix} ${f2(w100)} & ${f2(w101)} \\\\ ${f2(w110)} & ${f2(w111)} \\end{bmatrix}, \\quad
+    \\mathbf{b}^{(1)} = \\begin{bmatrix} 0 \\\\ 0 \\end{bmatrix}$$
+    $$\\mathbf{W}^{(2)} = \\begin{bmatrix} ${f2(w20)} & ${f2(w21)} \\end{bmatrix}, \\quad b^{(2)} = 0$$
+    $$\\mathbf{x} = \\begin{bmatrix} ${f2(x0)} \\\\ ${f2(x1)} \\end{bmatrix}, \\quad y = ${f2(y)}$$
+  `);
+
+  // ===== STEP 1: z^(1) =====
+  setMath('m-z1', `
+    $$\\begin{bmatrix} z^{(1)}_0 \\\\ z^{(1)}_1 \\end{bmatrix}
+    = \\begin{bmatrix} ${f2(w100)} & ${f2(w101)} \\\\ ${f2(w110)} & ${f2(w111)} \\end{bmatrix}
+    \\begin{bmatrix} ${f2(x0)} \\\\ ${f2(x1)} \\end{bmatrix}
+    + \\begin{bmatrix} 0 \\\\ 0 \\end{bmatrix}$$
+    $$= \\begin{bmatrix} ${f2(w100)} \\cdot ${f2(x0)} + ${f2(w101)} \\cdot ${f2(x1)} \\\\ ${f2(w110)} \\cdot ${f2(x0)} + ${f2(w111)} \\cdot ${f2(x1)} \\end{bmatrix}
+    = \\begin{bmatrix} \\mathbf{${f(z10, 4)}} \\\\ \\mathbf{${f(z11, 4)}} \\end{bmatrix}$$
+  `);
+
+  // ===== STEP 2: a^(1) — highlight sigmoid table =====
+  highlightSigmoidRows(z10_snap, z11_snap);
+
+  const note10 = Math.abs(z10 - z10_snap) > 0.001
+    ? `\\text{(표의 } z=${f2(z10_snap)}\\text{ 행 사용)}`
+    : '';
+  const note11 = Math.abs(z11 - z11_snap) > 0.001
+    ? `\\text{(표의 } z=${f2(z11_snap)}\\text{ 행 사용)}`
+    : '';
+
+  setMath('m-a1', `
+    $$\\mathbf{a}^{(1)} = \\begin{bmatrix} \\sigma(${f(z10, 4)}) \\\\ \\sigma(${f(z11, 4)}) \\end{bmatrix}
+    \\approx \\begin{bmatrix} \\mathbf{${f(a10, 4)}} \\\\ \\mathbf{${f(a11, 4)}} \\end{bmatrix}$$
+    ${(note10 || note11) ? `<div style="font-size:12px;color:#8a8a8a;text-align:center;margin-top:6px;font-style:italic;">현재 $z$값에 가장 가까운 표 항목을 사용한 근사치입니다</div>` : ''}
+  `);
+
+  // ===== STEP 3: z^(2) =====
+  setMath('m-z2', `
+    $$z^{(2)} = \\begin{bmatrix} ${f2(w20)} & ${f2(w21)} \\end{bmatrix}
+    \\begin{bmatrix} ${f(a10, 4)} \\\\ ${f(a11, 4)} \\end{bmatrix} + 0$$
+    $$= ${f2(w20)} \\cdot ${f(a10, 4)} + ${f2(w21)} \\cdot ${f(a11, 4)}
+    = ${f(w20 * a10, 4)} + ${f(w21 * a11, 4)}
+    = \\mathbf{${f(z2, 4)}}$$
+  `);
+
+  // ===== STEP 4: a^(2) =====
+  setMath('m-a2', `$$a^{(2)} = z^{(2)} \\approx \\mathbf{${f(a2, 4)}}$$`);
+
+  // ===== STEP 5: Loss =====
+  setMath('m-loss', `
+    $$L = \\frac{1}{2}(${f2(y)} - ${f(a2, 4)})^2
+    = \\frac{1}{2}(${f(y - a2, 4)})^2
+    = \\frac{1}{2}(${f((y - a2) ** 2, 4)})
+    \\approx \\mathbf{${f(loss, 4)}}$$
+  `);
+
+  // ===== Summary table =====
+  document.getElementById('s-z1').textContent = `[${f(z10, 4)}, ${f(z11, 4)}]ᵀ`;
+  document.getElementById('s-a1').textContent = `[${f(a10, 4)}, ${f(a11, 4)}]ᵀ`;
+  document.getElementById('s-z2').textContent = f(z2, 4);
+  document.getElementById('s-a2').textContent = f(a2, 4);
+  document.getElementById('s-loss').textContent = f(loss, 4);
+
+  // Re-render KaTeX
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ],
+      throwOnError: false
+    });
+  }
+
+  // Flash highlight on math blocks
+  flashMathBlocks();
+}
+
+function setMath(id, content) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = content;
+}
+
+function highlightSigmoidRows(z0, z1) {
+  document.querySelectorAll('#sigmoid-table tr[data-z]').forEach(tr => {
+    const z = parseFloat(tr.dataset.z);
+    if (Math.abs(z - z0) < 0.001 || Math.abs(z - z1) < 0.001) {
+      tr.classList.add('active');
+    } else {
+      tr.classList.remove('active');
+    }
+  });
+}
+
+let flashTimer;
+function flashMathBlocks() {
+  clearTimeout(flashTimer);
+  document.querySelectorAll('.math-block').forEach(el => {
+    el.classList.remove('flash');
+  });
+  // Force reflow
+  void document.body.offsetWidth;
+  document.querySelectorAll('.math-block').forEach(el => {
+    el.classList.add('flash');
+  });
+  flashTimer = setTimeout(() => {
+    document.querySelectorAll('.math-block').forEach(el => {
+      el.classList.remove('flash');
+    });
+  }, 700);
+}
+
+// ============================================================
+// Wire up controls
+// ============================================================
+function updateLabels() {
+  document.getElementById('v-x0').textContent = f2(state.x0);
+  document.getElementById('v-x1').textContent = f2(state.x1);
+  document.getElementById('v-y').textContent = f2(state.y);
+  document.getElementById('v-w100').textContent = f2(state.w100);
+  document.getElementById('v-w101').textContent = f2(state.w101);
+  document.getElementById('v-w110').textContent = f2(state.w110);
+  document.getElementById('v-w111').textContent = f2(state.w111);
+  document.getElementById('v-w20').textContent = f2(state.w20);
+  document.getElementById('v-w21').textContent = f2(state.w21);
+}
+
+['x0', 'x1', 'y', 'w100', 'w101', 'w110', 'w111', 'w20', 'w21'].forEach(id => {
+  const input = document.getElementById(id);
+  input.addEventListener('input', e => {
+    state[id] = parseFloat(e.target.value);
+    updateLabels();
+    renderAll();
+  });
+});
+
+function resetAll() {
+  Object.assign(state, defaults);
+  ['x0', 'x1', 'y', 'w100', 'w101', 'w110', 'w111', 'w20', 'w21'].forEach(id => {
+    document.getElementById(id).value = defaults[id];
+  });
+  updateLabels();
+  renderAll();
+}
+
+// Initial render after KaTeX loads
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    updateLabels();
+    renderAll();
+  }, 200);
+});
+</script>
+
+</body>
+</html>

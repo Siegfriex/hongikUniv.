@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mlp_scratch.py 레퍼런스 — Week 11</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });"></script>
+
+<style>
+  :root {
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #8a8a8a;
+    --border: #e3e1da;
+    --border-strong: #c8c5bc;
+    --accent: #b85c38;
+    --accent-soft: #fbeee5;
+    --accent-blue: #2d5a7a;
+    --accent-blue-soft: #e4ecf3;
+    --accent-green: #4a6b3a;
+    --accent-green-soft: #ecf2e5;
+    --code-bg: #f4f2eb;
+    --code-ink: #2c2c28;
+    --code-comment: #999488;
+    --code-keyword: #b85c38;
+    --code-string: #4a6b3a;
+    --code-number: #2d5a7a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 40px 20px 80px;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Iowan Old Style', 'Palatino Linotype', 'Georgia', serif;
+    line-height: 1.6; font-size: 16px;
+  }
+  .container { max-width: 920px; margin: 0 auto; }
+
+  header {
+    margin-bottom: 32px; padding-bottom: 20px;
+    border-bottom: 2px solid var(--ink);
+  }
+  header .eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-blue);
+    font-weight: 600; margin-bottom: 8px;
+  }
+  header h1 { margin: 0 0 6px; font-size: 32px; font-weight: 600; letter-spacing: -0.01em; }
+  header .subtitle { color: var(--ink-muted); font-style: italic; font-size: 15px; }
+
+  /* TOC */
+  .toc {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 20px 24px; margin-bottom: 32px;
+    box-shadow: var(--shadow);
+  }
+  .toc h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin: 0 0 12px; font-weight: 600;
+  }
+  .toc ol {
+    margin: 0; padding-left: 20px;
+    font-size: 14.5px; color: var(--ink-muted);
+  }
+  .toc li { margin: 6px 0; }
+  .toc a {
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px dotted var(--border-strong);
+  }
+  .toc a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Section */
+  section { margin-bottom: 40px; scroll-margin-top: 20px; }
+  .section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .section-tag {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-blue);
+    font-weight: 700;
+  }
+  .section-head h2 { margin: 0; font-size: 24px; font-weight: 600; }
+
+  /* Concept card (no code, just explanation) */
+  .concept {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 22px 26px; margin-bottom: 18px;
+    box-shadow: var(--shadow);
+  }
+  .concept-title {
+    font-size: 17px; font-weight: 600;
+    color: var(--ink); margin: 0 0 12px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  }
+  .concept p { margin: 0 0 12px; color: var(--ink-muted); font-size: 15px; }
+  .concept p:last-child { margin-bottom: 0; }
+  .concept p strong { color: var(--ink); font-weight: 600; }
+  .concept code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg); padding: 1px 6px;
+    border-radius: 3px; font-size: 13.5px;
+    color: var(--code-keyword);
+  }
+
+  /* Analogy box */
+  .analogy {
+    background: var(--accent-soft); border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0; padding: 12px 16px;
+    margin: 12px 0; font-size: 14px; color: var(--ink);
+  }
+  .analogy .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    font-weight: 700; margin-right: 8px;
+  }
+
+  /* Code annotation block */
+  .code-block {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; margin-bottom: 18px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .code-block-header {
+    background: var(--code-bg);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: baseline; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .code-block-header .filename {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: var(--ink);
+    font-weight: 600;
+  }
+  .code-block-header .desc {
+    font-size: 13px; color: var(--ink-muted);
+    font-style: italic;
+  }
+  .code-block-body { padding: 18px 22px; }
+
+  pre.code {
+    background: var(--code-bg); border: 1px solid var(--border);
+    border-radius: 4px; padding: 14px 18px; margin: 0 0 14px;
+    font-family: 'JetBrains Mono', 'Menlo', 'Consolas', monospace;
+    font-size: 13.5px; line-height: 1.7;
+    color: var(--code-ink); overflow-x: auto;
+  }
+  pre.code .c { color: var(--code-comment); font-style: italic; }
+  pre.code .k { color: var(--code-keyword); font-weight: 600; }
+  pre.code .s { color: var(--code-string); }
+  pre.code .n { color: var(--code-number); }
+  pre.code .b { font-weight: 700; background: #fef3c7; padding: 0 3px; border-radius: 2px; }
+
+  /* Inline annotation list */
+  .annotations {
+    margin: 14px 0 0;
+    padding: 14px 18px;
+    background: var(--accent-blue-soft);
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+  }
+  .annotations .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-blue);
+    font-weight: 700; margin-bottom: 8px;
+    display: block;
+  }
+  .annotations dl { margin: 0; }
+  .annotations dt {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-blue); font-weight: 600;
+    margin-top: 8px; font-size: 13px;
+  }
+  .annotations dt:first-child { margin-top: 0; }
+  .annotations dd {
+    margin: 4px 0 0 16px;
+    color: var(--ink-muted); font-size: 14px;
+  }
+
+  /* Flow diagram */
+  .flow-diagram {
+    background: var(--accent-green-soft);
+    border: 1px solid var(--accent-green);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 18px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--ink);
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .flow-diagram .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent-green);
+    font-weight: 700; margin-bottom: 10px;
+    display: block;
+  }
+
+  /* Mapping table — math to code 1:1 */
+  table.mapping {
+    width: 100%; border-collapse: collapse;
+    margin: 14px 0; font-size: 14px;
+  }
+  table.mapping th, table.mapping td {
+    padding: 10px 14px; text-align: left;
+    border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  table.mapping th {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-muted);
+    font-weight: 600; background: var(--code-bg);
+    border-bottom: 1.5px solid var(--border-strong);
+  }
+  table.mapping td.code-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: var(--code-keyword); font-weight: 600;
+  }
+
+  .tip {
+    background: #fef3c7; border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0; padding: 12px 16px;
+    margin: 14px 0; font-size: 14px; color: #5a4a20;
+  }
+  .tip .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    font-weight: 700; margin-right: 8px;
+  }
+
+  footer {
+    margin-top: 40px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px; color: var(--ink-faint); text-align: center;
+  }
+
+  .katex { font-size: 1.0em; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="eyebrow">Week 11 · Backpropagation · 3교시 보조 자료</div>
+  <h1>mlp_scratch.py 레퍼런스</h1>
+  <div class="subtitle">코드 각 부분이 무엇을 하는지, 인자가 어떻게 흐르는지 한 줄씩 해부합니다.</div>
+</header>
+
+<!-- TOC -->
+<div class="toc">
+  <h2>차례</h2>
+  <ol>
+    <li><a href="#sec1">파일 전체 구조</a></li>
+    <li><a href="#sec2">클래스와 인스턴스 — `mlp = MLP(...)` 의 의미</a></li>
+    <li><a href="#sec3">`__init__` — 가중치를 self에 저장하기</a></li>
+    <li><a href="#sec4">`forward_with_cache` — 예측 + 중간값 보관</a></li>
+    <li><a href="#sec5">cache, grads — dict의 역할</a></li>
+    <li><a href="#sec6">`backward` — 9개 편미분 계산</a></li>
+    <li><a href="#sec7">인자가 어떻게 흐르는가 (전체 흐름)</a></li>
+    <li><a href="#sec8">`train` — 학습 루프</a></li>
+    <li><a href="#sec9">한 페이지 요약</a></li>
+  </ol>
+</div>
+
+<!-- ============ 1. OVERVIEW ============ -->
+<section id="sec1">
+  <div class="section-head">
+    <span class="section-tag">1</span>
+    <h2>파일 전체 구조</h2>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title">mlp_scratch.py 안에는 무엇이 있나?</h3>
+    <p>이 파일에는 크게 <strong>3개의 것</strong>이 들어 있습니다:</p>
+    <p>① <strong>두 개의 함수</strong>: <code>sigmoid(z)</code>, <code>sigmoid_prime_from_output(a)</code> — 도구 함수</p>
+    <p>② <strong>하나의 클래스</strong>: <code>MLP</code> — 신경망 설계도. 안에 <code>__init__</code>, <code>forward_with_cache</code>, <code>backward</code>, <code>train</code>, <code>predict</code> 등의 메서드가 있음</p>
+    <p>③ <strong>검증용 함수들</strong>: <code>gradient_check(...)</code>, <code>train_xor(...)</code> — 학습이 잘 됐는지 확인용</p>
+  </div>
+
+  <div class="flow-diagram">
+<span class="label">파일 구조 요약</span>
+mlp_scratch.py
+├─ sigmoid(z)                    ← σ(z) 계산 함수
+├─ sigmoid_prime_from_output(a)  ← σ'(z) = a(1-a) 계산 함수
+│
+├─ class MLP:                    ← 신경망 설계도
+│     ├─ __init__                ← 가중치 초기화
+│     ├─ forward                 ← 예측만 (간단 버전)
+│     ├─ forward_with_cache      ← 예측 + 중간값 저장
+│     ├─ backward                ← 9개 편미분 계산
+│     ├─ train                   ← 학습 루프
+│     └─ predict                 ← 여러 샘플 예측
+│
+├─ verification_example()        ← 손계산 검증용
+├─ gradient_check(...)           ← 수치 미분 vs 분석 미분 비교
+└─ train_xor()                   ← XOR 학습 데모</div>
+</section>
+
+<!-- ============ 2. CLASS ============ -->
+<section id="sec2">
+  <div class="section-head">
+    <span class="section-tag">2</span>
+    <h2>클래스와 인스턴스 — `mlp = MLP(...)` 의 의미</h2>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title">클래스 = 설계도, 인스턴스 = 만들어진 물건</h3>
+    <p><code>class MLP:</code> 라는 코드는 <strong>"MLP라는 이름의 신경망 설계도를 정의한다"</strong>는 뜻입니다. 설계도일 뿐, 아직 신경망 자체는 만들어지지 않았습니다.</p>
+    <p>아래 한 줄을 실행해야 비로소 <strong>실제 신경망 한 개</strong>가 만들어집니다:</p>
+    <pre class="code">mlp = MLP(n_input=<span class="n">2</span>, n_hidden=<span class="n">2</span>, n_output=<span class="n">1</span>)</pre>
+    <p>이 한 줄로 <code>mlp</code>라는 이름의 신경망이 메모리에 생깁니다. 같은 설계도로 여러 개를 만들 수도 있습니다 (<code>mlp2 = MLP(...)</code>).</p>
+
+    <div class="analogy">
+      <span class="label">비유</span>
+      MLP 클래스는 자동차 설계도. <code>mlp = MLP(...)</code>는 그 설계도로 자동차 한 대를 실제로 만든 것. <code>mlp.forward(x)</code>는 그 자동차에게 "주행해" 라고 명령하는 것.
+    </div>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title"><code>self</code>는 "자기 자신"</h3>
+    <p>클래스 안의 함수(메서드)는 첫 번째 인자가 항상 <code>self</code>입니다. <code>self.W1</code>은 <strong>"이 mlp 객체가 자기 안에 가지고 있는 W1"</strong>이라는 뜻입니다.</p>
+    <p>mlp를 두 개 만들면 각각 자신의 W1을 따로 갖습니다. 한 mlp의 W1을 바꿔도 다른 mlp는 영향 없음.</p>
+
+    <pre class="code">mlp1 = MLP()      <span class="c"># mlp1 자기만의 W1, W2, b1, b2</span>
+mlp2 = MLP()      <span class="c"># mlp2 자기만의 W1, W2, b1, b2  (mlp1과 별개)</span>
+
+mlp1.W1 = ...     <span class="c"># mlp1의 W1만 바뀜. mlp2는 그대로.</span></pre>
+  </div>
+</section>
+
+<!-- ============ 3. __init__ ============ -->
+<section id="sec3">
+  <div class="section-head">
+    <span class="section-tag">3</span>
+    <h2>`__init__` — 가중치를 self에 저장하기</h2>
+  </div>
+
+  <div class="concept">
+    <p><code>__init__</code> 은 <strong>"인스턴스가 만들어질 때 자동으로 실행되는 함수"</strong>입니다. <code>mlp = MLP(...)</code> 라고 쓰면 NumPy가 자동으로 <code>__init__</code>을 호출해서 가중치를 만듭니다.</p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">mlp_scratch.py</span>
+      <span class="desc">클래스 안의 __init__ 메서드</span>
+    </div>
+    <div class="code-block-body">
+<pre class="code"><span class="k">class</span> <span class="n">MLP</span>:
+    <span class="k">def</span> <span class="n">__init__</span>(<span class="b">self</span>, n_input=<span class="n">2</span>, n_hidden=<span class="n">2</span>, n_output=<span class="n">1</span>):
+        <span class="b">self.W1</span> = np.random.randn(n_hidden, n_input) * <span class="n">0.5</span>
+        <span class="b">self.b1</span> = np.zeros(n_hidden)
+        <span class="b">self.W2</span> = np.random.randn(n_output, n_hidden) * <span class="n">0.5</span>
+        <span class="b">self.b2</span> = np.zeros(n_output)</pre>
+
+      <div class="annotations">
+        <span class="label">한 줄씩 설명</span>
+        <dl>
+          <dt>self.W1 = np.random.randn(2, 2) * 0.5</dt>
+          <dd>(2×2) 크기의 작은 랜덤 가중치 행렬을 만들어 mlp 자신의 W1에 저장. 곱하기 0.5로 값 크기를 줄임 (학습 안정성).</dd>
+
+          <dt>self.b1 = np.zeros(2)</dt>
+          <dd>크기 2짜리 0벡터를 만들어 b1에 저장. 바이어스는 보통 0으로 시작.</dd>
+
+          <dt>self.W2, self.b2</dt>
+          <dd>출력층 가중치와 바이어스. W2는 (1×2), b2는 크기 1짜리.</dd>
+        </dl>
+      </div>
+
+      <div class="tip">
+        <span class="label">핵심</span>
+        <code>__init__</code> 이 끝나면 mlp 객체 안에 <code>W1, b1, W2, b2</code> 4개의 행렬·벡터가 준비됩니다. 이후 모든 메서드는 이 4개를 사용해 계산합니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. forward_with_cache ============ -->
+<section id="sec4">
+  <div class="section-head">
+    <span class="section-tag">4</span>
+    <h2>`forward_with_cache` — 예측 + 중간값 보관</h2>
+  </div>
+
+  <div class="concept">
+    <p>입력 x를 받아 <strong>예측값과 중간 계산 결과를 함께 반환</strong>합니다. 중간값을 저장하는 이유는, 뒤이어 호출될 <code>backward</code>가 이 값들을 재사용하기 때문입니다.</p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">mlp_scratch.py</span>
+      <span class="desc">forward_with_cache 메서드</span>
+    </div>
+    <div class="code-block-body">
+<pre class="code">    <span class="k">def</span> forward_with_cache(<span class="b">self</span>, x):
+        z1 = <span class="b">self.W1</span> @ x + <span class="b">self.b1</span>      <span class="c"># 은닉층 pre-activation</span>
+        a1 = sigmoid(z1)                  <span class="c"># 시그모이드 통과</span>
+        z2 = <span class="b">self.W2</span> @ a1 + <span class="b">self.b2</span>     <span class="c"># 출력층 pre-activation</span>
+        a2 = z2                           <span class="c"># 출력 (활성화 없음)</span>
+
+        <span class="k">return</span> {<span class="s">"x"</span>: x, <span class="s">"z1"</span>: z1, <span class="s">"a1"</span>: a1, <span class="s">"z2"</span>: z2, <span class="s">"a2"</span>: a2}</pre>
+
+      <table class="mapping">
+        <thead>
+          <tr><th>수식</th><th>이 코드 줄</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$\mathbf{z}^{(1)} = \mathbf{W}^{(1)}\mathbf{x} + \mathbf{b}^{(1)}$</td>
+            <td class="code-cell">z1 = self.W1 @ x + self.b1</td>
+          </tr>
+          <tr>
+            <td>$\mathbf{a}^{(1)} = \sigma(\mathbf{z}^{(1)})$</td>
+            <td class="code-cell">a1 = sigmoid(z1)</td>
+          </tr>
+          <tr>
+            <td>$z^{(2)} = \mathbf{W}^{(2)}\mathbf{a}^{(1)} + b^{(2)}$</td>
+            <td class="code-cell">z2 = self.W2 @ a1 + self.b2</td>
+          </tr>
+          <tr>
+            <td>$a^{(2)} = z^{(2)}$</td>
+            <td class="code-cell">a2 = z2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip">
+        <span class="label">핵심</span>
+        수식 한 줄 = 코드 한 줄. 1:1 대응이 정확히 보입니다. <code>self.W1</code> 은 <code>__init__</code> 에서 만들어둔 그 W1을 가져다 쓰는 것.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. dict ============ -->
+<section id="sec5">
+  <div class="section-head">
+    <span class="section-tag">5</span>
+    <h2>cache, grads — dict의 역할</h2>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title">dict는 "이름표가 붙은 사물함"</h3>
+    <p>코드에서 <code>cache</code>와 <code>grads</code>는 <strong>dict</strong> 타입입니다. 여러 값을 묶어서 한 번에 넘기되, 각 값에 <strong>이름표</strong>를 붙여둔 보관함입니다.</p>
+
+    <pre class="code"><span class="c"># forward_with_cache가 반환한 cache 안에 들어 있는 것:</span>
+cache = {
+    <span class="s">"x"</span>:  [1.0, 1.0],
+    <span class="s">"z1"</span>: [0.3, 0.7],
+    <span class="s">"a1"</span>: [0.5744, 0.6682],
+    <span class="s">"z2"</span>: [0.6881],
+    <span class="s">"a2"</span>: [0.6881]
+}
+
+<span class="c"># 값을 꺼낼 때는 이름표로:</span>
+a1_value = cache[<span class="s">"a1"</span>]    <span class="c"># → [0.5744, 0.6682]</span></pre>
+
+    <div class="analogy">
+      <span class="label">비유</span>
+      cache가 만약 그냥 list <code>[x, z1, a1, z2, a2]</code> 였다면 <code>cache[2]</code>로 a1을 꺼내야 합니다. 인덱스를 외워야 하니 헷갈림. dict로 만들면 <code>cache["a1"]</code>로 이름 그대로 꺼낼 수 있어서 명확합니다.
+    </div>
+
+    <p style="margin-top:14px;">backward가 반환하는 <code>grads</code>도 같은 구조입니다:</p>
+    <pre class="code">grads = {
+    <span class="s">"dW1"</span>: ...,  <span class="c"># ∂L/∂W⁽¹⁾</span>
+    <span class="s">"db1"</span>: ...,  <span class="c"># ∂L/∂b⁽¹⁾</span>
+    <span class="s">"dW2"</span>: ...,  <span class="c"># ∂L/∂W⁽²⁾</span>
+    <span class="s">"db2"</span>: ...   <span class="c"># ∂L/∂b⁽²⁾</span>
+}
+
+<span class="c"># 가중치 편미분 꺼낼 때:</span>
+dW2_value = grads[<span class="s">"dW2"</span>]</pre>
+  </div>
+</section>
+
+<!-- ============ 6. backward ============ -->
+<section id="sec6">
+  <div class="section-head">
+    <span class="section-tag">6</span>
+    <h2>`backward` — 9개 편미분 계산</h2>
+  </div>
+
+  <div class="concept">
+    <p>forward에서 만든 cache와 정답 y를 받아 <strong>9개 편미분을 한 번에 계산해서 dict로 반환</strong>합니다. 이게 backpropagation 구현의 핵심.</p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">mlp_scratch.py</span>
+      <span class="desc">backward 메서드</span>
+    </div>
+    <div class="code-block-body">
+<pre class="code">    <span class="k">def</span> backward(<span class="b">self</span>, cache, y):
+        x, a1, a2 = cache[<span class="s">"x"</span>], cache[<span class="s">"a1"</span>], cache[<span class="s">"a2"</span>]
+
+        <span class="c"># 1. 출력층 오차</span>
+        dL_da2 = a2 - y
+
+        <span class="c"># 2. 출력층 가중치/바이어스 편미분</span>
+        dW2 = np.outer(dL_da2, a1)
+        db2 = dL_da2
+
+        <span class="c"># 3. 에러를 은닉층으로 역전파</span>
+        dL_da1 = <span class="b">self.W2</span>.T @ dL_da2
+
+        <span class="c"># 4. 시그모이드 미분 통과</span>
+        delta1 = dL_da1 * a1 * (<span class="n">1.0</span> - a1)
+
+        <span class="c"># 5. 은닉층 가중치/바이어스 편미분</span>
+        dW1 = np.outer(delta1, x)
+        db1 = delta1
+
+        <span class="k">return</span> {<span class="s">"dW1"</span>: dW1, <span class="s">"db1"</span>: db1, <span class="s">"dW2"</span>: dW2, <span class="s">"db2"</span>: db2}</pre>
+
+      <table class="mapping">
+        <thead>
+          <tr><th>수식 (Backward Pass)</th><th>이 코드 줄</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>cache에서 forward 결과 꺼내기</td>
+            <td class="code-cell">x, a1, a2 = cache["x"], cache["a1"], cache["a2"]</td>
+          </tr>
+          <tr>
+            <td>$\delta^{(2)} = a^{(2)} - y$</td>
+            <td class="code-cell">dL_da2 = a2 - y</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{W}^{(2)} = \delta^{(2)} \cdot (\mathbf{a}^{(1)})^\top$</td>
+            <td class="code-cell">dW2 = np.outer(dL_da2, a1)</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial b^{(2)} = \delta^{(2)}$</td>
+            <td class="code-cell">db2 = dL_da2</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{a}^{(1)} = (\mathbf{W}^{(2)})^\top \cdot \delta^{(2)}$</td>
+            <td class="code-cell">dL_da1 = self.W2.T @ dL_da2</td>
+          </tr>
+          <tr>
+            <td>$\boldsymbol{\delta}^{(1)} = \partial L / \partial \mathbf{a}^{(1)} \odot \mathbf{a}^{(1)} \odot (1 - \mathbf{a}^{(1)})$</td>
+            <td class="code-cell">delta1 = dL_da1 * a1 * (1.0 - a1)</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{W}^{(1)} = \boldsymbol{\delta}^{(1)} \cdot \mathbf{x}^\top$</td>
+            <td class="code-cell">dW1 = np.outer(delta1, x)</td>
+          </tr>
+          <tr>
+            <td>$\partial L / \partial \mathbf{b}^{(1)} = \boldsymbol{\delta}^{(1)}$</td>
+            <td class="code-cell">db1 = delta1</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip">
+        <span class="label">핵심</span>
+        backward 코드는 12줄 남짓이지만, 그 안에 강의에서 손으로 유도한 9개 편미분이 모두 들어 있습니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FLOW ============ -->
+<section id="sec7">
+  <div class="section-head">
+    <span class="section-tag">7</span>
+    <h2>인자가 어떻게 흐르는가 (전체 흐름)</h2>
+  </div>
+
+  <div class="concept">
+    <p>학생이 직접 작성하는 코드(<strong>호출 쪽</strong>)와 mlp_scratch.py 안의 코드(<strong>정의 쪽</strong>)가 어떻게 서로 값을 주고받는지를 한 그림으로 정리합니다.</p>
+  </div>
+
+  <div class="flow-diagram">
+<span class="label">Forward 호출 흐름</span>
+[호출 쪽: 학생이 작성]                  [정의 쪽: mlp_scratch.py 안]
+
+  x = np.array([1.0, 1.0])
+                  │
+                  │ 인자로 전달
+                  ▼
+  mlp.forward_with_cache(x) ───────→  def forward_with_cache(self, x):
+                                          z1 = self.W1 @ x + self.b1
+                                          a1 = sigmoid(z1)
+                                          z2 = self.W2 @ a1 + self.b2
+                                          a2 = z2
+                  ┌─────── return  ←──── return {"x":x, "z1":z1, ...}
+                  ▼
+  cache = {...}    ← 반환된 dict가 cache에 들어감</div>
+
+  <div class="flow-diagram">
+<span class="label">Backward 호출 흐름</span>
+[호출 쪽]                                [정의 쪽]
+
+  y = np.array([0.0])
+  cache (forward 결과)
+                  │
+                  │ 두 개 모두 인자로 전달
+                  ▼
+  mlp.backward(cache, y) ──────────→  def backward(self, cache, y):
+                                          x, a1, a2 = cache["x"], ...
+                                          dL_da2 = a2 - y
+                                          dW2 = np.outer(dL_da2, a1)
+                                          ...
+                  ┌─────── return  ←──── return {"dW1":..., "dW2":..., ...}
+                  ▼
+  grads = {...}    ← 9개 편미분이 들어 있음
+  print(grads["dW2"])  ← 이런 식으로 꺼내 사용</div>
+
+  <div class="tip">
+    <span class="label">왜 cache를 넘기나?</span>
+    backward는 forward에서 계산한 a1, a2 같은 중간값이 필요합니다. 그래서 forward가 끝나면 그 값들을 cache에 담아 돌려주고, backward 호출 시 다시 넘겨주는 것입니다. <strong>forward 결과를 재사용</strong>해서 backward가 빨라집니다.
+  </div>
+</section>
+
+<!-- ============ 8. train ============ -->
+<section id="sec8">
+  <div class="section-head">
+    <span class="section-tag">8</span>
+    <h2>`train` — 학습 루프</h2>
+  </div>
+
+  <div class="concept">
+    <p>지금까지 본 forward와 backward는 <strong>한 번의 계산</strong>입니다. 학습은 이걸 <strong>수천 번 반복</strong>해서 가중치를 점점 좋게 만드는 과정입니다.</p>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">mlp_scratch.py</span>
+      <span class="desc">train 메서드 (핵심 골격만)</span>
+    </div>
+    <div class="code-block-body">
+<pre class="code">    <span class="k">def</span> train(<span class="b">self</span>, X, Y, epochs=<span class="n">10000</span>, lr=<span class="n">0.1</span>):
+        <span class="k">for</span> epoch <span class="k">in</span> range(epochs):           <span class="c"># 10,000번 반복</span>
+            total_dW1 = np.zeros_like(<span class="b">self.W1</span>)
+            <span class="c"># ... 다른 gradient도 0으로 초기화</span>
+
+            <span class="k">for</span> x, y <span class="k">in</span> zip(X, Y):              <span class="c"># 4개 샘플 각각에 대해</span>
+                cache = <span class="b">self</span>.forward_with_cache(x)  <span class="c"># ① forward</span>
+                grads = <span class="b">self</span>.backward(cache, y)      <span class="c"># ② backward</span>
+
+                total_dW1 += grads[<span class="s">"dW1"</span>]            <span class="c"># gradient 누적</span>
+                <span class="c"># ... 다른 gradient도 누적</span>
+
+            <span class="c"># 평균 gradient로 가중치 업데이트</span>
+            N = len(X)
+            <span class="b">self.W1</span> -= lr * total_dW1 / N        <span class="c"># ③ update</span>
+            <span class="c"># ... self.W2, self.b1, self.b2도 동일</span></pre>
+
+      <div class="annotations">
+        <span class="label">학습은 단순한 3단계 반복</span>
+        <dl>
+          <dt>① forward — 예측</dt>
+          <dd>현재 가중치로 예측해본다.</dd>
+
+          <dt>② backward — 편미분 계산</dt>
+          <dd>예측이 얼마나 틀렸는지 보고, 각 가중치를 어떻게 바꿔야 할지 계산한다.</dd>
+
+          <dt>③ update — 가중치 갱신</dt>
+          <dd><code>self.W1 -= lr * gradient</code> 로 가중치를 한 발짝 옮긴다.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title">업데이트 한 줄 풀어보기</h3>
+    <p>학습의 본질이 들어 있는 한 줄:</p>
+    <pre class="code"><span class="b">self.W1</span> -= lr * total_dW1 / N</pre>
+    <p>이걸 분해하면:</p>
+    <table class="mapping">
+      <tbody>
+        <tr>
+          <td class="code-cell">total_dW1 / N</td>
+          <td>4개 샘플의 gradient를 평균낸 값</td>
+        </tr>
+        <tr>
+          <td class="code-cell">lr * ...</td>
+          <td>학습률(보폭)만큼 곱함. 보통 0.1 ~ 0.5</td>
+        </tr>
+        <tr>
+          <td class="code-cell">self.W1 -= ...</td>
+          <td>그만큼 빼서 W1을 갱신</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;"><strong>빼는 이유</strong>: gradient는 손실이 <em>증가</em>하는 방향을 가리킵니다. 우리는 손실을 <em>감소</em>시키고 싶으니 반대 방향(빼기)으로 움직입니다. 이게 <strong>gradient descent</strong>(10주차에서 배운 내용).</p>
+  </div>
+</section>
+
+<!-- ============ 9. SUMMARY ============ -->
+<section id="sec9">
+  <div class="section-head">
+    <span class="section-tag">9</span>
+    <h2>한 페이지 요약</h2>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title">MLP 클래스의 3개 핵심 메서드</h3>
+    <table class="mapping">
+      <thead>
+        <tr><th>메서드</th><th>입력</th><th>출력</th><th>역할</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code-cell">__init__</td>
+          <td>(크기)</td>
+          <td>—</td>
+          <td>self.W1, b1, W2, b2 만들기</td>
+        </tr>
+        <tr>
+          <td class="code-cell">forward_with_cache</td>
+          <td>x</td>
+          <td>cache (dict)</td>
+          <td>예측 + 중간값 저장</td>
+        </tr>
+        <tr>
+          <td class="code-cell">backward</td>
+          <td>cache, y</td>
+          <td>grads (dict)</td>
+          <td>9개 편미분 계산</td>
+        </tr>
+        <tr>
+          <td class="code-cell">train</td>
+          <td>X, Y, epochs, lr</td>
+          <td>—</td>
+          <td>위 둘을 반복하며 가중치 업데이트</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="concept">
+    <h3 class="concept-title">학습의 한 줄 요약</h3>
+    <pre class="code">forward → backward → 가중치 업데이트   (10,000번 반복)</pre>
+    <p>코드로 다시 쓰면:</p>
+    <pre class="code"><span class="k">for</span> epoch <span class="k">in</span> range(<span class="n">10000</span>):
+    <span class="k">for</span> x, y <span class="k">in</span> data:
+        cache = mlp.forward_with_cache(x)
+        grads = mlp.backward(cache, y)
+    mlp.W1 -= lr * grads[<span class="s">"dW1"</span>]   <span class="c"># (실제로는 배치 평균)</span></pre>
+    <p>이게 전부입니다. 이 단순한 반복이 XOR도 학습하고, 더 큰 네트워크에서는 이미지 분류까지 합니다.</p>
+  </div>
+</section>
+
+<footer>
+  Week 11 · Machine Learning · mlp_scratch.py 코드 레퍼런스
+</footer>
+
+</div>
+
+</body>
+</html>
