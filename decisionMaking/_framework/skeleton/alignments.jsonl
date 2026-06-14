@@ -1,0 +1,2 @@
+{"_skeleton_note":"role 권장 어휘는 _framework/SCHEMAS.md §4 참조. confidence 0~1."}
+{"segment_id":"<COURSE><N>.A.1.local_001","anchor_id":"<COURSE><N>.A.1","anchor_path":["목차","1. <heading>"],"block_id":null,"role":["lecture_core"],"confidence":0.9,"evidence":{"keywords_overlap":["<kw1>","<kw2>"],"transcript_lines":[1,1]}}

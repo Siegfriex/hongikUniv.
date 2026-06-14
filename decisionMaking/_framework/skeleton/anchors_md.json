@@ -1,0 +1,15 @@
+{
+  "_skeleton_note": "복사 후 _skeleton_note 키 삭제. anchor_id 패턴은 _framework/CONVENTIONS.md §3.1 참조.",
+  "lecture_id": "<YYYYMMDD>_<N>",
+  "structure_ssot_source": "<YYYYMMDD>_<N>강.md",
+  "anchors": [
+    {
+      "anchor_id": "<COURSE><N>.A.1",
+      "list_index": 1,
+      "anchor_label_raw": "<원본 heading 그대로>",
+      "anchor_label_canonical": "<snake_case 영문>",
+      "anchor_path": ["목차", "<원본 부모 heading>"],
+      "blocks": []
+    }
+  ]
+}

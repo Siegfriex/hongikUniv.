@@ -1,0 +1,21 @@
+{
+  "lecture_id": "DM_PDF07__ch07_nonlinear_programming",
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF07_nonlinear_programming_to_local_global_optimum",
+      "type": "leads_to",
+      "from": "n_DM_PDF07.nonlinear_programming",
+      "to": "n_DM_PDF07.local_global_optimum",
+      "status": "supported_pdf_transcript",
+      "notes": "비선형계획 이해가 지역 최적해와 전체 최적해 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF07_local_global_optimum_to_grg_solver",
+      "type": "leads_to",
+      "from": "n_DM_PDF07.local_global_optimum",
+      "to": "n_DM_PDF07.grg_solver",
+      "status": "supported_pdf_transcript",
+      "notes": "지역 최적해와 전체 최적해 이해가 GRG 비선형 해법 해석으로 이어진다."
+    }
+  ]
+}

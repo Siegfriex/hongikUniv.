@@ -1,0 +1,87 @@
+{
+  "lecture_id": "DM_PDF01__ch04_simplex_tableau_twophase_supplement",
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF01.simplex_tableau",
+      "canonical_label": "심플렉스 타블로",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.001",
+        "DM01.A.002",
+        "DM01.A.003",
+        "DM01.A.004"
+      ],
+      "segment_ids": [
+        "DM01.A.001.local_001",
+        "DM01.A.002.local_001",
+        "DM01.A.003.local_001",
+        "DM01.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "simplex tableau"
+      ],
+      "notes": "심플렉스 반복에 필요한 목적행, 제약행, 기저변수, 우변, 비율검사를 한 표에 모은 계산 구조다."
+    },
+    {
+      "node_id": "n_DM_PDF01.multiple_optima",
+      "canonical_label": "복수 최적해",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.002"
+      ],
+      "segment_ids": [
+        "DM01.A.002.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "multiple optimal solutions"
+      ],
+      "notes": "최적 타블로에서 비기저변수의 목적행 계수가 0이면 다른 최적 BFS가 존재할 수 있는 상태다."
+    },
+    {
+      "node_id": "n_DM_PDF01.unbounded_solution",
+      "canonical_label": "비유계",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.002",
+        "DM01.A.003",
+        "DM01.A.005",
+        "DM01.A.006"
+      ],
+      "segment_ids": [
+        "DM01.A.002.local_001",
+        "DM01.A.003.local_001",
+        "DM01.A.005.local_001",
+        "DM01.A.006.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "unbounded solution"
+      ],
+      "notes": "목적함수를 계속 개선할 수 있으면서 제약이 그 방향을 막지 못하는 상태다."
+    },
+    {
+      "node_id": "n_DM_PDF01.two_phase_method",
+      "canonical_label": "2단계법",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.004",
+        "DM01.A.005",
+        "DM01.A.006",
+        "DM01.A.007"
+      ],
+      "segment_ids": [
+        "DM01.A.004.local_001",
+        "DM01.A.005.local_001",
+        "DM01.A.006.local_001",
+        "DM01.A.007.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "two-phase method"
+      ],
+      "notes": "초기 기저가능해가 바로 보이지 않을 때 Phase I에서 인위변수를 제거하고 Phase II에서 원 목적함수를 최적화하는 방법이다."
+    }
+  ]
+}

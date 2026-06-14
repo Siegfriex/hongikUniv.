@@ -1,0 +1,39 @@
+{
+  "lecture_id": "DM_PDF03__ch06_branch_and_bound",
+  "pdf_source_id": "DM_PDF03",
+  "title": "Ch.6 분지한계법",
+  "policy_note": "DecisionMaking PDF-only batch: date inference is discarded; DM_PDFxx follows user-provided source order.",
+  "sources": [
+    {
+      "id": "normalized_pdf_source",
+      "path": "decisionMaking/pdf_sources/DM_PDF03_ch06_branch_and_bound.pdf",
+      "role": [
+        "source_pdf",
+        "immutable",
+        "content_origin"
+      ],
+      "immutable": true,
+      "original_filename": "6장_분지한계법 (1).pdf",
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF03__ch06_branch_and_bound/raw/DM_PDF03_ch06_branch_and_bound.pdf"
+    },
+    {
+      "id": "pdf_full_transcript",
+      "path": "decisionMaking/pdf_transcripts/DM_PDF03__ch06_branch_and_bound__full_transcript.md",
+      "role": [
+        "content_ssot",
+        "pdf_transcript",
+        "anchor"
+      ],
+      "immutable": true,
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF03__ch06_branch_and_bound/raw/DM_PDF03__ch06_branch_and_bound__full_transcript.md"
+    }
+  ],
+  "extraction_stats": {
+    "pages": 9,
+    "empty_pages": 0,
+    "low_text_pages": 0,
+    "extraction_risk_pages": 0,
+    "total_lines": 29,
+    "total_chars": 5745
+  }
+}

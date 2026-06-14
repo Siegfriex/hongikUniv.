@@ -1,0 +1,93 @@
+{
+  "lecture_id": "DM_PDF06__ch05_transportation_network_week1",
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF06.transportation_problem",
+      "canonical_label": "수송문제",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.002",
+        "DM06.A.003",
+        "DM06.A.004"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.002.local_001",
+        "DM06.A.003.local_001",
+        "DM06.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "transportation problem"
+      ],
+      "notes": "여러 공급지에서 여러 수요지로 얼마를 보낼지 결정해 총 수송비를 최소화하는 LP 특수형이다."
+    },
+    {
+      "node_id": "n_DM_PDF06.transshipment_problem",
+      "canonical_label": "경유수송문제",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.002",
+        "DM06.A.003",
+        "DM06.A.017"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.002.local_001",
+        "DM06.A.003.local_001",
+        "DM06.A.017.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "transshipment problem"
+      ],
+      "notes": "공급지와 수요지 사이에 경유지가 존재하고, 각 노드에서 유입과 유출의 균형을 맞추는 네트워크 LP다."
+    },
+    {
+      "node_id": "n_DM_PDF06.assignment_problem",
+      "canonical_label": "할당문제",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.003",
+        "DM06.A.010",
+        "DM06.A.015"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.003.local_001",
+        "DM06.A.010.local_001",
+        "DM06.A.015.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "assignment problem"
+      ],
+      "notes": "각 작업을 각 자원에 1:1로 배정해 총 비용을 최소화하거나 효용을 최대화하는 0-1 네트워크 특수형이다."
+    },
+    {
+      "node_id": "n_DM_PDF06.network_flow",
+      "canonical_label": "네트워크 흐름",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.018",
+        "DM06.A.022",
+        "DM06.A.023"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.018.local_001",
+        "DM06.A.022.local_001",
+        "DM06.A.023.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "network flow"
+      ],
+      "notes": "노드와 arc로 구성된 시스템에서 흐름량을 결정하고 보존/용량/비용 제약을 만족시키는 모형군이다."
+    }
+  ]
+}

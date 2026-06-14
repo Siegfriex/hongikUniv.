@@ -1,0 +1,39 @@
+{
+  "lecture_id": "DM_PDF07__ch07_nonlinear_programming",
+  "pdf_source_id": "DM_PDF07",
+  "title": "Ch.7 비선형계획",
+  "policy_note": "DecisionMaking PDF-only batch: date inference is discarded; DM_PDFxx follows user-provided source order.",
+  "sources": [
+    {
+      "id": "normalized_pdf_source",
+      "path": "decisionMaking/pdf_sources/DM_PDF07_ch07_nonlinear_programming.pdf",
+      "role": [
+        "source_pdf",
+        "immutable",
+        "content_origin"
+      ],
+      "immutable": true,
+      "original_filename": "7장비선형계획26_hs.pdf",
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF07__ch07_nonlinear_programming/raw/DM_PDF07_ch07_nonlinear_programming.pdf"
+    },
+    {
+      "id": "pdf_full_transcript",
+      "path": "decisionMaking/pdf_transcripts/DM_PDF07__ch07_nonlinear_programming__full_transcript.md",
+      "role": [
+        "content_ssot",
+        "pdf_transcript",
+        "anchor"
+      ],
+      "immutable": true,
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF07__ch07_nonlinear_programming/raw/DM_PDF07__ch07_nonlinear_programming__full_transcript.md"
+    }
+  ],
+  "extraction_stats": {
+    "pages": 46,
+    "empty_pages": 0,
+    "low_text_pages": 25,
+    "extraction_risk_pages": 25,
+    "total_lines": 400,
+    "total_chars": 6347
+  }
+}

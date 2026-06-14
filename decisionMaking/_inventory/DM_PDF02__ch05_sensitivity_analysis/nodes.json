@@ -1,0 +1,71 @@
+{
+  "lecture_id": "DM_PDF02__ch05_sensitivity_analysis",
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF02.sensitivity_analysis",
+      "canonical_label": "민감도 분석",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM02.A.001",
+        "DM02.A.002",
+        "DM02.A.003",
+        "DM02.A.004"
+      ],
+      "segment_ids": [
+        "DM02.A.001.local_001",
+        "DM02.A.002.local_001",
+        "DM02.A.003.local_001",
+        "DM02.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "sensitivity analysis"
+      ],
+      "notes": "LP 최적해와 목적값이 계수, RHS, 자원량 변화에 어떻게 반응하는지 분석하는 절차다."
+    },
+    {
+      "node_id": "n_DM_PDF02.shadow_price",
+      "canonical_label": "잠재가격",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM02.A.026",
+        "DM02.A.027",
+        "DM02.A.028",
+        "DM02.A.030"
+      ],
+      "segment_ids": [
+        "DM02.A.026.local_001",
+        "DM02.A.027.local_001",
+        "DM02.A.028.local_001",
+        "DM02.A.030.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "shadow price"
+      ],
+      "notes": "제약 RHS를 1단위 완화했을 때 목적함수가 얼마나 개선되는지를 나타내는 한계 가치다."
+    },
+    {
+      "node_id": "n_DM_PDF02.reduced_cost",
+      "canonical_label": "감소비용",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM02.A.004",
+        "DM02.A.005",
+        "DM02.A.006",
+        "DM02.A.008"
+      ],
+      "segment_ids": [
+        "DM02.A.004.local_001",
+        "DM02.A.005.local_001",
+        "DM02.A.006.local_001",
+        "DM02.A.008.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "reduced cost"
+      ],
+      "notes": "현재 0인 변수가 해에 들어오기 위해 목적계수가 얼마나 개선되어야 하는지 나타내는 값이다."
+    }
+  ]
+}

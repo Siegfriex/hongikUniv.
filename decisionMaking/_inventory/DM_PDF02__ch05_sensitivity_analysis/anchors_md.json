@@ -1,0 +1,521 @@
+{
+  "lecture_id": "DM_PDF02__ch05_sensitivity_analysis",
+  "anchors": [
+    {
+      "anchor_id": "DM02.A.001",
+      "list_index": 1,
+      "anchor_label_raw": "PDF page 1: Operation Research",
+      "anchor_label_canonical": "page_001",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_001"
+      ],
+      "blocks": [],
+      "page": 1
+    },
+    {
+      "anchor_id": "DM02.A.002",
+      "list_index": 2,
+      "anchor_label_raw": "PDF page 2: 2",
+      "anchor_label_canonical": "page_002",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_002"
+      ],
+      "blocks": [],
+      "page": 2
+    },
+    {
+      "anchor_id": "DM02.A.003",
+      "list_index": 3,
+      "anchor_label_raw": "PDF page 3: 3",
+      "anchor_label_canonical": "page_003",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_003"
+      ],
+      "blocks": [],
+      "page": 3
+    },
+    {
+      "anchor_id": "DM02.A.004",
+      "list_index": 4,
+      "anchor_label_raw": "PDF page 4: 4",
+      "anchor_label_canonical": "page_004",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_004"
+      ],
+      "blocks": [],
+      "page": 4
+    },
+    {
+      "anchor_id": "DM02.A.005",
+      "list_index": 5,
+      "anchor_label_raw": "PDF page 5: 5",
+      "anchor_label_canonical": "page_005",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_005"
+      ],
+      "blocks": [],
+      "page": 5
+    },
+    {
+      "anchor_id": "DM02.A.006",
+      "list_index": 6,
+      "anchor_label_raw": "PDF page 6: 6",
+      "anchor_label_canonical": "page_006",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_006"
+      ],
+      "blocks": [],
+      "page": 6
+    },
+    {
+      "anchor_id": "DM02.A.007",
+      "list_index": 7,
+      "anchor_label_raw": "PDF page 7: 두 변수의 그래프",
+      "anchor_label_canonical": "page_007",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_007"
+      ],
+      "blocks": [],
+      "page": 7
+    },
+    {
+      "anchor_id": "DM02.A.008",
+      "list_index": 8,
+      "anchor_label_raw": "PDF page 8: 제약조건의",
+      "anchor_label_canonical": "page_008",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_008"
+      ],
+      "blocks": [],
+      "page": 8
+    },
+    {
+      "anchor_id": "DM02.A.009",
+      "list_index": 9,
+      "anchor_label_raw": "PDF page 9: 제약조건",
+      "anchor_label_canonical": "page_009",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_009"
+      ],
+      "blocks": [],
+      "page": 9
+    },
+    {
+      "anchor_id": "DM02.A.010",
+      "list_index": 10,
+      "anchor_label_raw": "PDF page 10: 실행가능영역 feasible region",
+      "anchor_label_canonical": "page_010",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_010"
+      ],
+      "blocks": [],
+      "page": 10
+    },
+    {
+      "anchor_id": "DM02.A.011",
+      "list_index": 11,
+      "anchor_label_raw": "PDF page 11: 실행가능해와 실행 불능해",
+      "anchor_label_canonical": "page_011",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_011"
+      ],
+      "blocks": [],
+      "page": 11
+    },
+    {
+      "anchor_id": "DM02.A.012",
+      "list_index": 12,
+      "anchor_label_raw": "PDF page 12: 12",
+      "anchor_label_canonical": "page_012",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_012"
+      ],
+      "blocks": [],
+      "page": 12
+    },
+    {
+      "anchor_id": "DM02.A.013",
+      "list_index": 13,
+      "anchor_label_raw": "PDF page 13: 목적함수: 등위이익선 (iso-profit line)",
+      "anchor_label_canonical": "page_013",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_013"
+      ],
+      "blocks": [],
+      "page": 13
+    },
+    {
+      "anchor_id": "DM02.A.014",
+      "list_index": 14,
+      "anchor_label_raw": "PDF page 14: 14",
+      "anchor_label_canonical": "page_014",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_014"
+      ],
+      "blocks": [],
+      "page": 14
+    },
+    {
+      "anchor_id": "DM02.A.015",
+      "list_index": 15,
+      "anchor_label_raw": "PDF page 15: 15",
+      "anchor_label_canonical": "page_015",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_015"
+      ],
+      "blocks": [],
+      "page": 15
+    },
+    {
+      "anchor_id": "DM02.A.016",
+      "list_index": 16,
+      "anchor_label_raw": "PDF page 16: 꼭지점을 따라가는",
+      "anchor_label_canonical": "page_016",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_016"
+      ],
+      "blocks": [],
+      "page": 16
+    },
+    {
+      "anchor_id": "DM02.A.017",
+      "list_index": 17,
+      "anchor_label_raw": "PDF page 17: 17",
+      "anchor_label_canonical": "page_017",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_017"
+      ],
+      "blocks": [],
+      "page": 17
+    },
+    {
+      "anchor_id": "DM02.A.018",
+      "list_index": 18,
+      "anchor_label_raw": "PDF page 18: 18",
+      "anchor_label_canonical": "page_018",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_018"
+      ],
+      "blocks": [],
+      "page": 18
+    },
+    {
+      "anchor_id": "DM02.A.019",
+      "list_index": 19,
+      "anchor_label_raw": "PDF page 19: 19",
+      "anchor_label_canonical": "page_019",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_019"
+      ],
+      "blocks": [],
+      "page": 19
+    },
+    {
+      "anchor_id": "DM02.A.020",
+      "list_index": 20,
+      "anchor_label_raw": "PDF page 20: 실행가능영역이 없는 경우",
+      "anchor_label_canonical": "page_020",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_020"
+      ],
+      "blocks": [],
+      "page": 20
+    },
+    {
+      "anchor_id": "DM02.A.021",
+      "list_index": 21,
+      "anchor_label_raw": "PDF page 21: 무한가능영역,",
+      "anchor_label_canonical": "page_021",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_021"
+      ],
+      "blocks": [],
+      "page": 21
+    },
+    {
+      "anchor_id": "DM02.A.022",
+      "list_index": 22,
+      "anchor_label_raw": "PDF page 22: 중복제약식(redundant constraints)",
+      "anchor_label_canonical": "page_022",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_022"
+      ],
+      "blocks": [],
+      "page": 22
+    },
+    {
+      "anchor_id": "DM02.A.023",
+      "list_index": 23,
+      "anchor_label_raw": "PDF page 23: 2.4. 민감도 분석 sensitivity analysis",
+      "anchor_label_canonical": "page_023",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_023"
+      ],
+      "blocks": [],
+      "page": 23
+    },
+    {
+      "anchor_id": "DM02.A.024",
+      "list_index": 24,
+      "anchor_label_raw": "PDF page 24: 24",
+      "anchor_label_canonical": "page_024",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_024"
+      ],
+      "blocks": [],
+      "page": 24
+    },
+    {
+      "anchor_id": "DM02.A.025",
+      "list_index": 25,
+      "anchor_label_raw": "PDF page 25: 25",
+      "anchor_label_canonical": "page_025",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_025"
+      ],
+      "blocks": [],
+      "page": 25
+    },
+    {
+      "anchor_id": "DM02.A.026",
+      "list_index": 26,
+      "anchor_label_raw": "PDF page 26: 26",
+      "anchor_label_canonical": "page_026",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_026"
+      ],
+      "blocks": [],
+      "page": 26
+    },
+    {
+      "anchor_id": "DM02.A.027",
+      "list_index": 27,
+      "anchor_label_raw": "PDF page 27: 27",
+      "anchor_label_canonical": "page_027",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_027"
+      ],
+      "blocks": [],
+      "page": 27
+    },
+    {
+      "anchor_id": "DM02.A.028",
+      "list_index": 28,
+      "anchor_label_raw": "PDF page 28: 28",
+      "anchor_label_canonical": "page_028",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_028"
+      ],
+      "blocks": [],
+      "page": 28
+    },
+    {
+      "anchor_id": "DM02.A.029",
+      "list_index": 29,
+      "anchor_label_raw": "PDF page 29: 29",
+      "anchor_label_canonical": "page_029",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_029"
+      ],
+      "blocks": [],
+      "page": 29
+    },
+    {
+      "anchor_id": "DM02.A.030",
+      "list_index": 30,
+      "anchor_label_raw": "PDF page 30: 30",
+      "anchor_label_canonical": "page_030",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_030"
+      ],
+      "blocks": [],
+      "page": 30
+    },
+    {
+      "anchor_id": "DM02.A.031",
+      "list_index": 31,
+      "anchor_label_raw": "PDF page 31: 31",
+      "anchor_label_canonical": "page_031",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_031"
+      ],
+      "blocks": [],
+      "page": 31
+    },
+    {
+      "anchor_id": "DM02.A.032",
+      "list_index": 32,
+      "anchor_label_raw": "PDF page 32: 32",
+      "anchor_label_canonical": "page_032",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_032"
+      ],
+      "blocks": [],
+      "page": 32
+    },
+    {
+      "anchor_id": "DM02.A.033",
+      "list_index": 33,
+      "anchor_label_raw": "PDF page 33: 33",
+      "anchor_label_canonical": "page_033",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_033"
+      ],
+      "blocks": [],
+      "page": 33
+    },
+    {
+      "anchor_id": "DM02.A.034",
+      "list_index": 34,
+      "anchor_label_raw": "PDF page 34: 34",
+      "anchor_label_canonical": "page_034",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_034"
+      ],
+      "blocks": [],
+      "page": 34
+    },
+    {
+      "anchor_id": "DM02.A.035",
+      "list_index": 35,
+      "anchor_label_raw": "PDF page 35: 35",
+      "anchor_label_canonical": "page_035",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_035"
+      ],
+      "blocks": [],
+      "page": 35
+    },
+    {
+      "anchor_id": "DM02.A.036",
+      "list_index": 36,
+      "anchor_label_raw": "PDF page 36: 36",
+      "anchor_label_canonical": "page_036",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_036"
+      ],
+      "blocks": [],
+      "page": 36
+    },
+    {
+      "anchor_id": "DM02.A.037",
+      "list_index": 37,
+      "anchor_label_raw": "PDF page 37: 37",
+      "anchor_label_canonical": "page_037",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_037"
+      ],
+      "blocks": [],
+      "page": 37
+    },
+    {
+      "anchor_id": "DM02.A.038",
+      "list_index": 38,
+      "anchor_label_raw": "PDF page 38: 38",
+      "anchor_label_canonical": "page_038",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_038"
+      ],
+      "blocks": [],
+      "page": 38
+    },
+    {
+      "anchor_id": "DM02.A.039",
+      "list_index": 39,
+      "anchor_label_raw": "PDF page 39: 실습문제",
+      "anchor_label_canonical": "page_039",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_039"
+      ],
+      "blocks": [],
+      "page": 39
+    },
+    {
+      "anchor_id": "DM02.A.040",
+      "list_index": 40,
+      "anchor_label_raw": "PDF page 40: 40",
+      "anchor_label_canonical": "page_040",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_040"
+      ],
+      "blocks": [],
+      "page": 40
+    },
+    {
+      "anchor_id": "DM02.A.041",
+      "list_index": 41,
+      "anchor_label_raw": "PDF page 41: 1) 다음 문제의 최적해를 구하라.",
+      "anchor_label_canonical": "page_041",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_041"
+      ],
+      "blocks": [],
+      "page": 41
+    },
+    {
+      "anchor_id": "DM02.A.042",
+      "list_index": 42,
+      "anchor_label_raw": "PDF page 42: 실습문제 1 (PROBLEM #5.10)",
+      "anchor_label_canonical": "page_042",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_042"
+      ],
+      "blocks": [],
+      "page": 42
+    },
+    {
+      "anchor_id": "DM02.A.043",
+      "list_index": 43,
+      "anchor_label_raw": "PDF page 43: Each grandfather clock built and shipped yields a profit of $300, while each wal",
+      "anchor_label_canonical": "page_043",
+      "anchor_path": [
+        "DM_PDF02",
+        "page_043"
+      ],
+      "blocks": [],
+      "page": 43
+    }
+  ]
+}

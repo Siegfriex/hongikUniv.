@@ -1,0 +1,570 @@
+{
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF01.simplex_tableau",
+      "canonical_label": "심플렉스 타블로",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.001",
+        "DM01.A.002",
+        "DM01.A.003",
+        "DM01.A.004"
+      ],
+      "segment_ids": [
+        "DM01.A.001.local_001",
+        "DM01.A.002.local_001",
+        "DM01.A.003.local_001",
+        "DM01.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "simplex tableau"
+      ],
+      "notes": "심플렉스 반복에 필요한 목적행, 제약행, 기저변수, 우변, 비율검사를 한 표에 모은 계산 구조다."
+    },
+    {
+      "node_id": "n_DM_PDF01.multiple_optima",
+      "canonical_label": "복수 최적해",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.002"
+      ],
+      "segment_ids": [
+        "DM01.A.002.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "multiple optimal solutions"
+      ],
+      "notes": "최적 타블로에서 비기저변수의 목적행 계수가 0이면 다른 최적 BFS가 존재할 수 있는 상태다."
+    },
+    {
+      "node_id": "n_DM_PDF01.unbounded_solution",
+      "canonical_label": "비유계",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.002",
+        "DM01.A.003",
+        "DM01.A.005",
+        "DM01.A.006"
+      ],
+      "segment_ids": [
+        "DM01.A.002.local_001",
+        "DM01.A.003.local_001",
+        "DM01.A.005.local_001",
+        "DM01.A.006.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "unbounded solution"
+      ],
+      "notes": "목적함수를 계속 개선할 수 있으면서 제약이 그 방향을 막지 못하는 상태다."
+    },
+    {
+      "node_id": "n_DM_PDF01.two_phase_method",
+      "canonical_label": "2단계법",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM01.A.004",
+        "DM01.A.005",
+        "DM01.A.006",
+        "DM01.A.007"
+      ],
+      "segment_ids": [
+        "DM01.A.004.local_001",
+        "DM01.A.005.local_001",
+        "DM01.A.006.local_001",
+        "DM01.A.007.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "two-phase method"
+      ],
+      "notes": "초기 기저가능해가 바로 보이지 않을 때 Phase I에서 인위변수를 제거하고 Phase II에서 원 목적함수를 최적화하는 방법이다."
+    },
+    {
+      "node_id": "n_DM_PDF02.sensitivity_analysis",
+      "canonical_label": "민감도 분석",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM02.A.001",
+        "DM02.A.002",
+        "DM02.A.003",
+        "DM02.A.004"
+      ],
+      "segment_ids": [
+        "DM02.A.001.local_001",
+        "DM02.A.002.local_001",
+        "DM02.A.003.local_001",
+        "DM02.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "sensitivity analysis"
+      ],
+      "notes": "LP 최적해와 목적값이 계수, RHS, 자원량 변화에 어떻게 반응하는지 분석하는 절차다."
+    },
+    {
+      "node_id": "n_DM_PDF02.shadow_price",
+      "canonical_label": "잠재가격",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM02.A.026",
+        "DM02.A.027",
+        "DM02.A.028",
+        "DM02.A.030"
+      ],
+      "segment_ids": [
+        "DM02.A.026.local_001",
+        "DM02.A.027.local_001",
+        "DM02.A.028.local_001",
+        "DM02.A.030.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "shadow price"
+      ],
+      "notes": "제약 RHS를 1단위 완화했을 때 목적함수가 얼마나 개선되는지를 나타내는 한계 가치다."
+    },
+    {
+      "node_id": "n_DM_PDF02.reduced_cost",
+      "canonical_label": "감소비용",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM02.A.004",
+        "DM02.A.005",
+        "DM02.A.006",
+        "DM02.A.008"
+      ],
+      "segment_ids": [
+        "DM02.A.004.local_001",
+        "DM02.A.005.local_001",
+        "DM02.A.006.local_001",
+        "DM02.A.008.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "reduced cost"
+      ],
+      "notes": "현재 0인 변수가 해에 들어오기 위해 목적계수가 얼마나 개선되어야 하는지 나타내는 값이다."
+    },
+    {
+      "node_id": "n_DM_PDF03.lp_relaxation",
+      "canonical_label": "LP 완화",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM03.A.001",
+        "DM03.A.002",
+        "DM03.A.003",
+        "DM03.A.004"
+      ],
+      "segment_ids": [
+        "DM03.A.001.local_001",
+        "DM03.A.002.local_001",
+        "DM03.A.003.local_001",
+        "DM03.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "LP relaxation"
+      ],
+      "notes": "정수계획에서 정수 조건을 잠시 제거해 연속 LP로 푸는 완화 문제다."
+    },
+    {
+      "node_id": "n_DM_PDF03.bounding_strategy",
+      "canonical_label": "한계전략",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM03.A.001",
+        "DM03.A.002",
+        "DM03.A.003",
+        "DM03.A.004"
+      ],
+      "segment_ids": [
+        "DM03.A.001.local_001",
+        "DM03.A.002.local_001",
+        "DM03.A.003.local_001",
+        "DM03.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "bounding strategy"
+      ],
+      "notes": "각 부문제의 LP 완화값을 이용해 더 볼 가치가 있는지 판정하는 전략이다."
+    },
+    {
+      "node_id": "n_DM_PDF03.branching_strategy",
+      "canonical_label": "분지전략",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM03.A.001",
+        "DM03.A.002",
+        "DM03.A.003",
+        "DM03.A.004"
+      ],
+      "segment_ids": [
+        "DM03.A.001.local_001",
+        "DM03.A.002.local_001",
+        "DM03.A.003.local_001",
+        "DM03.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "branching strategy"
+      ],
+      "notes": "소수 값을 가진 정수변수를 골라 floor/ceil 제약을 추가한 두 부문제로 나누는 전략이다."
+    },
+    {
+      "node_id": "n_DM_PDF04.integer_programming",
+      "canonical_label": "정수계획",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM04.A.001",
+        "DM04.A.002",
+        "DM04.A.003",
+        "DM04.A.004"
+      ],
+      "segment_ids": [
+        "DM04.A.001.local_001",
+        "DM04.A.002.local_001",
+        "DM04.A.003.local_001",
+        "DM04.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "integer programming"
+      ],
+      "notes": "목적함수와 제약식은 선형이지만 일부 또는 모든 변수가 정수값만 가질 수 있는 최적화 모형이다."
+    },
+    {
+      "node_id": "n_DM_PDF04.binary_variable",
+      "canonical_label": "0-1 변수",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM04.A.001",
+        "DM04.A.002",
+        "DM04.A.007",
+        "DM04.A.008"
+      ],
+      "segment_ids": [
+        "DM04.A.001.local_001",
+        "DM04.A.002.local_001",
+        "DM04.A.007.local_001",
+        "DM04.A.008.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "binary variable"
+      ],
+      "notes": "어떤 선택을 하거나 하지 않는지를 1과 0으로 표현하는 변수다."
+    },
+    {
+      "node_id": "n_DM_PDF04.integer_solver_option",
+      "canonical_label": "Solver 정수 옵션",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM04.A.002",
+        "DM04.A.003",
+        "DM04.A.004",
+        "DM04.A.005"
+      ],
+      "segment_ids": [
+        "DM04.A.002.local_001",
+        "DM04.A.003.local_001",
+        "DM04.A.004.local_001",
+        "DM04.A.005.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "integer Solver option"
+      ],
+      "notes": "Excel Solver에서 변수셀의 정수/이진 제한과 해법을 지정해 정수계획을 푸는 설정이다."
+    },
+    {
+      "node_id": "n_DM_PDF05.artificial_variable",
+      "canonical_label": "인위변수",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM05.A.001",
+        "DM05.A.002",
+        "DM05.A.003",
+        "DM05.A.004"
+      ],
+      "segment_ids": [
+        "DM05.A.001.local_001",
+        "DM05.A.002.local_001",
+        "DM05.A.003.local_001",
+        "DM05.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "artificial variable"
+      ],
+      "notes": "초기 기저가능해를 만들기 위해 등식에 임시로 추가하는 변수다."
+    },
+    {
+      "node_id": "n_DM_PDF05.big_m_method",
+      "canonical_label": "Big-M 방법",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM05.A.001",
+        "DM05.A.002",
+        "DM05.A.003",
+        "DM05.A.004"
+      ],
+      "segment_ids": [
+        "DM05.A.001.local_001",
+        "DM05.A.002.local_001",
+        "DM05.A.003.local_001",
+        "DM05.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "Big-M method"
+      ],
+      "notes": "인위변수가 최종해에 남지 않도록 목적함수에 매우 큰 벌점을 주는 심플렉스 변형이다."
+    },
+    {
+      "node_id": "n_DM_PDF05.min_to_max_conversion",
+      "canonical_label": "최소화-최대화 변환",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM05.A.001",
+        "DM05.A.002",
+        "DM05.A.003",
+        "DM05.A.004"
+      ],
+      "segment_ids": [
+        "DM05.A.001.local_001",
+        "DM05.A.002.local_001",
+        "DM05.A.003.local_001",
+        "DM05.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "min-to-max conversion"
+      ],
+      "notes": "최소화 문제의 목적함수에 -1을 곱해 최대화 문제로 바꾸는 표현 변환이다."
+    },
+    {
+      "node_id": "n_DM_PDF06.transportation_problem",
+      "canonical_label": "수송문제",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.002",
+        "DM06.A.003",
+        "DM06.A.004"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.002.local_001",
+        "DM06.A.003.local_001",
+        "DM06.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "transportation problem"
+      ],
+      "notes": "여러 공급지에서 여러 수요지로 얼마를 보낼지 결정해 총 수송비를 최소화하는 LP 특수형이다."
+    },
+    {
+      "node_id": "n_DM_PDF06.transshipment_problem",
+      "canonical_label": "경유수송문제",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.002",
+        "DM06.A.003",
+        "DM06.A.017"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.002.local_001",
+        "DM06.A.003.local_001",
+        "DM06.A.017.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "transshipment problem"
+      ],
+      "notes": "공급지와 수요지 사이에 경유지가 존재하고, 각 노드에서 유입과 유출의 균형을 맞추는 네트워크 LP다."
+    },
+    {
+      "node_id": "n_DM_PDF06.assignment_problem",
+      "canonical_label": "할당문제",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.003",
+        "DM06.A.010",
+        "DM06.A.015"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.003.local_001",
+        "DM06.A.010.local_001",
+        "DM06.A.015.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "assignment problem"
+      ],
+      "notes": "각 작업을 각 자원에 1:1로 배정해 총 비용을 최소화하거나 효용을 최대화하는 0-1 네트워크 특수형이다."
+    },
+    {
+      "node_id": "n_DM_PDF06.network_flow",
+      "canonical_label": "네트워크 흐름",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM06.A.001",
+        "DM06.A.018",
+        "DM06.A.022",
+        "DM06.A.023"
+      ],
+      "segment_ids": [
+        "DM06.A.001.local_001",
+        "DM06.A.018.local_001",
+        "DM06.A.022.local_001",
+        "DM06.A.023.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "network flow"
+      ],
+      "notes": "노드와 arc로 구성된 시스템에서 흐름량을 결정하고 보존/용량/비용 제약을 만족시키는 모형군이다."
+    },
+    {
+      "node_id": "n_DM_PDF07.nonlinear_programming",
+      "canonical_label": "비선형계획",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM07.A.001",
+        "DM07.A.002",
+        "DM07.A.003",
+        "DM07.A.008"
+      ],
+      "segment_ids": [
+        "DM07.A.001.local_001",
+        "DM07.A.002.local_001",
+        "DM07.A.003.local_001",
+        "DM07.A.008.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "nonlinear programming"
+      ],
+      "notes": "목적함수 또는 제약식 중 하나 이상이 비선형 함수인 최적화 모형이다."
+    },
+    {
+      "node_id": "n_DM_PDF07.local_global_optimum",
+      "canonical_label": "지역 최적해와 전체 최적해",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM07.A.002",
+        "DM07.A.003",
+        "DM07.A.004",
+        "DM07.A.005"
+      ],
+      "segment_ids": [
+        "DM07.A.002.local_001",
+        "DM07.A.003.local_001",
+        "DM07.A.004.local_001",
+        "DM07.A.005.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "local and global optimum"
+      ],
+      "notes": "지역 최적해는 주변보다 좋은 해이고, 전체 최적해는 가능한 모든 해 중 가장 좋은 해다."
+    },
+    {
+      "node_id": "n_DM_PDF07.grg_solver",
+      "canonical_label": "GRG 비선형 해법",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM07.A.001",
+        "DM07.A.002",
+        "DM07.A.003",
+        "DM07.A.006"
+      ],
+      "segment_ids": [
+        "DM07.A.001.local_001",
+        "DM07.A.002.local_001",
+        "DM07.A.003.local_001",
+        "DM07.A.006.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "GRG nonlinear solver"
+      ],
+      "notes": "Excel에서 부드러운 비선형 모형을 풀 때 사용하는 일반화 감소기울기 기반 해법이다."
+    },
+    {
+      "node_id": "n_DM_PDF08.set_covering_model",
+      "canonical_label": "집합커버링 모형",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM08.A.001",
+        "DM08.A.002",
+        "DM08.A.003",
+        "DM08.A.004"
+      ],
+      "segment_ids": [
+        "DM08.A.001.local_001",
+        "DM08.A.002.local_001",
+        "DM08.A.003.local_001",
+        "DM08.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "set covering model"
+      ],
+      "notes": "모든 수요 구역이 적어도 하나의 선택된 시설에 의해 커버되도록 하면서 선택 수를 최소화하는 0-1 모형이다."
+    },
+    {
+      "node_id": "n_DM_PDF08.facility_location",
+      "canonical_label": "공공 설비 입지 선정",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM08.A.001",
+        "DM08.A.002",
+        "DM08.A.003",
+        "DM08.A.004"
+      ],
+      "segment_ids": [
+        "DM08.A.001.local_001",
+        "DM08.A.002.local_001",
+        "DM08.A.003.local_001",
+        "DM08.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "facility location"
+      ],
+      "notes": "시설 설치 여부를 0-1 변수로 두고 비용, 커버, 거리, 수요 조건을 만족하는 위치를 고르는 모형군이다."
+    },
+    {
+      "node_id": "n_DM_PDF08.coverage_matrix",
+      "canonical_label": "도달 가능성 행렬",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM08.A.001",
+        "DM08.A.002",
+        "DM08.A.003",
+        "DM08.A.006"
+      ],
+      "segment_ids": [
+        "DM08.A.001.local_001",
+        "DM08.A.002.local_001",
+        "DM08.A.003.local_001",
+        "DM08.A.006.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "coverage matrix"
+      ],
+      "notes": "수요지 i가 후보지 j로부터 서비스 가능한지 0 또는 1로 표시한 입력 행렬이다."
+    }
+  ]
+}

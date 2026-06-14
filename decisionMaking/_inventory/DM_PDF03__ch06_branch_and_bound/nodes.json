@@ -1,0 +1,71 @@
+{
+  "lecture_id": "DM_PDF03__ch06_branch_and_bound",
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF03.lp_relaxation",
+      "canonical_label": "LP 완화",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM03.A.001",
+        "DM03.A.002",
+        "DM03.A.003",
+        "DM03.A.004"
+      ],
+      "segment_ids": [
+        "DM03.A.001.local_001",
+        "DM03.A.002.local_001",
+        "DM03.A.003.local_001",
+        "DM03.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "LP relaxation"
+      ],
+      "notes": "정수계획에서 정수 조건을 잠시 제거해 연속 LP로 푸는 완화 문제다."
+    },
+    {
+      "node_id": "n_DM_PDF03.bounding_strategy",
+      "canonical_label": "한계전략",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM03.A.001",
+        "DM03.A.002",
+        "DM03.A.003",
+        "DM03.A.004"
+      ],
+      "segment_ids": [
+        "DM03.A.001.local_001",
+        "DM03.A.002.local_001",
+        "DM03.A.003.local_001",
+        "DM03.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "bounding strategy"
+      ],
+      "notes": "각 부문제의 LP 완화값을 이용해 더 볼 가치가 있는지 판정하는 전략이다."
+    },
+    {
+      "node_id": "n_DM_PDF03.branching_strategy",
+      "canonical_label": "분지전략",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM03.A.001",
+        "DM03.A.002",
+        "DM03.A.003",
+        "DM03.A.004"
+      ],
+      "segment_ids": [
+        "DM03.A.001.local_001",
+        "DM03.A.002.local_001",
+        "DM03.A.003.local_001",
+        "DM03.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "branching strategy"
+      ],
+      "notes": "소수 값을 가진 정수변수를 골라 floor/ceil 제약을 추가한 두 부문제로 나누는 전략이다."
+    }
+  ]
+}

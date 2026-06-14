@@ -1,0 +1,71 @@
+{
+  "lecture_id": "DM_PDF04__ch06_integer_programming_week1",
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF04.integer_programming",
+      "canonical_label": "정수계획",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM04.A.001",
+        "DM04.A.002",
+        "DM04.A.003",
+        "DM04.A.004"
+      ],
+      "segment_ids": [
+        "DM04.A.001.local_001",
+        "DM04.A.002.local_001",
+        "DM04.A.003.local_001",
+        "DM04.A.004.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "integer programming"
+      ],
+      "notes": "목적함수와 제약식은 선형이지만 일부 또는 모든 변수가 정수값만 가질 수 있는 최적화 모형이다."
+    },
+    {
+      "node_id": "n_DM_PDF04.binary_variable",
+      "canonical_label": "0-1 변수",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM04.A.001",
+        "DM04.A.002",
+        "DM04.A.007",
+        "DM04.A.008"
+      ],
+      "segment_ids": [
+        "DM04.A.001.local_001",
+        "DM04.A.002.local_001",
+        "DM04.A.007.local_001",
+        "DM04.A.008.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "binary variable"
+      ],
+      "notes": "어떤 선택을 하거나 하지 않는지를 1과 0으로 표현하는 변수다."
+    },
+    {
+      "node_id": "n_DM_PDF04.integer_solver_option",
+      "canonical_label": "Solver 정수 옵션",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM04.A.002",
+        "DM04.A.003",
+        "DM04.A.004",
+        "DM04.A.005"
+      ],
+      "segment_ids": [
+        "DM04.A.002.local_001",
+        "DM04.A.003.local_001",
+        "DM04.A.004.local_001",
+        "DM04.A.005.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "integer Solver option"
+      ],
+      "notes": "Excel Solver에서 변수셀의 정수/이진 제한과 해법을 지정해 정수계획을 푸는 설정이다."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "lecture_id": "DM_PDF05__ch04_simplex_duality_week2",
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF05_artificial_variable_to_big_m_method",
+      "type": "leads_to",
+      "from": "n_DM_PDF05.artificial_variable",
+      "to": "n_DM_PDF05.big_m_method",
+      "status": "supported_pdf_transcript",
+      "notes": "인위변수 이해가 Big-M 방법 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF05_big_m_method_to_min_to_max_conversion",
+      "type": "leads_to",
+      "from": "n_DM_PDF05.big_m_method",
+      "to": "n_DM_PDF05.min_to_max_conversion",
+      "status": "supported_pdf_transcript",
+      "notes": "Big-M 방법 이해가 최소화-최대화 변환 해석으로 이어진다."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "lecture_id": "DM_PDF02__ch05_sensitivity_analysis",
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF02_sensitivity_analysis_to_shadow_price",
+      "type": "leads_to",
+      "from": "n_DM_PDF02.sensitivity_analysis",
+      "to": "n_DM_PDF02.shadow_price",
+      "status": "supported_pdf_transcript",
+      "notes": "민감도 분석 이해가 잠재가격 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF02_shadow_price_to_reduced_cost",
+      "type": "leads_to",
+      "from": "n_DM_PDF02.shadow_price",
+      "to": "n_DM_PDF02.reduced_cost",
+      "status": "supported_pdf_transcript",
+      "notes": "잠재가격 이해가 감소비용 해석으로 이어진다."
+    }
+  ]
+}

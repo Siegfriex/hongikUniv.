@@ -1,0 +1,125 @@
+{
+  "lecture_id": "DM_PDF01__ch04_simplex_tableau_twophase_supplement",
+  "anchors": [
+    {
+      "anchor_id": "DM01.A.001",
+      "list_index": 1,
+      "anchor_label_raw": "PDF page 1: - 1 -",
+      "anchor_label_canonical": "page_001",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_001"
+      ],
+      "blocks": [],
+      "page": 1
+    },
+    {
+      "anchor_id": "DM01.A.002",
+      "list_index": 2,
+      "anchor_label_raw": "PDF page 2: - 3 -",
+      "anchor_label_canonical": "page_002",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_002"
+      ],
+      "blocks": [],
+      "page": 2
+    },
+    {
+      "anchor_id": "DM01.A.003",
+      "list_index": 3,
+      "anchor_label_raw": "PDF page 3: - 5 -",
+      "anchor_label_canonical": "page_003",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_003"
+      ],
+      "blocks": [],
+      "page": 3
+    },
+    {
+      "anchor_id": "DM01.A.004",
+      "list_index": 4,
+      "anchor_label_raw": "PDF page 4: - 7 -",
+      "anchor_label_canonical": "page_004",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_004"
+      ],
+      "blocks": [],
+      "page": 4
+    },
+    {
+      "anchor_id": "DM01.A.005",
+      "list_index": 5,
+      "anchor_label_raw": "PDF page 5: - 9 -",
+      "anchor_label_canonical": "page_005",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_005"
+      ],
+      "blocks": [],
+      "page": 5
+    },
+    {
+      "anchor_id": "DM01.A.006",
+      "list_index": 6,
+      "anchor_label_raw": "PDF page 6: - 11 -",
+      "anchor_label_canonical": "page_006",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_006"
+      ],
+      "blocks": [],
+      "page": 6
+    },
+    {
+      "anchor_id": "DM01.A.007",
+      "list_index": 7,
+      "anchor_label_raw": "PDF page 7: - 13 -",
+      "anchor_label_canonical": "page_007",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_007"
+      ],
+      "blocks": [],
+      "page": 7
+    },
+    {
+      "anchor_id": "DM01.A.008",
+      "list_index": 8,
+      "anchor_label_raw": "PDF page 8: - 15 -",
+      "anchor_label_canonical": "page_008",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_008"
+      ],
+      "blocks": [],
+      "page": 8
+    },
+    {
+      "anchor_id": "DM01.A.009",
+      "list_index": 9,
+      "anchor_label_raw": "PDF page 9: - 17 -",
+      "anchor_label_canonical": "page_009",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_009"
+      ],
+      "blocks": [],
+      "page": 9
+    },
+    {
+      "anchor_id": "DM01.A.010",
+      "list_index": 10,
+      "anchor_label_raw": "PDF page 10: - 19 -",
+      "anchor_label_canonical": "page_010",
+      "anchor_path": [
+        "DM_PDF01",
+        "page_010"
+      ],
+      "blocks": [],
+      "page": 10
+    }
+  ]
+}

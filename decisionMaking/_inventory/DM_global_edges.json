@@ -1,0 +1,204 @@
+{
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF01_simplex_tableau_to_multiple_optima",
+      "type": "leads_to",
+      "from": "n_DM_PDF01.simplex_tableau",
+      "to": "n_DM_PDF01.multiple_optima",
+      "status": "supported_pdf_transcript",
+      "notes": "심플렉스 타블로 이해가 복수 최적해 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF01_multiple_optima_to_unbounded_solution",
+      "type": "leads_to",
+      "from": "n_DM_PDF01.multiple_optima",
+      "to": "n_DM_PDF01.unbounded_solution",
+      "status": "supported_pdf_transcript",
+      "notes": "복수 최적해 이해가 비유계 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF01_unbounded_solution_to_two_phase_method",
+      "type": "leads_to",
+      "from": "n_DM_PDF01.unbounded_solution",
+      "to": "n_DM_PDF01.two_phase_method",
+      "status": "supported_pdf_transcript",
+      "notes": "비유계 이해가 2단계법 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF02_sensitivity_analysis_to_shadow_price",
+      "type": "leads_to",
+      "from": "n_DM_PDF02.sensitivity_analysis",
+      "to": "n_DM_PDF02.shadow_price",
+      "status": "supported_pdf_transcript",
+      "notes": "민감도 분석 이해가 잠재가격 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF02_shadow_price_to_reduced_cost",
+      "type": "leads_to",
+      "from": "n_DM_PDF02.shadow_price",
+      "to": "n_DM_PDF02.reduced_cost",
+      "status": "supported_pdf_transcript",
+      "notes": "잠재가격 이해가 감소비용 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF03_lp_relaxation_to_bounding_strategy",
+      "type": "leads_to",
+      "from": "n_DM_PDF03.lp_relaxation",
+      "to": "n_DM_PDF03.bounding_strategy",
+      "status": "supported_pdf_transcript",
+      "notes": "LP 완화 이해가 한계전략 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF03_bounding_strategy_to_branching_strategy",
+      "type": "leads_to",
+      "from": "n_DM_PDF03.bounding_strategy",
+      "to": "n_DM_PDF03.branching_strategy",
+      "status": "supported_pdf_transcript",
+      "notes": "한계전략 이해가 분지전략 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF04_integer_programming_to_binary_variable",
+      "type": "leads_to",
+      "from": "n_DM_PDF04.integer_programming",
+      "to": "n_DM_PDF04.binary_variable",
+      "status": "supported_pdf_transcript",
+      "notes": "정수계획 이해가 0-1 변수 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF04_binary_variable_to_integer_solver_option",
+      "type": "leads_to",
+      "from": "n_DM_PDF04.binary_variable",
+      "to": "n_DM_PDF04.integer_solver_option",
+      "status": "supported_pdf_transcript",
+      "notes": "0-1 변수 이해가 Solver 정수 옵션 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF05_artificial_variable_to_big_m_method",
+      "type": "leads_to",
+      "from": "n_DM_PDF05.artificial_variable",
+      "to": "n_DM_PDF05.big_m_method",
+      "status": "supported_pdf_transcript",
+      "notes": "인위변수 이해가 Big-M 방법 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF05_big_m_method_to_min_to_max_conversion",
+      "type": "leads_to",
+      "from": "n_DM_PDF05.big_m_method",
+      "to": "n_DM_PDF05.min_to_max_conversion",
+      "status": "supported_pdf_transcript",
+      "notes": "Big-M 방법 이해가 최소화-최대화 변환 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF06_transportation_problem_to_transshipment_problem",
+      "type": "leads_to",
+      "from": "n_DM_PDF06.transportation_problem",
+      "to": "n_DM_PDF06.transshipment_problem",
+      "status": "supported_pdf_transcript",
+      "notes": "수송문제 이해가 경유수송문제 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF06_transshipment_problem_to_assignment_problem",
+      "type": "leads_to",
+      "from": "n_DM_PDF06.transshipment_problem",
+      "to": "n_DM_PDF06.assignment_problem",
+      "status": "supported_pdf_transcript",
+      "notes": "경유수송문제 이해가 할당문제 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF06_assignment_problem_to_network_flow",
+      "type": "leads_to",
+      "from": "n_DM_PDF06.assignment_problem",
+      "to": "n_DM_PDF06.network_flow",
+      "status": "supported_pdf_transcript",
+      "notes": "할당문제 이해가 네트워크 흐름 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF07_nonlinear_programming_to_local_global_optimum",
+      "type": "leads_to",
+      "from": "n_DM_PDF07.nonlinear_programming",
+      "to": "n_DM_PDF07.local_global_optimum",
+      "status": "supported_pdf_transcript",
+      "notes": "비선형계획 이해가 지역 최적해와 전체 최적해 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF07_local_global_optimum_to_grg_solver",
+      "type": "leads_to",
+      "from": "n_DM_PDF07.local_global_optimum",
+      "to": "n_DM_PDF07.grg_solver",
+      "status": "supported_pdf_transcript",
+      "notes": "지역 최적해와 전체 최적해 이해가 GRG 비선형 해법 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF08_set_covering_model_to_facility_location",
+      "type": "leads_to",
+      "from": "n_DM_PDF08.set_covering_model",
+      "to": "n_DM_PDF08.facility_location",
+      "status": "supported_pdf_transcript",
+      "notes": "집합커버링 모형 이해가 공공 설비 입지 선정 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF08_facility_location_to_coverage_matrix",
+      "type": "leads_to",
+      "from": "n_DM_PDF08.facility_location",
+      "to": "n_DM_PDF08.coverage_matrix",
+      "status": "supported_pdf_transcript",
+      "notes": "공공 설비 입지 선정 이해가 도달 가능성 행렬 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF01_to_DM_PDF02_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF01.simplex_tableau",
+      "to": "n_DM_PDF02.sensitivity_analysis",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    },
+    {
+      "edge_id": "e_DM_PDF02_to_DM_PDF03_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF02.sensitivity_analysis",
+      "to": "n_DM_PDF03.lp_relaxation",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    },
+    {
+      "edge_id": "e_DM_PDF03_to_DM_PDF04_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF03.lp_relaxation",
+      "to": "n_DM_PDF04.integer_programming",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    },
+    {
+      "edge_id": "e_DM_PDF04_to_DM_PDF05_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF04.integer_programming",
+      "to": "n_DM_PDF05.artificial_variable",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    },
+    {
+      "edge_id": "e_DM_PDF05_to_DM_PDF06_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF05.artificial_variable",
+      "to": "n_DM_PDF06.transportation_problem",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    },
+    {
+      "edge_id": "e_DM_PDF06_to_DM_PDF07_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF06.transportation_problem",
+      "to": "n_DM_PDF07.nonlinear_programming",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    },
+    {
+      "edge_id": "e_DM_PDF07_to_DM_PDF08_intake_order",
+      "type": "intake_order_next",
+      "from": "n_DM_PDF07.nonlinear_programming",
+      "to": "n_DM_PDF08.set_covering_model",
+      "status": "supported_by_user_order",
+      "notes": "사용자가 지정한 PDF 8개 원본 경로 순서."
+    }
+  ]
+}

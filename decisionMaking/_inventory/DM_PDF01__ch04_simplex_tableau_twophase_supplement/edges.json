@@ -1,0 +1,29 @@
+{
+  "lecture_id": "DM_PDF01__ch04_simplex_tableau_twophase_supplement",
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF01_simplex_tableau_to_multiple_optima",
+      "type": "leads_to",
+      "from": "n_DM_PDF01.simplex_tableau",
+      "to": "n_DM_PDF01.multiple_optima",
+      "status": "supported_pdf_transcript",
+      "notes": "심플렉스 타블로 이해가 복수 최적해 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF01_multiple_optima_to_unbounded_solution",
+      "type": "leads_to",
+      "from": "n_DM_PDF01.multiple_optima",
+      "to": "n_DM_PDF01.unbounded_solution",
+      "status": "supported_pdf_transcript",
+      "notes": "복수 최적해 이해가 비유계 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF01_unbounded_solution_to_two_phase_method",
+      "type": "leads_to",
+      "from": "n_DM_PDF01.unbounded_solution",
+      "to": "n_DM_PDF01.two_phase_method",
+      "status": "supported_pdf_transcript",
+      "notes": "비유계 이해가 2단계법 해석으로 이어진다."
+    }
+  ]
+}

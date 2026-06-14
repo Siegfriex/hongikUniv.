@@ -1,0 +1,39 @@
+{
+  "lecture_id": "DM_PDF06__ch05_transportation_network_week1",
+  "pdf_source_id": "DM_PDF06",
+  "title": "Ch.5 수송계획과 네트워크 분석",
+  "policy_note": "DecisionMaking PDF-only batch: date inference is discarded; DM_PDFxx follows user-provided source order.",
+  "sources": [
+    {
+      "id": "normalized_pdf_source",
+      "path": "decisionMaking/pdf_sources/DM_PDF06_ch05_transportation_network_week1.pdf",
+      "role": [
+        "source_pdf",
+        "immutable",
+        "content_origin"
+      ],
+      "immutable": true,
+      "original_filename": "5장 수송 및 네트워크 (1주)_hs (6).pdf",
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF06__ch05_transportation_network_week1/raw/DM_PDF06_ch05_transportation_network_week1.pdf"
+    },
+    {
+      "id": "pdf_full_transcript",
+      "path": "decisionMaking/pdf_transcripts/DM_PDF06__ch05_transportation_network_week1__full_transcript.md",
+      "role": [
+        "content_ssot",
+        "pdf_transcript",
+        "anchor"
+      ],
+      "immutable": true,
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF06__ch05_transportation_network_week1/raw/DM_PDF06__ch05_transportation_network_week1__full_transcript.md"
+    }
+  ],
+  "extraction_stats": {
+    "pages": 36,
+    "empty_pages": 0,
+    "low_text_pages": 9,
+    "extraction_risk_pages": 9,
+    "total_lines": 500,
+    "total_chars": 7410
+  }
+}

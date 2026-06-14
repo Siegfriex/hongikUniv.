@@ -1,0 +1,71 @@
+{
+  "lecture_id": "DM_PDF07__ch07_nonlinear_programming",
+  "nodes": [
+    {
+      "node_id": "n_DM_PDF07.nonlinear_programming",
+      "canonical_label": "비선형계획",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM07.A.001",
+        "DM07.A.002",
+        "DM07.A.003",
+        "DM07.A.008"
+      ],
+      "segment_ids": [
+        "DM07.A.001.local_001",
+        "DM07.A.002.local_001",
+        "DM07.A.003.local_001",
+        "DM07.A.008.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "nonlinear programming"
+      ],
+      "notes": "목적함수 또는 제약식 중 하나 이상이 비선형 함수인 최적화 모형이다."
+    },
+    {
+      "node_id": "n_DM_PDF07.local_global_optimum",
+      "canonical_label": "지역 최적해와 전체 최적해",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM07.A.002",
+        "DM07.A.003",
+        "DM07.A.004",
+        "DM07.A.005"
+      ],
+      "segment_ids": [
+        "DM07.A.002.local_001",
+        "DM07.A.003.local_001",
+        "DM07.A.004.local_001",
+        "DM07.A.005.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "local and global optimum"
+      ],
+      "notes": "지역 최적해는 주변보다 좋은 해이고, 전체 최적해는 가능한 모든 해 중 가장 좋은 해다."
+    },
+    {
+      "node_id": "n_DM_PDF07.grg_solver",
+      "canonical_label": "GRG 비선형 해법",
+      "status": "supported_pdf_transcript",
+      "anchor_ids": [
+        "DM07.A.001",
+        "DM07.A.002",
+        "DM07.A.003",
+        "DM07.A.006"
+      ],
+      "segment_ids": [
+        "DM07.A.001.local_001",
+        "DM07.A.002.local_001",
+        "DM07.A.003.local_001",
+        "DM07.A.006.local_001"
+      ],
+      "cross_lecture_frame": true,
+      "aliases": [
+        "GRG nonlinear solver"
+      ],
+      "notes": "Excel에서 부드러운 비선형 모형을 풀 때 사용하는 일반화 감소기울기 기반 해법이다."
+    }
+  ]
+}

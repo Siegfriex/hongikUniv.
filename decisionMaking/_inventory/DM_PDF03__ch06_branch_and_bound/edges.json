@@ -1,0 +1,21 @@
+{
+  "lecture_id": "DM_PDF03__ch06_branch_and_bound",
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF03_lp_relaxation_to_bounding_strategy",
+      "type": "leads_to",
+      "from": "n_DM_PDF03.lp_relaxation",
+      "to": "n_DM_PDF03.bounding_strategy",
+      "status": "supported_pdf_transcript",
+      "notes": "LP 완화 이해가 한계전략 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF03_bounding_strategy_to_branching_strategy",
+      "type": "leads_to",
+      "from": "n_DM_PDF03.bounding_strategy",
+      "to": "n_DM_PDF03.branching_strategy",
+      "status": "supported_pdf_transcript",
+      "notes": "한계전략 이해가 분지전략 해석으로 이어진다."
+    }
+  ]
+}

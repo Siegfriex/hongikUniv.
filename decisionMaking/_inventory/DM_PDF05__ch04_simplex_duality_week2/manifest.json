@@ -1,0 +1,39 @@
+{
+  "lecture_id": "DM_PDF05__ch04_simplex_duality_week2",
+  "pdf_source_id": "DM_PDF05",
+  "title": "Ch.4 심플렉스, Big-M, 쌍대성 연결",
+  "policy_note": "DecisionMaking PDF-only batch: date inference is discarded; DM_PDFxx follows user-provided source order.",
+  "sources": [
+    {
+      "id": "normalized_pdf_source",
+      "path": "decisionMaking/pdf_sources/DM_PDF05_ch04_simplex_duality_week2.pdf",
+      "role": [
+        "source_pdf",
+        "immutable",
+        "content_origin"
+      ],
+      "immutable": true,
+      "original_filename": "4장 심플렉스법과 쌍대성(2주)_hs (7).pdf",
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF05__ch04_simplex_duality_week2/raw/DM_PDF05_ch04_simplex_duality_week2.pdf"
+    },
+    {
+      "id": "pdf_full_transcript",
+      "path": "decisionMaking/pdf_transcripts/DM_PDF05__ch04_simplex_duality_week2__full_transcript.md",
+      "role": [
+        "content_ssot",
+        "pdf_transcript",
+        "anchor"
+      ],
+      "immutable": true,
+      "raw_mirror": "decisionMaking/_inventory/DM_PDF05__ch04_simplex_duality_week2/raw/DM_PDF05__ch04_simplex_duality_week2__full_transcript.md"
+    }
+  ],
+  "extraction_stats": {
+    "pages": 36,
+    "empty_pages": 0,
+    "low_text_pages": 5,
+    "extraction_risk_pages": 5,
+    "total_lines": 351,
+    "total_chars": 8795
+  }
+}

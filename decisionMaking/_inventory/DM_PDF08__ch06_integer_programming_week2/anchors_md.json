@@ -1,0 +1,305 @@
+{
+  "lecture_id": "DM_PDF08__ch06_integer_programming_week2",
+  "anchors": [
+    {
+      "anchor_id": "DM08.A.001",
+      "list_index": 1,
+      "anchor_label_raw": "PDF page 1: 1",
+      "anchor_label_canonical": "page_001",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_001"
+      ],
+      "blocks": [],
+      "page": 1
+    },
+    {
+      "anchor_id": "DM08.A.002",
+      "list_index": 2,
+      "anchor_label_raw": "PDF page 2: 2",
+      "anchor_label_canonical": "page_002",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_002"
+      ],
+      "blocks": [],
+      "page": 2
+    },
+    {
+      "anchor_id": "DM08.A.003",
+      "list_index": 3,
+      "anchor_label_raw": "PDF page 3: 3",
+      "anchor_label_canonical": "page_003",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_003"
+      ],
+      "blocks": [],
+      "page": 3
+    },
+    {
+      "anchor_id": "DM08.A.004",
+      "list_index": 4,
+      "anchor_label_raw": "PDF page 4: 4",
+      "anchor_label_canonical": "page_004",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_004"
+      ],
+      "blocks": [],
+      "page": 4
+    },
+    {
+      "anchor_id": "DM08.A.005",
+      "list_index": 5,
+      "anchor_label_raw": "PDF page 5: 5",
+      "anchor_label_canonical": "page_005",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_005"
+      ],
+      "blocks": [],
+      "page": 5
+    },
+    {
+      "anchor_id": "DM08.A.006",
+      "list_index": 6,
+      "anchor_label_raw": "PDF page 6: 6",
+      "anchor_label_canonical": "page_006",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_006"
+      ],
+      "blocks": [],
+      "page": 6
+    },
+    {
+      "anchor_id": "DM08.A.007",
+      "list_index": 7,
+      "anchor_label_raw": "PDF page 7: 7일반 모형(참고)",
+      "anchor_label_canonical": "page_007",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_007"
+      ],
+      "blocks": [],
+      "page": 7
+    },
+    {
+      "anchor_id": "DM08.A.008",
+      "list_index": 8,
+      "anchor_label_raw": "PDF page 8: 8",
+      "anchor_label_canonical": "page_008",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_008"
+      ],
+      "blocks": [],
+      "page": 8
+    },
+    {
+      "anchor_id": "DM08.A.009",
+      "list_index": 9,
+      "anchor_label_raw": "PDF page 9: 9",
+      "anchor_label_canonical": "page_009",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_009"
+      ],
+      "blocks": [],
+      "page": 9
+    },
+    {
+      "anchor_id": "DM08.A.010",
+      "list_index": 10,
+      "anchor_label_raw": "PDF page 10: 10",
+      "anchor_label_canonical": "page_010",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_010"
+      ],
+      "blocks": [],
+      "page": 10
+    },
+    {
+      "anchor_id": "DM08.A.011",
+      "list_index": 11,
+      "anchor_label_raw": "PDF page 11: 11",
+      "anchor_label_canonical": "page_011",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_011"
+      ],
+      "blocks": [],
+      "page": 11
+    },
+    {
+      "anchor_id": "DM08.A.012",
+      "list_index": 12,
+      "anchor_label_raw": "PDF page 12: 12",
+      "anchor_label_canonical": "page_012",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_012"
+      ],
+      "blocks": [],
+      "page": 12
+    },
+    {
+      "anchor_id": "DM08.A.013",
+      "list_index": 13,
+      "anchor_label_raw": "PDF page 13: 13",
+      "anchor_label_canonical": "page_013",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_013"
+      ],
+      "blocks": [],
+      "page": 13
+    },
+    {
+      "anchor_id": "DM08.A.014",
+      "list_index": 14,
+      "anchor_label_raw": "PDF page 14: 14",
+      "anchor_label_canonical": "page_014",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_014"
+      ],
+      "blocks": [],
+      "page": 14
+    },
+    {
+      "anchor_id": "DM08.A.015",
+      "list_index": 15,
+      "anchor_label_raw": "PDF page 15: 15분지한계법 적용(순수/혼합 정수계획)",
+      "anchor_label_canonical": "page_015",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_015"
+      ],
+      "blocks": [],
+      "page": 15
+    },
+    {
+      "anchor_id": "DM08.A.016",
+      "list_index": 16,
+      "anchor_label_raw": "PDF page 16: 16분지한계법 적용과정2",
+      "anchor_label_canonical": "page_016",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_016"
+      ],
+      "blocks": [],
+      "page": 16
+    },
+    {
+      "anchor_id": "DM08.A.017",
+      "list_index": 17,
+      "anchor_label_raw": "PDF page 17: 17",
+      "anchor_label_canonical": "page_017",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_017"
+      ],
+      "blocks": [],
+      "page": 17
+    },
+    {
+      "anchor_id": "DM08.A.018",
+      "list_index": 18,
+      "anchor_label_raw": "PDF page 18: 18",
+      "anchor_label_canonical": "page_018",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_018"
+      ],
+      "blocks": [],
+      "page": 18
+    },
+    {
+      "anchor_id": "DM08.A.019",
+      "list_index": 19,
+      "anchor_label_raw": "PDF page 19: 19",
+      "anchor_label_canonical": "page_019",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_019"
+      ],
+      "blocks": [],
+      "page": 19
+    },
+    {
+      "anchor_id": "DM08.A.020",
+      "list_index": 20,
+      "anchor_label_raw": "PDF page 20: 20",
+      "anchor_label_canonical": "page_020",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_020"
+      ],
+      "blocks": [],
+      "page": 20
+    },
+    {
+      "anchor_id": "DM08.A.021",
+      "list_index": 21,
+      "anchor_label_raw": "PDF page 21: 21",
+      "anchor_label_canonical": "page_021",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_021"
+      ],
+      "blocks": [],
+      "page": 21
+    },
+    {
+      "anchor_id": "DM08.A.022",
+      "list_index": 22,
+      "anchor_label_raw": "PDF page 22: 22",
+      "anchor_label_canonical": "page_022",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_022"
+      ],
+      "blocks": [],
+      "page": 22
+    },
+    {
+      "anchor_id": "DM08.A.023",
+      "list_index": 23,
+      "anchor_label_raw": "PDF page 23: 23",
+      "anchor_label_canonical": "page_023",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_023"
+      ],
+      "blocks": [],
+      "page": 23
+    },
+    {
+      "anchor_id": "DM08.A.024",
+      "list_index": 24,
+      "anchor_label_raw": "PDF page 24: 24",
+      "anchor_label_canonical": "page_024",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_024"
+      ],
+      "blocks": [],
+      "page": 24
+    },
+    {
+      "anchor_id": "DM08.A.025",
+      "list_index": 25,
+      "anchor_label_raw": "PDF page 25: 다음을 분지한계법 (Branch and Bound)을 적용하여 구하라.",
+      "anchor_label_canonical": "page_025",
+      "anchor_path": [
+        "DM_PDF08",
+        "page_025"
+      ],
+      "blocks": [],
+      "page": 25
+    }
+  ]
+}

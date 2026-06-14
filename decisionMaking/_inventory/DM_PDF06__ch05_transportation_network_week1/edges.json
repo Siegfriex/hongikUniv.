@@ -1,0 +1,29 @@
+{
+  "lecture_id": "DM_PDF06__ch05_transportation_network_week1",
+  "edges": [
+    {
+      "edge_id": "e_DM_PDF06_transportation_problem_to_transshipment_problem",
+      "type": "leads_to",
+      "from": "n_DM_PDF06.transportation_problem",
+      "to": "n_DM_PDF06.transshipment_problem",
+      "status": "supported_pdf_transcript",
+      "notes": "수송문제 이해가 경유수송문제 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF06_transshipment_problem_to_assignment_problem",
+      "type": "leads_to",
+      "from": "n_DM_PDF06.transshipment_problem",
+      "to": "n_DM_PDF06.assignment_problem",
+      "status": "supported_pdf_transcript",
+      "notes": "경유수송문제 이해가 할당문제 해석으로 이어진다."
+    },
+    {
+      "edge_id": "e_DM_PDF06_assignment_problem_to_network_flow",
+      "type": "leads_to",
+      "from": "n_DM_PDF06.assignment_problem",
+      "to": "n_DM_PDF06.network_flow",
+      "status": "supported_pdf_transcript",
+      "notes": "할당문제 이해가 네트워크 흐름 해석으로 이어진다."
+    }
+  ]
+}
