@@ -1,0 +1,124 @@
+[
+  {
+    "node_id": "n_DM_PDF05.big_m_method",
+    "label": "Big-M 방법",
+    "english": "Big-M method",
+    "definition": "인위변수에 매우 큰 벌점 M을 부여해 최적화 과정에서 artificial variable을 0으로 밀어내는 방법이다.",
+    "tags": [
+      "big_m",
+      "M",
+      "artificial"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.artificial_variable",
+    "label": "인위변수",
+    "english": "artificial variable",
+    "definition": "초기 기저해를 만들기 위해 원문제에 임시로 추가하는 변수다.",
+    "tags": [
+      "artificial",
+      "인위변수"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.surplus_variable",
+    "label": "잉여변수",
+    "english": "surplus variable",
+    "definition": ">= 제약을 등식으로 바꾸기 위해 좌변에서 빼는 비음 변수다.",
+    "tags": [
+      "surplus",
+      "잉여"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.diet_problem",
+    "label": "식단문제",
+    "english": "diet problem",
+    "definition": "필요 영양소 최소요구량을 만족하면서 식품 비용을 최소화하는 LP다.",
+    "tags": [
+      "diet",
+      "식단"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.dual_problem",
+    "label": "쌍대문제",
+    "english": "dual problem",
+    "definition": "원본문제의 제약을 변수로, 변수를 제약으로 바꿔 만든 짝 문제다.",
+    "tags": [
+      "dual",
+      "쌍대"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.primal_dual_mapping",
+    "label": "원문제-쌍대 대응",
+    "english": "primal-dual mapping",
+    "definition": "원문제의 각 제약은 쌍대변수 하나에, 원문제의 각 변수는 쌍대제약 하나에 대응한다.",
+    "tags": [
+      "primal_dual",
+      "mapping"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.weak_duality",
+    "label": "약쌍대성",
+    "english": "weak duality",
+    "definition": "최대화 원문제의 임의 가능해 목적값은 최소화 쌍대문제의 임의 가능해 목적값보다 작거나 같다.",
+    "tags": [
+      "weak_duality",
+      "약쌍대"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.strong_duality",
+    "label": "강쌍대성",
+    "english": "strong duality",
+    "definition": "원문제와 쌍대문제가 모두 가능해를 가지면 두 문제의 최적 목적값은 같다.",
+    "tags": [
+      "strong_duality",
+      "강쌍대"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.four_duality_cases",
+    "label": "쌍대성 4가지 경우",
+    "english": "four primal-dual cases",
+    "definition": "원문제와 쌍대문제의 optimal/unbounded/infeasible 상태가 서로 제약되는 네 가지 관계다.",
+    "tags": [
+      "duality_cases",
+      "status"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.complementary_slackness",
+    "label": "상보여유정리",
+    "english": "complementary slackness",
+    "definition": "원문제 제약의 여유와 해당 쌍대변수, 쌍대 제약의 여유와 해당 원변수 중 하나는 반드시 0이어야 하는 최적성 조건이다.",
+    "tags": [
+      "complementary_slackness",
+      "상보여유"
+    ],
+    "source_id": "DM_PDF05"
+  },
+  {
+    "node_id": "n_DM_PDF05.shadow_price_dual_solution",
+    "label": "잠재가격과 쌍대해",
+    "english": "shadow price as dual solution",
+    "definition": "민감도 보고서의 잠재가격은 제약에 대응하는 쌍대변수의 최적값으로 해석된다.",
+    "tags": [
+      "shadow_price",
+      "dual_solution"
+    ],
+    "source_id": "DM_PDF05"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "from": "LP formulation",
+    "to": "n_DM_PDF04.integer_programming",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.integer_programming",
+    "to": "branch and bound",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.integer_programming",
+    "to": "discrete optimization",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "variable definition",
+    "to": "n_DM_PDF04.pure_mixed_binary_ip",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.pure_mixed_binary_ip",
+    "to": "model classification",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.pure_mixed_binary_ip",
+    "to": "domain modeling",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "integer programming",
+    "to": "n_DM_PDF04.solver_integer_tolerance",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.solver_integer_tolerance",
+    "to": "branch-and-bound gap",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.solver_integer_tolerance",
+    "to": "MIP solver settings",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "binary variable",
+    "to": "n_DM_PDF04.knapsack_problem",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.knapsack_problem",
+    "to": "capital budgeting",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.knapsack_problem",
+    "to": "resource allocation",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "knapsack",
+    "to": "n_DM_PDF04.lp_relaxation_ratio",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.lp_relaxation_ratio",
+    "to": "branch-and-bound",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.lp_relaxation_ratio",
+    "to": "greedy fractional knapsack",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "knapsack_problem",
+    "to": "n_DM_PDF04.capital_budgeting",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.capital_budgeting",
+    "to": "fixed_charge/logical constraints",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.capital_budgeting",
+    "to": "portfolio selection",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "binary variable",
+    "to": "n_DM_PDF04.fixed_charge_model",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.fixed_charge_model",
+    "to": "facility location",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.fixed_charge_model",
+    "to": "big-M implication",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "fixed_charge_model",
+    "to": "n_DM_PDF04.minimum_production_logic",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.minimum_production_logic",
+    "to": "facility network",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.minimum_production_logic",
+    "to": "semi-continuous variable",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "fixed_charge_model",
+    "to": "n_DM_PDF04.production_distribution_fixed_charge",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF04.production_distribution_fixed_charge",
+    "to": "transportation network",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF04.production_distribution_fixed_charge",
+    "to": "facility location",
+    "edge_type": "analogous"
+  }
+]

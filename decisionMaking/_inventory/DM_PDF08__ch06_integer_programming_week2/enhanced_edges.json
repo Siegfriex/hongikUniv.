@@ -1,0 +1,122 @@
+[
+  {
+    "from": "binary variable",
+    "to": "n_DM_PDF08.facility_location_set_cover",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.facility_location_set_cover",
+    "to": "set covering",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.facility_location_set_cover",
+    "to": "facility location",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "facility_location_set_cover",
+    "to": "n_DM_PDF08.coverage_matrix",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.coverage_matrix",
+    "to": "set_partitioning_packing",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.coverage_matrix",
+    "to": "incidence matrix",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "integer programming",
+    "to": "n_DM_PDF08.binary_open_variable",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.binary_open_variable",
+    "to": "branch and bound",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.binary_open_variable",
+    "to": "fixed-charge y variables",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "coverage_matrix",
+    "to": "n_DM_PDF08.set_covering_partitioning_packing",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.set_covering_partitioning_packing",
+    "to": "assignment/set partitioning",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.set_covering_partitioning_packing",
+    "to": "combinatorial optimization",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "set covering",
+    "to": "n_DM_PDF08.benefit_max_variant",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.benefit_max_variant",
+    "to": "wrong_model_diagnosis",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.benefit_max_variant",
+    "to": "max coverage problem",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "benefit_max_variant",
+    "to": "n_DM_PDF08.wrong_model_diagnosis",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.wrong_model_diagnosis",
+    "to": "binary logic constraints",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.wrong_model_diagnosis",
+    "to": "indicator variable",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "set_covering",
+    "to": "n_DM_PDF08.multiple_optima_facility",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.multiple_optima_facility",
+    "to": "sensitivity/robustness",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.multiple_optima_facility",
+    "to": "alternate optimum",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "DM_PDF03 branch_and_bound",
+    "to": "n_DM_PDF08.branch_bound_review",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF08.branch_bound_review",
+    "to": "MIP solver",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF08.branch_bound_review",
+    "to": "tree search",
+    "edge_type": "analogous"
+  }
+]

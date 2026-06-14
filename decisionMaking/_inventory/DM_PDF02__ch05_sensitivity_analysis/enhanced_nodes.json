@@ -1,0 +1,96 @@
+[
+  {
+    "node_id": "n_DM_PDF02.sensitivity_analysis",
+    "label": "민감도 분석",
+    "english": "sensitivity analysis",
+    "definition": "최적해 주변에서 목적계수와 제약 RHS 변화가 목적값과 basis에 미치는 영향을 분석하는 절차다.",
+    "tags": [
+      "sensitivity",
+      "민감도",
+      "allowable"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.product_mix_model",
+    "label": "유모차-보행기 생산모형",
+    "english": "stroller-walker product mix",
+    "definition": "두 제품 생산량을 결정해 기계시간과 수요 제약 아래 총판매이익을 최대화하는 LP 예제다.",
+    "tags": [
+      "product_mix",
+      "유모차",
+      "보행기"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.binding_constraint",
+    "label": "결합/비결합 제약",
+    "english": "binding/nonbinding constraint",
+    "definition": "최적해에서 좌변이 RHS와 같으면 binding, 여유가 남으면 nonbinding인 제약이다.",
+    "tags": [
+      "binding",
+      "slack",
+      "constraint"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.shadow_price",
+    "label": "잠재가격",
+    "english": "shadow price",
+    "definition": "제약 RHS를 1단위 완화했을 때 목적값이 변하는 한계 가치다.",
+    "tags": [
+      "shadow_price",
+      "잠재가격"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.reduced_cost",
+    "label": "감소비용/한계비용",
+    "english": "reduced cost",
+    "definition": "현재 0 또는 경계에 있는 변수의 값을 한 단위 움직일 때 목적값이 얼마나 불리하게 변하는지 나타내는 값이다.",
+    "tags": [
+      "reduced_cost",
+      "한계비용",
+      "수정비용"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.allowable_objective_range",
+    "label": "목적계수 허용범위",
+    "english": "allowable objective coefficient range",
+    "definition": "현재 최적해 또는 basis가 유지되는 목적계수 변화 범위다.",
+    "tags": [
+      "allowable",
+      "objective",
+      "목적계수"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.allowable_rhs_range",
+    "label": "RHS 허용범위",
+    "english": "allowable RHS range",
+    "definition": "shadow price가 변하지 않는 제약 RHS 변화 구간이다.",
+    "tags": [
+      "RHS",
+      "allowable",
+      "허용범위"
+    ],
+    "source_id": "DM_PDF02"
+  },
+  {
+    "node_id": "n_DM_PDF02.solver_sensitivity_report",
+    "label": "Solver 민감도 보고서",
+    "english": "Solver sensitivity report",
+    "definition": "Solver가 최적해 이후 변수별 reduced cost와 제약별 shadow price 및 허용범위를 표로 제공하는 보고서다.",
+    "tags": [
+      "solver",
+      "sensitivity_report"
+    ],
+    "source_id": "DM_PDF02"
+  }
+]

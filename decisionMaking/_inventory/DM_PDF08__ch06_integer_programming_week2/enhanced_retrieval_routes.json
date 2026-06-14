@@ -1,0 +1,30 @@
+[
+  {
+    "question": "set covering 식 어떻게 세워?",
+    "first_node": "facility_location_set_cover",
+    "next_node": "coverage_matrix",
+    "example": "emergency_service_cover",
+    "evidence_hint": "DM_PDF08:p001-p004"
+  },
+  {
+    "question": "covering/partitioning/packing 차이?",
+    "first_node": "set_covering_partitioning_packing",
+    "next_node": "coverage_matrix",
+    "example": "emergency_service_cover",
+    "evidence_hint": "DM_PDF08:p006-p007"
+  },
+  {
+    "question": "주민수 최대화 변형은 왜 y가 필요?",
+    "first_node": "benefit_max_variant",
+    "next_node": "wrong_model_diagnosis",
+    "example": "max_covered_population",
+    "evidence_hint": "DM_PDF08:p010-p011"
+  },
+  {
+    "question": "복수 최적해가 나오면?",
+    "first_node": "multiple_optima_facility",
+    "next_node": "facility_location_set_cover",
+    "example": "emergency_service_cover",
+    "evidence_hint": "DM_PDF08:p008"
+  }
+]

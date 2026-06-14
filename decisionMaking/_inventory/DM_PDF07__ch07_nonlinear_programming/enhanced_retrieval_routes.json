@@ -1,0 +1,30 @@
+[
+  {
+    "question": "비선형 Solver는 뭘 선택?",
+    "first_node": "grg_solver",
+    "next_node": "nonlinear_programming",
+    "example": "rectangle_product",
+    "evidence_hint": "DM_PDF07:p002"
+  },
+  {
+    "question": "지역해와 전체해 차이?",
+    "first_node": "local_global_optimum",
+    "next_node": "initial_solution_sensitivity",
+    "example": "rectangle_product",
+    "evidence_hint": "DM_PDF07:p003"
+  },
+  {
+    "question": "전체 최적성 어떻게 보장?",
+    "first_node": "convexity_concavity",
+    "next_node": "kkt_condition",
+    "example": "car_pricing",
+    "evidence_hint": "DM_PDF07:p006-p008"
+  },
+  {
+    "question": "자동차 가격 예제 식?",
+    "first_node": "car_pricing_example",
+    "next_node": "quadratic_programming",
+    "example": "car_pricing",
+    "evidence_hint": "DM_PDF07:p027-p030"
+  }
+]

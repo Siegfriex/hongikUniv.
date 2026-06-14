@@ -1,0 +1,30 @@
+[
+  {
+    "question": "타블로에서 다음 피벗 어떻게 골라?",
+    "first_node": "simplex_tableau",
+    "next_node": "entering_leaving_variable",
+    "example": "example1_tableau",
+    "evidence_hint": "DM_PDF01:p001"
+  },
+  {
+    "question": "복수 최적해인지 어떻게 알아?",
+    "first_node": "multiple_optima",
+    "next_node": "optimality_test",
+    "example": "multiple_optimum",
+    "evidence_hint": "DM_PDF01:p002"
+  },
+  {
+    "question": "2단계법 왜 필요해?",
+    "first_node": "two_phase_method",
+    "next_node": "surplus_artificial_variable",
+    "example": "two_phase_example",
+    "evidence_hint": "DM_PDF01:p004"
+  },
+  {
+    "question": "비유계와 infeasible 차이?",
+    "first_node": "unbounded_solution",
+    "next_node": "two_phase_method",
+    "example": "unbounded_case",
+    "evidence_hint": "DM_PDF01:p003"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "question": "Big-M은 왜 M을 붙여?",
+    "first_node": "big_m_method",
+    "next_node": "artificial_variable",
+    "example": "big_m_diet",
+    "evidence_hint": "DM_PDF05:p003"
+  },
+  {
+    "question": "쌍대문제 어떻게 만들지?",
+    "first_node": "dual_problem",
+    "next_node": "primal_dual_mapping",
+    "example": "diet_dual",
+    "evidence_hint": "DM_PDF05:p018"
+  },
+  {
+    "question": "shadow price가 쌍대해라는 뜻?",
+    "first_node": "shadow_price_dual_solution",
+    "next_node": "dual_problem",
+    "example": "diet_dual",
+    "evidence_hint": "DM_PDF05:p017"
+  },
+  {
+    "question": "상보여유로 최적성 확인?",
+    "first_node": "complementary_slackness",
+    "next_node": "strong_duality",
+    "example": "complementary_slackness_check",
+    "evidence_hint": "DM_PDF05:p027"
+  }
+]

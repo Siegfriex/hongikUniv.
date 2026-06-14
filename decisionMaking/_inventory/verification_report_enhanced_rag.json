@@ -1,0 +1,90 @@
+{
+  "status": "ok",
+  "failures": [],
+  "sources": [
+    {
+      "source_id": "DM_PDF01",
+      "title": "Ch.4 심플렉스 타블로 보완과 2단계법",
+      "nodes": 10,
+      "examples": 4,
+      "routes": 4,
+      "low_text_pages": 0
+    },
+    {
+      "source_id": "DM_PDF02",
+      "title": "Ch.5 민감도 분석",
+      "nodes": 8,
+      "examples": 3,
+      "routes": 4,
+      "low_text_pages": 11
+    },
+    {
+      "source_id": "DM_PDF03",
+      "title": "Ch.6 분지한계법",
+      "nodes": 8,
+      "examples": 3,
+      "routes": 4,
+      "low_text_pages": 0
+    },
+    {
+      "source_id": "DM_PDF04",
+      "title": "Ch.6 정수계획 1주차",
+      "nodes": 9,
+      "examples": 3,
+      "routes": 4,
+      "low_text_pages": 10
+    },
+    {
+      "source_id": "DM_PDF05",
+      "title": "Ch.4 심플렉스, Big-M, 쌍대성 연결",
+      "nodes": 11,
+      "examples": 3,
+      "routes": 4,
+      "low_text_pages": 5
+    },
+    {
+      "source_id": "DM_PDF06",
+      "title": "Ch.5 수송계획과 네트워크 분석",
+      "nodes": 16,
+      "examples": 5,
+      "routes": 7,
+      "low_text_pages": 9
+    },
+    {
+      "source_id": "DM_PDF07",
+      "title": "Ch.7 비선형계획",
+      "nodes": 9,
+      "examples": 3,
+      "routes": 4,
+      "low_text_pages": 25
+    },
+    {
+      "source_id": "DM_PDF08",
+      "title": "Ch.6 정수계획 2주차: 0-1 응용 모형",
+      "nodes": 8,
+      "examples": 3,
+      "routes": 4,
+      "low_text_pages": 13
+    }
+  ],
+  "flat_pack_rag_files": 8,
+  "section_contract": [
+    "0. Document Contract",
+    "1. Source Coverage Map",
+    "2. Chapter Thesis",
+    "3. Current Graph Position",
+    "4. Learning Outcomes",
+    "5. Concept Graph Map",
+    "6. Core Concept Node Cards",
+    "7. Example Walkthrough Cards",
+    "8. Modeling Pattern Library",
+    "9. Spreadsheet / Solver Mapping",
+    "10. Cross-Chapter Connections",
+    "11. Misconception & Error Diagnosis Bank",
+    "12. Retrieval Routing Table",
+    "13. Tutor Session Protocol",
+    "14. Practice / Check Questions",
+    "15. Source Trace Table",
+    "16. QC / Extraction Risk Notes"
+  ]
+}

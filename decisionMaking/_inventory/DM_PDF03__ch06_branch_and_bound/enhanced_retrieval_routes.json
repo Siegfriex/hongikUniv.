@@ -1,0 +1,30 @@
+[
+  {
+    "question": "LP 완화해가 소수면?",
+    "first_node": "lp_relaxation",
+    "next_node": "branching_floor_ceil",
+    "example": "x1_branch",
+    "evidence_hint": "DM_PDF03:p001"
+  },
+  {
+    "question": "언제 가지를 자르나?",
+    "first_node": "pruning_rules",
+    "next_node": "upper_lower_bound",
+    "example": "final_incumbent",
+    "evidence_hint": "DM_PDF03:p002"
+  },
+  {
+    "question": "최종 최적성은 어떻게 증명?",
+    "first_node": "incumbent_solution",
+    "next_node": "pruning_rules",
+    "example": "final_incumbent",
+    "evidence_hint": "DM_PDF03:p008"
+  },
+  {
+    "question": "Ecom 예제 전체 흐름?",
+    "first_node": "ecom_van_example",
+    "next_node": "branch_and_bound",
+    "example": "root_relaxation",
+    "evidence_hint": "DM_PDF03:p003"
+  }
+]

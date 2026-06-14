@@ -1,0 +1,105 @@
+[
+  {
+    "node_id": "n_DM_PDF04.integer_programming",
+    "label": "정수계획",
+    "english": "integer programming",
+    "definition": "목적함수와 제약은 선형이지만 변수에 정수 또는 0-1 조건이 붙는 최적화 모형이다.",
+    "tags": [
+      "integer_programming",
+      "정수계획"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.pure_mixed_binary_ip",
+    "label": "순수/혼합/0-1 IP",
+    "english": "pure/mixed/binary IP",
+    "definition": "모든 변수가 정수면 순수정수, 일부만 정수면 혼합정수, 모든 변수가 0/1이면 0-1 정수계획이다.",
+    "tags": [
+      "pure",
+      "mixed",
+      "binary",
+      "0-1"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.solver_integer_tolerance",
+    "label": "Solver 정수 최적화 비율",
+    "english": "integer optimality tolerance",
+    "definition": "Solver가 LP 완화 최적값 대비 현재 정수해가 충분히 가까우면 멈출 수 있게 하는 gap 기준이다.",
+    "tags": [
+      "solver",
+      "integer_tolerance",
+      "gap"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.knapsack_problem",
+    "label": "0-1 배낭문제",
+    "english": "0-1 knapsack problem",
+    "definition": "제한된 용량 안에서 선택가치 합을 최대화하도록 물건 선택 여부를 0/1로 결정하는 모형이다.",
+    "tags": [
+      "knapsack",
+      "배낭"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.lp_relaxation_ratio",
+    "label": "배낭 LP 완화와 효과/비용",
+    "english": "knapsack LP relaxation ratio",
+    "definition": "0-1 조건을 풀면 효과/비용 순으로 fractional 할당해 완화해를 쉽게 얻을 수 있다.",
+    "tags": [
+      "LP_relaxation",
+      "C/B",
+      "ratio"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.capital_budgeting",
+    "label": "자본예산 선택",
+    "english": "capital budgeting selection",
+    "definition": "예산 제약 하에서 투자 프로젝트 선택 여부를 0-1로 결정하는 모형이다.",
+    "tags": [
+      "capital_budgeting",
+      "project"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.fixed_charge_model",
+    "label": "고정비용모형",
+    "english": "fixed-charge model",
+    "definition": "생산을 시작하면 고정비가 발생하고 생산량에는 변동비가 붙는 비용구조를 0-1 변수로 모델링하는 모형이다.",
+    "tags": [
+      "fixed_charge",
+      "고정비용"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.minimum_production_logic",
+    "label": "최소생산량 논리제약",
+    "english": "minimum production logic",
+    "definition": "공장을 열면 최소생산량 이상, 닫으면 0이 되도록 하한/상한을 binary와 연결하는 제약이다.",
+    "tags": [
+      "minimum_production",
+      "logic"
+    ],
+    "source_id": "DM_PDF04"
+  },
+  {
+    "node_id": "n_DM_PDF04.production_distribution_fixed_charge",
+    "label": "생산-분배 결합 고정비",
+    "english": "production-distribution fixed charge",
+    "definition": "공장/창고 개방 여부와 생산/수송/배송량을 동시에 결정하는 혼합정수 네트워크 모형이다.",
+    "tags": [
+      "production_distribution",
+      "facility"
+    ],
+    "source_id": "DM_PDF04"
+  }
+]

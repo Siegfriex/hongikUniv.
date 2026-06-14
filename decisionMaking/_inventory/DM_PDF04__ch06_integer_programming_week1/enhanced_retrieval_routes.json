@@ -1,0 +1,30 @@
+[
+  {
+    "question": "정수계획 유형부터 구분해줘",
+    "first_node": "pure_mixed_binary_ip",
+    "next_node": "integer_programming",
+    "example": "treasure_knapsack",
+    "evidence_hint": "DM_PDF04:p002"
+  },
+  {
+    "question": "배낭문제 식 어떻게 세워?",
+    "first_node": "knapsack_problem",
+    "next_node": "lp_relaxation_ratio",
+    "example": "treasure_knapsack",
+    "evidence_hint": "DM_PDF04:p008"
+  },
+  {
+    "question": "고정비는 어떻게 선형화?",
+    "first_node": "fixed_charge_model",
+    "next_node": "minimum_production_logic",
+    "example": "sambu_fixed_charge",
+    "evidence_hint": "DM_PDF04:p022"
+  },
+  {
+    "question": "공장/창고 개방과 배송을 같이?",
+    "first_node": "production_distribution_fixed_charge",
+    "next_node": "fixed_charge_model",
+    "example": "clean_food_network",
+    "evidence_hint": "DM_PDF04:p035"
+  }
+]

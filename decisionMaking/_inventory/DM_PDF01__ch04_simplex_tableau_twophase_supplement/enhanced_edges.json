@@ -1,0 +1,152 @@
+[
+  {
+    "from": "표준형, 정규형, slack variable",
+    "to": "n_DM_PDF01.simplex_tableau",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.simplex_tableau",
+    "to": "minimum ratio test, pivot, optimality test",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.simplex_tableau",
+    "to": "그래프 해법의 꼭짓점 최적성",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "simplex tableau",
+    "to": "n_DM_PDF01.entering_leaving_variable",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.entering_leaving_variable",
+    "to": "pivot operation",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.entering_leaving_variable",
+    "to": "network flow의 arc flow 증가/용량 한계",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "entering variable",
+    "to": "n_DM_PDF01.minimum_ratio_test",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.minimum_ratio_test",
+    "to": "pivot operation",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.minimum_ratio_test",
+    "to": "capacity constraint의 bottleneck",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "minimum ratio test",
+    "to": "n_DM_PDF01.pivot_operation",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.pivot_operation",
+    "to": "optimality test",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.pivot_operation",
+    "to": "Gauss-Jordan elimination",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "pivot operation",
+    "to": "n_DM_PDF01.optimality_test",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.optimality_test",
+    "to": "multiple optima",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.optimality_test",
+    "to": "reduced cost",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "optimality test",
+    "to": "n_DM_PDF01.multiple_optima",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.multiple_optima",
+    "to": "sensitivity objective range",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.multiple_optima",
+    "to": "assignment의 복수 최적",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "minimum ratio test",
+    "to": "n_DM_PDF01.unbounded_solution",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.unbounded_solution",
+    "to": "model validation",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.unbounded_solution",
+    "to": "open feasible region",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "standard form",
+    "to": "n_DM_PDF01.surplus_artificial_variable",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.surplus_artificial_variable",
+    "to": "two-phase method, Big-M",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.surplus_artificial_variable",
+    "to": "dummy supply와 달리 계산용 변수",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "artificial variable",
+    "to": "n_DM_PDF01.two_phase_method",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.two_phase_method",
+    "to": "Big-M, duality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.two_phase_method",
+    "to": "penalty method",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "two-phase method",
+    "to": "n_DM_PDF01.diet_two_phase",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF01.diet_two_phase",
+    "to": "Big-M, duality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF01.diet_two_phase",
+    "to": "Stigler diet problem",
+    "edge_type": "analogous"
+  }
+]

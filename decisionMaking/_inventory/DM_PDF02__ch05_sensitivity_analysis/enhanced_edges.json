@@ -1,0 +1,122 @@
+[
+  {
+    "from": "LP optimal solution, binding constraint",
+    "to": "n_DM_PDF02.sensitivity_analysis",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.sensitivity_analysis",
+    "to": "duality, transportation sensitivity",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.sensitivity_analysis",
+    "to": "what-if analysis",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "LP formulation",
+    "to": "n_DM_PDF02.product_mix_model",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.product_mix_model",
+    "to": "sensitivity report",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.product_mix_model",
+    "to": "Super Grain 같은 product mix",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "LP feasible region",
+    "to": "n_DM_PDF02.binding_constraint",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.binding_constraint",
+    "to": "shadow price",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.binding_constraint",
+    "to": "slack variable",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "binding constraint",
+    "to": "n_DM_PDF02.shadow_price",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.shadow_price",
+    "to": "duality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.shadow_price",
+    "to": "marginal value",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "duality shadow price",
+    "to": "n_DM_PDF02.reduced_cost",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.reduced_cost",
+    "to": "objective coefficient range",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.reduced_cost",
+    "to": "opportunity cost",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "reduced cost",
+    "to": "n_DM_PDF02.allowable_objective_range",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.allowable_objective_range",
+    "to": "sensitivity report",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.allowable_objective_range",
+    "to": "iso-profit line",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "shadow price",
+    "to": "n_DM_PDF02.allowable_rhs_range",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.allowable_rhs_range",
+    "to": "post-optimal analysis",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.allowable_rhs_range",
+    "to": "resource valuation",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "Solver model",
+    "to": "n_DM_PDF02.solver_sensitivity_report",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF02.solver_sensitivity_report",
+    "to": "duality and sensitivity",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF02.solver_sensitivity_report",
+    "to": "tableau final row",
+    "edge_type": "analogous"
+  }
+]

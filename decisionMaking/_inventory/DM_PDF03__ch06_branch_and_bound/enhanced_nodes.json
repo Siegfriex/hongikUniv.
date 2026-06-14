@@ -1,0 +1,96 @@
+[
+  {
+    "node_id": "n_DM_PDF03.branch_and_bound",
+    "label": "분지한계법",
+    "english": "branch and bound",
+    "definition": "LP 완화로 bound를 만들고 정수조건 위반 변수를 floor/ceil로 분기해 정수 최적해를 찾는 방법이다.",
+    "tags": [
+      "branch_bound",
+      "분지한계"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.lp_relaxation",
+    "label": "LP 완화",
+    "english": "LP relaxation",
+    "definition": "정수 제한조건을 잠시 제거해 연속 LP로 푸는 완화 문제다.",
+    "tags": [
+      "LP_relaxation",
+      "완화"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.upper_lower_bound",
+    "label": "상한/하한",
+    "english": "upper/lower bound",
+    "definition": "max 문제에서 LP 완화값 Z는 상한, 현재 가장 좋은 정수가능해 L은 하한이다.",
+    "tags": [
+      "bound",
+      "upper",
+      "lower",
+      "Z",
+      "L"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.branching_floor_ceil",
+    "label": "floor/ceil 분기",
+    "english": "floor/ceil branching",
+    "definition": "소수값을 가진 정수변수 x_j=v에 대해 x_j<=floor(v), x_j>=ceil(v) 두 제약으로 나누는 전략이다.",
+    "tags": [
+      "branching",
+      "floor",
+      "ceil"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.pruning_rules",
+    "label": "절단 규칙",
+    "english": "pruning rules",
+    "definition": "비가해, Z<=L, 정수해 발견 후 L 갱신 같은 이유로 더 이상 분지하지 않는 규칙이다.",
+    "tags": [
+      "pruning",
+      "절단"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.incumbent_solution",
+    "label": "현재 최선 정수해",
+    "english": "incumbent solution",
+    "definition": "탐색 중 발견한 가장 좋은 정수가능해와 그 목적값 L이다.",
+    "tags": [
+      "incumbent",
+      "L",
+      "정수가능해"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.node_selection",
+    "label": "노드 선택",
+    "english": "node selection",
+    "definition": "검토할 부문제 중 어떤 노드를 다음에 풀지 고르는 전략이다.",
+    "tags": [
+      "node_selection",
+      "best_bound"
+    ],
+    "source_id": "DM_PDF03"
+  },
+  {
+    "node_id": "n_DM_PDF03.ecom_van_example",
+    "label": "이콤전자 승합차 예제",
+    "english": "Ecom van purchase example",
+    "definition": "승합차 구매대수를 정수로 결정하는 정수계획을 분지한계법으로 푸는 주 예제다.",
+    "tags": [
+      "Ecom",
+      "van",
+      "예제6.9"
+    ],
+    "source_id": "DM_PDF03"
+  }
+]

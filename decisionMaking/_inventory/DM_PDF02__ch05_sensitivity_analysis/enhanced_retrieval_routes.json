@@ -1,0 +1,30 @@
+[
+  {
+    "question": "자원 1단위 늘리면 이익?",
+    "first_node": "shadow_price",
+    "next_node": "allowable_rhs_range",
+    "example": "shadow_price_machine1",
+    "evidence_hint": "DM_PDF02:p030"
+  },
+  {
+    "question": "생산 안 하는 제품은 왜 안 해?",
+    "first_node": "reduced_cost",
+    "next_node": "product_mix_model",
+    "example": "reduced_cost_stroller",
+    "evidence_hint": "DM_PDF02:p028"
+  },
+  {
+    "question": "목적계수 바뀌면 해 유지돼?",
+    "first_node": "allowable_objective_range",
+    "next_node": "solver_sensitivity_report",
+    "example": "stroller_walker_lp",
+    "evidence_hint": "DM_PDF02:p029"
+  },
+  {
+    "question": "민감도 보고서 어디 봐?",
+    "first_node": "solver_sensitivity_report",
+    "next_node": "sensitivity_analysis",
+    "example": "stroller_walker_lp",
+    "evidence_hint": "DM_PDF02:p026"
+  }
+]

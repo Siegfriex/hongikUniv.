@@ -1,0 +1,137 @@
+[
+  {
+    "from": "LP formulation",
+    "to": "n_DM_PDF07.nonlinear_programming",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.nonlinear_programming",
+    "to": "GRG, KKT",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.nonlinear_programming",
+    "to": "quadratic programming",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "nonlinear_programming",
+    "to": "n_DM_PDF07.grg_solver",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.grg_solver",
+    "to": "local_global_optimum",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.grg_solver",
+    "to": "KKT necessary conditions",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "GRG solver",
+    "to": "n_DM_PDF07.local_global_optimum",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.local_global_optimum",
+    "to": "convexity sufficient conditions",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.local_global_optimum",
+    "to": "multi-start",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "local_global_optimum",
+    "to": "n_DM_PDF07.initial_solution_sensitivity",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.initial_solution_sensitivity",
+    "to": "multistart diagnostic",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.initial_solution_sensitivity",
+    "to": "nonconvex optimization",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "local_global_optimum",
+    "to": "n_DM_PDF07.convexity_concavity",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.convexity_concavity",
+    "to": "KKT sufficiency",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.convexity_concavity",
+    "to": "Hessian/principal minors",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "convexity_concavity",
+    "to": "n_DM_PDF07.nonlinear_constraints",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.nonlinear_constraints",
+    "to": "KKT",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.nonlinear_constraints",
+    "to": "feasible set geometry",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "nonlinear_programming",
+    "to": "n_DM_PDF07.quadratic_programming",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.quadratic_programming",
+    "to": "convexity_concavity",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.quadratic_programming",
+    "to": "pricing model",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "quadratic_programming",
+    "to": "n_DM_PDF07.car_pricing_example",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.car_pricing_example",
+    "to": "global optimality check",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.car_pricing_example",
+    "to": "revenue management",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "local_global_optimum",
+    "to": "n_DM_PDF07.kkt_condition",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF07.kkt_condition",
+    "to": "convexity sufficiency",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF07.kkt_condition",
+    "to": "complementary slackness",
+    "edge_type": "analogous"
+  }
+]

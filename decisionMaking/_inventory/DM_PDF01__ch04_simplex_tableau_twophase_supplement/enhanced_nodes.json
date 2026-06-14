@@ -1,0 +1,120 @@
+[
+  {
+    "node_id": "n_DM_PDF01.simplex_tableau",
+    "label": "심플렉스 타블로",
+    "english": "simplex tableau",
+    "definition": "목적행, 제약행, 기저변수, RHS, 비율검사를 한 표에 모은 심플렉스 계산 장치다.",
+    "tags": [
+      "simplex",
+      "tableau",
+      "BFS",
+      "pivot"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.entering_leaving_variable",
+    "label": "진입/탈락변수",
+    "english": "entering/leaving variable",
+    "definition": "목적값을 개선할 변수와 feasibility를 지키기 위해 기저에서 빠질 변수를 짝으로 고르는 규칙이다.",
+    "tags": [
+      "entering",
+      "leaving",
+      "ratio"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.minimum_ratio_test",
+    "label": "최소비율검사",
+    "english": "minimum ratio test",
+    "definition": "진입변수를 얼마나 늘릴 수 있는지 RHS/a_ij 중 최소 양수 비율로 판정하는 절차다.",
+    "tags": [
+      "minimum_ratio",
+      "ratio",
+      "leaving"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.pivot_operation",
+    "label": "피벗 연산",
+    "english": "pivot operation",
+    "definition": "pivot element를 1로 만들고 같은 열의 다른 값을 0으로 만들어 새 canonical form을 만드는 행 연산이다.",
+    "tags": [
+      "pivot",
+      "basis",
+      "tableau"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.optimality_test",
+    "label": "최적성 판정",
+    "english": "optimality test",
+    "definition": "목적행에 더 이상 개선 가능한 계수가 없으면 현재 BFS가 최적이라고 판정하는 규칙이다.",
+    "tags": [
+      "optimality",
+      "reduced_cost"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.multiple_optima",
+    "label": "복수 최적해",
+    "english": "multiple optimal solutions",
+    "definition": "최적 타블로에서 비기저변수의 reduced cost가 0이면 다른 최적 BFS가 존재할 수 있다.",
+    "tags": [
+      "multiple_optima",
+      "alternate_optimum"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.unbounded_solution",
+    "label": "비유계",
+    "english": "unbounded solution",
+    "definition": "feasible 해는 있지만 목적함수를 한없이 개선할 수 있어 유한 최적값이 없는 상태다.",
+    "tags": [
+      "unbounded",
+      "비유계"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.surplus_artificial_variable",
+    "label": "잉여/인위변수",
+    "english": "surplus/artificial variable",
+    "definition": ">= 제약이나 = 제약에서 초기 기저를 만들기 위해 surplus를 빼고 artificial을 더하는 보조 변수다.",
+    "tags": [
+      "surplus",
+      "artificial",
+      "인위변수"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.two_phase_method",
+    "label": "2단계법",
+    "english": "two-phase method",
+    "definition": "Phase I에서 인위변수 합을 0으로 만들고, Phase II에서 원 목적함수로 최적화하는 심플렉스 절차다.",
+    "tags": [
+      "two_phase",
+      "Phase I",
+      "Phase II"
+    ],
+    "source_id": "DM_PDF01"
+  },
+  {
+    "node_id": "n_DM_PDF01.diet_two_phase",
+    "label": "식단문제 2단계 적용",
+    "english": "diet problem two-phase",
+    "definition": "영양 최소 요구량을 만족하는 최소비용 식단을 2단계법으로 푸는 대표 min LP 예제다.",
+    "tags": [
+      "diet",
+      "two_phase",
+      "min"
+    ],
+    "source_id": "DM_PDF01"
+  }
+]

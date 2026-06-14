@@ -1,0 +1,122 @@
+[
+  {
+    "from": "integer programming",
+    "to": "n_DM_PDF03.branch_and_bound",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.branch_and_bound",
+    "to": "cutting planes, branch-and-cut",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.branch_and_bound",
+    "to": "binary search tree",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "LP formulation",
+    "to": "n_DM_PDF03.lp_relaxation",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.lp_relaxation",
+    "to": "branching strategy",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.lp_relaxation",
+    "to": "continuous relaxation",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "LP relaxation",
+    "to": "n_DM_PDF03.upper_lower_bound",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.upper_lower_bound",
+    "to": "pruning",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.upper_lower_bound",
+    "to": "MIP optimality gap",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "LP relaxation fractional solution",
+    "to": "n_DM_PDF03.branching_floor_ceil",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.branching_floor_ceil",
+    "to": "subproblem tree",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.branching_floor_ceil",
+    "to": "binary decision split",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "upper/lower bound",
+    "to": "n_DM_PDF03.pruning_rules",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.pruning_rules",
+    "to": "incumbent",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.pruning_rules",
+    "to": "search tree pruning",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "integer feasible solution",
+    "to": "n_DM_PDF03.incumbent_solution",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.incumbent_solution",
+    "to": "optimality proof",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.incumbent_solution",
+    "to": "best-so-far heuristic",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "upper bound",
+    "to": "n_DM_PDF03.node_selection",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.node_selection",
+    "to": "branching strategy",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.node_selection",
+    "to": "priority queue search",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "integer formulation",
+    "to": "n_DM_PDF03.ecom_van_example",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF03.ecom_van_example",
+    "to": "branch-and-bound proof",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF03.ecom_van_example",
+    "to": "knapsack-like resource allocation",
+    "edge_type": "analogous"
+  }
+]

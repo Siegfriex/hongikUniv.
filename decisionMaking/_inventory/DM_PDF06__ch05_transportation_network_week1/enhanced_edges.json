@@ -1,0 +1,242 @@
+[
+  {
+    "from": "LP formulation, 공급/수요 RHS",
+    "to": "n_DM_PDF06.transportation_problem",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_problem",
+    "to": "balanced/unbalanced transportation, min-cost flow",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_problem",
+    "to": "assignment problem, transportation-like blending",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transportation_problem",
+    "to": "n_DM_PDF06.balanced_transportation",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.balanced_transportation",
+    "to": "transportation_integrality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.balanced_transportation",
+    "to": "balanced min-cost flow",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "balanced_transportation",
+    "to": "n_DM_PDF06.unbalanced_transportation",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.unbalanced_transportation",
+    "to": "dummy_supply_or_demand",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.unbalanced_transportation",
+    "to": "minimum_cost_flow imbalance",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "unbalanced_transportation",
+    "to": "n_DM_PDF06.dummy_supply_or_demand",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.dummy_supply_or_demand",
+    "to": "penalty modeling",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.dummy_supply_or_demand",
+    "to": "artificial variable but model-level",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "balanced_transportation",
+    "to": "n_DM_PDF06.transportation_integrality",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_integrality",
+    "to": "assignment_problem, min-cost integrality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_integrality",
+    "to": "total unimodularity intuition",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transportation_problem",
+    "to": "n_DM_PDF06.transportation_solver_model",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_solver_model",
+    "to": "transportation_sensitivity",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_solver_model",
+    "to": "spreadsheet LP pattern",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transportation_solver_model",
+    "to": "n_DM_PDF06.transportation_sensitivity",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_sensitivity",
+    "to": "DM_PDF02 sensitivity",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.transportation_sensitivity",
+    "to": "network reduced cost",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transportation_integrality",
+    "to": "n_DM_PDF06.assignment_problem",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.assignment_problem",
+    "to": "set partitioning, TSP",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.assignment_problem",
+    "to": "matching",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transportation_problem",
+    "to": "n_DM_PDF06.transshipment_problem",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.transshipment_problem",
+    "to": "minimum_cost_flow",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.transshipment_problem",
+    "to": "node balance",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transshipment_problem",
+    "to": "n_DM_PDF06.transshipment_balance",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.transshipment_balance",
+    "to": "minimum_cost_flow node balance",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.transshipment_balance",
+    "to": "inventory conservation",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "transshipment_balance",
+    "to": "n_DM_PDF06.minimum_cost_flow",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.minimum_cost_flow",
+    "to": "maximum_flow, shortest_path",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.minimum_cost_flow",
+    "to": "network simplex",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "minimum_cost_flow",
+    "to": "n_DM_PDF06.maximum_flow",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.maximum_flow",
+    "to": "max-flow min-cut duality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.maximum_flow",
+    "to": "capacity bottleneck",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "minimum_cost_flow",
+    "to": "n_DM_PDF06.shortest_path",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.shortest_path",
+    "to": "CPM/PERT",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.shortest_path",
+    "to": "unit min-cost flow",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "minimum_cost_flow",
+    "to": "n_DM_PDF06.network_topology_table",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.network_topology_table",
+    "to": "sumif_node_balance",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.network_topology_table",
+    "to": "edge list graph",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "network_topology_table",
+    "to": "n_DM_PDF06.sumif_node_balance",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.sumif_node_balance",
+    "to": "minimum_cost_flow",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.sumif_node_balance",
+    "to": "incidence matrix",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "shortest_path/longest path",
+    "to": "n_DM_PDF06.cpm_pert",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF06.cpm_pert",
+    "to": "project scheduling",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF06.cpm_pert",
+    "to": "DAG path analysis",
+    "edge_type": "analogous"
+  }
+]

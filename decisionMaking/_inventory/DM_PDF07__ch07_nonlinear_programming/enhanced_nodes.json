@@ -1,0 +1,105 @@
+[
+  {
+    "node_id": "n_DM_PDF07.nonlinear_programming",
+    "label": "비선형계획",
+    "english": "nonlinear programming",
+    "definition": "목적함수 또는 제약식 중 적어도 하나가 비선형 함수인 최적화 모형이다.",
+    "tags": [
+      "nonlinear",
+      "비선형"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.grg_solver",
+    "label": "GRG 비선형 해법",
+    "english": "GRG nonlinear solver",
+    "definition": "Excel Solver에서 매끄러운 비선형 문제의 지역 최적 조건을 찾는 해법이다.",
+    "tags": [
+      "GRG",
+      "solver"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.local_global_optimum",
+    "label": "지역/전체 최적해",
+    "english": "local/global optimum",
+    "definition": "지역 최적해는 주변에서만 최적인 해, 전체 최적해는 모든 가능해 중 최적인 해다.",
+    "tags": [
+      "local",
+      "global",
+      "optimum"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.initial_solution_sensitivity",
+    "label": "초기해 민감성",
+    "english": "initial solution sensitivity",
+    "definition": "비선형 Solver가 시작점에 따라 다른 지역해에 도달할 수 있는 성질이다.",
+    "tags": [
+      "initial_solution",
+      "초기해"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.convexity_concavity",
+    "label": "볼록성/오목성",
+    "english": "convexity and concavity",
+    "definition": "최대화에서는 오목 목적함수와 볼록 가능영역, 최소화에서는 볼록 목적함수와 볼록 가능영역이 전체 최적성 보장의 핵심 조건이다.",
+    "tags": [
+      "convexity",
+      "concavity",
+      "볼록",
+      "오목"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.nonlinear_constraints",
+    "label": "비선형 제약과 가능영역",
+    "english": "nonlinear constraints",
+    "definition": "제약식이 비선형이면 각 제약이 만드는 가능영역이 볼록집합인지 따로 확인해야 한다.",
+    "tags": [
+      "nonlinear_constraint",
+      "feasible_set"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.quadratic_programming",
+    "label": "2차계획/2차 목적",
+    "english": "quadratic programming",
+    "definition": "목적함수나 제약에 2차식이 포함된 비선형 최적화의 대표 형태다.",
+    "tags": [
+      "quadratic",
+      "2차식"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.car_pricing_example",
+    "label": "자동차 가격 결정",
+    "english": "car pricing example",
+    "definition": "중대형 승용차와 RV의 가격/판매량 관계를 반영해 총판매이익을 최대화하는 비선형 예제다.",
+    "tags": [
+      "car_pricing",
+      "자동차",
+      "가격"
+    ],
+    "source_id": "DM_PDF07"
+  },
+  {
+    "node_id": "n_DM_PDF07.kkt_condition",
+    "label": "KKT 필요조건",
+    "english": "KKT conditions",
+    "definition": "제약이 있는 비선형 최적화에서 지역 최적해가 만족해야 하는 일계 조건과 상보성 조건이다.",
+    "tags": [
+      "KKT",
+      "multiplier"
+    ],
+    "source_id": "DM_PDF07"
+  }
+]

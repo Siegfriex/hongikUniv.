@@ -1,0 +1,167 @@
+[
+  {
+    "from": "artificial variable",
+    "to": "n_DM_PDF05.big_m_method",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.big_m_method",
+    "to": "duality theory",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.big_m_method",
+    "to": "two-phase method",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "surplus variable",
+    "to": "n_DM_PDF05.artificial_variable",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.artificial_variable",
+    "to": "Big-M, two-phase",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.artificial_variable",
+    "to": "dummy variable과 구분",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "standard form",
+    "to": "n_DM_PDF05.surplus_variable",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.surplus_variable",
+    "to": "artificial variable",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.surplus_variable",
+    "to": "slack variable",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "min LP",
+    "to": "n_DM_PDF05.diet_problem",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.diet_problem",
+    "to": "dual vitamin pill problem",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.diet_problem",
+    "to": "Stigler diet",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "primal LP",
+    "to": "n_DM_PDF05.dual_problem",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.dual_problem",
+    "to": "weak/strong duality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.dual_problem",
+    "to": "sensitivity report",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "dual_problem",
+    "to": "n_DM_PDF05.primal_dual_mapping",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.primal_dual_mapping",
+    "to": "complementary_slackness",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.primal_dual_mapping",
+    "to": "matrix transpose",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "dual feasibility",
+    "to": "n_DM_PDF05.weak_duality",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.weak_duality",
+    "to": "strong duality",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.weak_duality",
+    "to": "branch-and-bound bounds",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "weak_duality",
+    "to": "n_DM_PDF05.strong_duality",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.strong_duality",
+    "to": "complementary_slackness",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.strong_duality",
+    "to": "KKT for LP",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "weak/strong duality",
+    "to": "n_DM_PDF05.four_duality_cases",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.four_duality_cases",
+    "to": "solver status",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.four_duality_cases",
+    "to": "unbounded/infeasible",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "strong_duality",
+    "to": "n_DM_PDF05.complementary_slackness",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.complementary_slackness",
+    "to": "reduced cost/shadow price",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.complementary_slackness",
+    "to": "KKT complementarity",
+    "edge_type": "analogous"
+  },
+  {
+    "from": "dual_problem",
+    "to": "n_DM_PDF05.shadow_price_dual_solution",
+    "edge_type": "prerequisite"
+  },
+  {
+    "from": "n_DM_PDF05.shadow_price_dual_solution",
+    "to": "sensitivity_analysis",
+    "edge_type": "followup"
+  },
+  {
+    "from": "n_DM_PDF05.shadow_price_dual_solution",
+    "to": "resource valuation",
+    "edge_type": "analogous"
+  }
+]

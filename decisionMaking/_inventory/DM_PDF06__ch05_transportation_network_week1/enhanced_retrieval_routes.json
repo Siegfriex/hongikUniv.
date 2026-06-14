@@ -1,0 +1,51 @@
+[
+  {
+    "question": "수송문제 식 어떻게 세워?",
+    "first_node": "transportation_problem",
+    "next_node": "transportation_solver_model",
+    "example": "toyota_distribution",
+    "evidence_hint": "DM_PDF06:p004-p010"
+  },
+  {
+    "question": "공급이 수요보다 적으면?",
+    "first_node": "unbalanced_transportation",
+    "next_node": "dummy_supply_or_demand",
+    "example": "unbalanced_transportation",
+    "evidence_hint": "DM_PDF06:p008"
+  },
+  {
+    "question": "할당문제는 왜 0/1이야?",
+    "first_node": "assignment_problem",
+    "next_node": "transportation_integrality",
+    "example": "machine_assignment",
+    "evidence_hint": "DM_PDF06:p015-p016"
+  },
+  {
+    "question": "경유지는 공급지야 수요지야?",
+    "first_node": "transshipment_problem",
+    "next_node": "transshipment_balance",
+    "example": "transshipment_min_cost",
+    "evidence_hint": "DM_PDF06:p018-p019"
+  },
+  {
+    "question": "최소비용흐름과 수송문제 차이?",
+    "first_node": "minimum_cost_flow",
+    "next_node": "transportation_problem, transshipment_problem",
+    "example": "ready_mix_flow",
+    "evidence_hint": "DM_PDF06:p022-p029"
+  },
+  {
+    "question": "SUMIF 왜 써?",
+    "first_node": "sumif_node_balance",
+    "next_node": "network_topology_table",
+    "example": "ready_mix_flow",
+    "evidence_hint": "DM_PDF06:p030-p032"
+  },
+  {
+    "question": "민감도 보고서 어떻게 읽어?",
+    "first_node": "transportation_sensitivity",
+    "next_node": "transportation_solver_model",
+    "example": "toyota_distribution",
+    "evidence_hint": "DM_PDF06:p012-p014"
+  }
+]

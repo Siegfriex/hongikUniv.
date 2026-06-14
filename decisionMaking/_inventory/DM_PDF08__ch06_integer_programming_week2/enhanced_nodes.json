@@ -1,0 +1,93 @@
+[
+  {
+    "node_id": "n_DM_PDF08.facility_location_set_cover",
+    "label": "공공설비 입지 선정",
+    "english": "facility location set covering",
+    "definition": "모든 수요지역이 일정 시간/거리 안에서 서비스되도록 최소 개수의 시설 위치를 고르는 0-1 모형이다.",
+    "tags": [
+      "facility_location",
+      "set_cover"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.coverage_matrix",
+    "label": "커버리지 행렬",
+    "english": "coverage matrix",
+    "definition": "A_ij=1이면 후보지 j가 구역 i를 커버하고, 0이면 커버하지 않는 0/1 입력 행렬이다.",
+    "tags": [
+      "coverage_matrix",
+      "Aij"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.binary_open_variable",
+    "label": "0-1 설치변수",
+    "english": "binary open variable",
+    "definition": "후보지에 시설을 설치하면 1, 아니면 0인 선택 변수다.",
+    "tags": [
+      "binary",
+      "0-1",
+      "xj"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.set_covering_partitioning_packing",
+    "label": "covering/partitioning/packing",
+    "english": "set covering/partitioning/packing",
+    "definition": "Ax>=1은 최소 하나 이상 커버, Ax=1은 정확히 하나, Ax<=1은 겹치지 않게 선택하는 0-1 집합 모형이다.",
+    "tags": [
+      "set_covering",
+      "partitioning",
+      "packing"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.benefit_max_variant",
+    "label": "혜택 최대화 변형",
+    "english": "benefit maximization variant",
+    "definition": "설치 수가 제한된 상황에서 혜택 받는 주민 수를 최대화하도록 시설 위치와 구역 혜택 여부를 함께 결정하는 변형 모형이다.",
+    "tags": [
+      "max_coverage",
+      "benefit",
+      "yi"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.wrong_model_diagnosis",
+    "label": "잘못된 모형화 진단",
+    "english": "wrong model diagnosis",
+    "definition": "coverage 수를 그대로 주민수에 곱해 중복 혜택을 여러 번 계산하는 오류를 식별하는 진단 노드다.",
+    "tags": [
+      "wrong_model",
+      "overcount"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.multiple_optima_facility",
+    "label": "입지모형 복수 최적",
+    "english": "multiple optima in facility location",
+    "definition": "같은 설치 수로 전 지역을 커버하는 후보 조합이 여러 개 나올 수 있는 현상이다.",
+    "tags": [
+      "multiple_optima",
+      "facility"
+    ],
+    "source_id": "DM_PDF08"
+  },
+  {
+    "node_id": "n_DM_PDF08.branch_bound_review",
+    "label": "분지한계법 복습",
+    "english": "branch-and-bound review",
+    "definition": "0-1 입지모형 같은 정수계획을 풀기 위해 branch-and-bound 과정을 적용하는 후반 복습 노드다.",
+    "tags": [
+      "branch_bound",
+      "review"
+    ],
+    "source_id": "DM_PDF08"
+  }
+]
