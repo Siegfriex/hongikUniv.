@@ -1,0 +1,637 @@
+SOURCE_ID: DS_PDF02
+TITLE: R/Python
+ORIGINAL_FILE: [Lecture][DS][06][02] RPython (1).pdf
+SOURCE_PATH: dataScience/pdf_raw/[Lecture][DS][06][02] RPython (1).pdf
+GENERATED_AT_UTC: 2026-06-16T15:35:42+00:00
+PAGE_COUNT: 54
+
+=== PAGE 001 ===
+R & Python
+Introduction to programming, R language, RStudio installation
+[140316] DATA SCIENCE
+Hunsik Shin
+Department of Industrial and Data Engineering
+{hunsik.shin}@hongik.ac.kr
+
+=== PAGE 002 ===
+제목
+2
+제목
+Table of Contents
+1. What is Programming?
+2. Introduction to R Language
+3. Introduction to Python
+
+=== PAGE 003 ===
+제목
+3
+제목
+Table of Contents
+1. What is Programming?
+2. Introduction to R Language
+3. Introduction to Python
+
+=== PAGE 004 ===
+제목
+4
+제목
+What is Programming?
+Why Learn Programming?
+• 컴퓨팅 사고(Computational Thinking): : 컴퓨터가 문제를 분석하고 해결하는 방식으로 사고하는 것으로 복잡한 문제를
+단순화하고, 논리적이고 효율적으로 해결하는 사고 방식
+ → 컴퓨팅 사고는더 빠르고 효율적인 문제 해결을 가능하게 함
+• Programming: 컴퓨터가 처리할 수 있도록 문제 해결 절차를 체계적으로 기술하고, 컴퓨터에서 실행되는 소프트웨어를
+만드는 과정
+ → 프로그래밍은컴퓨팅 사고를 학습하는 핵심적인 방법
+“인간과 달리 컴퓨터는 본래 지능을 가지고 있지 않음. 그러나 문제 해결 과정을 구조적이고 논리적으
+로 표현하면, 컴퓨터는 이를 빠르고 오류 없이 실행할 수 있다.
+이 때문에 프로그래밍은 컴퓨터가 이해할 수 있는 명확하고 단계적인 지시를 설계하는 데 초점을 둔다.
+
+=== PAGE 005 ===
+제목
+5
+제목
+What is Programming?
+컴퓨터의구성: 하드웨어(Hardware)와소프트웨어(Software)
+• 하드웨어: 키보드, 모니터, 마우스와 같은 외부 장치와 CPU, 메모리, 하드디스크와 같은 내부 장치를 포함하는, 물리적인 형
+태를 가진 장치들.
+• 소프트웨어: 하드웨어가 원활하게 작동하도록 하는 ‘명령어의 집합 (set of instructions)’으로 Excel, PowerPoint, KakaoTalk,
+Facebook과 같은 프로그램을 포함
+<Hardware and Software of humanity>
+
+=== PAGE 006 ===
+제목
+6
+제목
+What is Programming?
+컴퓨터의구성: 하드웨어(Hardware)와소프트웨어(Software)
+• 동일한 하드웨어에서 다양한 작업을 수행할 수 있는 것은 소프트웨어 덕분
+• 컴퓨터의 활용은 어떤 소프트웨어가 설치되어 있는지에 따라 달라짐
+• 소프트웨어는 실행되는 동안 CPU와 메모리와 같은 하드웨어 자원이 필요
+• 프로그래밍 능력을 갖추면 필요한 소프트웨어를 직접 만들 수 있음
+Playing game
+Writing documents
+ Same software on different hardware
+ Example of useful software
+
+=== PAGE 007 ===
+제목
+7
+제목
+What is Programming?
+프로그래밍과프로그래밍언어
+• 프로그래밍은 요리 과정에 비유할 수 있으며, [그림 1 & 2]와 같이 정해진 순서의 단계에 따라 수행되어야 한다
+Input Expected Output Result
+[중요]
+단계의 순서가 명확하게 정의되지 않으면, 컴퓨터는 기대한 결과
+를 만들어낼 수 없다.
+요리와 마찬가지로, 단계를 생략하거나 순서를 바꾸면 실패로 이
+어질 수 있으며, 이는 실패한 요리의 예에서 확인 할 수 있다.
+
+=== PAGE 008 ===
+제목
+8
+제목
+What is Programming?
+프로그래밍과프로그래밍언어
+• 프로그래밍은 요리 과정에 비유할 수 있으며, [그림 1 & 2]와 같이 정해진 순서의 단계에 따라 수행되어야 한다
+
+=== PAGE 009 ===
+제목
+9
+제목
+What is Programming?
+Programming and Programming Languages
+• 컴퓨터에게 어떤 작업을 수행하도록 지시하기 위해서는 요리 레시피와 마찬가지로 작업의 순서와 방법을 논리적으
+로 설명해야 한다. 이 과정을 프로그래밍(programming)이라고 한다.
+• 일상적인 언어로 컴퓨터에게 명령할 수 있다면 편리하겠지만, 인간의 언어에는 많은 모호성(ambiguity)이 존재한다.
+• 그 결과, 컴퓨터는 일반적으로 자연어로 작성된 지시를 이해하거나 실행할 수 없다.
+→ 하지만 최근의 대규모 언어 모델(Large Language Models, 예: ChatGPT)을 통해 일상적인 언어로 의도를 표현함으
+로써 유용한 코드를 훨씬 쉽게 생성할 수 있게 되었다.
+
+=== PAGE 010 ===
+제목
+10
+제목
+What is Programming?
+Programming and Programming Languages
+• Programming Language: 컴퓨터가 작업을 수행하도록 지시하는 프로그램을 작성하기 위해 사용되는 언어
+• [그림 1-5]에 나타난 것처럼, 프로그래밍 언어는 간단한 영어 단어와 기호로 구성되어 있으며, 각 언어마다 고유한 문
+법(grammar)을 가지고 있다.
+• 프로그래밍을 공부한다는 것은 프로그래밍 언어의 문법 구조를 학습하고, 이를 이용해 컴퓨터를 위한 ‘지침서
+(instruction manual)’, 즉 프로그램을 작성하는 방법을 배우는 것을 의미
+→ 자연어와 달리, 프로그래밍 언어에는 방언, 속어, 신조어가 존재하지 않는다.
+
+=== PAGE 011 ===
+제목
+11
+제목
+What is Programming?
+프로그래밍과프로그래밍언어 – What is the best programming language ?
+• 대표적인 프로그래밍 언어: C, Java, Python 등
+• 소프트웨어를 만들기 위해서는 이러한 언어 중최소하나는반드시배워야한다.
+< PYPL PopularitY of Programming Language >*
+* The PYPL PopularitY of Programming Language Index is created by analyzing how often language tutorials are searched on Google.
+
+=== PAGE 012 ===
+제목
+12
+제목
+What is Programming?
+프로그래밍과프로그래밍언어– Why we learn R&Python?
+• 많은 사람들에게 프로그래밍은 매우 어렵게 느껴질 수 있음
+• 컴퓨터공학 전공자가 아니더라도 쉽게 배우고 자신의 업무에 적용할 수 있는 프로그래밍 언어가 필요
+• 이러한 목적을 위해 개발된 언어가 R과 Python
+
+=== PAGE 013 ===
+제목
+13
+제목
+What is Programming?
+프로그래밍과프로그래밍언어– (예시) C언어와 R비교
+• Problem Statement:
+2차원 10×10 배열이 주어졌을 때, 2번째 행(row)과 5번째 열(column)을 제거하는 코드를 작성하시오.
+해당 문제의 해결 방법을 C와 R 프로그래밍 언어를 사용하여 각각 구현하시오.
+<Array Manipulation in R>: 3 lines!<Array Manipulation in C>: 20 lines!
+
+=== PAGE 014 ===
+제목
+14
+제목
+Table of Contents
+1. What is Programming?
+2. Introduction to R Language
+3. Introduction to Python
+
+=== PAGE 015 ===
+제목
+15
+제목
+Table of Contents
+1. What is Programming?
+2. Introduction to R Language
+3. Introduction to Python
+
+=== PAGE 016 ===
+제목
+16
+제목
+Introduction to R Language
+Characteristics of R Language
+• R은 비교적 최근에 등장한 프로그래밍 언어 중 하나
+• R은 1993년 뉴질랜드 오클랜드 대학교에서 Ross Ihaka와 Robert Gentleman에 의해 통계 프로그래밍
+언어 S-PLUS의 무료 버전으로 개발
+<Ross Ihaka> <Robert Gentleman>
+
+=== PAGE 017 ===
+제목
+17
+제목
+Introduction to R Language
+Characteristics of R Language (1)
+• 데이터 분석에 특화
+- R은 통계를 포함한 데이터 분석 작업을 위해 개발 됨
+- 컴파일 과정 없이 코드를 바로 실행하고 결과를 확인 할 수 있음
+- R로 작성된 코드는 일반적으로 프로그램(program)보다는 스크립트(script)라고 함
+• 강력한 사용자 커뮤니티
+- R은 방대한 사용자층을 보유하고 있어, 활발한 커뮤니티가 다수 존재
+- 초보자도 활용할 수 있는 학습 자료가 매우 풍부
+- 국내 검색 엔진을 통해 접근할 수 있는 한글 자료의 양도 지속적으로 증가하고 있다.
+
+=== PAGE 018 ===
+제목
+18
+제목
+Introduction to R Language
+Characteristics of R Language (1)
+
+=== PAGE 019 ===
+제목
+19
+제목
+Introduction to R Language
+Characteristics of R Language (2)
+• 다양한 패키지 제공
+- R은 데이터 분석을 위한 기능들을 카테고리별로 묶은 패키
+지 형태로 제공
+- 데이터 분석에 필요한 거의 모든 기능을 제공
+- 새로운 이론이 발표되면, 이를 반영한 R 패키지가 빠르게
+개발되어 최신 기법을 지체 없이 데이터 분석에 적용할 수
+있음
+* https://agstats.io/post/intro-to-ggplot/
+<San Francisco rent prices visualization with ggplot2 package>*
+
+=== PAGE 020 ===
+제목
+20
+제목
+Introduction to R Language
+Characteristics of R Language (3)
+• 미적이고 기능적인 통계 그래픽 (Aesthetic and Functional Statistical Graphics)
+- 데이터 분석에서 분석 결과를 시각적으로 표현하는 것은 매우 중요
+- R에서는 ggplot 패키지를 활용하여 시각적으로 아름답고 기능적으로 우수한 그래프를 쉽게 만들 수 있다.
+* ggplot2 is a system for declaratively creating graphics, based onThe Grammar of Graphics.
+*
+
+=== PAGE 021 ===
+제목
+21
+제목
+Introduction to R Language
+Characteristics of R Language (4)
+• 편리한 프로그래밍 환경
+- 프로그램을 작성하고, 실행하며, 수정하는 작업에는 편리한 작업 환경이 필요
+- RStudio는 R 프로그래밍을 위한 통합 개발 환경(IDE)을 제공하여 모든 작업이 RStudio 안에서 처리 가능
+- 이러한 환경을 통합 개발 환경(Integrated Development Environment, IDE)이라고 한다.
+
+=== PAGE 022 ===
+제목
+22
+제목
+Introduction to R Language
+Characteristics of R Language (4)
+• 무료 사용 가능 (Free to Use)
+- R은 오픈소스 소프트웨어로, 무료로 사용 가능
+- 정기적으로 업데이트되며(연 1~2회), 기능이 지속적으로 개선
+- R은 Windows뿐만 아니라 Linux와 macOS 환경에서도 설치하여 사용 가능
+
+=== PAGE 023 ===
+제목
+23
+제목
+Example of R (1)
+Scatter Plot
+Create a scatter plot using the Petal.Length and Petal.Width variables from the Iris dataset.
+[Code 12-12]
+• plot.title: applies theme settings to the title created by ggtitle().
+• size = 25: sets the font size of the title.
+• face = "bold": displays the title in bold.
+• colour = "steelblue": sets the font color of the title.
+To vary the point shape by species, add shape = Species inside the aes() function.
+library(ggplot2)
+ggplot(data=iris, aes(x=Petal.Length, y=Petal.Width,
+  color=Species)) +
+geom_point(size=3) +
+ggtitle('꽃잎의 길이와 폭') + # 그래프의 제목 지정
+theme(plot.title = element_text(size=25, face='bold',
+colour='steelblue'))
+
+=== PAGE 024 ===
+제목
+24
+제목
+Example of R (1)
+Scatter Plot
+Create a scatter plot using the Petal.Length and Petal.Width variables from the Iris dataset.
+[Code 12-12]
+• plot.title: applies theme settings to the title created by ggtitle().
+• size = 25: sets the font size of the title.
+• face = "bold": displays the title in bold.
+• colour = "steelblue": sets the font color of the title.
+To vary the point shape by species, add shape = Species inside the aes() function.
+library(ggplot2)
+ggplot(data=iris, aes(x=Petal.Length, y=Petal.Width,
+  color=Species)) +
+geom_point(size=3) +
+ggtitle('꽃잎의 길이와 폭') + # 그래프의 제목 지정
+theme(plot.title = element_text(size=25, face='bold',
+colour='steelblue'))
+
+=== PAGE 025 ===
+제목
+25
+제목
+Example of R (2)
+Box Plot
+Create a box plot using the Petal.Length variable by Species from the Iris dataset.
+[Code 12-14]
+When boxplots are drawn by species, the default order of categories is alphabetical: setosa → versicolor → virginica.
+If we want to change the display order (e.g., versicolor → virginica → setosa), we must modify the levels of the factor variable Species.
+Once the factor levels are changed, the boxplots will appear in the new order along the x -axis.
+library(ggplot2)
+ggplot(data=iris, aes(x=Species, y=Petal.Length, fill=Species))
++
+geom_boxplot( )
+iris.new <- iris
+iris.new$Species <- factor(iris.new$Species,
+  levels=c('versicolor','virginica','setosa’))
+ggplot(data=iris.new, aes(x=Species, y=Petal.Length, fill=Species)) +
+geom_boxplot( )
+
+=== PAGE 026 ===
+제목
+26
+제목
+Example of R (3)
+Treemaps
+[Code 12-1] (2)
+The area of each tile is proportional to the population of the country.
+The color of each tile represents GNI (Gross National Income).
+• Higher income → darker green
+• Lower income → closer to yellow
+> library(treemap) # treemap 패키지 불러오기
+> data(GNI2014)  # 데이터 불러오기
+> head(GNI2014)  # 데이터 내용 보기
+treemap(GNI2014,
+        index=c('continent','iso3’),  # 계층 구조 설정(대륙-국가)
+        vSize='population’,           # 타일의 크기
+vColor='GNI',      # 타일의 컬러
+type='value',      # 타일 컬러링 방법
+bg.labels='yellow’,     # 레이블의 배경색
+title="World's GNI")     # 나무지도 제목
+
+=== PAGE 027 ===
+제목
+27
+제목
+Table of Contents
+1. What is Programming?
+2. Introduction to R Language
+3. Introduction to Python
+
+=== PAGE 028 ===
+제목
+28
+제목
+Table of Contents
+1. What is Programming?
+2. Introduction to R Language
+3. Introduction to Python
+
+=== PAGE 029 ===
+제목
+29
+제목
+Introduction to Python Language
+Characteristics Python Language
+• 인터프리터 방식의 객체지향 프로그래밍 언어로서 1989년 귀도 반 로썸(Guido Van Rossum)이 개발
+• 귀도 반 로썸이 좋아했던 영국 코미디 영화 "몬티 파이썬의 날아다니는 서커스(Monty Python's Flying
+Circus)"에서 따온 이름
+
+=== PAGE 030 ===
+제목
+30
+제목
+Introduction to Python Language
+Characteristics Python Language
+• 인터프리터 방식의 객체지향 프로그래밍 언어로서 1989년 귀도 반 로썸(Guido Van Rossum)이 개발
+• 귀도 반 로썸이 좋아했던 영국 코미디 영화 "몬티 파이썬의 날아다니는 서커스(Monty Python's Flying
+Circus)"에서 따온 이름
+
+=== PAGE 031 ===
+제목
+31
+제목
+Introduction to Python Language
+Characteristics Python Language
+• 인터프리터 방식의 객체지향 프로그래밍 언어로서 1989년 귀도 반 로썸(Guido Van Rossum)이 개발
+1) 컴파일방식: 소스 코드를 기계어로 번역한 후 이 기계어 명령을 실행하는 방식
+ 예) C, C++, 파스칼 등의 언어
+
+=== PAGE 032 ===
+제목
+32
+제목
+Introduction to Python Language
+Characteristics Python Language
+• 인터프리터 방식의 객체지향 프로그래밍 언어로서 1989년 귀도 반 로썸(Guido Van Rossum)이 개발
+2) 인터프리터방식: 프로그램 명령어를 한 번에 한 줄씩 읽어 번역한 후 바로 실행
+예) 파이썬, BASIC 등의 언어가 있음
+
+=== PAGE 033 ===
+제목
+33
+제목
+Introduction to Python Language
+Characteristics Python Language
+• 컴파일 방식과 인터프리터 방식 비교
+인터프리터방식 컴파일방식
+정의 명령어들을 한번에 한 줄씩 읽어 들여
+서 실행하는 방식이다.
+명령을 기계어로 번역하여 실행파일을
+생성하고 이것을 동작시키는 방식이다.
+장점
+컴파일 단계를 거칠 필요가 없기 때문
+에 코드의 수행 결과를 바로 확인할 수
+있다.
+기계어 코드를 바로 실행시키므로 일
+반적인 경우 속도가 더 빠르다
+단점 실행 시간이 느리다.
+원시 프로그램의 크기가 크다면 번역
+과정에 상당한 시간이 소요된다. 코드
+의 결과를 즉시 확인할 수 없다.
+사용되는
+언어 파이썬, BASIC 등 C/C++, 자바, FORTRAN, PASCAL 등
+
+=== PAGE 034 ===
+제목
+34
+제목
+Introduction to Python Language
+Characteristics Python Language
+• 직관적이고 단순한 문법으로 축약된 코딩이 가능함
+• 짧은 코딩으로 많은 기능을 수행할 수 있음
+• 오픈소스Open source 방식을 채택 → 방대한 라이브러리들이 무료
+• 객체지향 프로그래밍 언어의 특징을 가짐
+
+=== PAGE 035 ===
+제목
+35
+제목
+Example of Python (1)
+Numpy
+- NumPy는 Python에서 수치 계산과 배열 연산을 효율적으로 수행하기 위한 핵심 라이브러리
+- 리스트(list)에 비해 대규모 데이터 처리 속도가 빠르고, 벡터·행렬 연산을 간결한 코드로 표현할 수 있어 데이터 분석, 머신러
+닝, 시뮬레이션의 기초 도구로 널리 사용
+[Code 12-12]
+
+=== PAGE 036 ===
+제목
+36
+제목
+Example of Python (2)
+Scikit-learn
+- scikit-learn은 Python에서 가장 널리 사용되는 머신러닝 라이브러리
+- 데이터 전처리, 회귀, 분류, 군집화, 모델 평가까지 일관된 인터페이스로 제공
+- 복잡한 알고리즘도 몇 줄의 코드로 적용할 수 있어 실무와 교육 모두에서 표준처럼 활용
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_regression
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+# 1. 가상 회귀 데이터 생성
+X, y = make_regression(
+n_samples=100,
+n_features=1,
+noise=10,
+random_state=42
+)
+# 2. 학습 / 테스트 데이터 분할
+X_train, X_test, y_train, y_test = train_test_split(
+X, y, test_size=0.2, random_state=42)
+# 3. 선형 회귀 모델 학습
+model = LinearRegression()
+model.fit(X_train, y_train)
+# 4. 예측 (시각화를 위해 정렬)
+X_line = np.linspace(X.min(), X.max(), 100).reshape(-1, 1)
+y_line = model.predict(X_line)
+
+=== PAGE 037 ===
+제목
+37
+제목
+Example of Python (2)
+Scikit-learn
+- scikit-learn은 Python에서 가장 널리 사용되는 머신러닝 라이브러리
+- 데이터 전처리, 회귀, 분류, 군집화, 모델 평가까지 일관된 인터페이스로 제공
+- 복잡한 알고리즘도 몇 줄의 코드로 적용할 수 있어 실무와 교육 모두에서 표준처럼 활용
+# 5. 시각화
+plt.figure()
+plt.scatter(X_train, y_train, label="Training data")
+plt.scatter(X_test, y_test, label="Test data")
+plt.plot(X_line, y_line, label="Regression line")
+plt.xlabel("X")
+plt.ylabel("y")
+plt.legend()
+plt.show()
+
+=== PAGE 038 ===
+제목
+38
+부록
+1. R 설치
+2. Python 설치
+
+=== PAGE 039 ===
+제목
+39
+제목R 설치
+Installing R
+1. https://www.r-project.org 접속
+2. [Download] 클릭 → [CRAN], [Korea] 링크 선택 → [Download R for Windows] 선택
+
+=== PAGE 040 ===
+제목
+40
+제목R 설치
+Installing R (on Windows)
+3. [install R for the first time] 링크 선택 → [Download R 4.5.1 for Windows]  선택
+
+=== PAGE 041 ===
+제목
+41
+제목R 설치
+Installing R (on Mac)
+2. [R-4.5.1-amd64.pkg] or [R-4.5.1-x86_64.pkg] 선택 (맥 버전에 따라)
+
+=== PAGE 042 ===
+제목
+42
+제목R 설치
+Installing R
+4. [Korean] 선택 및 [OK] 선택
+→ 다른 언어가 편한 경우, 원하는 언어 선택 가능
+
+=== PAGE 043 ===
+제목
+43
+제목R 설치
+Installing R
+5. [Next] 클릭
+
+=== PAGE 044 ===
+제목
+44
+제목R 설치
+Installing R
+6. 구성요소 설치 단계에서 필요한 요소를 선택하고 [Next] 클릭.
+→ 스타트 옵션은, [No] 선택하고 [Next] 클릭.
+
+=== PAGE 045 ===
+제목
+45
+제목R 설치
+Installing R
+7. [Next] [Next] [Next] [Next] [Next] [Next] [Next] 클릭 → [Finish] .
+
+=== PAGE 046 ===
+제목
+46
+제목R 설치
+Installing R
+8. 설치 후, R을 실행하면 아래와 같은 스크립트가 실행
+
+=== PAGE 047 ===
+제목
+47
+제목
+Python 설치
+공식홈페이지에서설치
+1) 홈페이지 접속: http://www.python.org/
+
+=== PAGE 048 ===
+제목
+48
+제목
+Python 설치
+공식홈페이지에서설치
+2) 다운로드 파일 선택 및 설치
+→ 운영체제와 최신 버전의 파이썬 파일 선택
+
+=== PAGE 049 ===
+제목
+49
+제목
+Python 설치
+공식홈페이지에서설치
+2) 또는 Google에서 “Python Download” 검색
+→ 다운로드 페이지에서 "Download Python 3.11.4"를 선택(최신 버전 다운로드)
+→ 운영체제(macOS, Windows, Linux 등)를 선택 후 다운
+
+=== PAGE 050 ===
+제목
+50
+제목
+Python 설치
+설치파일실행및사용
+3) python-3.11.4.exe 실행
+→ “Install launcher for all users(recommended)“
+→ PATH 환경 변수에 파이썬 실행 파일이 위치한 경로를 등록 : “Add Python.eye to PATH“ 선택
+→ “Install Now"를 눌러 설치를 시작
+
+=== PAGE 051 ===
+제목
+51
+제목
+Python 설치
+설치파일실행및사용
+4) python 실행
+- 시작 버튼을 눌러 “id”를 검색, IDLE을 눌러서 실행
+
+=== PAGE 052 ===
+제목
+52
+제목
+Python 설치
+설치파일실행및사용
+4) python 실행
+- 프롬프트에 print('Hello Python!!') 을 입력 후 Enter → 프롬프트 아래에 Hello Python!!이 출력
+
+=== PAGE 053 ===
+제목
+53
+제목
+Python 설치
+설치파일실행및사용
+4) python 실행 (MacOS)
+- Terminal에서 python을 입력하여 실행
+- 프롬프트에 print('Hello Python!!') 을 입력 후 Enter → 프롬프트 아래에 Hello Python!!이 출력
+macOS 운영체제의터미널과파이썬대화형모드
+
+=== PAGE 054 ===
+제목
+54
+제목
+References
+• 난생처음 R코딩 데이터분석 강의교안. 한빛미디어, 2024
+• 으뜸파이썬 강의교안. 생능출판서, 2024

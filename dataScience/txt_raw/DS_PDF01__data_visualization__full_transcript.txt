@@ -1,0 +1,313 @@
+SOURCE_ID: DS_PDF01
+TITLE: 데이터시각화
+ORIGINAL_FILE: [Lecture][DS][06][01] 데이터시각화 (3).pdf
+SOURCE_PATH: dataScience/pdf_raw/[Lecture][DS][06][01] 데이터시각화 (3).pdf
+GENERATED_AT_UTC: 2026-06-16T15:35:42+00:00
+PAGE_COUNT: 39
+
+=== PAGE 001 ===
+데이터시각화
+[140316] DATA SCIENCE
+Hunsik Shin
+Department of Industrial and Data Engineering
+{hunsik.shin}@hongik.ac.kr
+
+=== PAGE 002 ===
+제목
+3
+제목
+데이터시각화
+•단변량
+-양적변수: 히스토그램, 박스플롯(상자그림)
+-범주형변수: 막대그래프, 파이차트
+•이변량
+-양적vs. 양적: 산점도, 산점도행렬, 버블차트등
+-범주형vs. 범주형: mosaic plot
+-양적vs. 범주형: 박스플롯들
+•다변량
+-Radar/Spyder 차트, 나이팅게일차트, heatmap
+
+=== PAGE 003 ===
+제목
+4
+제목
+데이터시각화
+•Histogram
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 004 ===
+제목
+5
+제목
+데이터시각화
+•Histogram
+출처: https://www.r-graph-gallery.com/
+• binwidth: The width of the bins. Can be specified as a
+numeric value or as a function that takes x after scale
+transformation as input and returns a single numeric
+value.
+• bins: Number of bins. Overridden bybinwidth. Defaults
+to 30.
+
+=== PAGE 005 ===
+제목
+6
+제목
+데이터시각화
+•Density plot
+밀도추정그래프(주로커널밀도추정, Kernel Density Estimation)는히스토그램을부드러운곡선형태로만든것
+각데이터포인트에커널함수(주로가우시안)를적용해합친결과물.
+>표현방식:연속적인곡선
+>Y축:밀도(Density) (곡선아래의전체면적의합 = 1)
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 006 ===
+제목
+7
+제목
+데이터시각화
+•Scatter Plot(산점도)
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 007 ===
+제목
+8
+제목
+데이터시각화
+•Scatterplot matrix
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 008 ===
+제목
+9
+제목
+데이터시각화
+•Bubble Plot
+- 산점도(Scatter Plot)에데이터의크기차원을하나더추가한그래프
+- 산점도가두변수사이의관계(좌표)만보여준다면, 버블차트는그지점에놓인원의크기(면적)를통해세번째정보를시각화
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 009 ===
+제목
+10
+제목
+데이터시각화
+•Radar/Spyder Chart
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 010 ===
+제목
+11
+제목
+데이터시각화
+•Box Plot
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 011 ===
+제목
+12
+제목
+데이터시각화
+•Box Plot
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 012 ===
+제목
+13
+제목
+데이터시각화
+•Heatmap
+출처: https://www.r-graph-gallery.com/
+<Heatmap with Dendrogram>
+
+=== PAGE 013 ===
+제목
+14
+제목
+데이터시각화
+•Pie Chart
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 014 ===
+제목
+15
+제목
+데이터시각화
+•Circular stacked barchart
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 015 ===
+제목
+16
+제목
+데이터시각화
+The R Graph Gallery
+출처: https://www.r-graph-gallery.com/
+
+=== PAGE 016 ===
+제목
+17
+제목
+데이터시각화활용
+
+=== PAGE 017 ===
+제목
+18
+제목
+데이터시각화활용
+•질병관리청
+-COVID-19 Dashboard
+-https://ncv.kdca.go.kr/covdash/biz/dsbd/covDsbdOcrn.do
+•Centers for Disease Control and Prevention
+-CDC COVID Data Tracker
+-https://covid.cdc.gov/covid-data-tracker
+
+=== PAGE 018 ===
+제목
+19
+제목
+데이터시각화활용
+
+=== PAGE 019 ===
+제목
+20
+제목
+데이터시각화활용
+
+=== PAGE 020 ===
+제목
+21
+제목
+Google
+•구글검색을할때우리는빅데이터를사용
+•구글색인-검색할수있는모든웹페이지에대한아카이브의크기는대략100페타바이트(또는1억기가바이트).
+•1997년창립된구글을전세계적으로유명하게만든것은구글페이지랭크(pagerank)로알고리즘
+•페이지랭크는구글의창업자인래리페이지와세르게이브린이구글을만들기전, 스탠퍼드대학에서연구할때
+개발
+
+=== PAGE 021 ===
+제목
+22
+제목
+Google
+•원리는더많은페이지들이특정페이지에링크될수록그특정페이지의우선순위가높아진다는것
+•권위가높은페이지일수록인용될가능성이높아짐
+•그사이트에링크된비슷한키워드를얼마나많은사이트들이사용했는가?, 그리고그링크페이지는얼마나권
+위있는(자주링크되는) 것인가를기준으로, 구글은인덱스의모든페이지에순위를매겨서첫검색알고리즘을
+만듬
+•현재구글은전체인터넷검색사용량의89%를차지하고있다.
+
+=== PAGE 022 ===
+제목
+23
+제목PageRank
+
+=== PAGE 023 ===
+제목
+24
+제목PageRank
+
+=== PAGE 024 ===
+제목
+25
+제목PageRank
+
+=== PAGE 025 ===
+제목
+26
+제목PageRank
+
+=== PAGE 026 ===
+제목
+27
+제목PageRank
+
+=== PAGE 027 ===
+제목
+28
+제목PageRank
+https://en.wikipedia.org/wiki/PageRank#/media/File:PageRanks-Example.svg
+
+=== PAGE 028 ===
+제목
+29
+제목PageRank
+https://en.wikipedia.org/wiki/PageRank#/media/File:PageRanks-Example.svg
+
+=== PAGE 029 ===
+제목
+30
+제목PageRank
+https://en.wikipedia.org/wiki/PageRank#/media/File:PageRanks-Example.svg
+
+=== PAGE 030 ===
+제목
+31
+제목PageRank
+
+=== PAGE 031 ===
+제목
+32
+제목PageRank
+
+=== PAGE 032 ===
+제목
+33
+제목PageRank
+
+=== PAGE 033 ===
+제목
+34
+제목PageRank
+
+=== PAGE 034 ===
+제목
+35
+제목PageRank
+
+=== PAGE 035 ===
+제목
+36
+제목PageRank
+
+=== PAGE 036 ===
+제목
+37
+제목
+Google
+Google의독감예보
+•2013년미국에서계절인플루엔자(독감)가유행. 독감으로인한사망자가이미100명을넘어서자일부지역에서공중보건
+비상사태를선포
+•미질병통제예방센터(CDC)에따르면122개도시의사망자를조사한결과, 전체사망자중7.3%가감기나폐렴으로숨진
+것으로파악
+•CDC가발표하는독감관련보고서보다더앞서독감바이러스확산을예측하는곳이있었는데바로세계적인IT 기업구
+글
+•구글은독감증세환자가늘면'감기'와관련된단어를검색하는빈도가함께증가한다는패턴을발견
+•이를질병통제예방센터데이터와비교해본결과검색빈도와실제독감증세를보인환자숫자사이에밀접한상관관계가
+있다는사실을밝힘
+•구글은이같은분석을바탕으로웹사이트를통해시간및지역별독감유행정보를미국보건당국보다한발앞서제공하
+고있다
+
+=== PAGE 037 ===
+제목
+38
+제목
+Google
+Google의독감예보
+•구글이지난2008년11월부터선보인'독감트렌드' 서비스는전세계각지에서'독감증세', '독감치료' 등독감과관련된
+검색어의입력빈도를지역별로파악해독감유행수준을'매우낮음'부터'매우높음'까지5개등급으로구분해표시한다.
+•특정지역에서발열이나기침등독감관련검색이늘어나면검색어와관련된IP 주소를지도에추가해해당지역의독감
+유행수준등급이거의실시간으로표시된다.
+출처: https://smart.science.go.kr/scienceStory/view.action
+
+=== PAGE 038 ===
+제목
+39
+제목
+지진예보– 지진희갤러리
+
+=== PAGE 039 ===
+제목
+40
+제목
+지진예보– 지진희갤러리

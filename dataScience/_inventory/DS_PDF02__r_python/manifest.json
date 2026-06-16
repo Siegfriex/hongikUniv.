@@ -1,0 +1,43 @@
+{
+  "course": "dataScience",
+  "course_prefix": "DS",
+  "source_id": "DS_PDF02",
+  "slug": "r_python",
+  "title": "R/Python",
+  "status": "bootstrap_transcript_ready",
+  "generated_at_utc": "2026-06-16T15:37:07+00:00",
+  "source_policy": "Keep PDF as immutable raw source; use TXT transcript as derived raw text for inventory, node-link, RAG, and tutor-source generation.",
+  "sources": [
+    {
+      "path": "dataScience/pdf_raw/[Lecture][DS][06][02] RPython (1).pdf",
+      "kind": "pdf_raw",
+      "role": [
+        "immutable_source",
+        "pdf_anchor"
+      ],
+      "immutable": true
+    },
+    {
+      "path": "dataScience/txt_raw/DS_PDF02__r_python__full_transcript.txt",
+      "kind": "txt_transcript",
+      "role": [
+        "derived_raw_text",
+        "content_ssot"
+      ],
+      "immutable": false
+    }
+  ],
+  "planned_outputs": {
+    "annotated_transcript": "dataScience/_inventory/DS_PDF02__r_python/DS_PDF02__r_python__annotated_transcript.txt",
+    "concept_node_index": "dataScience/_inventory/DS_PDF02__r_python/DS_PDF02__r_python__concept_node_index.md",
+    "nodes": "dataScience/_inventory/DS_PDF02__r_python/nodes.json",
+    "edges": "dataScience/_inventory/DS_PDF02__r_python/edges.json",
+    "rag": "dataScience/_inventory/DS_PDF02__r_python/DS_PDF02__r_python__rag.md",
+    "rawdata_develop": "dataScience/_inventory/DS_PDF02__r_python/DS_PDF02__r_python__rawdata_develop.md"
+  },
+  "framework_reference": [
+    "decisionMaking/_framework/PIPELINE.md",
+    "decisionMaking/_framework/CONVENTIONS.md",
+    "decisionMaking/_framework/FINAL_RAG_TUTOR_PERSONA.md"
+  ]
+}
