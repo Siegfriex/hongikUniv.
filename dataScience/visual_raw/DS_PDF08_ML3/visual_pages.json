@@ -1,0 +1,74 @@
+[
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 5,
+    "label": "kmeans_problem",
+    "reason": "거리 기반 k-means 군집 문제",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p005__kmeans_problem.png",
+    "transcript_anchor": "DS_PDF08_ML3:p005:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 16,
+    "label": "spherical_kmeans",
+    "reason": "cosine 기반 spherical k-means",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p016__spherical_kmeans.png",
+    "transcript_anchor": "DS_PDF08_ML3:p016:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 17,
+    "label": "euclidean_cosine",
+    "reason": "Euclidean distance와 cosine similarity",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p017__euclidean_cosine.png",
+    "transcript_anchor": "DS_PDF08_ML3:p017:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 20,
+    "label": "kmeans_limitations",
+    "reason": "initial point와 k-means++",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p020__kmeans_limitations.png",
+    "transcript_anchor": "DS_PDF08_ML3:p020:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 35,
+    "label": "association_metrics",
+    "reason": "support/confidence/lift 평가 기준",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p035__association_metrics.png",
+    "transcript_anchor": "DS_PDF08_ML3:p035:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 36,
+    "label": "support_formula",
+    "reason": "support 정의",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p036__support_formula.png",
+    "transcript_anchor": "DS_PDF08_ML3:p036:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 37,
+    "label": "confidence_formula",
+    "reason": "confidence 정의",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p037__confidence_formula.png",
+    "transcript_anchor": "DS_PDF08_ML3:p037:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 38,
+    "label": "lift_formula",
+    "reason": "lift 정의",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p038__lift_formula.png",
+    "transcript_anchor": "DS_PDF08_ML3:p038:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML3",
+    "page": 42,
+    "label": "association_example",
+    "reason": "support/confidence/lift 계산 예제",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML3/DS_PDF08_ML3_p042__association_example.png",
+    "transcript_anchor": "DS_PDF08_ML3:p042:L001"
+  }
+]

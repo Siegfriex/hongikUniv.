@@ -1,0 +1,34 @@
+[
+  {
+    "edge_id": "e_DS_PDF09_LLM_001",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_LLM.sequence_probability",
+    "type": "shared_probability_language",
+    "rationale": "언어모델의 다음 토큰 예측은 조건부확률 언어를 사용한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_002",
+    "from": "n_DS_ML1.text_vectorization_features",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "extends",
+    "rationale": "텍스트 벡터화가 embedding/문맥표현으로 깊어진다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_003",
+    "from": "n_DS_ML3.kmeans_distance_metrics",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "analogous_to",
+    "rationale": "embedding 공간에서도 거리/유사도 해석이 필요하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_004",
+    "from": "n_DS_LLM.foundation_instruction_tuning",
+    "to": "n_DS_LLM.rag_grounding",
+    "type": "needs_grounding",
+    "rationale": "지시 수행 능력은 근거 검색과 분리해 검증해야 한다.",
+    "scope": "cross_source"
+  }
+]

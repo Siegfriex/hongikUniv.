@@ -1,0 +1,42 @@
+[
+  {
+    "edge_id": "e_DS_PDF06_CODE_001",
+    "from": "n_DS_CODE.computing_thinking",
+    "to": "n_DS_CODE.dataframe_row_column",
+    "type": "implemented_as",
+    "rationale": "문제 분해가 행/열 자료구조로 고정된다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_002",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_CODE.iris_scatter_boxplot",
+    "type": "applies_to",
+    "rationale": "Iris 변수 구조가 시각화 코드의 입력이다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_003",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_CODE.sklearn_workflow",
+    "type": "prerequisite",
+    "rationale": "sklearn fit/predict는 X/y 구조를 요구한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_004",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_VIS.chart_selection",
+    "type": "feeds",
+    "rationale": "dtype과 변수 의미가 그래프 선택을 결정한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_005",
+    "from": "n_DS_CODE.sklearn_workflow",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "implements",
+    "rationale": "sklearn API가 split-fit-predict-metric 절차를 실행한다.",
+    "scope": "cross_source"
+  }
+]

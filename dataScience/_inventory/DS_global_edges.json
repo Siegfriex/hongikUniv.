@@ -1,0 +1,514 @@
+[
+  {
+    "edge_id": "e_DS_PDF06_VIS_001",
+    "from": "n_DS_VIS.chart_selection",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "routes_to",
+    "rationale": "단변량 수치형이면 분포 그래프가 1차 선택이다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_002",
+    "from": "n_DS_VIS.chart_selection",
+    "to": "n_DS_VIS.scatter_correlation",
+    "type": "routes_to",
+    "rationale": "이변량 양적-양적 관계는 산점도로 먼저 본다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_003",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_VIS.bubble_plot",
+    "type": "extends",
+    "rationale": "버블 플롯은 산점도에 크기 차원을 추가한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_004",
+    "from": "n_DS_VIS.chart_selection",
+    "to": "n_DS_VIS.heatmap_multivariate",
+    "type": "routes_to",
+    "rationale": "행렬형/다변량 관계는 히트맵으로 압축한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_005",
+    "from": "n_DS_STATS.frequency_histogram",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "supports",
+    "rationale": "도수/상대도수 이해가 histogram/KDE 해석의 통계 기반이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_006",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_VIS.chart_selection",
+    "type": "feeds",
+    "rationale": "dtype과 변수 의미가 그래프 선택을 결정한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_007",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_ML1.feature_target_structure",
+    "type": "prepares",
+    "rationale": "관계 시각화가 feature/target 후보 탐색으로 이어진다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_001",
+    "from": "n_DS_CODE.computing_thinking",
+    "to": "n_DS_CODE.dataframe_row_column",
+    "type": "implemented_as",
+    "rationale": "문제 분해가 행/열 자료구조로 고정된다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_002",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_CODE.iris_scatter_boxplot",
+    "type": "applies_to",
+    "rationale": "Iris 변수 구조가 시각화 코드의 입력이다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_003",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_CODE.sklearn_workflow",
+    "type": "prerequisite",
+    "rationale": "sklearn fit/predict는 X/y 구조를 요구한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_004",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_VIS.chart_selection",
+    "type": "feeds",
+    "rationale": "dtype과 변수 의미가 그래프 선택을 결정한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_CODE_005",
+    "from": "n_DS_CODE.sklearn_workflow",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "implements",
+    "rationale": "sklearn API가 split-fit-predict-metric 절차를 실행한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_001",
+    "from": "n_DS_STATS.frequency_histogram",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "supports",
+    "rationale": "도수/상대도수 이해가 histogram/KDE 해석의 통계 기반이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_002",
+    "from": "n_DS_STATS.population_sample_parameter_statistic",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "analogous_to",
+    "rationale": "표본으로 모집단을 추정하는 구조와 train으로 test 성능을 추정하는 구조가 닮아 있다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_003",
+    "from": "n_DS_STATS.contingency_table",
+    "to": "n_DS_ML3.association_rule",
+    "type": "prepares",
+    "rationale": "분할표의 조건부 비율 사고가 association rule 평가로 확장된다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_004",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_ML3.support_confidence_lift",
+    "type": "shared_formula",
+    "rationale": "lift는 독립 대비 동시출현 강도를 묻는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_005",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_LLM.sequence_probability",
+    "type": "shared_probability_language",
+    "rationale": "언어모델의 다음 토큰 예측은 조건부확률 언어를 사용한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_001",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_ML1.feature_target_structure",
+    "type": "prepares",
+    "rationale": "관계 시각화가 feature/target 후보 탐색으로 이어진다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_002",
+    "from": "n_DS_STATS.population_sample_parameter_statistic",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "analogous_to",
+    "rationale": "표본으로 모집단을 추정하는 구조와 train으로 test 성능을 추정하는 구조가 닮아 있다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_003",
+    "from": "n_DS_CODE.sklearn_workflow",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "implements",
+    "rationale": "sklearn API가 split-fit-predict-metric 절차를 실행한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_004",
+    "from": "n_DS_ML1.feature_target_structure",
+    "to": "n_DS_ML1.classification_regression",
+    "type": "routes_to",
+    "rationale": "target 의미가 분류/회귀 라우팅을 결정한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_005",
+    "from": "n_DS_ML1.classification_regression",
+    "to": "n_DS_ML2.svm_margin_hyperplane",
+    "type": "extends_to_algorithm",
+    "rationale": "SVM은 분류 문제의 margin 기반 알고리즘이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_006",
+    "from": "n_DS_ML1.loss_metric",
+    "to": "n_DS_ML2.decision_tree_impurity",
+    "type": "extends_to_algorithm",
+    "rationale": "metric으로 평가하고 impurity로 split을 선택하는 tree 비교가 가능하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_007",
+    "from": "n_DS_ML1.text_vectorization_features",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "extends",
+    "rationale": "텍스트 벡터화가 embedding/문맥표현으로 깊어진다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_001",
+    "from": "n_DS_ML2.svm_margin_hyperplane",
+    "to": "n_DS_ML2.support_vectors",
+    "type": "determined_by",
+    "rationale": "support vector가 margin 위치를 결정한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_002",
+    "from": "n_DS_ML2.svm_margin_hyperplane",
+    "to": "n_DS_ML2.kernel_trick",
+    "type": "extends",
+    "rationale": "kernel은 선형 margin 개념을 비선형 경계로 확장한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_003",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "operationalizes",
+    "rationale": "kNN은 거리로 이웃을 고른다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_004",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "prevents_error",
+    "rationale": "scaling은 거리 기반 투표 왜곡을 줄인다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_005",
+    "from": "n_DS_ML2.decision_tree_impurity",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "contrasts_with",
+    "rationale": "tree는 규칙 기반, kNN은 거리 기반이다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_006",
+    "from": "n_DS_ML1.classification_regression",
+    "to": "n_DS_ML2.svm_margin_hyperplane",
+    "type": "extends_to_algorithm",
+    "rationale": "SVM은 분류 문제의 margin 기반 알고리즘이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_007",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "operationalizes",
+    "rationale": "kNN은 거리 척도로 이웃을 선택한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_008",
+    "from": "n_DS_ML1.loss_metric",
+    "to": "n_DS_ML2.decision_tree_impurity",
+    "type": "extends_to_algorithm",
+    "rationale": "metric으로 평가하고 impurity로 split을 선택하는 tree 비교가 가능하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_009",
+    "from": "n_DS_ML2.decision_tree_impurity",
+    "to": "n_DS_ML2.scaling_distance_models",
+    "type": "contrasts_with",
+    "rationale": "tree는 scaling 영향이 작지만 depth/leaf 제약이 중요하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_010",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML3.kmeans_centroid_loop",
+    "type": "prerequisite",
+    "rationale": "k-means도 거리 기반이라 scaling 영향을 받는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_011",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML3.kmeans_distance_metrics",
+    "type": "shared_math",
+    "rationale": "kNN과 k-means 모두 거리 정의가 결과를 바꾼다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_001",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML3.kmeans_centroid_loop",
+    "type": "prerequisite",
+    "rationale": "k-means도 거리 기반이라 scaling 영향을 받는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_002",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML3.kmeans_distance_metrics",
+    "type": "shared_math",
+    "rationale": "kNN과 k-means 모두 거리 정의가 결과를 바꾼다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_003",
+    "from": "n_DS_ML3.kmeanspp_local_optimum",
+    "to": "n_DS_ML3.silhouette_score",
+    "type": "validated_by",
+    "rationale": "초기값과 k 선택의 결과를 silhouette로 점검한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_004",
+    "from": "n_DS_STATS.contingency_table",
+    "to": "n_DS_ML3.association_rule",
+    "type": "prepares",
+    "rationale": "분할표의 조건부 비율 사고가 association rule 평가로 확장된다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_005",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_ML3.support_confidence_lift",
+    "type": "shared_formula",
+    "rationale": "lift는 독립 대비 동시출현 강도를 묻는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_006",
+    "from": "n_DS_ML3.kmeans_distance_metrics",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "analogous_to",
+    "rationale": "embedding 공간에서도 거리/유사도 해석이 필요하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_001",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_LLM.sequence_probability",
+    "type": "shared_probability_language",
+    "rationale": "언어모델의 다음 토큰 예측은 조건부확률 언어를 사용한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_002",
+    "from": "n_DS_ML1.text_vectorization_features",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "extends",
+    "rationale": "텍스트 벡터화가 embedding/문맥표현으로 깊어진다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_003",
+    "from": "n_DS_ML3.kmeans_distance_metrics",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "analogous_to",
+    "rationale": "embedding 공간에서도 거리/유사도 해석이 필요하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF09_LLM_004",
+    "from": "n_DS_LLM.foundation_instruction_tuning",
+    "to": "n_DS_LLM.rag_grounding",
+    "type": "needs_grounding",
+    "rationale": "지시 수행 능력은 근거 검색과 분리해 검증해야 한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_001",
+    "from": "n_DS_STATS.frequency_histogram",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "supports",
+    "rationale": "도수/상대도수 이해가 histogram/KDE 해석의 통계 기반이다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_002",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_VIS.chart_selection",
+    "type": "feeds",
+    "rationale": "dtype과 변수 의미가 그래프 선택을 결정한다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_003",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_ML1.feature_target_structure",
+    "type": "prepares",
+    "rationale": "관계 시각화가 feature/target 후보 탐색으로 이어진다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_004",
+    "from": "n_DS_STATS.population_sample_parameter_statistic",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "analogous_to",
+    "rationale": "표본으로 모집단을 추정하는 구조와 train으로 test 성능을 추정하는 구조가 닮아 있다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_005",
+    "from": "n_DS_CODE.sklearn_workflow",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "implements",
+    "rationale": "sklearn API가 split-fit-predict-metric 절차를 실행한다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_006",
+    "from": "n_DS_ML1.feature_target_structure",
+    "to": "n_DS_ML1.classification_regression",
+    "type": "routes_to",
+    "rationale": "target 의미가 분류/회귀 라우팅을 결정한다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_007",
+    "from": "n_DS_ML1.classification_regression",
+    "to": "n_DS_ML2.svm_margin_hyperplane",
+    "type": "extends_to_algorithm",
+    "rationale": "SVM은 분류 문제의 margin 기반 알고리즘이다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_008",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "operationalizes",
+    "rationale": "kNN은 거리 척도로 이웃을 선택한다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_009",
+    "from": "n_DS_ML1.loss_metric",
+    "to": "n_DS_ML2.decision_tree_impurity",
+    "type": "extends_to_algorithm",
+    "rationale": "metric으로 평가하고 impurity로 split을 선택하는 tree 비교가 가능하다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_010",
+    "from": "n_DS_ML2.decision_tree_impurity",
+    "to": "n_DS_ML2.scaling_distance_models",
+    "type": "contrasts_with",
+    "rationale": "tree는 scaling 영향이 작지만 depth/leaf 제약이 중요하다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_011",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML3.kmeans_centroid_loop",
+    "type": "prerequisite",
+    "rationale": "k-means도 거리 기반이라 scaling 영향을 받는다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_012",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML3.kmeans_distance_metrics",
+    "type": "shared_math",
+    "rationale": "kNN과 k-means 모두 거리 정의가 결과를 바꾼다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_013",
+    "from": "n_DS_ML3.kmeanspp_local_optimum",
+    "to": "n_DS_ML3.silhouette_score",
+    "type": "validated_by",
+    "rationale": "초기값과 k 선택의 결과를 silhouette로 점검한다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_014",
+    "from": "n_DS_STATS.contingency_table",
+    "to": "n_DS_ML3.association_rule",
+    "type": "prepares",
+    "rationale": "분할표의 조건부 비율 사고가 association rule 평가로 확장된다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_015",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_ML3.support_confidence_lift",
+    "type": "shared_formula",
+    "rationale": "lift는 독립 대비 동시출현 강도를 묻는다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_016",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_LLM.sequence_probability",
+    "type": "shared_probability_language",
+    "rationale": "언어모델의 다음 토큰 예측은 조건부확률 언어를 사용한다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_017",
+    "from": "n_DS_ML1.text_vectorization_features",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "extends",
+    "rationale": "텍스트 벡터화가 embedding/문맥표현으로 깊어진다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_018",
+    "from": "n_DS_ML3.kmeans_distance_metrics",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "analogous_to",
+    "rationale": "embedding 공간에서도 거리/유사도 해석이 필요하다.",
+    "scope": "global"
+  },
+  {
+    "edge_id": "e_DS_GLOBAL_019",
+    "from": "n_DS_LLM.foundation_instruction_tuning",
+    "to": "n_DS_LLM.rag_grounding",
+    "type": "needs_grounding",
+    "rationale": "지시 수행 능력은 근거 검색과 분리해 검증해야 한다.",
+    "scope": "global"
+  }
+]

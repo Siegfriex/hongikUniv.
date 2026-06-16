@@ -1,0 +1,265 @@
+[
+  {
+    "node_id": "n_DS_ML2.svm_margin_hyperplane",
+    "source_id": "DS_PDF08_ML2",
+    "label": "SVM margin/hyperplane",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "SVM은 클래스 사이의 margin이 최대가 되는 hyperplane을 찾는 분류 알고리즘이다.",
+    "intuition": "두 집단 사이에 가능한 한 넓은 안전지대를 만드는 경계선을 찾는다.",
+    "formula_or_procedure": "maximize margin subject to correct/soft-margin classification constraints",
+    "dataframe_view": "각 row는 feature 공간의 점이고 class label이 경계 학습에 쓰인다.",
+    "code_view": "SVC(kernel='linear'), LinearSVC, decision_function",
+    "course_example": "ML Part 2 첫 SVM 페이지가 margin과 결정경계의 기하를 보여준다.",
+    "common_mistake": "SVM이 확률을 직접 예측한다고 보거나 margin과 accuracy를 같은 값으로 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression"
+    ],
+    "followups": [
+      "n_DS_ML2.support_vectors",
+      "n_DS_ML2.kernel_trick"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Support Vector Machine",
+      "마진",
+      "margin",
+      "hyperplane"
+    ],
+    "web_refs": [
+      "web_sklearn_svm"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.support_vectors",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Support vectors",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "결정경계와 가장 가까워 margin 위치를 결정하는 관측치들이다.",
+    "intuition": "경계를 실제로 밀고 있는 핵심 점들이다.",
+    "formula_or_procedure": "support vectors lie on/inside margin and determine separating boundary",
+    "dataframe_view": "일부 row가 boundary를 결정하는 큰 영향점을 가진다.",
+    "code_view": "model.support_vectors_, support_",
+    "course_example": "SVM support vector 페이지는 margin 결정 관측치를 명시한다.",
+    "common_mistake": "모든 관측치가 경계를 똑같이 결정한다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.svm_margin_hyperplane"
+    ],
+    "followups": [
+      "n_DS_ML2.kernel_trick"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Support vectors",
+      "서포트 벡터",
+      "Margin"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.kernel_trick",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Kernel trick",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "원래 공간에서 선형 분리가 어려운 데이터를 고차원 특징공간의 내적처럼 계산해 비선형 경계를 만드는 방법이다.",
+    "intuition": "직선으로 나누기 어려우면 공간을 접거나 펼쳐서 직선처럼 나누는 효과를 낸다.",
+    "formula_or_procedure": "K(x_i,x_j)=phi(x_i)^T phi(x_j), e.g. RBF/poly kernels",
+    "dataframe_view": "feature scale과 kernel parameter가 경계 복잡도를 좌우한다.",
+    "code_view": "SVC(kernel='rbf'), gamma, C",
+    "course_example": "비선형 SVM 페이지가 kernel을 사용한 비선형 결정경계를 보여준다.",
+    "common_mistake": "kernel을 데이터 전처리 없이 마법처럼 쓰면 된다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.scaling_distance_models"
+    ],
+    "followups": [
+      "n_DS_ML3.pca_dimensionality_reduction"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Kernel",
+      "비선형",
+      "SVM"
+    ],
+    "web_refs": [
+      "web_sklearn_svm"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.knn_vote",
+    "source_id": "DS_PDF08_ML2",
+    "label": "kNN 이웃 투표",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "새 관측치와 가장 가까운 k개 학습 관측치의 label을 기준으로 분류 또는 회귀를 수행한다.",
+    "intuition": "가까운 사례들이 무엇이었는지 보고 새 사례를 판단한다.",
+    "formula_or_procedure": "classification: majority vote among k nearest labels. regression: average neighbor targets.",
+    "dataframe_view": "모든 feature가 거리 계산에 들어가므로 열의 스케일과 의미가 중요하다.",
+    "code_view": "KNeighborsClassifier, KNeighborsRegressor, kneighbors",
+    "course_example": "kNN 페이지는 범주형 반응변수와 연속형 반응변수 모두에 쓰임을 설명한다.",
+    "common_mistake": "k를 정답처럼 고정하거나, class imbalance를 고려하지 않는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_ML2.distance_metrics"
+    ],
+    "followups": [
+      "n_DS_ML2.k_selection_bias_variance"
+    ],
+    "analogous": [],
+    "keywords": [
+      "k-nearest",
+      "k-NN",
+      "Majority voting",
+      "classification"
+    ],
+    "web_refs": [
+      "web_sklearn_neighbors"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.distance_metrics",
+    "source_id": "DS_PDF08_ML2",
+    "label": "거리 척도",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "두 관측치가 feature 공간에서 얼마나 가까운지 수치화하는 함수다.",
+    "intuition": "비슷함을 숫자로 재는 자다.",
+    "formula_or_procedure": "Euclidean, Manhattan, Minkowski, cosine distance/similarity",
+    "dataframe_view": "numeric columns가 같은 단위와 의미를 갖는지 확인해야 한다.",
+    "code_view": "pairwise_distances, metric='euclidean'/'manhattan'/'cosine'",
+    "course_example": "kNN 거리 페이지와 k-means 거리 페이지가 같은 수학 언어를 공유한다.",
+    "common_mistake": "단위가 큰 변수가 거리 전체를 지배하게 두는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.scatter_correlation"
+    ],
+    "followups": [
+      "n_DS_ML2.scaling_distance_models",
+      "n_DS_ML3.kmeans_distance_metrics"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Euclidean",
+      "Manhattan",
+      "Minkowski",
+      "Cosine",
+      "distance"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.scaling_distance_models",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Scaling과 거리 기반 모델",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "feature의 단위와 범위를 맞춰 거리·margin·gradient 계산이 특정 변수에 과도하게 끌리지 않게 하는 전처리다.",
+    "intuition": "센티미터와 원화를 같은 자로 재지 않도록 단위를 맞추는 과정이다.",
+    "formula_or_procedure": "z=(x-mean)/std or minmax scaling before distance-sensitive estimator",
+    "dataframe_view": "train set에 scaler를 fit하고 train/test에 transform한다.",
+    "code_view": "StandardScaler, MinMaxScaler, Pipeline",
+    "course_example": "kNN scale 민감도 페이지는 변수 scale이 거리 결과를 바꾸는 위험을 보여준다.",
+    "common_mistake": "전체 데이터로 scaler를 fit해 test 정보를 누수시키는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.distance_metrics",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "followups": [
+      "n_DS_ML2.knn_vote",
+      "n_DS_ML3.kmeans_centroid_loop"
+    ],
+    "analogous": [],
+    "keywords": [
+      "scale",
+      "scaling",
+      "distance",
+      "StandardScaler"
+    ],
+    "web_refs": [
+      "web_sklearn_preprocessing"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.k_selection_bias_variance",
+    "source_id": "DS_PDF08_ML2",
+    "label": "k 선택과 bias-variance",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "kNN의 k는 이웃 수로, 작으면 노이즈에 민감하고 크면 경계가 과도하게 매끈해진다.",
+    "intuition": "동네 몇 명의 의견을 들을지 정하는 문제다.",
+    "formula_or_procedure": "small k: low bias/high variance; large k: high bias/low variance",
+    "dataframe_view": "validation set/cross-validation으로 k 후보를 비교한다.",
+    "code_view": "GridSearchCV over n_neighbors",
+    "course_example": "majority voting 문제점 페이지가 k와 class composition의 민감도를 암시한다.",
+    "common_mistake": "k를 홀수로만 고르면 문제가 해결된다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.knn_vote"
+    ],
+    "followups": [
+      "n_DS_ML3.silhouette_score"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Majority voting",
+      "kNN",
+      "k",
+      "neighbors"
+    ],
+    "web_refs": [
+      "web_sklearn_neighbors"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.decision_tree_impurity",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Decision tree와 impurity",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "의사결정나무는 feature 조건 질문을 반복해 target을 분리하고, 각 split은 impurity를 낮추는 방향으로 선택된다.",
+    "intuition": "스무고개식 질문으로 데이터를 점점 순수한 그룹으로 나누는 규칙 기반 모델이다.",
+    "formula_or_procedure": "choose split that maximizes impurity decrease; common criteria include gini impurity and entropy. Control overfitting with max_depth, min_samples_leaf, pruning-style constraints.",
+    "dataframe_view": "row는 규칙을 따라 leaf로 내려가고, leaf의 class 비율이 예측 근거가 된다.",
+    "code_view": "DecisionTreeClassifier(max_depth=...), export_text, plot_tree",
+    "course_example": "ML2 PDF의 decision tree 페이지를 1차 근거로 두고, impurity/depth/pruning 실무 해석은 scikit-learn 문서로 보강한다.",
+    "common_mistake": "tree는 scaling 영향이 작다고 해서 depth/leaf 제약 없이 키워도 된다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_ML1.loss_metric"
+    ],
+    "followups": [
+      "n_DS_ML3.kmeanspp_local_optimum"
+    ],
+    "analogous": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.knn_vote"
+    ],
+    "keywords": [
+      "Decision Tree",
+      "decision tree",
+      "impurity",
+      "gini",
+      "entropy",
+      "pruning"
+    ],
+    "web_refs": [
+      "web_sklearn_tree"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_008"
+    ]
+  }
+]

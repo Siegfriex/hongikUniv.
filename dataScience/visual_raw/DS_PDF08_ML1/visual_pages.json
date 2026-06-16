@@ -1,0 +1,50 @@
+[
+  {
+    "source_id": "DS_PDF08_ML1",
+    "page": 2,
+    "label": "ml_intro",
+    "reason": "머신러닝 정의와 학습 유형 도입",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML1/DS_PDF08_ML1_p002__ml_intro.png",
+    "transcript_anchor": "DS_PDF08_ML1:p002:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML1",
+    "page": 8,
+    "label": "supervised_unsupervised",
+    "reason": "지도/비지도/강화학습 비교",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML1/DS_PDF08_ML1_p008__supervised_unsupervised.png",
+    "transcript_anchor": "DS_PDF08_ML1:p008:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML1",
+    "page": 15,
+    "label": "train_test_structure",
+    "reason": "학습/검증 데이터 구조",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML1/DS_PDF08_ML1_p015__train_test_structure.png",
+    "transcript_anchor": "DS_PDF08_ML1:p015:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML1",
+    "page": 41,
+    "label": "classification_intro",
+    "reason": "분류 문제 정의",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML1/DS_PDF08_ML1_p041__classification_intro.png",
+    "transcript_anchor": "DS_PDF08_ML1:p041:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML1",
+    "page": 47,
+    "label": "logistic_regression_logit",
+    "reason": "로지스틱 회귀 logit 구조",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML1/DS_PDF08_ML1_p047__logistic_regression_logit.png",
+    "transcript_anchor": "DS_PDF08_ML1:p047:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML1",
+    "page": 54,
+    "label": "multiclass_classification",
+    "reason": "다중분류 확장",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML1/DS_PDF08_ML1_p054__multiclass_classification.png",
+    "transcript_anchor": "DS_PDF08_ML1:p054:L001"
+  }
+]

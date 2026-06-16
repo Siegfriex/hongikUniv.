@@ -1,0 +1,10 @@
+{
+  "policy": "problem notebooks only; answer notebooks are created only on request",
+  "mock_data_random_state": 42,
+  "created": [
+    "dataScience/workshop/ipynb/DS_SESSION01_stats_eda_foundation.ipynb",
+    "dataScience/workshop/ipynb/DS_SESSION02_03_supervised_pipeline_regression.ipynb",
+    "dataScience/workshop/ipynb/DS_SESSION04_05_supervised_algorithms.ipynb",
+    "dataScience/workshop/ipynb/DS_CAPSTONE_customer_supervised_learning.ipynb"
+  ]
+}

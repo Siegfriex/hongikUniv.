@@ -1,0 +1,90 @@
+[
+  {
+    "edge_id": "e_DS_PDF08_ML2_001",
+    "from": "n_DS_ML2.svm_margin_hyperplane",
+    "to": "n_DS_ML2.support_vectors",
+    "type": "determined_by",
+    "rationale": "support vector가 margin 위치를 결정한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_002",
+    "from": "n_DS_ML2.svm_margin_hyperplane",
+    "to": "n_DS_ML2.kernel_trick",
+    "type": "extends",
+    "rationale": "kernel은 선형 margin 개념을 비선형 경계로 확장한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_003",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "operationalizes",
+    "rationale": "kNN은 거리로 이웃을 고른다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_004",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "prevents_error",
+    "rationale": "scaling은 거리 기반 투표 왜곡을 줄인다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_005",
+    "from": "n_DS_ML2.decision_tree_impurity",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "contrasts_with",
+    "rationale": "tree는 규칙 기반, kNN은 거리 기반이다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_006",
+    "from": "n_DS_ML1.classification_regression",
+    "to": "n_DS_ML2.svm_margin_hyperplane",
+    "type": "extends_to_algorithm",
+    "rationale": "SVM은 분류 문제의 margin 기반 알고리즘이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_007",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML2.knn_vote",
+    "type": "operationalizes",
+    "rationale": "kNN은 거리 척도로 이웃을 선택한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_008",
+    "from": "n_DS_ML1.loss_metric",
+    "to": "n_DS_ML2.decision_tree_impurity",
+    "type": "extends_to_algorithm",
+    "rationale": "metric으로 평가하고 impurity로 split을 선택하는 tree 비교가 가능하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_009",
+    "from": "n_DS_ML2.decision_tree_impurity",
+    "to": "n_DS_ML2.scaling_distance_models",
+    "type": "contrasts_with",
+    "rationale": "tree는 scaling 영향이 작지만 depth/leaf 제약이 중요하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_010",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML3.kmeans_centroid_loop",
+    "type": "prerequisite",
+    "rationale": "k-means도 거리 기반이라 scaling 영향을 받는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML2_011",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML3.kmeans_distance_metrics",
+    "type": "shared_math",
+    "rationale": "kNN과 k-means 모두 거리 정의가 결과를 바꾼다.",
+    "scope": "cross_source"
+  }
+]

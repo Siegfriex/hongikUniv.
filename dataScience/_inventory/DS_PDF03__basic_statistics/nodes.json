@@ -1,0 +1,252 @@
+[
+  {
+    "node_id": "n_DS_STATS.population_sample_parameter_statistic",
+    "source_id": "DS_PDF07_STATS",
+    "label": "모집단/표본/모수/통계량",
+    "gate": "Gate 1 통계/확률",
+    "definition": "모집단은 관심 대상 전체, 표본은 관측된 일부, 모수는 모집단 값, 통계량은 표본에서 계산한 값이다.",
+    "intuition": "우리가 가진 작은 표본으로 보이지 않는 전체의 성질을 추정한다.",
+    "formula_or_procedure": "sample statistic -> estimate population parameter",
+    "dataframe_view": "DataFrame은 보통 표본이고, mean/std/value_counts는 통계량이다.",
+    "code_view": "df.sample, df.mean, df.std",
+    "course_example": "기초통계 PDF 첫 핵심 용어 페이지가 모든 추론의 출발점이다.",
+    "common_mistake": "표본 평균을 모집단 평균 그 자체로 단정하거나 parameter/statistic을 혼동하는 오류.",
+    "prerequisites": [],
+    "followups": [
+      "n_DS_STATS.statistical_inference",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "analogous": [],
+    "keywords": [
+      "모집단",
+      "Population",
+      "표본",
+      "Sample",
+      "모수",
+      "통계량"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.statistical_inference",
+    "source_id": "DS_PDF07_STATS",
+    "label": "통계적 추론",
+    "gate": "Gate 1 통계/확률",
+    "definition": "표본 자료를 사용해 모집단의 불확실한 성질을 추정·검정하는 과정이다.",
+    "intuition": "일부 데이터로 전체에 대해 조심스럽게 말하는 규칙이다.",
+    "formula_or_procedure": "estimate + uncertainty + assumption check",
+    "dataframe_view": "표본 크기, 표본추출 방식, 결측/편향이 추론 품질을 좌우한다.",
+    "code_view": "bootstrap confidence interval, train/test generalization analogy",
+    "course_example": "bootstrap 페이지가 표본 통계량 변동성을 경험적으로 보는 방법을 제공한다.",
+    "common_mistake": "표본이 편향되어도 큰 수면 무조건 괜찮다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.population_sample_parameter_statistic"
+    ],
+    "followups": [
+      "n_DS_STATS.bootstrap_imputation",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Statistical Inference",
+      "Bootstrap",
+      "표본"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.frequency_histogram",
+    "source_id": "DS_PDF07_STATS",
+    "label": "도수분포/상대도수/히스토그램",
+    "gate": "Gate 1 통계/확률",
+    "definition": "자료를 구간이나 범주로 나누어 빈도와 비율을 정리하고 분포 형태를 보는 방법이다.",
+    "intuition": "숫자 목록을 분포의 모양으로 접는 과정이다.",
+    "formula_or_procedure": "relative frequency = class frequency / total count",
+    "dataframe_view": "value_counts, cut, groupby count가 도수표를 만든다.",
+    "code_view": "pd.cut, value_counts(normalize=True), hist",
+    "course_example": "도수분포와 히스토그램 페이지가 시각화 Gate의 histogram과 직접 연결된다.",
+    "common_mistake": "구간폭을 바꾸지 않고 분포 모양을 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.population_sample_parameter_statistic"
+    ],
+    "followups": [
+      "n_DS_VIS.histogram_kde",
+      "n_DS_STATS.distribution_family"
+    ],
+    "analogous": [],
+    "keywords": [
+      "도수분포",
+      "Frequency",
+      "Histogram",
+      "상대도수"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.probability_random_variable",
+    "source_id": "DS_PDF07_STATS",
+    "label": "확률/확률변수",
+    "gate": "Gate 1 통계/확률",
+    "definition": "불확실한 사건의 가능성을 수로 표현하고, 확률변수는 실험 결과를 숫자로 대응시킨 변수다.",
+    "intuition": "불확실한 현실을 계산 가능한 숫자 규칙으로 바꾸는 언어다.",
+    "formula_or_procedure": "0 <= P(A) <= 1, random variable X maps outcomes to values",
+    "dataframe_view": "row는 실현값, column은 확률변수의 관측값으로 볼 수 있다.",
+    "code_view": "numpy random variables, scipy distributions",
+    "course_example": "확률분포 개요와 베르누이 시행이 discrete/continuous 모델의 출발점이다.",
+    "common_mistake": "관측 비율과 이론 확률을 같은 수준의 확정값으로 혼동하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.population_sample_parameter_statistic"
+    ],
+    "followups": [
+      "n_DS_STATS.conditional_independence",
+      "n_DS_LLM.sequence_probability"
+    ],
+    "analogous": [],
+    "keywords": [
+      "확률",
+      "확률변수",
+      "Bernoulli",
+      "distribution"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.conditional_independence",
+    "source_id": "DS_PDF07_STATS",
+    "label": "조건부확률과 독립",
+    "gate": "Gate 1 통계/확률",
+    "definition": "조건부확률은 B가 주어졌을 때 A의 확률이고, 독립은 B 정보가 A의 확률을 바꾸지 않는 상태다.",
+    "intuition": "이미 알고 있는 정보가 판단을 바꾸는지 확인하는 규칙이다.",
+    "formula_or_procedure": "P(A|B)=P(A∩B)/P(B). independent if P(A|B)=P(A) or P(A∩B)=P(A)P(B).",
+    "dataframe_view": "crosstab의 행/열 조건부 비율로 계산할 수 있다.",
+    "code_view": "pd.crosstab(..., normalize='index')",
+    "course_example": "분할표 페이지와 LLM의 다음 토큰 조건부 확률이 같은 확률 언어로 연결된다.",
+    "common_mistake": "P(A|B)와 P(B|A)를 바꿔 쓰거나, 상관/동시발생을 독립 위반의 원인으로 과해석하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.probability_random_variable"
+    ],
+    "followups": [
+      "n_DS_STATS.contingency_table",
+      "n_DS_LLM.sequence_probability"
+    ],
+    "analogous": [],
+    "keywords": [
+      "conditional",
+      "independent",
+      "분할표",
+      "Contingency"
+    ],
+    "web_refs": [
+      "web_pandas_groupby"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.distribution_family",
+    "source_id": "DS_PDF07_STATS",
+    "label": "이산/연속 확률분포",
+    "gate": "Gate 1 통계/확률",
+    "definition": "확률변수가 가질 수 있는 값과 그 가능성을 체계적으로 나타낸 모델군이다.",
+    "intuition": "데이터가 어떤 모양으로 나올지 미리 정한 지도다.",
+    "formula_or_procedure": "Discrete: Bernoulli/Binomial/Poisson. Continuous: density over intervals.",
+    "dataframe_view": "column 값의 domain과 dtype이 분포 가정을 제한한다.",
+    "code_view": "scipy.stats, histogram/KDE, empirical distribution",
+    "course_example": "확률분포 슬라이드가 베르누이·이항·포아송 등을 한 계열로 묶는다.",
+    "common_mistake": "분포 이름을 외우고 적용 조건을 확인하지 않는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.probability_random_variable"
+    ],
+    "followups": [
+      "n_DS_ML1.loss_metric",
+      "n_DS_LLM.ngram_language_model"
+    ],
+    "analogous": [
+      "n_DS_VIS.histogram_kde"
+    ],
+    "keywords": [
+      "확률분포",
+      "Bernoulli",
+      "Binomial",
+      "Poisson",
+      "continuous"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.contingency_table",
+    "source_id": "DS_PDF07_STATS",
+    "label": "분할표",
+    "gate": "Gate 1 통계/확률",
+    "definition": "두 범주형 변수의 조합 빈도를 2차원 표로 정리한 자료 구조다.",
+    "intuition": "범주 A와 범주 B가 같이 나타나는 패턴을 표로 보는 방법이다.",
+    "formula_or_procedure": "cell count, row proportion, column proportion, expected count",
+    "dataframe_view": "두 categorical columns를 crosstab한다.",
+    "code_view": "pd.crosstab(row_col, col_col, normalize=...)",
+    "course_example": "기초통계 PDF의 contingency table은 연관분석 support/confidence/lift의 선행 구조다.",
+    "common_mistake": "행비율과 열비율을 혼동해 조건부확률 방향을 바꾸는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.conditional_independence"
+    ],
+    "followups": [
+      "n_DS_ML3.association_rule"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Contingency",
+      "분할표",
+      "범주형"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.bootstrap_imputation",
+    "source_id": "DS_PDF07_STATS",
+    "label": "Bootstrap과 Imputation",
+    "gate": "Gate 1 통계/확률",
+    "definition": "Bootstrap은 표본을 복원추출해 통계량 변동성을 추정하고, imputation은 결측값을 분석 가능한 값으로 채운다.",
+    "intuition": "부족하거나 빠진 데이터에서 불확실성을 다루는 두 가지 실무 도구다.",
+    "formula_or_procedure": "bootstrap: resample with replacement -> compute statistic repeatedly. imputation: fill missing by rule/model.",
+    "dataframe_view": "결측 컬럼과 표본 행을 기준으로 처리한다.",
+    "code_view": "sklearn SimpleImputer/KNNImputer, sklearn.utils.resample",
+    "course_example": "기초통계 후반부의 bootstrap, bagging, imputation은 ML ensemble/전처리와 이어진다.",
+    "common_mistake": "결측을 무조건 평균으로 채우거나 bootstrap 결과를 원자료 증가로 오해하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.statistical_inference"
+    ],
+    "followups": [
+      "n_DS_ML1.preprocessing_leakage",
+      "n_DS_ML3.kmeanspp_local_optimum"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Bootstrap",
+      "Bagging",
+      "Imputation",
+      "결측치"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_008"
+    ]
+  }
+]

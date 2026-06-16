@@ -1,0 +1,259 @@
+[
+  {
+    "node_id": "n_DS_LLM.sequence_probability",
+    "source_id": "DS_PDF09_LLM",
+    "label": "언어모델과 문장 확률",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "언어모델은 단어/토큰 시퀀스의 가능도와 다음 토큰의 조건부 확률을 모델링한다.",
+    "intuition": "문장이 자연스럽게 이어질 가능성을 확률로 계산한다.",
+    "formula_or_procedure": "P(w1...wn)=product P(w_t | context)",
+    "dataframe_view": "row=document/sentence, column/token sequence or vectorized representation",
+    "code_view": "tokenizer -> model logits -> softmax probabilities",
+    "course_example": "LLM PDF의 조건부 확률 페이지가 통계 Gate와 직접 연결된다.",
+    "common_mistake": "LLM이 검색엔진처럼 사실을 조회한다고 생각하고 확률 생성 구조를 무시하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.conditional_independence"
+    ],
+    "followups": [
+      "n_DS_LLM.ngram_language_model",
+      "n_DS_LLM.attention_transformer"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Language Model",
+      "conditional probability",
+      "조건부 확률",
+      "단어"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.ngram_language_model",
+    "source_id": "DS_PDF09_LLM",
+    "label": "N-gram 통계적 언어모델",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "앞의 n-1개 단어를 조건으로 다음 단어 확률을 추정하는 통계적 언어모델이다.",
+    "intuition": "가까운 몇 단어만 보고 다음 단어를 예측하는 빈도 기반 모델이다.",
+    "formula_or_procedure": "P(w_t | w_{t-n+1},...,w_{t-1}) estimated from counts",
+    "dataframe_view": "텍스트를 n-gram count table로 바꾼다.",
+    "code_view": "CountVectorizer(ngram_range=...), frequency table",
+    "course_example": "언어모델 발전사에서 통계적 언어모델이 신경망/Transformer 이전 단계로 제시된다.",
+    "common_mistake": "n이 커지면 항상 좋아진다고 보고 sparse data 문제를 무시하는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.sequence_probability",
+      "n_DS_STATS.frequency_histogram"
+    ],
+    "followups": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "analogous": [],
+    "keywords": [
+      "N-gram",
+      "Statistical Language Model",
+      "빈도"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.embedding_contextual_representation",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Embedding과 문맥 표현",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "토큰을 계산 가능한 연속 벡터로 바꾸고 문맥에 따라 의미 표현을 갱신하는 방식이다.",
+    "intuition": "단어를 좌표로 바꾸어 의미적으로 가까운 단어가 공간에서도 가까워지게 한다.",
+    "formula_or_procedure": "token -> embedding vector; contextual model updates representation with surrounding tokens",
+    "dataframe_view": "text row가 token sequence 또는 embedding matrix로 변환된다.",
+    "code_view": "Embedding layer, tokenizer, transformer hidden states",
+    "course_example": "LLM PDF의 embedding/encoder/decoder 용어 페이지가 ML1 text vectorization의 후속이다.",
+    "common_mistake": "embedding을 사람이 정한 사전 코드처럼 고정 의미로 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.text_vectorization_features"
+    ],
+    "followups": [
+      "n_DS_LLM.attention_transformer",
+      "n_DS_ML3.kmeans_distance_metrics"
+    ],
+    "analogous": [],
+    "keywords": [
+      "임베딩",
+      "Embedding",
+      "Encoder",
+      "Decoder",
+      "vector"
+    ],
+    "web_refs": [
+      "web_bert_2018"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.encoder_decoder_seq2seq",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Encoder/Decoder와 Seq2Seq",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "입력 시퀀스를 표현으로 압축하는 encoder와 출력 시퀀스를 생성하는 decoder를 결합한 구조다.",
+    "intuition": "문장을 이해하는 쪽과 문장을 내보내는 쪽을 나눈 번역기 구조다.",
+    "formula_or_procedure": "encoder(input sequence)->context representation; decoder(context)->output sequence",
+    "dataframe_view": "입력 텍스트와 출력 텍스트가 paired rows로 구성된다.",
+    "code_view": "seq2seq model, encoder outputs, decoder generation",
+    "course_example": "Seq2Seq 페이지는 길이가 다른 입력/출력 시퀀스 처리 구조를 설명한다.",
+    "common_mistake": "encoder/decoder를 단순 전처리/후처리 함수로만 보는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "followups": [
+      "n_DS_LLM.attention_transformer"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Sequence to Sequence",
+      "Encoder",
+      "Decoder",
+      "Seq2Seq"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.attention_transformer",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Attention과 Transformer",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "attention은 토큰들이 서로 얼마나 참고해야 하는지 가중치를 계산하고, Transformer는 recurrence 없이 attention 중심으로 시퀀스를 처리한다.",
+    "intuition": "문장 안 모든 단어가 서로를 보며 중요한 연결에 집중하게 하는 구조다.",
+    "formula_or_procedure": "Attention(Q,K,V)=softmax(QK^T/sqrt(d_k))V",
+    "dataframe_view": "token sequence가 Q/K/V 행렬과 hidden states로 변환된다.",
+    "code_view": "Transformer encoder/decoder, multi-head self-attention",
+    "course_example": "LLM PDF는 Transformer가 self-attention 기반 LLM의 근간이라고 연결한다.",
+    "common_mistake": "attention weight를 곧바로 인간적 설명 또는 인과로 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.encoder_decoder_seq2seq"
+    ],
+    "followups": [
+      "n_DS_LLM.bert_gpt_pretraining",
+      "n_DS_LLM.foundation_instruction_tuning"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Transformer",
+      "Attention",
+      "self-attention",
+      "multi-head"
+    ],
+    "web_refs": [
+      "web_transformer_2017"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.bert_gpt_pretraining",
+    "source_id": "DS_PDF09_LLM",
+    "label": "BERT/GPT와 사전학습",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "BERT는 encoder 계열 양방향 문맥 표현, GPT는 decoder 계열 다음 토큰 생성을 중심으로 한 Transformer 사전학습 모델이다.",
+    "intuition": "많은 텍스트로 먼저 언어 패턴을 익히고, 이후 작업별로 조정한다.",
+    "formula_or_procedure": "pre-train on large corpus -> fine-tune or prompt for downstream task",
+    "dataframe_view": "문서 corpus rows가 토큰 시퀀스 학습 데이터가 된다.",
+    "code_view": "BERT encoder, GPT decoder, pretraining/fine-tuning",
+    "course_example": "LLM PDF의 BERT/GPT 발전사와 GPT decoder 페이지가 이 대비를 제공한다.",
+    "common_mistake": "BERT와 GPT를 같은 생성 모델로만 묶거나 encoder/decoder 차이를 지우는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.attention_transformer"
+    ],
+    "followups": [
+      "n_DS_LLM.foundation_instruction_tuning"
+    ],
+    "analogous": [],
+    "keywords": [
+      "BERT",
+      "GPT",
+      "Pre-trained",
+      "Decoder",
+      "Encoder"
+    ],
+    "web_refs": [
+      "web_bert_2018",
+      "web_transformer_2017"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.foundation_instruction_tuning",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Foundation model과 instruction tuning",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "Foundation model은 대규모 사전학습 기반 범용 모델이고, instruction tuning은 지시를 이해하고 수행하도록 추가 학습하는 절차다.",
+    "intuition": "문장 생성기가 사용자의 지시를 따르는 작업 수행자로 바뀌는 단계다.",
+    "formula_or_procedure": "pretrained LM -> supervised instruction data/RLHF preference optimization -> aligned assistant behavior",
+    "dataframe_view": "prompt/input/response가 학습·평가 단위가 된다.",
+    "code_view": "instruction dataset, supervised fine-tuning, preference/RLHF pipeline",
+    "course_example": "LLM PDF의 instruction tuning 예시는 Translate instruction을 명시적으로 따른다.",
+    "common_mistake": "instruction tuning이 factual grounding을 자동 보장한다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.bert_gpt_pretraining"
+    ],
+    "followups": [
+      "n_DS_LLM.rag_grounding"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Instruction Tuning",
+      "foundation model",
+      "LLM",
+      "Response"
+    ],
+    "web_refs": [
+      "web_instructgpt_2022"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.rag_grounding",
+    "source_id": "DS_PDF09_LLM",
+    "label": "RAG와 근거 기반 튜터링",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "RAG는 모델의 생성 능력에 외부 검색 근거를 결합해 답변의 출처성, 갱신성, 검증 가능성을 높이는 설계다.",
+    "intuition": "머릿속 기억만 말하지 않고 책장을 찾아 근거를 붙여 대답하게 하는 구조다.",
+    "formula_or_procedure": "query -> retrieve source chunks -> rerank/route -> generate with citations -> verify",
+    "dataframe_view": "문서 chunk table, embedding index, metadata/source anchors가 필요하다.",
+    "code_view": "vector store, hybrid retrieval, reranker, source trace table",
+    "course_example": "이번 DS flat-pack 자체가 PDF 전사와 웹 근거를 결합한 로컬 RAG 소스다.",
+    "common_mistake": "검색 결과가 있으면 답이 무조건 맞다고 보거나, PDF 근거와 웹 보강을 섞어 출처 우선순위를 잃는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.foundation_instruction_tuning",
+      "n_DS_ML3.support_confidence_lift"
+    ],
+    "followups": [
+      "n_DS_GLOBAL.tutor_operating_modes"
+    ],
+    "analogous": [],
+    "keywords": [
+      "RAG",
+      "retrieval",
+      "grounding",
+      "source"
+    ],
+    "web_refs": [
+      "web_rag_2020"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_008"
+    ]
+  }
+]

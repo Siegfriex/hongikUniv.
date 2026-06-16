@@ -1,0 +1,58 @@
+[
+  {
+    "edge_id": "e_DS_PDF08_ML1_001",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_ML1.feature_target_structure",
+    "type": "prepares",
+    "rationale": "관계 시각화가 feature/target 후보 탐색으로 이어진다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_002",
+    "from": "n_DS_STATS.population_sample_parameter_statistic",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "analogous_to",
+    "rationale": "표본으로 모집단을 추정하는 구조와 train으로 test 성능을 추정하는 구조가 닮아 있다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_003",
+    "from": "n_DS_CODE.sklearn_workflow",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "implements",
+    "rationale": "sklearn API가 split-fit-predict-metric 절차를 실행한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_004",
+    "from": "n_DS_ML1.feature_target_structure",
+    "to": "n_DS_ML1.classification_regression",
+    "type": "routes_to",
+    "rationale": "target 의미가 분류/회귀 라우팅을 결정한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_005",
+    "from": "n_DS_ML1.classification_regression",
+    "to": "n_DS_ML2.svm_margin_hyperplane",
+    "type": "extends_to_algorithm",
+    "rationale": "SVM은 분류 문제의 margin 기반 알고리즘이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_006",
+    "from": "n_DS_ML1.loss_metric",
+    "to": "n_DS_ML2.decision_tree_impurity",
+    "type": "extends_to_algorithm",
+    "rationale": "metric으로 평가하고 impurity로 split을 선택하는 tree 비교가 가능하다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML1_007",
+    "from": "n_DS_ML1.text_vectorization_features",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "extends",
+    "rationale": "텍스트 벡터화가 embedding/문맥표현으로 깊어진다.",
+    "scope": "cross_source"
+  }
+]

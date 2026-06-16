@@ -1,0 +1,50 @@
+[
+  {
+    "source_id": "DS_PDF06_CODE",
+    "page": 11,
+    "label": "programming_language",
+    "reason": "프로그래밍 언어와 절차적 문제 해결",
+    "image_path": "dataScience/visual_raw/DS_PDF06_CODE/DS_PDF06_CODE_p011__programming_language.png",
+    "transcript_anchor": "DS_PDF06_CODE:p011:L001"
+  },
+  {
+    "source_id": "DS_PDF06_CODE",
+    "page": 16,
+    "label": "r_language_intro",
+    "reason": "R 언어 특성과 통계 분석 도구 관점",
+    "image_path": "dataScience/visual_raw/DS_PDF06_CODE/DS_PDF06_CODE_p016__r_language_intro.png",
+    "transcript_anchor": "DS_PDF06_CODE:p016:L001"
+  },
+  {
+    "source_id": "DS_PDF06_CODE",
+    "page": 23,
+    "label": "iris_scatter_code",
+    "reason": "Iris 산점도 코드 예시",
+    "image_path": "dataScience/visual_raw/DS_PDF06_CODE/DS_PDF06_CODE_p023__iris_scatter_code.png",
+    "transcript_anchor": "DS_PDF06_CODE:p023:L001"
+  },
+  {
+    "source_id": "DS_PDF06_CODE",
+    "page": 25,
+    "label": "iris_boxplot_code",
+    "reason": "Iris boxplot과 factor level 제어",
+    "image_path": "dataScience/visual_raw/DS_PDF06_CODE/DS_PDF06_CODE_p025__iris_boxplot_code.png",
+    "transcript_anchor": "DS_PDF06_CODE:p025:L001"
+  },
+  {
+    "source_id": "DS_PDF06_CODE",
+    "page": 36,
+    "label": "sklearn_intro",
+    "reason": "scikit-learn 전처리/회귀/분류/군집/평가 소개",
+    "image_path": "dataScience/visual_raw/DS_PDF06_CODE/DS_PDF06_CODE_p036__sklearn_intro.png",
+    "transcript_anchor": "DS_PDF06_CODE:p036:L001"
+  },
+  {
+    "source_id": "DS_PDF06_CODE",
+    "page": 37,
+    "label": "train_test_plot",
+    "reason": "train/test와 예측 코드 흐름",
+    "image_path": "dataScience/visual_raw/DS_PDF06_CODE/DS_PDF06_CODE_p037__train_test_plot.png",
+    "transcript_anchor": "DS_PDF06_CODE:p037:L001"
+  }
+]

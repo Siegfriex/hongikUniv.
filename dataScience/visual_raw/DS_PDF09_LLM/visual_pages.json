@@ -1,0 +1,66 @@
+[
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 3,
+    "label": "lm_history",
+    "reason": "규칙기반에서 LLM까지 언어모델 발전사",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p003__lm_history.png",
+    "transcript_anchor": "DS_PDF09_LLM:p003:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 4,
+    "label": "embedding_encoder_decoder",
+    "reason": "embedding/encoder/decoder 기본 용어",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p004__embedding_encoder_decoder.png",
+    "transcript_anchor": "DS_PDF09_LLM:p004:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 7,
+    "label": "conditional_probability_lm",
+    "reason": "조건부 확률 기반 언어모델",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p007__conditional_probability_lm.png",
+    "transcript_anchor": "DS_PDF09_LLM:p007:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 22,
+    "label": "nnlm_structure",
+    "reason": "NNLM 구조",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p022__nnlm_structure.png",
+    "transcript_anchor": "DS_PDF09_LLM:p022:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 35,
+    "label": "seq2seq",
+    "reason": "encoder-decoder seq2seq",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p035__seq2seq.png",
+    "transcript_anchor": "DS_PDF09_LLM:p035:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 37,
+    "label": "gpt_decoder",
+    "reason": "GPT decoder-only 다음 단어 예측",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p037__gpt_decoder.png",
+    "transcript_anchor": "DS_PDF09_LLM:p037:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 38,
+    "label": "large_language_model",
+    "reason": "Transformer 기반 LLM과 foundation model",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p038__large_language_model.png",
+    "transcript_anchor": "DS_PDF09_LLM:p038:L001"
+  },
+  {
+    "source_id": "DS_PDF09_LLM",
+    "page": 39,
+    "label": "instruction_tuning",
+    "reason": "instruction tuning 예시",
+    "image_path": "dataScience/visual_raw/DS_PDF09_LLM/DS_PDF09_LLM_p039__instruction_tuning.png",
+    "transcript_anchor": "DS_PDF09_LLM:p039:L001"
+  }
+]

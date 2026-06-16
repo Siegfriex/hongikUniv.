@@ -1,0 +1,66 @@
+[
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 4,
+    "label": "svm_margin",
+    "reason": "SVM margin과 결정경계",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p004__svm_margin.png",
+    "transcript_anchor": "DS_PDF08_ML2:p004:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 5,
+    "label": "support_vectors",
+    "reason": "support vector와 margin 결정 관측치",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p005__support_vectors.png",
+    "transcript_anchor": "DS_PDF08_ML2:p005:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 6,
+    "label": "optimal_hyperplane",
+    "reason": "최대 margin hyperplane",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p006__optimal_hyperplane.png",
+    "transcript_anchor": "DS_PDF08_ML2:p006:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 9,
+    "label": "kernel_svm",
+    "reason": "비선형 SVM과 kernel 함수",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p009__kernel_svm.png",
+    "transcript_anchor": "DS_PDF08_ML2:p009:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 16,
+    "label": "knn_distance_metrics",
+    "reason": "kNN 거리 척도",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p016__knn_distance_metrics.png",
+    "transcript_anchor": "DS_PDF08_ML2:p016:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 17,
+    "label": "knn_scaling",
+    "reason": "거리 기반 모델의 scale 민감도",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p017__knn_scaling.png",
+    "transcript_anchor": "DS_PDF08_ML2:p017:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 19,
+    "label": "knn_classification_regression",
+    "reason": "kNN 분류/회귀 사용",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p019__knn_classification_regression.png",
+    "transcript_anchor": "DS_PDF08_ML2:p019:L001"
+  },
+  {
+    "source_id": "DS_PDF08_ML2",
+    "page": 21,
+    "label": "knn_majority_voting",
+    "reason": "majority voting 문제점",
+    "image_path": "dataScience/visual_raw/DS_PDF08_ML2/DS_PDF08_ML2_p021__knn_majority_voting.png",
+    "transcript_anchor": "DS_PDF08_ML2:p021:L001"
+  }
+]

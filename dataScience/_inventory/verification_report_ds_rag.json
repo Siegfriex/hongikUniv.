@@ -1,0 +1,55 @@
+{
+  "generated_at_utc": "2026-06-16T16:59:59+00:00",
+  "profiles": [
+    {
+      "source_id": "DS_PDF06_VIS",
+      "nodes": 7,
+      "edges": 7,
+      "evidence": 7,
+      "visual_pages": 7
+    },
+    {
+      "source_id": "DS_PDF06_CODE",
+      "nodes": 5,
+      "edges": 5,
+      "evidence": 5,
+      "visual_pages": 6
+    },
+    {
+      "source_id": "DS_PDF07_STATS",
+      "nodes": 8,
+      "edges": 5,
+      "evidence": 8,
+      "visual_pages": 7
+    },
+    {
+      "source_id": "DS_PDF08_ML1",
+      "nodes": 8,
+      "edges": 7,
+      "evidence": 8,
+      "visual_pages": 6
+    },
+    {
+      "source_id": "DS_PDF08_ML2",
+      "nodes": 8,
+      "edges": 11,
+      "evidence": 8,
+      "visual_pages": 8
+    },
+    {
+      "source_id": "DS_PDF08_ML3",
+      "nodes": 8,
+      "edges": 6,
+      "evidence": 8,
+      "visual_pages": 9
+    },
+    {
+      "source_id": "DS_PDF09_LLM",
+      "nodes": 8,
+      "edges": 4,
+      "evidence": 8,
+      "visual_pages": 8
+    }
+  ],
+  "errors": []
+}

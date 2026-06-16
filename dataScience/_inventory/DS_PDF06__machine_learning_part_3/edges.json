@@ -1,0 +1,50 @@
+[
+  {
+    "edge_id": "e_DS_PDF08_ML3_001",
+    "from": "n_DS_ML2.scaling_distance_models",
+    "to": "n_DS_ML3.kmeans_centroid_loop",
+    "type": "prerequisite",
+    "rationale": "k-means도 거리 기반이라 scaling 영향을 받는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_002",
+    "from": "n_DS_ML2.distance_metrics",
+    "to": "n_DS_ML3.kmeans_distance_metrics",
+    "type": "shared_math",
+    "rationale": "kNN과 k-means 모두 거리 정의가 결과를 바꾼다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_003",
+    "from": "n_DS_ML3.kmeanspp_local_optimum",
+    "to": "n_DS_ML3.silhouette_score",
+    "type": "validated_by",
+    "rationale": "초기값과 k 선택의 결과를 silhouette로 점검한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_004",
+    "from": "n_DS_STATS.contingency_table",
+    "to": "n_DS_ML3.association_rule",
+    "type": "prepares",
+    "rationale": "분할표의 조건부 비율 사고가 association rule 평가로 확장된다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_005",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_ML3.support_confidence_lift",
+    "type": "shared_formula",
+    "rationale": "lift는 독립 대비 동시출현 강도를 묻는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF08_ML3_006",
+    "from": "n_DS_ML3.kmeans_distance_metrics",
+    "to": "n_DS_LLM.embedding_contextual_representation",
+    "type": "analogous_to",
+    "rationale": "embedding 공간에서도 거리/유사도 해석이 필요하다.",
+    "scope": "cross_source"
+  }
+]

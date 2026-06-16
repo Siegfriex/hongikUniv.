@@ -1,0 +1,58 @@
+[
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 2,
+    "label": "population_sample_terms",
+    "reason": "모집단/표본/모수/통계량 핵심 용어",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p002__population_sample_terms.png",
+    "transcript_anchor": "DS_PDF07_STATS:p002:L001"
+  },
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 8,
+    "label": "frequency_distribution",
+    "reason": "도수분포표",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p008__frequency_distribution.png",
+    "transcript_anchor": "DS_PDF07_STATS:p008:L001"
+  },
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 10,
+    "label": "histogram_frequency",
+    "reason": "히스토그램과 상대도수",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p010__histogram_frequency.png",
+    "transcript_anchor": "DS_PDF07_STATS:p010:L001"
+  },
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 12,
+    "label": "contingency_table",
+    "reason": "두 범주형 변수의 분할표",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p012__contingency_table.png",
+    "transcript_anchor": "DS_PDF07_STATS:p012:L001"
+  },
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 14,
+    "label": "distribution_overview",
+    "reason": "이산/연속 확률분포 개요",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p014__distribution_overview.png",
+    "transcript_anchor": "DS_PDF07_STATS:p014:L001"
+  },
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 15,
+    "label": "bernoulli_trial",
+    "reason": "베르누이 시행",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p015__bernoulli_trial.png",
+    "transcript_anchor": "DS_PDF07_STATS:p015:L001"
+  },
+  {
+    "source_id": "DS_PDF07_STATS",
+    "page": 55,
+    "label": "bootstrap",
+    "reason": "bootstrap 재표본추출",
+    "image_path": "dataScience/visual_raw/DS_PDF07_STATS/DS_PDF07_STATS_p055__bootstrap.png",
+    "transcript_anchor": "DS_PDF07_STATS:p055:L001"
+  }
+]

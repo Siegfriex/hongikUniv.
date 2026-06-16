@@ -1,0 +1,58 @@
+[
+  {
+    "edge_id": "e_DS_PDF06_VIS_001",
+    "from": "n_DS_VIS.chart_selection",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "routes_to",
+    "rationale": "단변량 수치형이면 분포 그래프가 1차 선택이다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_002",
+    "from": "n_DS_VIS.chart_selection",
+    "to": "n_DS_VIS.scatter_correlation",
+    "type": "routes_to",
+    "rationale": "이변량 양적-양적 관계는 산점도로 먼저 본다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_003",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_VIS.bubble_plot",
+    "type": "extends",
+    "rationale": "버블 플롯은 산점도에 크기 차원을 추가한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_004",
+    "from": "n_DS_VIS.chart_selection",
+    "to": "n_DS_VIS.heatmap_multivariate",
+    "type": "routes_to",
+    "rationale": "행렬형/다변량 관계는 히트맵으로 압축한다.",
+    "scope": "local"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_005",
+    "from": "n_DS_STATS.frequency_histogram",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "supports",
+    "rationale": "도수/상대도수 이해가 histogram/KDE 해석의 통계 기반이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_006",
+    "from": "n_DS_CODE.dataframe_row_column",
+    "to": "n_DS_VIS.chart_selection",
+    "type": "feeds",
+    "rationale": "dtype과 변수 의미가 그래프 선택을 결정한다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF06_VIS_007",
+    "from": "n_DS_VIS.scatter_correlation",
+    "to": "n_DS_ML1.feature_target_structure",
+    "type": "prepares",
+    "rationale": "관계 시각화가 feature/target 후보 탐색으로 이어진다.",
+    "scope": "cross_source"
+  }
+]

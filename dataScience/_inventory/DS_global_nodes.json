@@ -1,0 +1,1688 @@
+[
+  {
+    "node_id": "n_DS_VIS.chart_selection",
+    "source_id": "DS_PDF06_VIS",
+    "label": "변수 유형별 그래프 선택",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "분석 질문과 변수 타입에 맞춰 단변량/이변량/다변량 그래프를 고르는 판단 규칙이다.",
+    "intuition": "그래프는 예쁜 그림이 아니라 어떤 비교를 허용할지 정하는 측정 도구다.",
+    "formula_or_procedure": "1) 변수 수 확인 2) 변수 타입 확인 3) 분포/관계/구성/비교 중 질문 선택 4) 그래프 선택 5) 해석 한계 표시",
+    "dataframe_view": "column dtype과 cardinality가 그래프 선택의 입력이다.",
+    "code_view": "pandas dtype 확인 -> seaborn/ggplot geom 선택 -> 축/색/크기 매핑",
+    "course_example": "슬라이드 초반의 양적/범주형, 단변량/이변량/다변량 표가 전체 시각화 라우터다.",
+    "common_mistake": "범주형 변수에 히스토그램을 쓰거나, 상관을 보여야 하는데 파이차트를 쓰는 오류.",
+    "prerequisites": [],
+    "followups": [
+      "n_DS_VIS.histogram_kde",
+      "n_DS_VIS.scatter_correlation",
+      "n_DS_VIS.heatmap_multivariate"
+    ],
+    "analogous": [],
+    "keywords": [
+      "단변량",
+      "이변량",
+      "다변량",
+      "히스토그램",
+      "산점도",
+      "heatmap"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.histogram_kde",
+    "source_id": "DS_PDF06_VIS",
+    "label": "히스토그램과 KDE",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "연속형 또는 순서형 수치 변수의 분포를 구간 빈도 또는 부드러운 밀도로 보는 시각화다.",
+    "intuition": "값들이 어디에 몰리고 어디가 비어 있는지 보는 지도다.",
+    "formula_or_procedure": "histogram: bin별 count/relative frequency. KDE: 각 점 주변 커널을 합쳐 연속 밀도 곡선을 만든다.",
+    "dataframe_view": "하나의 numeric column이 입력이고, binwidth가 해석을 크게 바꾼다.",
+    "code_view": "Series.plot.hist, seaborn.histplot, ggplot2 geom_histogram/binwidth",
+    "course_example": "데이터시각화 PDF의 density plot 페이지가 histogram을 매끈한 곡선으로 해석하는 브릿지다.",
+    "common_mistake": "binwidth를 바꿔보지 않고 봉우리 수나 이상치를 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.chart_selection"
+    ],
+    "followups": [
+      "n_DS_STATS.frequency_histogram",
+      "n_DS_VIS.boxplot_iqr"
+    ],
+    "analogous": [
+      "n_DS_STATS.distribution_family"
+    ],
+    "keywords": [
+      "Density",
+      "Kernel",
+      "히스토그램",
+      "KDE"
+    ],
+    "web_refs": [
+      "web_ggplot2_histogram"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.scatter_correlation",
+    "source_id": "DS_PDF06_VIS",
+    "label": "산점도와 관계 해석",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "두 양적 변수의 좌표쌍을 점으로 찍어 관계 방향, 형태, 이상치, 군집을 보는 그래프다.",
+    "intuition": "두 변수가 같이 움직이는지 눈으로 확인하는 첫 번째 도구다.",
+    "formula_or_procedure": "x축 변수와 y축 변수를 잡고 패턴이 선형/비선형/무관/군집/이상치인지 판별한다.",
+    "dataframe_view": "두 numeric columns, 필요하면 hue로 범주형 column을 추가한다.",
+    "code_view": "plt.scatter, seaborn.scatterplot, ggplot geom_point",
+    "course_example": "Iris Petal.Length와 Petal.Width 산점도는 변수 관계와 종 분리를 동시에 보여준다.",
+    "common_mistake": "상관이 보인다고 인과라고 말하거나, 비선형 관계를 Pearson 상관 하나로 지워버리는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.chart_selection"
+    ],
+    "followups": [
+      "n_DS_ML1.feature_target_structure",
+      "n_DS_ML2.distance_metrics"
+    ],
+    "analogous": [
+      "n_DS_VIS.bubble_plot"
+    ],
+    "keywords": [
+      "Scatter",
+      "산점도",
+      "Petal.Length",
+      "Petal.Width"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.scatterplot_matrix",
+    "source_id": "DS_PDF06_VIS",
+    "label": "산점도 행렬",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "여러 양적 변수 쌍의 산점도를 격자로 배열해 다변량 관계를 한 번에 보는 시각화다.",
+    "intuition": "변수 둘씩 비교한 작은 산점도들을 모아 관계 지도를 만든다.",
+    "formula_or_procedure": "for each pair of numeric variables -> scatter plot cell; diagonal often distribution plot",
+    "dataframe_view": "여러 numeric columns가 입력이고, hue로 범주 라벨을 겹칠 수 있다.",
+    "code_view": "pandas.plotting.scatter_matrix, seaborn.pairplot",
+    "course_example": "데이터시각화 PDF의 scatterplot matrix 페이지가 다변량 관계 탐색 예다.",
+    "common_mistake": "행렬을 보고 모든 쌍의 관계가 독립적이라고 생각하거나 다중비교 해석 위험을 무시하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.scatter_correlation"
+    ],
+    "followups": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "analogous": [
+      "n_DS_VIS.heatmap_multivariate"
+    ],
+    "keywords": [
+      "Scatterplot matrix",
+      "matrix",
+      "다변량"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.bubble_plot",
+    "source_id": "DS_PDF06_VIS",
+    "label": "버블 플롯",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "산점도 좌표에 점의 크기를 더해 세 번째 양적 변수를 표현하는 그래프다.",
+    "intuition": "위치 두 개와 크기 하나를 동시에 읽는 산점도 확장이다.",
+    "formula_or_procedure": "x/y 좌표 + size mapping. 면적 인식은 비선형이므로 범위와 legend가 중요하다.",
+    "dataframe_view": "numeric x, numeric y, numeric size column이 필요하다.",
+    "code_view": "seaborn.scatterplot(size=...), ggplot aes(size=...)",
+    "course_example": "시각화 PDF의 Bubble Plot 페이지는 산점도에 크기 차원을 추가하는 예다.",
+    "common_mistake": "원의 반지름과 면적을 혼동해서 크기 차이를 과장/축소하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.scatter_correlation"
+    ],
+    "followups": [
+      "n_DS_VIS.heatmap_multivariate"
+    ],
+    "analogous": [
+      "n_DS_VIS.scatterplot_matrix"
+    ],
+    "keywords": [
+      "Bubble",
+      "Scatter Plot",
+      "크기"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.boxplot_iqr",
+    "source_id": "DS_PDF06_VIS",
+    "label": "박스플롯/IQR/이상치 후보",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "중앙값, 사분위수, IQR, whisker, 이상치 후보를 한 그림에 압축하는 그래프다.",
+    "intuition": "분포의 가운데와 꼬리를 요약한 압축 프로필이다.",
+    "formula_or_procedure": "IQR = Q3 - Q1. 흔한 기준: Q1 - 1.5*IQR보다 작거나 Q3 + 1.5*IQR보다 큰 값을 이상치 후보로 표시.",
+    "dataframe_view": "numeric column을 범주별 groupby해서 분포를 비교할 수 있다.",
+    "code_view": "seaborn.boxplot, ggplot geom_boxplot, pandas boxplot",
+    "course_example": "R/Python PDF의 Iris species별 Petal.Length boxplot과 연결된다.",
+    "common_mistake": "박스플롯 점을 자동 삭제해야 하는 진짜 이상치로 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.frequency_histogram"
+    ],
+    "followups": [
+      "n_DS_CODE.iris_scatter_boxplot",
+      "n_DS_ML1.preprocessing_leakage"
+    ],
+    "analogous": [
+      "n_DS_VIS.histogram_kde"
+    ],
+    "keywords": [
+      "Box Plot",
+      "boxplots",
+      "IQR",
+      "Petal.Length"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.heatmap_multivariate",
+    "source_id": "DS_PDF06_VIS",
+    "label": "히트맵",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "행과 열의 교차값을 색으로 인코딩해 행렬형 패턴을 보는 시각화다.",
+    "intuition": "큰 표를 색의 지형도로 바꿔 군집과 강도를 빠르게 찾는다.",
+    "formula_or_procedure": "matrix/crosstab/correlation table을 만들고 색상 팔레트와 스케일을 지정한다.",
+    "dataframe_view": "pivot table 또는 correlation matrix가 대표 입력이다.",
+    "code_view": "pandas.pivot_table/corr -> seaborn.heatmap",
+    "course_example": "시각화 PDF는 heatmap with dendrogram을 다변량 패턴 탐색 예로 둔다.",
+    "common_mistake": "색상 스케일을 확인하지 않고 값 차이를 과해석하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.chart_selection"
+    ],
+    "followups": [
+      "n_DS_ML3.clustering_problem",
+      "n_DS_STATS.contingency_table"
+    ],
+    "analogous": [
+      "n_DS_VIS.scatterplot_matrix"
+    ],
+    "keywords": [
+      "Heatmap",
+      "Dendrogram",
+      "heatmap"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_CODE.computing_thinking",
+    "source_id": "DS_PDF06_CODE",
+    "label": "컴퓨팅 사고",
+    "gate": "Gate 2 Python/pandas/numpy",
+    "definition": "문제를 입력, 처리 절차, 출력으로 나누어 컴퓨터가 수행 가능한 단계로 바꾸는 사고방식이다.",
+    "intuition": "현실 문제를 사람이 읽는 문장 대신 기계가 수행할 명령 순서로 바꾸는 과정이다.",
+    "formula_or_procedure": "problem -> input -> algorithm -> output -> validation",
+    "dataframe_view": "입력은 DataFrame/array, 처리는 함수·조건·반복·집계, 출력은 표/그래프/모델 결과다.",
+    "code_view": "함수 분해, 반복문, vectorized operation, pipeline",
+    "course_example": "R/Python PDF의 프로그래밍 입문부가 데이터 분석 코드의 전제다.",
+    "common_mistake": "코드를 암기하고 문제 구조를 입력/처리/출력으로 나누지 않는 오류.",
+    "prerequisites": [],
+    "followups": [
+      "n_DS_CODE.dataframe_row_column",
+      "n_DS_CODE.reproducible_random_state"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Programming",
+      "프로그래밍",
+      "명령어",
+      "instructions"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_CODE_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_CODE.dataframe_row_column",
+    "source_id": "DS_PDF06_CODE",
+    "label": "DataFrame 행/열 구조",
+    "gate": "Gate 2 Python/pandas/numpy",
+    "definition": "행은 관측 단위, 열은 변수이며 데이터 분석의 기본 테이블 구조다.",
+    "intuition": "데이터프레임은 분석 질문을 행과 열로 고정하는 표준 작업대다.",
+    "formula_or_procedure": "row=observation, column=variable, X=feature matrix, y=target vector",
+    "dataframe_view": "각 column의 dtype, missing, cardinality가 전처리와 그래프 선택을 결정한다.",
+    "code_view": "pd.DataFrame, df.info, df.describe, df.groupby, df.merge",
+    "course_example": "Iris 데이터의 Petal.Length, Petal.Width, Species가 변수/라벨 구분 예다.",
+    "common_mistake": "행 의미와 열 의미를 정하지 않고 바로 모델을 fit하는 오류.",
+    "prerequisites": [
+      "n_DS_CODE.computing_thinking"
+    ],
+    "followups": [
+      "n_DS_ML1.feature_target_structure",
+      "n_DS_VIS.chart_selection"
+    ],
+    "analogous": [],
+    "keywords": [
+      "DataFrame",
+      "row",
+      "column",
+      "Iris"
+    ],
+    "web_refs": [
+      "web_pandas_10min",
+      "web_pandas_groupby"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF06_CODE_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_CODE.iris_scatter_boxplot",
+    "source_id": "DS_PDF06_CODE",
+    "label": "Iris 산점도/박스플롯 코드",
+    "gate": "Gate 2 Python/pandas/numpy",
+    "definition": "Iris 변수와 Species 라벨을 사용해 관계와 범주별 분포를 시각화하는 코드 예제다.",
+    "intuition": "같은 데이터를 산점도와 박스플롯으로 보면 관계와 집단 차이가 분리되어 보인다.",
+    "formula_or_procedure": "scatter: x=Petal.Length, y=Petal.Width. boxplot: x=Species, y=Petal.Length.",
+    "dataframe_view": "Petal.Length/Petal.Width는 feature, Species는 grouping label이다.",
+    "code_view": "ggplot geom_point/geom_boxplot 또는 seaborn.scatterplot/boxplot",
+    "course_example": "R 예제의 Iris scatter plot과 box plot 페이지가 Gate 3 실습의 핵심 예제다.",
+    "common_mistake": "Species 순서, 축 단위, 색상 legend를 확인하지 않는 오류.",
+    "prerequisites": [
+      "n_DS_CODE.dataframe_row_column"
+    ],
+    "followups": [
+      "n_DS_VIS.scatter_correlation",
+      "n_DS_VIS.boxplot_iqr"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Iris",
+      "scatter plot",
+      "box plot",
+      "Petal.Length",
+      "Species"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_CODE_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_CODE.sklearn_workflow",
+    "source_id": "DS_PDF06_CODE",
+    "label": "scikit-learn 기본 워크플로",
+    "gate": "Gate 2 Python/pandas/numpy",
+    "definition": "데이터 전처리, 모델 학습, 예측, 평가를 estimator API로 연결하는 Python ML 절차다.",
+    "intuition": "데이터프레임에서 모델 결과까지 가는 표준 컨베이어벨트다.",
+    "formula_or_procedure": "split -> preprocess/scale -> fit -> predict -> metric -> interpret",
+    "dataframe_view": "X는 2D feature matrix, y는 1D target vector가 기본이다.",
+    "code_view": "train_test_split, StandardScaler, estimator.fit, estimator.predict, metrics",
+    "course_example": "R/Python PDF의 scikit-learn 소개는 ML Part 1~3의 코드 실행 기반이다.",
+    "common_mistake": "train/test를 나누지 않고 같은 데이터로 평가하거나, scaler를 전체 데이터에 fit하는 오류.",
+    "prerequisites": [
+      "n_DS_CODE.dataframe_row_column"
+    ],
+    "followups": [
+      "n_DS_ML1.train_test_generalization",
+      "n_DS_ML2.scaling_distance_models"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Scikit-learn",
+      "train",
+      "test",
+      "Training data",
+      "Test data"
+    ],
+    "web_refs": [
+      "web_sklearn_train_test_split",
+      "web_sklearn_preprocessing"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF06_CODE_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_CODE.reproducible_random_state",
+    "source_id": "DS_PDF06_CODE",
+    "label": "재현성/random_state",
+    "gate": "Gate 2 Python/pandas/numpy",
+    "definition": "무작위 분할·초기화·샘플링 결과를 다시 만들 수 있게 난수 시드를 고정하는 규칙이다.",
+    "intuition": "같은 실험을 다시 실행해도 비교 가능한 결과가 나오게 하는 잠금장치다.",
+    "formula_or_procedure": "random_state or seed 고정 -> split/initialization/sampling 재현 -> 결과 비교 가능",
+    "dataframe_view": "mock data, train/test split, k-means 초기 중심, bootstrap sample에 적용된다.",
+    "code_view": "np.random.default_rng, random_state=42",
+    "course_example": "Python 예제의 train/test 시각화와 k-means 초기점 문제에 모두 연결된다.",
+    "common_mistake": "시드를 고정하지 않고 알고리즘 변경 효과와 난수 변동을 섞어 해석하는 오류.",
+    "prerequisites": [
+      "n_DS_CODE.computing_thinking"
+    ],
+    "followups": [
+      "n_DS_ML1.train_test_generalization",
+      "n_DS_ML3.kmeanspp_local_optimum"
+    ],
+    "analogous": [],
+    "keywords": [
+      "random",
+      "n_samples",
+      "train",
+      "test"
+    ],
+    "web_refs": [
+      "web_sklearn_train_test_split"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF06_CODE_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.population_sample_parameter_statistic",
+    "source_id": "DS_PDF07_STATS",
+    "label": "모집단/표본/모수/통계량",
+    "gate": "Gate 1 통계/확률",
+    "definition": "모집단은 관심 대상 전체, 표본은 관측된 일부, 모수는 모집단 값, 통계량은 표본에서 계산한 값이다.",
+    "intuition": "우리가 가진 작은 표본으로 보이지 않는 전체의 성질을 추정한다.",
+    "formula_or_procedure": "sample statistic -> estimate population parameter",
+    "dataframe_view": "DataFrame은 보통 표본이고, mean/std/value_counts는 통계량이다.",
+    "code_view": "df.sample, df.mean, df.std",
+    "course_example": "기초통계 PDF 첫 핵심 용어 페이지가 모든 추론의 출발점이다.",
+    "common_mistake": "표본 평균을 모집단 평균 그 자체로 단정하거나 parameter/statistic을 혼동하는 오류.",
+    "prerequisites": [],
+    "followups": [
+      "n_DS_STATS.statistical_inference",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "analogous": [],
+    "keywords": [
+      "모집단",
+      "Population",
+      "표본",
+      "Sample",
+      "모수",
+      "통계량"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.statistical_inference",
+    "source_id": "DS_PDF07_STATS",
+    "label": "통계적 추론",
+    "gate": "Gate 1 통계/확률",
+    "definition": "표본 자료를 사용해 모집단의 불확실한 성질을 추정·검정하는 과정이다.",
+    "intuition": "일부 데이터로 전체에 대해 조심스럽게 말하는 규칙이다.",
+    "formula_or_procedure": "estimate + uncertainty + assumption check",
+    "dataframe_view": "표본 크기, 표본추출 방식, 결측/편향이 추론 품질을 좌우한다.",
+    "code_view": "bootstrap confidence interval, train/test generalization analogy",
+    "course_example": "bootstrap 페이지가 표본 통계량 변동성을 경험적으로 보는 방법을 제공한다.",
+    "common_mistake": "표본이 편향되어도 큰 수면 무조건 괜찮다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.population_sample_parameter_statistic"
+    ],
+    "followups": [
+      "n_DS_STATS.bootstrap_imputation",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Statistical Inference",
+      "Bootstrap",
+      "표본"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.frequency_histogram",
+    "source_id": "DS_PDF07_STATS",
+    "label": "도수분포/상대도수/히스토그램",
+    "gate": "Gate 1 통계/확률",
+    "definition": "자료를 구간이나 범주로 나누어 빈도와 비율을 정리하고 분포 형태를 보는 방법이다.",
+    "intuition": "숫자 목록을 분포의 모양으로 접는 과정이다.",
+    "formula_or_procedure": "relative frequency = class frequency / total count",
+    "dataframe_view": "value_counts, cut, groupby count가 도수표를 만든다.",
+    "code_view": "pd.cut, value_counts(normalize=True), hist",
+    "course_example": "도수분포와 히스토그램 페이지가 시각화 Gate의 histogram과 직접 연결된다.",
+    "common_mistake": "구간폭을 바꾸지 않고 분포 모양을 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.population_sample_parameter_statistic"
+    ],
+    "followups": [
+      "n_DS_VIS.histogram_kde",
+      "n_DS_STATS.distribution_family"
+    ],
+    "analogous": [],
+    "keywords": [
+      "도수분포",
+      "Frequency",
+      "Histogram",
+      "상대도수"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.probability_random_variable",
+    "source_id": "DS_PDF07_STATS",
+    "label": "확률/확률변수",
+    "gate": "Gate 1 통계/확률",
+    "definition": "불확실한 사건의 가능성을 수로 표현하고, 확률변수는 실험 결과를 숫자로 대응시킨 변수다.",
+    "intuition": "불확실한 현실을 계산 가능한 숫자 규칙으로 바꾸는 언어다.",
+    "formula_or_procedure": "0 <= P(A) <= 1, random variable X maps outcomes to values",
+    "dataframe_view": "row는 실현값, column은 확률변수의 관측값으로 볼 수 있다.",
+    "code_view": "numpy random variables, scipy distributions",
+    "course_example": "확률분포 개요와 베르누이 시행이 discrete/continuous 모델의 출발점이다.",
+    "common_mistake": "관측 비율과 이론 확률을 같은 수준의 확정값으로 혼동하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.population_sample_parameter_statistic"
+    ],
+    "followups": [
+      "n_DS_STATS.conditional_independence",
+      "n_DS_LLM.sequence_probability"
+    ],
+    "analogous": [],
+    "keywords": [
+      "확률",
+      "확률변수",
+      "Bernoulli",
+      "distribution"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.conditional_independence",
+    "source_id": "DS_PDF07_STATS",
+    "label": "조건부확률과 독립",
+    "gate": "Gate 1 통계/확률",
+    "definition": "조건부확률은 B가 주어졌을 때 A의 확률이고, 독립은 B 정보가 A의 확률을 바꾸지 않는 상태다.",
+    "intuition": "이미 알고 있는 정보가 판단을 바꾸는지 확인하는 규칙이다.",
+    "formula_or_procedure": "P(A|B)=P(A∩B)/P(B). independent if P(A|B)=P(A) or P(A∩B)=P(A)P(B).",
+    "dataframe_view": "crosstab의 행/열 조건부 비율로 계산할 수 있다.",
+    "code_view": "pd.crosstab(..., normalize='index')",
+    "course_example": "분할표 페이지와 LLM의 다음 토큰 조건부 확률이 같은 확률 언어로 연결된다.",
+    "common_mistake": "P(A|B)와 P(B|A)를 바꿔 쓰거나, 상관/동시발생을 독립 위반의 원인으로 과해석하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.probability_random_variable"
+    ],
+    "followups": [
+      "n_DS_STATS.contingency_table",
+      "n_DS_LLM.sequence_probability"
+    ],
+    "analogous": [],
+    "keywords": [
+      "conditional",
+      "independent",
+      "분할표",
+      "Contingency"
+    ],
+    "web_refs": [
+      "web_pandas_groupby"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.distribution_family",
+    "source_id": "DS_PDF07_STATS",
+    "label": "이산/연속 확률분포",
+    "gate": "Gate 1 통계/확률",
+    "definition": "확률변수가 가질 수 있는 값과 그 가능성을 체계적으로 나타낸 모델군이다.",
+    "intuition": "데이터가 어떤 모양으로 나올지 미리 정한 지도다.",
+    "formula_or_procedure": "Discrete: Bernoulli/Binomial/Poisson. Continuous: density over intervals.",
+    "dataframe_view": "column 값의 domain과 dtype이 분포 가정을 제한한다.",
+    "code_view": "scipy.stats, histogram/KDE, empirical distribution",
+    "course_example": "확률분포 슬라이드가 베르누이·이항·포아송 등을 한 계열로 묶는다.",
+    "common_mistake": "분포 이름을 외우고 적용 조건을 확인하지 않는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.probability_random_variable"
+    ],
+    "followups": [
+      "n_DS_ML1.loss_metric",
+      "n_DS_LLM.ngram_language_model"
+    ],
+    "analogous": [
+      "n_DS_VIS.histogram_kde"
+    ],
+    "keywords": [
+      "확률분포",
+      "Bernoulli",
+      "Binomial",
+      "Poisson",
+      "continuous"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.contingency_table",
+    "source_id": "DS_PDF07_STATS",
+    "label": "분할표",
+    "gate": "Gate 1 통계/확률",
+    "definition": "두 범주형 변수의 조합 빈도를 2차원 표로 정리한 자료 구조다.",
+    "intuition": "범주 A와 범주 B가 같이 나타나는 패턴을 표로 보는 방법이다.",
+    "formula_or_procedure": "cell count, row proportion, column proportion, expected count",
+    "dataframe_view": "두 categorical columns를 crosstab한다.",
+    "code_view": "pd.crosstab(row_col, col_col, normalize=...)",
+    "course_example": "기초통계 PDF의 contingency table은 연관분석 support/confidence/lift의 선행 구조다.",
+    "common_mistake": "행비율과 열비율을 혼동해 조건부확률 방향을 바꾸는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.conditional_independence"
+    ],
+    "followups": [
+      "n_DS_ML3.association_rule"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Contingency",
+      "분할표",
+      "범주형"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_STATS.bootstrap_imputation",
+    "source_id": "DS_PDF07_STATS",
+    "label": "Bootstrap과 Imputation",
+    "gate": "Gate 1 통계/확률",
+    "definition": "Bootstrap은 표본을 복원추출해 통계량 변동성을 추정하고, imputation은 결측값을 분석 가능한 값으로 채운다.",
+    "intuition": "부족하거나 빠진 데이터에서 불확실성을 다루는 두 가지 실무 도구다.",
+    "formula_or_procedure": "bootstrap: resample with replacement -> compute statistic repeatedly. imputation: fill missing by rule/model.",
+    "dataframe_view": "결측 컬럼과 표본 행을 기준으로 처리한다.",
+    "code_view": "sklearn SimpleImputer/KNNImputer, sklearn.utils.resample",
+    "course_example": "기초통계 후반부의 bootstrap, bagging, imputation은 ML ensemble/전처리와 이어진다.",
+    "common_mistake": "결측을 무조건 평균으로 채우거나 bootstrap 결과를 원자료 증가로 오해하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.statistical_inference"
+    ],
+    "followups": [
+      "n_DS_ML1.preprocessing_leakage",
+      "n_DS_ML3.kmeanspp_local_optimum"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Bootstrap",
+      "Bagging",
+      "Imputation",
+      "결측치"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF07_STATS_008"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.feature_target_structure",
+    "source_id": "DS_PDF08_ML1",
+    "label": "X/y feature-target 구조",
+    "gate": "Gate 4 지도학습",
+    "definition": "feature matrix X와 target vector y로 예측 문제를 표현하는 데이터 구조다.",
+    "intuition": "무엇을 근거로 무엇을 맞힐지 분리하는 모델링의 시작점이다.",
+    "formula_or_procedure": "X = rows x features, y = label/target for each row",
+    "dataframe_view": "feature columns와 target column을 분리한다.",
+    "code_view": "X = df[features]; y = df[target]",
+    "course_example": "ML Part 1은 classification/regression 모두 X/y 구조로 읽어야 한다.",
+    "common_mistake": "target을 feature에 섞어 target leakage를 만드는 오류.",
+    "prerequisites": [
+      "n_DS_CODE.dataframe_row_column"
+    ],
+    "followups": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "analogous": [],
+    "keywords": [
+      "feature",
+      "target",
+      "classification",
+      "regression",
+      "label"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.learning_types",
+    "source_id": "DS_PDF08_ML1",
+    "label": "지도/비지도/강화학습",
+    "gate": "Gate 4 지도학습",
+    "definition": "지도학습은 정답 y가 있고, 비지도학습은 구조를 찾고, 강화학습은 보상으로 행동 정책을 학습한다.",
+    "intuition": "정답이 있느냐, 구조를 찾느냐, 행동을 개선하느냐로 문제를 나눈다.",
+    "formula_or_procedure": "supervised: f(X)->y. unsupervised: structure(X). reinforcement: policy maximizing reward.",
+    "dataframe_view": "target column 유무가 지도/비지도 판별의 핵심이다.",
+    "code_view": "Classifier/Regressor, clustering, RL environment",
+    "course_example": "ML Part 1의 학습 유형 표가 Gate 4/5 라우터다.",
+    "common_mistake": "군집 결과를 정답 라벨처럼 평가하거나, target 없는 문제에 accuracy를 쓰는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "followups": [
+      "n_DS_ML3.clustering_problem"
+    ],
+    "analogous": [],
+    "keywords": [
+      "supervised",
+      "unsupervised",
+      "reinforcement",
+      "지도",
+      "비지도"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.train_test_generalization",
+    "source_id": "DS_PDF08_ML1",
+    "label": "Train/Test split과 일반화",
+    "gate": "Gate 4 지도학습",
+    "definition": "학습에 쓴 데이터와 평가 데이터를 분리해 새 데이터 성능을 추정하는 검증 절차다.",
+    "intuition": "외운 성적과 실전 성적을 분리해서 보는 장치다.",
+    "formula_or_procedure": "split data -> fit on train -> predict on test -> metric on test",
+    "dataframe_view": "행 단위로 분할하되 시간/그룹 누수 여부를 확인한다.",
+    "code_view": "train_test_split(X, y, test_size=..., random_state=...)",
+    "course_example": "R/Python PDF의 train/test 시각화와 ML Part 1 평가 흐름이 연결된다.",
+    "common_mistake": "전처리나 feature selection을 split 전에 전체 데이터로 fit하는 leakage 오류.",
+    "prerequisites": [
+      "n_DS_CODE.sklearn_workflow",
+      "n_DS_STATS.statistical_inference"
+    ],
+    "followups": [
+      "n_DS_ML1.loss_metric",
+      "n_DS_ML2.scaling_distance_models"
+    ],
+    "analogous": [],
+    "keywords": [
+      "train",
+      "test",
+      "Training",
+      "Test",
+      "accuracy"
+    ],
+    "web_refs": [
+      "web_sklearn_train_test_split"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.preprocessing_leakage",
+    "source_id": "DS_PDF08_ML1",
+    "label": "전처리와 leakage",
+    "gate": "Gate 4 지도학습",
+    "definition": "결측치 대체, scaling, 이상치 판단, feature selection 같은 전처리는 train/test 경계를 지키며 학습 데이터 기준으로 fit해야 한다.",
+    "intuition": "시험지 답을 미리 보고 공부하지 않도록 데이터 처리 순서를 잠그는 규칙이다.",
+    "formula_or_procedure": "split first -> fit preprocessing on train -> transform train/test -> fit model -> evaluate",
+    "dataframe_view": "missing/outlier/scaler statistics are learned from train rows only.",
+    "code_view": "Pipeline([('preprocess', ...), ('model', ...)]), SimpleImputer, StandardScaler",
+    "course_example": "boxplot의 이상치 후보, bootstrap/imputation, scaling 민감도가 모두 이 leakage 규칙으로 연결된다.",
+    "common_mistake": "전체 데이터로 평균/표준편차/결측 대체값을 계산한 뒤 split하는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.train_test_generalization",
+      "n_DS_STATS.bootstrap_imputation"
+    ],
+    "followups": [
+      "n_DS_ML2.scaling_distance_models",
+      "n_DS_ML3.kmeans_centroid_loop"
+    ],
+    "analogous": [],
+    "keywords": [
+      "train",
+      "test",
+      "preprocessing",
+      "Imputation",
+      "scale"
+    ],
+    "web_refs": [
+      "web_sklearn_preprocessing",
+      "web_sklearn_train_test_split"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.classification_regression",
+    "source_id": "DS_PDF08_ML1",
+    "label": "분류와 회귀",
+    "gate": "Gate 4 지도학습",
+    "definition": "target이 범주형이면 분류, 연속형이면 회귀로 푸는 지도학습 문제 유형이다.",
+    "intuition": "무엇을 맞히는지가 이름표인지 숫자인지 구분하는 문제 라우터다.",
+    "formula_or_procedure": "classification predicts class label/probability; regression predicts continuous value.",
+    "dataframe_view": "target dtype과 의미를 확인한다.",
+    "code_view": "Classifier vs Regressor estimator 선택",
+    "course_example": "ML Part 1의 logistic regression/classification 슬라이드가 범주형 target의 대표 예다.",
+    "common_mistake": "숫자 코드로 저장된 범주형 target을 회귀로 착각하는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "followups": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.knn_vote"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Classification",
+      "Regression",
+      "category",
+      "class"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.loss_metric",
+    "source_id": "DS_PDF08_ML1",
+    "label": "Loss/Cost와 평가 지표",
+    "gate": "Gate 4 지도학습",
+    "definition": "loss는 학습 중 줄이는 오류 함수이고, metric은 모델 성능을 해석하기 위한 평가 함수다.",
+    "intuition": "모델이 무엇을 줄이려고 학습했는지와 우리가 무엇으로 판단할지를 분리한다.",
+    "formula_or_procedure": "fit minimizes training objective; test metric evaluates task performance. Confusion matrix에서 Accuracy=(TP+TN)/N, Precision=TP/(TP+FP), Recall=TP/(TP+FN), F1=2PR/(P+R).",
+    "dataframe_view": "y_true/y_pred를 비교해 accuracy, precision, recall, RMSE 등을 계산한다.",
+    "code_view": "sklearn.metrics, model.score, confusion_matrix, precision_recall_fscore_support",
+    "course_example": "ML Part 1의 prediction/loss/accuracy 흐름이 Gate 4 통과 기준이며, churn 같은 불균형 문제는 recall/F1로 확장해야 한다.",
+    "common_mistake": "loss가 낮으면 모든 비즈니스 판단이 좋다고 단정하거나, 불균형 데이터에서 accuracy만 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "followups": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.knn_vote",
+      "n_DS_ML2.decision_tree_impurity"
+    ],
+    "analogous": [],
+    "keywords": [
+      "loss",
+      "cost",
+      "accuracy",
+      "prediction",
+      "metric"
+    ],
+    "web_refs": [
+      "web_sklearn_confusion_metrics"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.logistic_logit_probability",
+    "source_id": "DS_PDF08_ML1",
+    "label": "로지스틱 회귀와 logit",
+    "gate": "Gate 4 지도학습",
+    "definition": "선형 점수를 확률로 바꿔 class 1에 속할 가능성을 예측하는 분류 모델이다.",
+    "intuition": "직선 점수를 0과 1 사이의 확률 언어로 변환한다.",
+    "formula_or_procedure": "odds = p/(1-p), logit(p)=log(p/(1-p)), p=sigmoid(w^T x+b)",
+    "dataframe_view": "X feature row별 class probability를 예측한다.",
+    "code_view": "LogisticRegression.fit, predict_proba, threshold",
+    "course_example": "ML Part 1 후반 logistic regression 슬라이드가 p, odds, logit 연결을 설명한다.",
+    "common_mistake": "로지스틱 회귀를 연속값 회귀 모델로 해석하거나 threshold를 고정 진리로 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_STATS.probability_random_variable"
+    ],
+    "followups": [
+      "n_DS_ML2.svm_margin_hyperplane"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Logistic",
+      "Odds",
+      "logit",
+      "probability"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.text_vectorization_features",
+    "source_id": "DS_PDF08_ML1",
+    "label": "텍스트 벡터화",
+    "gate": "Gate 4 지도학습",
+    "definition": "문자열 문서를 모델이 계산할 수 있는 수치 feature로 바꾸는 표현 변환이다.",
+    "intuition": "말을 숫자 좌표로 바꾸어 거리·분류·확률 모델에 넣는다.",
+    "formula_or_procedure": "text -> tokenization -> count/TF-IDF/embedding -> feature vector",
+    "dataframe_view": "각 row는 문서, 각 column은 토큰/임베딩 차원이다.",
+    "code_view": "CountVectorizer, TfidfVectorizer, embedding model",
+    "course_example": "ML Part 1의 text vectorization은 DS09 LLM의 embedding/pre-training으로 이어진다.",
+    "common_mistake": "텍스트 원문을 모델이 그대로 이해한다고 생각하거나, 벡터화 기준을 train/test 밖에서 섞는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "followups": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "analogous": [],
+    "keywords": [
+      "text",
+      "vectorization",
+      "TF",
+      "token"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_008"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.svm_margin_hyperplane",
+    "source_id": "DS_PDF08_ML2",
+    "label": "SVM margin/hyperplane",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "SVM은 클래스 사이의 margin이 최대가 되는 hyperplane을 찾는 분류 알고리즘이다.",
+    "intuition": "두 집단 사이에 가능한 한 넓은 안전지대를 만드는 경계선을 찾는다.",
+    "formula_or_procedure": "maximize margin subject to correct/soft-margin classification constraints",
+    "dataframe_view": "각 row는 feature 공간의 점이고 class label이 경계 학습에 쓰인다.",
+    "code_view": "SVC(kernel='linear'), LinearSVC, decision_function",
+    "course_example": "ML Part 2 첫 SVM 페이지가 margin과 결정경계의 기하를 보여준다.",
+    "common_mistake": "SVM이 확률을 직접 예측한다고 보거나 margin과 accuracy를 같은 값으로 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression"
+    ],
+    "followups": [
+      "n_DS_ML2.support_vectors",
+      "n_DS_ML2.kernel_trick"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Support Vector Machine",
+      "마진",
+      "margin",
+      "hyperplane"
+    ],
+    "web_refs": [
+      "web_sklearn_svm"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.support_vectors",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Support vectors",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "결정경계와 가장 가까워 margin 위치를 결정하는 관측치들이다.",
+    "intuition": "경계를 실제로 밀고 있는 핵심 점들이다.",
+    "formula_or_procedure": "support vectors lie on/inside margin and determine separating boundary",
+    "dataframe_view": "일부 row가 boundary를 결정하는 큰 영향점을 가진다.",
+    "code_view": "model.support_vectors_, support_",
+    "course_example": "SVM support vector 페이지는 margin 결정 관측치를 명시한다.",
+    "common_mistake": "모든 관측치가 경계를 똑같이 결정한다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.svm_margin_hyperplane"
+    ],
+    "followups": [
+      "n_DS_ML2.kernel_trick"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Support vectors",
+      "서포트 벡터",
+      "Margin"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.kernel_trick",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Kernel trick",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "원래 공간에서 선형 분리가 어려운 데이터를 고차원 특징공간의 내적처럼 계산해 비선형 경계를 만드는 방법이다.",
+    "intuition": "직선으로 나누기 어려우면 공간을 접거나 펼쳐서 직선처럼 나누는 효과를 낸다.",
+    "formula_or_procedure": "K(x_i,x_j)=phi(x_i)^T phi(x_j), e.g. RBF/poly kernels",
+    "dataframe_view": "feature scale과 kernel parameter가 경계 복잡도를 좌우한다.",
+    "code_view": "SVC(kernel='rbf'), gamma, C",
+    "course_example": "비선형 SVM 페이지가 kernel을 사용한 비선형 결정경계를 보여준다.",
+    "common_mistake": "kernel을 데이터 전처리 없이 마법처럼 쓰면 된다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.scaling_distance_models"
+    ],
+    "followups": [
+      "n_DS_ML3.pca_dimensionality_reduction"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Kernel",
+      "비선형",
+      "SVM"
+    ],
+    "web_refs": [
+      "web_sklearn_svm"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.knn_vote",
+    "source_id": "DS_PDF08_ML2",
+    "label": "kNN 이웃 투표",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "새 관측치와 가장 가까운 k개 학습 관측치의 label을 기준으로 분류 또는 회귀를 수행한다.",
+    "intuition": "가까운 사례들이 무엇이었는지 보고 새 사례를 판단한다.",
+    "formula_or_procedure": "classification: majority vote among k nearest labels. regression: average neighbor targets.",
+    "dataframe_view": "모든 feature가 거리 계산에 들어가므로 열의 스케일과 의미가 중요하다.",
+    "code_view": "KNeighborsClassifier, KNeighborsRegressor, kneighbors",
+    "course_example": "kNN 페이지는 범주형 반응변수와 연속형 반응변수 모두에 쓰임을 설명한다.",
+    "common_mistake": "k를 정답처럼 고정하거나, class imbalance를 고려하지 않는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_ML2.distance_metrics"
+    ],
+    "followups": [
+      "n_DS_ML2.k_selection_bias_variance"
+    ],
+    "analogous": [],
+    "keywords": [
+      "k-nearest",
+      "k-NN",
+      "Majority voting",
+      "classification"
+    ],
+    "web_refs": [
+      "web_sklearn_neighbors"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.distance_metrics",
+    "source_id": "DS_PDF08_ML2",
+    "label": "거리 척도",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "두 관측치가 feature 공간에서 얼마나 가까운지 수치화하는 함수다.",
+    "intuition": "비슷함을 숫자로 재는 자다.",
+    "formula_or_procedure": "Euclidean, Manhattan, Minkowski, cosine distance/similarity",
+    "dataframe_view": "numeric columns가 같은 단위와 의미를 갖는지 확인해야 한다.",
+    "code_view": "pairwise_distances, metric='euclidean'/'manhattan'/'cosine'",
+    "course_example": "kNN 거리 페이지와 k-means 거리 페이지가 같은 수학 언어를 공유한다.",
+    "common_mistake": "단위가 큰 변수가 거리 전체를 지배하게 두는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.scatter_correlation"
+    ],
+    "followups": [
+      "n_DS_ML2.scaling_distance_models",
+      "n_DS_ML3.kmeans_distance_metrics"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Euclidean",
+      "Manhattan",
+      "Minkowski",
+      "Cosine",
+      "distance"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.scaling_distance_models",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Scaling과 거리 기반 모델",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "feature의 단위와 범위를 맞춰 거리·margin·gradient 계산이 특정 변수에 과도하게 끌리지 않게 하는 전처리다.",
+    "intuition": "센티미터와 원화를 같은 자로 재지 않도록 단위를 맞추는 과정이다.",
+    "formula_or_procedure": "z=(x-mean)/std or minmax scaling before distance-sensitive estimator",
+    "dataframe_view": "train set에 scaler를 fit하고 train/test에 transform한다.",
+    "code_view": "StandardScaler, MinMaxScaler, Pipeline",
+    "course_example": "kNN scale 민감도 페이지는 변수 scale이 거리 결과를 바꾸는 위험을 보여준다.",
+    "common_mistake": "전체 데이터로 scaler를 fit해 test 정보를 누수시키는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.distance_metrics",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "followups": [
+      "n_DS_ML2.knn_vote",
+      "n_DS_ML3.kmeans_centroid_loop"
+    ],
+    "analogous": [],
+    "keywords": [
+      "scale",
+      "scaling",
+      "distance",
+      "StandardScaler"
+    ],
+    "web_refs": [
+      "web_sklearn_preprocessing"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.k_selection_bias_variance",
+    "source_id": "DS_PDF08_ML2",
+    "label": "k 선택과 bias-variance",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "kNN의 k는 이웃 수로, 작으면 노이즈에 민감하고 크면 경계가 과도하게 매끈해진다.",
+    "intuition": "동네 몇 명의 의견을 들을지 정하는 문제다.",
+    "formula_or_procedure": "small k: low bias/high variance; large k: high bias/low variance",
+    "dataframe_view": "validation set/cross-validation으로 k 후보를 비교한다.",
+    "code_view": "GridSearchCV over n_neighbors",
+    "course_example": "majority voting 문제점 페이지가 k와 class composition의 민감도를 암시한다.",
+    "common_mistake": "k를 홀수로만 고르면 문제가 해결된다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.knn_vote"
+    ],
+    "followups": [
+      "n_DS_ML3.silhouette_score"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Majority voting",
+      "kNN",
+      "k",
+      "neighbors"
+    ],
+    "web_refs": [
+      "web_sklearn_neighbors"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML2.decision_tree_impurity",
+    "source_id": "DS_PDF08_ML2",
+    "label": "Decision tree와 impurity",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "의사결정나무는 feature 조건 질문을 반복해 target을 분리하고, 각 split은 impurity를 낮추는 방향으로 선택된다.",
+    "intuition": "스무고개식 질문으로 데이터를 점점 순수한 그룹으로 나누는 규칙 기반 모델이다.",
+    "formula_or_procedure": "choose split that maximizes impurity decrease; common criteria include gini impurity and entropy. Control overfitting with max_depth, min_samples_leaf, pruning-style constraints.",
+    "dataframe_view": "row는 규칙을 따라 leaf로 내려가고, leaf의 class 비율이 예측 근거가 된다.",
+    "code_view": "DecisionTreeClassifier(max_depth=...), export_text, plot_tree",
+    "course_example": "ML2 PDF의 decision tree 페이지를 1차 근거로 두고, impurity/depth/pruning 실무 해석은 scikit-learn 문서로 보강한다.",
+    "common_mistake": "tree는 scaling 영향이 작다고 해서 depth/leaf 제약 없이 키워도 된다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_ML1.loss_metric"
+    ],
+    "followups": [
+      "n_DS_ML3.kmeanspp_local_optimum"
+    ],
+    "analogous": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.knn_vote"
+    ],
+    "keywords": [
+      "Decision Tree",
+      "decision tree",
+      "impurity",
+      "gini",
+      "entropy",
+      "pruning"
+    ],
+    "web_refs": [
+      "web_sklearn_tree"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML2_008"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.clustering_problem",
+    "source_id": "DS_PDF08_ML3",
+    "label": "Clustering 문제정의",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "target 없이 관측치들 사이의 유사성으로 묶음을 찾는 비지도학습 문제다.",
+    "intuition": "정답 이름표 없이 데이터가 자연스럽게 모이는 방을 찾는다.",
+    "formula_or_procedure": "input X only -> similarity/distance -> cluster labels",
+    "dataframe_view": "feature matrix만 사용하며 y는 없다.",
+    "code_view": "KMeans.fit_predict(X), clustering labels",
+    "course_example": "ML Part 3는 k-means를 중심으로 비지도학습의 거리 기반 구조 탐색을 설명한다.",
+    "common_mistake": "cluster label을 실제 class label처럼 곧바로 해석하는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.learning_types",
+      "n_DS_ML2.distance_metrics"
+    ],
+    "followups": [
+      "n_DS_ML3.kmeans_centroid_loop"
+    ],
+    "analogous": [],
+    "keywords": [
+      "clustering",
+      "군집",
+      "k-means",
+      "distance"
+    ],
+    "web_refs": [
+      "web_sklearn_kmeans"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.kmeans_centroid_loop",
+    "source_id": "DS_PDF08_ML3",
+    "label": "k-means centroid loop",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "각 점을 가장 가까운 centroid에 배정하고, 각 군집 평균으로 centroid를 갱신하는 반복 알고리즘이다.",
+    "intuition": "중심을 놓고 점을 배정한 뒤, 다시 중심을 옮기는 과정을 멈출 때까지 반복한다.",
+    "formula_or_procedure": "assign x_i to nearest mu_j -> update mu_j = mean(points in cluster j) -> repeat",
+    "dataframe_view": "numeric scaled feature matrix가 입력이다.",
+    "code_view": "KMeans(n_clusters=k, init='k-means++').fit(X)",
+    "course_example": "k-means PDF 초반은 거리와 centroid 기반 군집을 설명한다.",
+    "common_mistake": "centroid가 반드시 실제 데이터 점이라고 오해하는 오류.",
+    "prerequisites": [
+      "n_DS_ML3.clustering_problem",
+      "n_DS_ML2.scaling_distance_models"
+    ],
+    "followups": [
+      "n_DS_ML3.kmeanspp_local_optimum",
+      "n_DS_ML3.silhouette_score"
+    ],
+    "analogous": [],
+    "keywords": [
+      "centroid",
+      "k-means",
+      "Euclidean",
+      "Cosine"
+    ],
+    "web_refs": [
+      "web_sklearn_kmeans"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.kmeans_distance_metrics",
+    "source_id": "DS_PDF08_ML3",
+    "label": "k-means 거리 척도",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "k-means에서 가까움을 정의하는 Euclidean/cosine/p-norm 계열의 거리 선택 문제다.",
+    "intuition": "무엇을 비슷하다고 볼지 정하는 군집의 언어다.",
+    "formula_or_procedure": "Euclidean norm, cosine similarity, p-norm variants",
+    "dataframe_view": "feature scaling과 sparse/text representation 여부가 거리 선택을 바꾼다.",
+    "code_view": "sklearn KMeans는 기본 Euclidean, cosine은 별도 spherical 접근 필요",
+    "course_example": "PDF는 spherical k-means와 Euclidean/Cosine 비교를 직접 다룬다.",
+    "common_mistake": "scikit-learn KMeans에서 metric만 바꾸면 cosine k-means가 된다고 착각하는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.distance_metrics"
+    ],
+    "followups": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Spherical",
+      "Cosine",
+      "Euclidean",
+      "p-norm",
+      "metric"
+    ],
+    "web_refs": [
+      "web_sklearn_kmeans"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.kmeanspp_local_optimum",
+    "source_id": "DS_PDF08_ML3",
+    "label": "k-means++와 local optimum",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "k-means는 초기 centroid에 따라 지역 최적해에 수렴할 수 있어 k-means++로 좋은 초기점을 고른다.",
+    "intuition": "처음 중심을 어디에 놓느냐가 최종 방 배치를 바꿀 수 있다.",
+    "formula_or_procedure": "repeat with different seeds; k-means++ spreads initial centroids apart",
+    "dataframe_view": "random_state와 n_init으로 반복 안정성을 관리한다.",
+    "code_view": "KMeans(init='k-means++', n_init='auto', random_state=...)",
+    "course_example": "limitations 페이지는 initial points 문제와 k-means++를 명시한다.",
+    "common_mistake": "한 번 실행한 군집 결과를 전역 최적해로 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_ML3.kmeans_centroid_loop",
+      "n_DS_CODE.reproducible_random_state"
+    ],
+    "followups": [
+      "n_DS_ML3.silhouette_score"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Initial points",
+      "k-means++",
+      "local",
+      "centroid"
+    ],
+    "web_refs": [
+      "web_sklearn_kmeans"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.silhouette_score",
+    "source_id": "DS_PDF08_ML3",
+    "label": "Silhouette score",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "한 점이 자기 군집에는 얼마나 가깝고 다른 군집과는 얼마나 떨어져 있는지 비교하는 군집 품질 지표다.",
+    "intuition": "같은 방 안에서는 가까운지, 옆방과는 충분히 떨어졌는지 보는 점수다.",
+    "formula_or_procedure": "s = (b - a) / max(a, b); a=intra-cluster distance, b=nearest other-cluster distance",
+    "dataframe_view": "X와 cluster labels가 입력이며 label 수 조건을 확인한다.",
+    "code_view": "silhouette_score(X, labels, metric='euclidean')",
+    "course_example": "PDF에 직접 없거나 약하게 나온 경우 scikit-learn 문서로 보강하는 평가 노드다.",
+    "common_mistake": "silhouette이 높으면 항상 비즈니스적으로 좋은 군집이라고 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_ML3.kmeanspp_local_optimum"
+    ],
+    "followups": [
+      "n_DS_ML3.pca_dimensionality_reduction"
+    ],
+    "analogous": [],
+    "keywords": [
+      "silhouette",
+      "cluster",
+      "score"
+    ],
+    "web_refs": [
+      "web_sklearn_silhouette"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.association_rule",
+    "source_id": "DS_PDF08_ML3",
+    "label": "연관 규칙",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "거래 데이터에서 A가 발생할 때 B가 함께 발생하는 패턴을 if-then 규칙으로 표현하는 방법이다.",
+    "intuition": "장바구니 안에서 같이 등장하는 항목 조합을 규칙으로 찾는다.",
+    "formula_or_procedure": "X -> Y over transactions; evaluate by support, confidence, lift",
+    "dataframe_view": "row=transaction, columns/items=0/1 item presence",
+    "code_view": "mlxtend frequent_patterns or custom crosstab over itemsets",
+    "course_example": "Association Analysis 페이지가 연관 규칙과 평가 기준을 설명한다.",
+    "common_mistake": "동시출현 규칙을 인과관계로 해석하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.contingency_table"
+    ],
+    "followups": [
+      "n_DS_ML3.support_confidence_lift"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Association",
+      "연관성",
+      "Rule",
+      "transaction"
+    ],
+    "web_refs": [
+      "web_agrawal_srikant_1994"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.support_confidence_lift",
+    "source_id": "DS_PDF08_ML3",
+    "label": "Support/Confidence/Lift",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "support는 규칙 항목이 전체 거래에서 나타난 비율, confidence는 조건 발생 시 결과 발생 비율, lift는 독립 대비 동시출현 강도다.",
+    "intuition": "자주 나오나, 조건이 믿을 만한가, 우연보다 강한가를 분리해서 묻는다.",
+    "formula_or_procedure": "support(X->Y)=P(X∩Y), confidence=P(Y|X), lift=P(X∩Y)/(P(X)P(Y))",
+    "dataframe_view": "transaction-item matrix에서 itemset 빈도를 계산한다.",
+    "code_view": "itemset counts -> support/confidence/lift table",
+    "course_example": "PDF 후반의 지지도/신뢰도/향상도 계산 예제가 이 노드의 수치 훈련 자료다.",
+    "common_mistake": "confidence가 높아도 Y가 원래 흔하면 의미를 과대평가하는 오류.",
+    "prerequisites": [
+      "n_DS_ML3.association_rule",
+      "n_DS_STATS.conditional_independence"
+    ],
+    "followups": [
+      "n_DS_LLM.rag_grounding"
+    ],
+    "analogous": [],
+    "keywords": [
+      "support",
+      "confidence",
+      "lift",
+      "지지도",
+      "신뢰도",
+      "향상도"
+    ],
+    "web_refs": [
+      "web_agrawal_srikant_1994"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML3.pca_dimensionality_reduction",
+    "source_id": "DS_PDF08_ML3",
+    "label": "PCA/차원축소",
+    "gate": "Gate 5 알고리즘 심화",
+    "definition": "상관된 여러 feature를 분산이 큰 직교 축으로 변환해 저차원 표현을 만드는 기법이다.",
+    "intuition": "많은 변수를 정보 손실을 관리하며 몇 개의 축으로 압축하는 표현 변환이다.",
+    "formula_or_procedure": "center X -> covariance/SVD -> principal components -> transformed coordinates",
+    "dataframe_view": "numeric scaled feature matrix가 입력이며 explained variance를 확인한다.",
+    "code_view": "PCA(n_components=...), fit_transform, explained_variance_ratio_",
+    "course_example": "PCA는 PDF 직접 핵심 노드가 약하므로 ML/EDA 확장 지식으로 보강한다.",
+    "common_mistake": "PCA를 target을 맞히는 예측 모델로 오해하거나 scale 없이 적용하는 오류.",
+    "prerequisites": [
+      "n_DS_ML2.scaling_distance_models",
+      "n_DS_ML3.kmeans_distance_metrics"
+    ],
+    "followups": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "analogous": [],
+    "keywords": [
+      "PCA",
+      "dimension",
+      "차원",
+      "variance"
+    ],
+    "web_refs": [
+      "web_sklearn_pca",
+      "web_sklearn_kmeans"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML3_008"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.sequence_probability",
+    "source_id": "DS_PDF09_LLM",
+    "label": "언어모델과 문장 확률",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "언어모델은 단어/토큰 시퀀스의 가능도와 다음 토큰의 조건부 확률을 모델링한다.",
+    "intuition": "문장이 자연스럽게 이어질 가능성을 확률로 계산한다.",
+    "formula_or_procedure": "P(w1...wn)=product P(w_t | context)",
+    "dataframe_view": "row=document/sentence, column/token sequence or vectorized representation",
+    "code_view": "tokenizer -> model logits -> softmax probabilities",
+    "course_example": "LLM PDF의 조건부 확률 페이지가 통계 Gate와 직접 연결된다.",
+    "common_mistake": "LLM이 검색엔진처럼 사실을 조회한다고 생각하고 확률 생성 구조를 무시하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.conditional_independence"
+    ],
+    "followups": [
+      "n_DS_LLM.ngram_language_model",
+      "n_DS_LLM.attention_transformer"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Language Model",
+      "conditional probability",
+      "조건부 확률",
+      "단어"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.ngram_language_model",
+    "source_id": "DS_PDF09_LLM",
+    "label": "N-gram 통계적 언어모델",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "앞의 n-1개 단어를 조건으로 다음 단어 확률을 추정하는 통계적 언어모델이다.",
+    "intuition": "가까운 몇 단어만 보고 다음 단어를 예측하는 빈도 기반 모델이다.",
+    "formula_or_procedure": "P(w_t | w_{t-n+1},...,w_{t-1}) estimated from counts",
+    "dataframe_view": "텍스트를 n-gram count table로 바꾼다.",
+    "code_view": "CountVectorizer(ngram_range=...), frequency table",
+    "course_example": "언어모델 발전사에서 통계적 언어모델이 신경망/Transformer 이전 단계로 제시된다.",
+    "common_mistake": "n이 커지면 항상 좋아진다고 보고 sparse data 문제를 무시하는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.sequence_probability",
+      "n_DS_STATS.frequency_histogram"
+    ],
+    "followups": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "analogous": [],
+    "keywords": [
+      "N-gram",
+      "Statistical Language Model",
+      "빈도"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.embedding_contextual_representation",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Embedding과 문맥 표현",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "토큰을 계산 가능한 연속 벡터로 바꾸고 문맥에 따라 의미 표현을 갱신하는 방식이다.",
+    "intuition": "단어를 좌표로 바꾸어 의미적으로 가까운 단어가 공간에서도 가까워지게 한다.",
+    "formula_or_procedure": "token -> embedding vector; contextual model updates representation with surrounding tokens",
+    "dataframe_view": "text row가 token sequence 또는 embedding matrix로 변환된다.",
+    "code_view": "Embedding layer, tokenizer, transformer hidden states",
+    "course_example": "LLM PDF의 embedding/encoder/decoder 용어 페이지가 ML1 text vectorization의 후속이다.",
+    "common_mistake": "embedding을 사람이 정한 사전 코드처럼 고정 의미로 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.text_vectorization_features"
+    ],
+    "followups": [
+      "n_DS_LLM.attention_transformer",
+      "n_DS_ML3.kmeans_distance_metrics"
+    ],
+    "analogous": [],
+    "keywords": [
+      "임베딩",
+      "Embedding",
+      "Encoder",
+      "Decoder",
+      "vector"
+    ],
+    "web_refs": [
+      "web_bert_2018"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.encoder_decoder_seq2seq",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Encoder/Decoder와 Seq2Seq",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "입력 시퀀스를 표현으로 압축하는 encoder와 출력 시퀀스를 생성하는 decoder를 결합한 구조다.",
+    "intuition": "문장을 이해하는 쪽과 문장을 내보내는 쪽을 나눈 번역기 구조다.",
+    "formula_or_procedure": "encoder(input sequence)->context representation; decoder(context)->output sequence",
+    "dataframe_view": "입력 텍스트와 출력 텍스트가 paired rows로 구성된다.",
+    "code_view": "seq2seq model, encoder outputs, decoder generation",
+    "course_example": "Seq2Seq 페이지는 길이가 다른 입력/출력 시퀀스 처리 구조를 설명한다.",
+    "common_mistake": "encoder/decoder를 단순 전처리/후처리 함수로만 보는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "followups": [
+      "n_DS_LLM.attention_transformer"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Sequence to Sequence",
+      "Encoder",
+      "Decoder",
+      "Seq2Seq"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.attention_transformer",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Attention과 Transformer",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "attention은 토큰들이 서로 얼마나 참고해야 하는지 가중치를 계산하고, Transformer는 recurrence 없이 attention 중심으로 시퀀스를 처리한다.",
+    "intuition": "문장 안 모든 단어가 서로를 보며 중요한 연결에 집중하게 하는 구조다.",
+    "formula_or_procedure": "Attention(Q,K,V)=softmax(QK^T/sqrt(d_k))V",
+    "dataframe_view": "token sequence가 Q/K/V 행렬과 hidden states로 변환된다.",
+    "code_view": "Transformer encoder/decoder, multi-head self-attention",
+    "course_example": "LLM PDF는 Transformer가 self-attention 기반 LLM의 근간이라고 연결한다.",
+    "common_mistake": "attention weight를 곧바로 인간적 설명 또는 인과로 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.encoder_decoder_seq2seq"
+    ],
+    "followups": [
+      "n_DS_LLM.bert_gpt_pretraining",
+      "n_DS_LLM.foundation_instruction_tuning"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Transformer",
+      "Attention",
+      "self-attention",
+      "multi-head"
+    ],
+    "web_refs": [
+      "web_transformer_2017"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.bert_gpt_pretraining",
+    "source_id": "DS_PDF09_LLM",
+    "label": "BERT/GPT와 사전학습",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "BERT는 encoder 계열 양방향 문맥 표현, GPT는 decoder 계열 다음 토큰 생성을 중심으로 한 Transformer 사전학습 모델이다.",
+    "intuition": "많은 텍스트로 먼저 언어 패턴을 익히고, 이후 작업별로 조정한다.",
+    "formula_or_procedure": "pre-train on large corpus -> fine-tune or prompt for downstream task",
+    "dataframe_view": "문서 corpus rows가 토큰 시퀀스 학습 데이터가 된다.",
+    "code_view": "BERT encoder, GPT decoder, pretraining/fine-tuning",
+    "course_example": "LLM PDF의 BERT/GPT 발전사와 GPT decoder 페이지가 이 대비를 제공한다.",
+    "common_mistake": "BERT와 GPT를 같은 생성 모델로만 묶거나 encoder/decoder 차이를 지우는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.attention_transformer"
+    ],
+    "followups": [
+      "n_DS_LLM.foundation_instruction_tuning"
+    ],
+    "analogous": [],
+    "keywords": [
+      "BERT",
+      "GPT",
+      "Pre-trained",
+      "Decoder",
+      "Encoder"
+    ],
+    "web_refs": [
+      "web_bert_2018",
+      "web_transformer_2017"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.foundation_instruction_tuning",
+    "source_id": "DS_PDF09_LLM",
+    "label": "Foundation model과 instruction tuning",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "Foundation model은 대규모 사전학습 기반 범용 모델이고, instruction tuning은 지시를 이해하고 수행하도록 추가 학습하는 절차다.",
+    "intuition": "문장 생성기가 사용자의 지시를 따르는 작업 수행자로 바뀌는 단계다.",
+    "formula_or_procedure": "pretrained LM -> supervised instruction data/RLHF preference optimization -> aligned assistant behavior",
+    "dataframe_view": "prompt/input/response가 학습·평가 단위가 된다.",
+    "code_view": "instruction dataset, supervised fine-tuning, preference/RLHF pipeline",
+    "course_example": "LLM PDF의 instruction tuning 예시는 Translate instruction을 명시적으로 따른다.",
+    "common_mistake": "instruction tuning이 factual grounding을 자동 보장한다고 보는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.bert_gpt_pretraining"
+    ],
+    "followups": [
+      "n_DS_LLM.rag_grounding"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Instruction Tuning",
+      "foundation model",
+      "LLM",
+      "Response"
+    ],
+    "web_refs": [
+      "web_instructgpt_2022"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_LLM.rag_grounding",
+    "source_id": "DS_PDF09_LLM",
+    "label": "RAG와 근거 기반 튜터링",
+    "gate": "Gate 6 NLP/LLM",
+    "definition": "RAG는 모델의 생성 능력에 외부 검색 근거를 결합해 답변의 출처성, 갱신성, 검증 가능성을 높이는 설계다.",
+    "intuition": "머릿속 기억만 말하지 않고 책장을 찾아 근거를 붙여 대답하게 하는 구조다.",
+    "formula_or_procedure": "query -> retrieve source chunks -> rerank/route -> generate with citations -> verify",
+    "dataframe_view": "문서 chunk table, embedding index, metadata/source anchors가 필요하다.",
+    "code_view": "vector store, hybrid retrieval, reranker, source trace table",
+    "course_example": "이번 DS flat-pack 자체가 PDF 전사와 웹 근거를 결합한 로컬 RAG 소스다.",
+    "common_mistake": "검색 결과가 있으면 답이 무조건 맞다고 보거나, PDF 근거와 웹 보강을 섞어 출처 우선순위를 잃는 오류.",
+    "prerequisites": [
+      "n_DS_LLM.foundation_instruction_tuning",
+      "n_DS_ML3.support_confidence_lift"
+    ],
+    "followups": [
+      "n_DS_GLOBAL.tutor_operating_modes"
+    ],
+    "analogous": [],
+    "keywords": [
+      "RAG",
+      "retrieval",
+      "grounding",
+      "source"
+    ],
+    "web_refs": [
+      "web_rag_2020"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF09_LLM_008"
+    ]
+  }
+]

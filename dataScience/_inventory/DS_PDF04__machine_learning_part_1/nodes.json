@@ -1,0 +1,263 @@
+[
+  {
+    "node_id": "n_DS_ML1.feature_target_structure",
+    "source_id": "DS_PDF08_ML1",
+    "label": "X/y feature-target 구조",
+    "gate": "Gate 4 지도학습",
+    "definition": "feature matrix X와 target vector y로 예측 문제를 표현하는 데이터 구조다.",
+    "intuition": "무엇을 근거로 무엇을 맞힐지 분리하는 모델링의 시작점이다.",
+    "formula_or_procedure": "X = rows x features, y = label/target for each row",
+    "dataframe_view": "feature columns와 target column을 분리한다.",
+    "code_view": "X = df[features]; y = df[target]",
+    "course_example": "ML Part 1은 classification/regression 모두 X/y 구조로 읽어야 한다.",
+    "common_mistake": "target을 feature에 섞어 target leakage를 만드는 오류.",
+    "prerequisites": [
+      "n_DS_CODE.dataframe_row_column"
+    ],
+    "followups": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "analogous": [],
+    "keywords": [
+      "feature",
+      "target",
+      "classification",
+      "regression",
+      "label"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.learning_types",
+    "source_id": "DS_PDF08_ML1",
+    "label": "지도/비지도/강화학습",
+    "gate": "Gate 4 지도학습",
+    "definition": "지도학습은 정답 y가 있고, 비지도학습은 구조를 찾고, 강화학습은 보상으로 행동 정책을 학습한다.",
+    "intuition": "정답이 있느냐, 구조를 찾느냐, 행동을 개선하느냐로 문제를 나눈다.",
+    "formula_or_procedure": "supervised: f(X)->y. unsupervised: structure(X). reinforcement: policy maximizing reward.",
+    "dataframe_view": "target column 유무가 지도/비지도 판별의 핵심이다.",
+    "code_view": "Classifier/Regressor, clustering, RL environment",
+    "course_example": "ML Part 1의 학습 유형 표가 Gate 4/5 라우터다.",
+    "common_mistake": "군집 결과를 정답 라벨처럼 평가하거나, target 없는 문제에 accuracy를 쓰는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "followups": [
+      "n_DS_ML3.clustering_problem"
+    ],
+    "analogous": [],
+    "keywords": [
+      "supervised",
+      "unsupervised",
+      "reinforcement",
+      "지도",
+      "비지도"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.train_test_generalization",
+    "source_id": "DS_PDF08_ML1",
+    "label": "Train/Test split과 일반화",
+    "gate": "Gate 4 지도학습",
+    "definition": "학습에 쓴 데이터와 평가 데이터를 분리해 새 데이터 성능을 추정하는 검증 절차다.",
+    "intuition": "외운 성적과 실전 성적을 분리해서 보는 장치다.",
+    "formula_or_procedure": "split data -> fit on train -> predict on test -> metric on test",
+    "dataframe_view": "행 단위로 분할하되 시간/그룹 누수 여부를 확인한다.",
+    "code_view": "train_test_split(X, y, test_size=..., random_state=...)",
+    "course_example": "R/Python PDF의 train/test 시각화와 ML Part 1 평가 흐름이 연결된다.",
+    "common_mistake": "전처리나 feature selection을 split 전에 전체 데이터로 fit하는 leakage 오류.",
+    "prerequisites": [
+      "n_DS_CODE.sklearn_workflow",
+      "n_DS_STATS.statistical_inference"
+    ],
+    "followups": [
+      "n_DS_ML1.loss_metric",
+      "n_DS_ML2.scaling_distance_models"
+    ],
+    "analogous": [],
+    "keywords": [
+      "train",
+      "test",
+      "Training",
+      "Test",
+      "accuracy"
+    ],
+    "web_refs": [
+      "web_sklearn_train_test_split"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.preprocessing_leakage",
+    "source_id": "DS_PDF08_ML1",
+    "label": "전처리와 leakage",
+    "gate": "Gate 4 지도학습",
+    "definition": "결측치 대체, scaling, 이상치 판단, feature selection 같은 전처리는 train/test 경계를 지키며 학습 데이터 기준으로 fit해야 한다.",
+    "intuition": "시험지 답을 미리 보고 공부하지 않도록 데이터 처리 순서를 잠그는 규칙이다.",
+    "formula_or_procedure": "split first -> fit preprocessing on train -> transform train/test -> fit model -> evaluate",
+    "dataframe_view": "missing/outlier/scaler statistics are learned from train rows only.",
+    "code_view": "Pipeline([('preprocess', ...), ('model', ...)]), SimpleImputer, StandardScaler",
+    "course_example": "boxplot의 이상치 후보, bootstrap/imputation, scaling 민감도가 모두 이 leakage 규칙으로 연결된다.",
+    "common_mistake": "전체 데이터로 평균/표준편차/결측 대체값을 계산한 뒤 split하는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.train_test_generalization",
+      "n_DS_STATS.bootstrap_imputation"
+    ],
+    "followups": [
+      "n_DS_ML2.scaling_distance_models",
+      "n_DS_ML3.kmeans_centroid_loop"
+    ],
+    "analogous": [],
+    "keywords": [
+      "train",
+      "test",
+      "preprocessing",
+      "Imputation",
+      "scale"
+    ],
+    "web_refs": [
+      "web_sklearn_preprocessing",
+      "web_sklearn_train_test_split"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.classification_regression",
+    "source_id": "DS_PDF08_ML1",
+    "label": "분류와 회귀",
+    "gate": "Gate 4 지도학습",
+    "definition": "target이 범주형이면 분류, 연속형이면 회귀로 푸는 지도학습 문제 유형이다.",
+    "intuition": "무엇을 맞히는지가 이름표인지 숫자인지 구분하는 문제 라우터다.",
+    "formula_or_procedure": "classification predicts class label/probability; regression predicts continuous value.",
+    "dataframe_view": "target dtype과 의미를 확인한다.",
+    "code_view": "Classifier vs Regressor estimator 선택",
+    "course_example": "ML Part 1의 logistic regression/classification 슬라이드가 범주형 target의 대표 예다.",
+    "common_mistake": "숫자 코드로 저장된 범주형 target을 회귀로 착각하는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "followups": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.knn_vote"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Classification",
+      "Regression",
+      "category",
+      "class"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.loss_metric",
+    "source_id": "DS_PDF08_ML1",
+    "label": "Loss/Cost와 평가 지표",
+    "gate": "Gate 4 지도학습",
+    "definition": "loss는 학습 중 줄이는 오류 함수이고, metric은 모델 성능을 해석하기 위한 평가 함수다.",
+    "intuition": "모델이 무엇을 줄이려고 학습했는지와 우리가 무엇으로 판단할지를 분리한다.",
+    "formula_or_procedure": "fit minimizes training objective; test metric evaluates task performance. Confusion matrix에서 Accuracy=(TP+TN)/N, Precision=TP/(TP+FP), Recall=TP/(TP+FN), F1=2PR/(P+R).",
+    "dataframe_view": "y_true/y_pred를 비교해 accuracy, precision, recall, RMSE 등을 계산한다.",
+    "code_view": "sklearn.metrics, model.score, confusion_matrix, precision_recall_fscore_support",
+    "course_example": "ML Part 1의 prediction/loss/accuracy 흐름이 Gate 4 통과 기준이며, churn 같은 불균형 문제는 recall/F1로 확장해야 한다.",
+    "common_mistake": "loss가 낮으면 모든 비즈니스 판단이 좋다고 단정하거나, 불균형 데이터에서 accuracy만 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.train_test_generalization"
+    ],
+    "followups": [
+      "n_DS_ML2.svm_margin_hyperplane",
+      "n_DS_ML2.knn_vote",
+      "n_DS_ML2.decision_tree_impurity"
+    ],
+    "analogous": [],
+    "keywords": [
+      "loss",
+      "cost",
+      "accuracy",
+      "prediction",
+      "metric"
+    ],
+    "web_refs": [
+      "web_sklearn_confusion_metrics"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.logistic_logit_probability",
+    "source_id": "DS_PDF08_ML1",
+    "label": "로지스틱 회귀와 logit",
+    "gate": "Gate 4 지도학습",
+    "definition": "선형 점수를 확률로 바꿔 class 1에 속할 가능성을 예측하는 분류 모델이다.",
+    "intuition": "직선 점수를 0과 1 사이의 확률 언어로 변환한다.",
+    "formula_or_procedure": "odds = p/(1-p), logit(p)=log(p/(1-p)), p=sigmoid(w^T x+b)",
+    "dataframe_view": "X feature row별 class probability를 예측한다.",
+    "code_view": "LogisticRegression.fit, predict_proba, threshold",
+    "course_example": "ML Part 1 후반 logistic regression 슬라이드가 p, odds, logit 연결을 설명한다.",
+    "common_mistake": "로지스틱 회귀를 연속값 회귀 모델로 해석하거나 threshold를 고정 진리로 보는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.classification_regression",
+      "n_DS_STATS.probability_random_variable"
+    ],
+    "followups": [
+      "n_DS_ML2.svm_margin_hyperplane"
+    ],
+    "analogous": [],
+    "keywords": [
+      "Logistic",
+      "Odds",
+      "logit",
+      "probability"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_007"
+    ]
+  },
+  {
+    "node_id": "n_DS_ML1.text_vectorization_features",
+    "source_id": "DS_PDF08_ML1",
+    "label": "텍스트 벡터화",
+    "gate": "Gate 4 지도학습",
+    "definition": "문자열 문서를 모델이 계산할 수 있는 수치 feature로 바꾸는 표현 변환이다.",
+    "intuition": "말을 숫자 좌표로 바꾸어 거리·분류·확률 모델에 넣는다.",
+    "formula_or_procedure": "text -> tokenization -> count/TF-IDF/embedding -> feature vector",
+    "dataframe_view": "각 row는 문서, 각 column은 토큰/임베딩 차원이다.",
+    "code_view": "CountVectorizer, TfidfVectorizer, embedding model",
+    "course_example": "ML Part 1의 text vectorization은 DS09 LLM의 embedding/pre-training으로 이어진다.",
+    "common_mistake": "텍스트 원문을 모델이 그대로 이해한다고 생각하거나, 벡터화 기준을 train/test 밖에서 섞는 오류.",
+    "prerequisites": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "followups": [
+      "n_DS_LLM.embedding_contextual_representation"
+    ],
+    "analogous": [],
+    "keywords": [
+      "text",
+      "vectorization",
+      "TF",
+      "token"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF08_ML1_008"
+    ]
+  }
+]

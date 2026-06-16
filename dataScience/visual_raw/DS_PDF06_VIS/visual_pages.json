@@ -1,0 +1,58 @@
+[
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 2,
+    "label": "chart_selection_map",
+    "reason": "단변량/이변량/다변량과 변수 유형별 그래프 선택",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p002__chart_selection_map.png",
+    "transcript_anchor": "DS_PDF06_VIS:p002:L001"
+  },
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 5,
+    "label": "density_kde",
+    "reason": "히스토그램을 부드럽게 해석하는 KDE/밀도 그래프",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p005__density_kde.png",
+    "transcript_anchor": "DS_PDF06_VIS:p005:L001"
+  },
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 6,
+    "label": "scatter_plot",
+    "reason": "두 양적변수 관계와 상관 해석의 출발점",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p006__scatter_plot.png",
+    "transcript_anchor": "DS_PDF06_VIS:p006:L001"
+  },
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 7,
+    "label": "scatterplot_matrix",
+    "reason": "다변량 관계를 여러 산점도 격자로 보는 자료",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p007__scatterplot_matrix.png",
+    "transcript_anchor": "DS_PDF06_VIS:p007:L001"
+  },
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 8,
+    "label": "bubble_plot",
+    "reason": "좌표에 세 번째 크기 변수를 추가하는 시각화",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p008__bubble_plot.png",
+    "transcript_anchor": "DS_PDF06_VIS:p008:L001"
+  },
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 10,
+    "label": "box_plot",
+    "reason": "중앙값/IQR/이상치 후보를 한 번에 보는 그래프",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p010__box_plot.png",
+    "transcript_anchor": "DS_PDF06_VIS:p010:L001"
+  },
+  {
+    "source_id": "DS_PDF06_VIS",
+    "page": 12,
+    "label": "heatmap",
+    "reason": "행렬형 다변량 값과 군집 패턴을 색으로 보는 그래프",
+    "image_path": "dataScience/visual_raw/DS_PDF06_VIS/DS_PDF06_VIS_p012__heatmap.png",
+    "transcript_anchor": "DS_PDF06_VIS:p012:L001"
+  }
+]

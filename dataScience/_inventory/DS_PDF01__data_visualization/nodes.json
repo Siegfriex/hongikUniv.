@@ -1,0 +1,229 @@
+[
+  {
+    "node_id": "n_DS_VIS.chart_selection",
+    "source_id": "DS_PDF06_VIS",
+    "label": "변수 유형별 그래프 선택",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "분석 질문과 변수 타입에 맞춰 단변량/이변량/다변량 그래프를 고르는 판단 규칙이다.",
+    "intuition": "그래프는 예쁜 그림이 아니라 어떤 비교를 허용할지 정하는 측정 도구다.",
+    "formula_or_procedure": "1) 변수 수 확인 2) 변수 타입 확인 3) 분포/관계/구성/비교 중 질문 선택 4) 그래프 선택 5) 해석 한계 표시",
+    "dataframe_view": "column dtype과 cardinality가 그래프 선택의 입력이다.",
+    "code_view": "pandas dtype 확인 -> seaborn/ggplot geom 선택 -> 축/색/크기 매핑",
+    "course_example": "슬라이드 초반의 양적/범주형, 단변량/이변량/다변량 표가 전체 시각화 라우터다.",
+    "common_mistake": "범주형 변수에 히스토그램을 쓰거나, 상관을 보여야 하는데 파이차트를 쓰는 오류.",
+    "prerequisites": [],
+    "followups": [
+      "n_DS_VIS.histogram_kde",
+      "n_DS_VIS.scatter_correlation",
+      "n_DS_VIS.heatmap_multivariate"
+    ],
+    "analogous": [],
+    "keywords": [
+      "단변량",
+      "이변량",
+      "다변량",
+      "히스토그램",
+      "산점도",
+      "heatmap"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_001"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.histogram_kde",
+    "source_id": "DS_PDF06_VIS",
+    "label": "히스토그램과 KDE",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "연속형 또는 순서형 수치 변수의 분포를 구간 빈도 또는 부드러운 밀도로 보는 시각화다.",
+    "intuition": "값들이 어디에 몰리고 어디가 비어 있는지 보는 지도다.",
+    "formula_or_procedure": "histogram: bin별 count/relative frequency. KDE: 각 점 주변 커널을 합쳐 연속 밀도 곡선을 만든다.",
+    "dataframe_view": "하나의 numeric column이 입력이고, binwidth가 해석을 크게 바꾼다.",
+    "code_view": "Series.plot.hist, seaborn.histplot, ggplot2 geom_histogram/binwidth",
+    "course_example": "데이터시각화 PDF의 density plot 페이지가 histogram을 매끈한 곡선으로 해석하는 브릿지다.",
+    "common_mistake": "binwidth를 바꿔보지 않고 봉우리 수나 이상치를 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.chart_selection"
+    ],
+    "followups": [
+      "n_DS_STATS.frequency_histogram",
+      "n_DS_VIS.boxplot_iqr"
+    ],
+    "analogous": [
+      "n_DS_STATS.distribution_family"
+    ],
+    "keywords": [
+      "Density",
+      "Kernel",
+      "히스토그램",
+      "KDE"
+    ],
+    "web_refs": [
+      "web_ggplot2_histogram"
+    ],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_002"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.scatter_correlation",
+    "source_id": "DS_PDF06_VIS",
+    "label": "산점도와 관계 해석",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "두 양적 변수의 좌표쌍을 점으로 찍어 관계 방향, 형태, 이상치, 군집을 보는 그래프다.",
+    "intuition": "두 변수가 같이 움직이는지 눈으로 확인하는 첫 번째 도구다.",
+    "formula_or_procedure": "x축 변수와 y축 변수를 잡고 패턴이 선형/비선형/무관/군집/이상치인지 판별한다.",
+    "dataframe_view": "두 numeric columns, 필요하면 hue로 범주형 column을 추가한다.",
+    "code_view": "plt.scatter, seaborn.scatterplot, ggplot geom_point",
+    "course_example": "Iris Petal.Length와 Petal.Width 산점도는 변수 관계와 종 분리를 동시에 보여준다.",
+    "common_mistake": "상관이 보인다고 인과라고 말하거나, 비선형 관계를 Pearson 상관 하나로 지워버리는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.chart_selection"
+    ],
+    "followups": [
+      "n_DS_ML1.feature_target_structure",
+      "n_DS_ML2.distance_metrics"
+    ],
+    "analogous": [
+      "n_DS_VIS.bubble_plot"
+    ],
+    "keywords": [
+      "Scatter",
+      "산점도",
+      "Petal.Length",
+      "Petal.Width"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_003"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.scatterplot_matrix",
+    "source_id": "DS_PDF06_VIS",
+    "label": "산점도 행렬",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "여러 양적 변수 쌍의 산점도를 격자로 배열해 다변량 관계를 한 번에 보는 시각화다.",
+    "intuition": "변수 둘씩 비교한 작은 산점도들을 모아 관계 지도를 만든다.",
+    "formula_or_procedure": "for each pair of numeric variables -> scatter plot cell; diagonal often distribution plot",
+    "dataframe_view": "여러 numeric columns가 입력이고, hue로 범주 라벨을 겹칠 수 있다.",
+    "code_view": "pandas.plotting.scatter_matrix, seaborn.pairplot",
+    "course_example": "데이터시각화 PDF의 scatterplot matrix 페이지가 다변량 관계 탐색 예다.",
+    "common_mistake": "행렬을 보고 모든 쌍의 관계가 독립적이라고 생각하거나 다중비교 해석 위험을 무시하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.scatter_correlation"
+    ],
+    "followups": [
+      "n_DS_ML1.feature_target_structure"
+    ],
+    "analogous": [
+      "n_DS_VIS.heatmap_multivariate"
+    ],
+    "keywords": [
+      "Scatterplot matrix",
+      "matrix",
+      "다변량"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_004"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.bubble_plot",
+    "source_id": "DS_PDF06_VIS",
+    "label": "버블 플롯",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "산점도 좌표에 점의 크기를 더해 세 번째 양적 변수를 표현하는 그래프다.",
+    "intuition": "위치 두 개와 크기 하나를 동시에 읽는 산점도 확장이다.",
+    "formula_or_procedure": "x/y 좌표 + size mapping. 면적 인식은 비선형이므로 범위와 legend가 중요하다.",
+    "dataframe_view": "numeric x, numeric y, numeric size column이 필요하다.",
+    "code_view": "seaborn.scatterplot(size=...), ggplot aes(size=...)",
+    "course_example": "시각화 PDF의 Bubble Plot 페이지는 산점도에 크기 차원을 추가하는 예다.",
+    "common_mistake": "원의 반지름과 면적을 혼동해서 크기 차이를 과장/축소하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.scatter_correlation"
+    ],
+    "followups": [
+      "n_DS_VIS.heatmap_multivariate"
+    ],
+    "analogous": [
+      "n_DS_VIS.scatterplot_matrix"
+    ],
+    "keywords": [
+      "Bubble",
+      "Scatter Plot",
+      "크기"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_005"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.boxplot_iqr",
+    "source_id": "DS_PDF06_VIS",
+    "label": "박스플롯/IQR/이상치 후보",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "중앙값, 사분위수, IQR, whisker, 이상치 후보를 한 그림에 압축하는 그래프다.",
+    "intuition": "분포의 가운데와 꼬리를 요약한 압축 프로필이다.",
+    "formula_or_procedure": "IQR = Q3 - Q1. 흔한 기준: Q1 - 1.5*IQR보다 작거나 Q3 + 1.5*IQR보다 큰 값을 이상치 후보로 표시.",
+    "dataframe_view": "numeric column을 범주별 groupby해서 분포를 비교할 수 있다.",
+    "code_view": "seaborn.boxplot, ggplot geom_boxplot, pandas boxplot",
+    "course_example": "R/Python PDF의 Iris species별 Petal.Length boxplot과 연결된다.",
+    "common_mistake": "박스플롯 점을 자동 삭제해야 하는 진짜 이상치로 단정하는 오류.",
+    "prerequisites": [
+      "n_DS_STATS.frequency_histogram"
+    ],
+    "followups": [
+      "n_DS_CODE.iris_scatter_boxplot",
+      "n_DS_ML1.preprocessing_leakage"
+    ],
+    "analogous": [
+      "n_DS_VIS.histogram_kde"
+    ],
+    "keywords": [
+      "Box Plot",
+      "boxplots",
+      "IQR",
+      "Petal.Length"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_006"
+    ]
+  },
+  {
+    "node_id": "n_DS_VIS.heatmap_multivariate",
+    "source_id": "DS_PDF06_VIS",
+    "label": "히트맵",
+    "gate": "Gate 3 EDA/시각화",
+    "definition": "행과 열의 교차값을 색으로 인코딩해 행렬형 패턴을 보는 시각화다.",
+    "intuition": "큰 표를 색의 지형도로 바꿔 군집과 강도를 빠르게 찾는다.",
+    "formula_or_procedure": "matrix/crosstab/correlation table을 만들고 색상 팔레트와 스케일을 지정한다.",
+    "dataframe_view": "pivot table 또는 correlation matrix가 대표 입력이다.",
+    "code_view": "pandas.pivot_table/corr -> seaborn.heatmap",
+    "course_example": "시각화 PDF는 heatmap with dendrogram을 다변량 패턴 탐색 예로 둔다.",
+    "common_mistake": "색상 스케일을 확인하지 않고 값 차이를 과해석하는 오류.",
+    "prerequisites": [
+      "n_DS_VIS.chart_selection"
+    ],
+    "followups": [
+      "n_DS_ML3.clustering_problem",
+      "n_DS_STATS.contingency_table"
+    ],
+    "analogous": [
+      "n_DS_VIS.scatterplot_matrix"
+    ],
+    "keywords": [
+      "Heatmap",
+      "Dendrogram",
+      "heatmap"
+    ],
+    "web_refs": [],
+    "evidence_ids": [
+      "ev_DS_PDF06_VIS_007"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "edge_id": "e_DS_PDF07_STATS_001",
+    "from": "n_DS_STATS.frequency_histogram",
+    "to": "n_DS_VIS.histogram_kde",
+    "type": "supports",
+    "rationale": "도수/상대도수 이해가 histogram/KDE 해석의 통계 기반이다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_002",
+    "from": "n_DS_STATS.population_sample_parameter_statistic",
+    "to": "n_DS_ML1.train_test_generalization",
+    "type": "analogous_to",
+    "rationale": "표본으로 모집단을 추정하는 구조와 train으로 test 성능을 추정하는 구조가 닮아 있다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_003",
+    "from": "n_DS_STATS.contingency_table",
+    "to": "n_DS_ML3.association_rule",
+    "type": "prepares",
+    "rationale": "분할표의 조건부 비율 사고가 association rule 평가로 확장된다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_004",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_ML3.support_confidence_lift",
+    "type": "shared_formula",
+    "rationale": "lift는 독립 대비 동시출현 강도를 묻는다.",
+    "scope": "cross_source"
+  },
+  {
+    "edge_id": "e_DS_PDF07_STATS_005",
+    "from": "n_DS_STATS.conditional_independence",
+    "to": "n_DS_LLM.sequence_probability",
+    "type": "shared_probability_language",
+    "rationale": "언어모델의 다음 토큰 예측은 조건부확률 언어를 사용한다.",
+    "scope": "cross_source"
+  }
+]
