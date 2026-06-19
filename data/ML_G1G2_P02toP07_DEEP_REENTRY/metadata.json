@@ -1,0 +1,12 @@
+{
+  "phase": "ML_G1G2_P02toP07_DEEP_REENTRY",
+  "seed": 20260611,
+  "files": {
+    "xor_data.csv": "XOR truth table with 0/1 and -1/+1 encodings.",
+    "mlp_221_fixed.npz": "Fixed x, y, W1, b1, W2, b2 for 2-2-1 hand calculation.",
+    "mlp_221_fixed.json": "Same 2-2-1 parameters in readable JSON.",
+    "minibatch_shape_examples.npz": "X, W, b, dZ arrays for Dense backward shape tracking.",
+    "binary_classification_toy.csv": "Small deterministic binary classification dataset.",
+    "iris_like_3class_toy.csv": "Small deterministic Iris-like 3-class toy dataset."
+  }
+}
